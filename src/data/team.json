@@ -1,0 +1,37 @@
+{
+   "persons": [
+    {
+      "id": 1,
+      "namn": "Carl Råd",
+      "roll": "Projekt Ledare",
+      "email": "john.smith@example.com",
+      "telefon": "0",
+      "facebook": "facebook-link",
+      "instagram": "instagram-link",
+      "fakta": "kort beskrivning om carl",
+      "image": "https://i.postimg.cc/8sxPwV8q/carl.png"
+    },
+    {
+      "id": 2,
+      "namn": "Ken Lindekrantz",
+      "roll": "Kund Ansvarig",
+      "email": "john.smith@example.com",
+      "telefon": "0",
+      "facebook": "facebook-link",
+      "instagram": "instagram-link",
+      "fakta": "kort beskrivning om carl",
+      "image": "https://i.postimg.cc/F7cFBnN1/ken.png"
+    },
+    {
+      "id": 3,
+      "namn": "Hubert Peksyk",
+      "roll": "Projekt Ledare",
+      "email": "john.smith@example.com",
+      "telefon": "0",
+      "facebook": "facebook-link",
+      "instagram": "instagram-link",
+      "fakta": "kort beskrivning om carl",
+      "image": "https://i.postimg.cc/9DhX5tQb/hubert.png"
+    }
+  ]
+}
