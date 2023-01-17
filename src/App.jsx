@@ -41,7 +41,7 @@ function App() {
           <FixedButtons />
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/badrum" element={<Services />}></Route>
+            <Route path="/vara-tjanster/badrum" element={<Services />}></Route>
             <Route path="/behorigheter" element={<Certifications />}></Route>
             <Route path="/kontakt" element={<Contact />}></Route>
             <Route path="/om-oss" element={<About />}></Route>
