@@ -20,7 +20,7 @@ export default function CertPage() {
         <Intro
           image={image}
           title="Varför Ska Din Hantverkare Vara Behörig ?"
-          body="Våra hantverkare har alla behörigheter och certifikat som krävs för att genomföra badrumsrenoveringar på ett säkert och professionellt sätt hemma hos dig. Dessa inkluderar Byggkeramikråd, Elsäkerhetsverket, Plattsättningsentreprenörers Riksförening, samt en ansvarsförsäkring hos Trygg Hansa. Genom att våra hantverkare har dessa behörigheter och certifikat, kan du som kund vara säker på att allt arbete utförs i enlighet med branschregler, inklusive full dokumentation."
+          body="Våra hantverkare har alla behörigheter och certifikat som krävs för att genomföra badrumsrenoveringar på ett säkert och professionellt sätt hemma hos dig. Samt en ansvarsförsäkring hos Trygg Hansa. Genom att våra hantverkare har dessa behörigheter och certifikat, kan du som kund vara säker på att allt arbete utförs i enlighet med branschregler."
           alt="Collage av bilder på badrum samt en bild på ritningar"
           to="/kontakt"
           label="Länk till kontakt sidan"
