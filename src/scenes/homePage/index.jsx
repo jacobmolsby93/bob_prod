@@ -170,40 +170,6 @@ export default function HomePage() {
       {/* Intro */}
 
       <Spacer />
-
-      <IKContext
-        publicKey="
-              public_9jhhyq7UYCG0SwYy3CXSo9PIiW0=
-              "
-        urlEndpoint="
-              https://ik.imagekit.io/otame5bba
-              "
-        transformationPosition="
-              path
-              "
-        authenticationEndpoint="
-              http://www.yourserver.com/auth
-              "
-      >
-        // Image component
-        <IKImage
-          path="
-            /default-image.jpg
-            "
-          transformation={[
-            {
-              height: "300",
-              width: "400",
-            },
-          ]}
-        />
-        // Image upload
-        <IKUpload
-          fileName="
-my-upload
-"
-        />
-      </IKContext>
       <AnimatedBox>
         <Intro
           image={image}
