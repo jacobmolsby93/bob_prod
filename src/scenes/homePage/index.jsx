@@ -123,11 +123,11 @@ export default function HomePage() {
               </Box>
             )}
             <Box mt={marginTop}>
-            <Button
-              variant="contained"
-              sx={buttonStyleContained}
-              aria-label="Länk till sidan kontakta oss"
-            >
+              <Button
+                variant="contained"
+                sx={buttonStyleContained}
+                aria-label="Länk till sidan kontakta oss"
+              >
                 <Link
                   sx={buttonStyleContained}
                   to="/kontakt"
@@ -136,7 +136,7 @@ export default function HomePage() {
                 >
                   Kontakta oss
                 </Link>
-            </Button>
+              </Button>
               <Button
                 sx={{
                   marginTop: smallScreen ? "10px" : "",
@@ -169,6 +169,41 @@ export default function HomePage() {
       <Spacer />
       {/* Intro */}
 
+      <Spacer />
+
+      <IKContext
+        publicKey="
+              public_9jhhyq7UYCG0SwYy3CXSo9PIiW0=
+              "
+        urlEndpoint="
+              https://ik.imagekit.io/otame5bba
+              "
+        transformationPosition="
+              path
+              "
+        authenticationEndpoint="
+              http://www.yourserver.com/auth
+              "
+      >
+        // Image component
+        <IKImage
+          path="
+            /default-image.jpg
+            "
+          transformation={[
+            {
+              height: "300",
+              width: "400",
+            },
+          ]}
+        />
+        // Image upload
+        <IKUpload
+          fileName="
+my-upload
+"
+        />
+      </IKContext>
       <AnimatedBox>
         <Intro
           image={image}
