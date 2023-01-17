@@ -9,7 +9,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // JSON data with questions
@@ -20,6 +20,21 @@ export default function Faq(props) {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   // Handle question
   const [questions, setQuestions] = useState(faqData.questions);
+
+  const buttonStyleContained = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: "0",
+    border: "none",
+    marginRight: "1rem",
+    backgroundColor: theme.palette.primary[500],
+    "&>a": {
+      textDecoration: "none",
+      color: "#fff",
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.primary[600],
+    },
+  };
 
   const handleToggleAnswer = (id) => {
     // Find the index of the question in the array
@@ -57,20 +72,20 @@ export default function Faq(props) {
             </AccordionSummary>
             <AccordionDetails>
               <Box className="col-12" paddingLeft="20px">
-                <p
-                  className="body-paragraph"
-                  style={{ margin: "0" }}
-                >
+                <p className="body-paragraph" style={{ margin: "0" }}>
                   "{question.answer}"
                 </p>
               </Box>
               {question.link && (
-                <Link to={question.link} aria-label={`Länk till ${question.link}`}>
-                  Kontakta Oss
-                </Link>
-              )
-
-              }
+                <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till kontakta oss">
+                  <Link
+                    to={question.link}
+                    aria-label={`Länk till ${question.link}`}
+                  >
+                    Kontakta Oss
+                  </Link>
+                </Button>
+              )}
             </AccordionDetails>
           </Accordion>
         </Box>

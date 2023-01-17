@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@mui/material";
 
 const AnimationVariants = {
   offscreen: {
     y: 200,
-    opacity: 0
+    opacity: 0,
   },
   onscreen: {
     y: 0,
@@ -17,17 +18,21 @@ const AnimationVariants = {
 };
 
 const AnimatedBox = ({ children }) => {
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
+  if (smallScreen) {
+    return <>{children}</>;
+  } else {
     return (
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.4 }}
       >
-        <motion.div variants={AnimationVariants}>
-          {children}
-        </motion.div>
+        <motion.div variants={AnimationVariants}>{children}</motion.div>
       </motion.div>
     );
-  };
-  
-  export default AnimatedBox;
+  }
+};
+
+export default AnimatedBox;

@@ -167,7 +167,7 @@ const MessageFields = () => {
             >
               Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om
               våra
-              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster">
+              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster" sx={{ marginLeft: ".5rem"}}>
                 tjänster
               </Link>
               .
