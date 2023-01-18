@@ -52,12 +52,14 @@ export default function Intro(props) {
           className="col-12 col-lg-6"
           padding={!lgScreen ? "0 20px 0 0" : "0"}
         >
+          <Box height="auto">
           <img
             className="img-fluid"
             src={props.image}
             alt={props.alt}
-            style={{ objectFit: "cover", height: smallScreen ? "300px" : "100%" }}
+            style={{ objectFit: "cover" }}
           />
+          </Box>
         </Box>
         <Box
           padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
