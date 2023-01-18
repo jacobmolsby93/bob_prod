@@ -21,6 +21,31 @@ const Stand = () => {
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const marginRight = "20px";
   const marginTop = "2rem";
+
+  const buttonStyleContained = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: "0",
+    backgroundColor: theme.palette.primary[500],
+    marginRight: marginRight,
+    color: theme.palette.background.default,
+    "&:hover": {
+      backgroundColor: theme.palette.primary[600],
+    },
+  };
+
+  const buttonStyleOutlined = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: "0",
+    border: `1px solid #1d1d1d`,
+    "&>a": {
+      textDecoration: "none",
+      color: "#1d1d1d",
+    },
+    "&:hover": {
+      border: `1px solid `,
+    },
+  };
+
   return (
     <Box className="row" display="flex" alignItems="center">
       <Box
@@ -90,9 +115,9 @@ const Stand = () => {
               Tiden är viktig för oss
             </Typography>
             <Typography variant="body1">
-              Att renoveringen blir klar på avtalad tid
-              är extremt viktigt för oss. För att ni som kund skall kunna
-              planera er vardag utifrån renoveringen.
+              Att renoveringen blir klar på avtalad tid är extremt viktigt för
+              oss. För att ni som kund skall kunna planera er vardag utifrån
+              renoveringen.
             </Typography>
           </Box>
 
@@ -100,15 +125,7 @@ const Stand = () => {
             <Button
               aria-label="Klicka för att komma till kontakt sidan"
               variant="contained"
-              sx={{
-                borderRadius: "0",
-                backgroundColor: theme.palette.primary[500],
-                marginRight: marginRight,
-                color: theme.palette.background.default,
-                "&:hover": {
-                  backgroundColor: theme.palette.primary[600],
-                },
-              }}
+              sx={buttonStyleContained}
             >
               <Link
                 aria-label="Länk till kontakta oss"
@@ -121,18 +138,7 @@ const Stand = () => {
             </Button>
             <Button
               aria-label="Klicka för att ringa till företaget"
-              sx={{
-                marginTop: smallScreen ? "10px" : "",
-                borderRadius: "0",
-                border: `1px solid #1d1d1d`,
-                "&>a": {
-                  textDecoration: "none",
-                  color: "#1d1d1d",
-                },
-                "&:hover": {
-                  border: `1px solid `,
-                },
-              }}
+              sx={buttonStyleOutlined}
               name={`Telefon Nummer ${data.telefon}`}
               variant="outlined"
             >

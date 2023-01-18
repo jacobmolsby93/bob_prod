@@ -53,10 +53,10 @@ export default function Intro(props) {
           padding={!lgScreen ? "0 20px 0 0" : "0"}
         >
           <img
-            className="intro-image img-fluid h-100"
+            className="img-fluid"
             src={props.image}
             alt={props.alt}
-            style={{ objectFit: "cover", maxHeight: "600px" }}
+            style={{ objectFit: "cover", minHeight: !smallScreen ? "100%" : "0" }}
           />
         </Box>
         <Box

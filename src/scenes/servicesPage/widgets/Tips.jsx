@@ -50,7 +50,7 @@ export default function TipsCarousel() {
               }}
             >
               <Box
-                className={`col-12 col-lg-6${
+                className={`col-12 col-lg-6 ${
                   !lgScreen
                     ? item.id % 2 === 0
                       ? "order-last"
@@ -61,11 +61,10 @@ export default function TipsCarousel() {
                 <img
                   src={item.image}
                   className="img-fluid"
-                  style={{ maxWidth: "100vw"}}
                   alt={item.title}
                 />
               </Box>
-              <Box className="col-12 col-lg-6" sx={{ padding: smallScreen ?  "1rem 1rem 3rem 1rem" : "0" }}>
+              <Box className="col-12 col-lg-6" sx={{ padding: smallScreen ?  "1rem 1rem 3rem 1rem" : "3rem" }}>
                 <Box className="TextBox">
                   <Typography variant="h1" className="carousel-title-font">
                     <span style={{ marginRight: ".5rem" }}>{item.id}.</span>
