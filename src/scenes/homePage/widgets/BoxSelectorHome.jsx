@@ -65,10 +65,10 @@ export default function WhyUs() {
       >
         <Box className="row flex-centerd-align" height="100%">
           <Box className="col-12 col-lg-6" sx={{ zIndex: "10 "}}>
-            <Typography variant="h1" className="subtitle-font primary">
+            <Typography variant="h2" className="subtitle-font primary">
               Vad Vi Står För.
             </Typography>
-            <Typography variant="h2" className="title-font">
+            <Typography variant="h3" className="title-font">
               Varför Renovera Med Oss?
             </Typography>
             <Box sx={{ marginTop: marginTop }}>

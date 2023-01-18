@@ -58,6 +58,18 @@ export default function HomePage() {
     },
   };
 
+  const buttonStyleOutline = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: "0",
+    border: `1px solid ${theme.palette.grey[0]}`,
+    "&>a": {
+      textDecoration: "none",
+      color: "#fff",
+    },
+    "&:hover": {
+      border: `1px solid ${theme.palette.grey[0]}`,
+    },
+  };
 
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,17 +90,17 @@ export default function HomePage() {
       imageObjects.forEach((image) => {
         image.onload = null;
       });
-    }
+    };
   }, [images]);
 
   useEffect(() => {
     if (imagesLoaded) {
       const intervalId = setInterval(() => {
-        setCurrentIndex((currentIndex + 1) % images.length)
-      }, 6000)
-      return () => clearInterval(intervalId)
+        setCurrentIndex((currentIndex + 1) % images.length);
+      }, 6000);
+      return () => clearInterval(intervalId);
     }
-  }, [imagesLoaded, currentIndex, images])
+  }, [imagesLoaded, currentIndex, images]);
 
   return (
     <Box>
@@ -98,7 +110,9 @@ export default function HomePage() {
         <Box
           className="landing-box-home__image"
           style={{
-            backgroundImage: imagesLoaded ? `url(${images[currentIndex]})` : `url(${images[0]})`,
+            backgroundImage: imagesLoaded
+              ? `url(${images[currentIndex]})`
+              : `url(${images[0]})`,
           }}
         ></Box>
         {/* Hero Section */}
@@ -161,18 +175,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button
-                sx={{
-                  marginTop: smallScreen ? "10px" : "",
-                  borderRadius: "0",
-                  border: `1px solid ${theme.palette.grey[0]}`,
-                  "&>a": {
-                    textDecoration: "none",
-                    color: "#fff",
-                  },
-                  "&:hover": {
-                    border: `1px solid ${theme.palette.grey[0]}`,
-                  },
-                }}
+                sx={buttonStyleOutline}
                 aria-label="Telefon Nummer 08-333663"
                 variant="outlined"
               >
