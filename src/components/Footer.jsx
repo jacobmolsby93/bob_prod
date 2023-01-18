@@ -162,7 +162,7 @@ export default function Footer() {
                     <Link to="/kontakt">Kontakt</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
-                    <Link to="/om-oss">Om Oss</Link>
+                    <Link to="/omoss">Om Oss</Link>
                   </ListItem>
                 </List>
               </Box>

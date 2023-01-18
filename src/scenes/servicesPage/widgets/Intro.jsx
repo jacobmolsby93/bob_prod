@@ -21,7 +21,7 @@ const Intro = () => {
       {!lgScreen ? (
         <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
           <Box >
-          <img src={desktopCollageImage} className="img-fluid" style={{ height: "100%" }} alt="Collage av 3 bilder på badrum" />
+          <img src={desktopCollageImage} className="img-fluid" style={{ maxHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
           </Box>
         </Box>
       ) : (
@@ -32,7 +32,7 @@ const Intro = () => {
           <img
             src={mobileImage}
             style={{ objectFit: "cover" }}
-            className="img-fluid w-100 h-100"
+            className="img-fluid"
           />
         </Box>
       )}

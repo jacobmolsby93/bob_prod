@@ -41,7 +41,7 @@ const menuItems = [
   },
   {
     menuItem: "Om Oss",
-    url: "om-oss",
+    url: "omoss",
     id: 5,
   },
 ];
