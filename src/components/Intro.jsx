@@ -56,7 +56,7 @@ export default function Intro(props) {
             className="img-fluid"
             src={props.image}
             alt={props.alt}
-            style={{ objectFit: "cover", minHeight: !smallScreen ? "100%" : "0" }}
+            style={{ objectFit: "cover", height: smallScreen ? "300px" : "100%" }}
           />
         </Box>
         <Box

@@ -23,8 +23,8 @@ const Intro = () => {
           <Box>
             <img
               src={desktopCollageImage}
-              className="img-fluid"
-              style={{ maxHeight: "100%" }}
+              className="img-fluid h-100"
+              style={{ minHeight: "100%" }}
               alt="Collage av 3 bilder på badrum"
             />
           </Box>
@@ -32,11 +32,11 @@ const Intro = () => {
       ) : (
         <Box
           className="col-12"
-          sx={{ maxHeight: "500px", marginBottom: "2rem" }}
+          sx={{ marginBottom: "2rem" }}
         >
           <img
             src={mobileImage}
-            style={{ objectFit: "cover", maxHeight: "100%" }}
+            style={{ objectFit: "cover", maxHeight: "300px", width: "100%" }}
             className="img-fluid"
           />
         </Box>
