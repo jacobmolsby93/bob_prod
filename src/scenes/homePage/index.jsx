@@ -58,14 +58,37 @@ export default function HomePage() {
     },
   };
 
+
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((currentIndex + 1) % images.length);
-    }, 6000);
-    return () => clearInterval(intervalId);
-  }, [currentIndex]);
+    const imageObjects = images.map((image) => new Image());
+    let imageLoadedCount = 0;
+    imageObjects.forEach((image, index) => {
+      image.src = images[index];
+      image.onload = () => {
+        imageLoadedCount++;
+        if (imageLoadedCount === images.length) {
+          setImagesLoaded(true);
+        }
+      };
+    });
+    return () => {
+      imageObjects.forEach((image) => {
+        image.onload = null;
+      });
+    }
+  }, [images]);
+
+  useEffect(() => {
+    if (imagesLoaded) {
+      const intervalId = setInterval(() => {
+        setCurrentIndex((currentIndex + 1) % images.length)
+      }, 6000)
+      return () => clearInterval(intervalId)
+    }
+  }, [imagesLoaded, currentIndex, images])
 
   return (
     <Box>
@@ -75,7 +98,7 @@ export default function HomePage() {
         <Box
           className="landing-box-home__image"
           style={{
-            backgroundImage: `url(${images[currentIndex]})`,
+            backgroundImage: imagesLoaded ? `url(${images[currentIndex]})` : `url(${images[0]})`,
           }}
         ></Box>
         {/* Hero Section */}
@@ -87,7 +110,7 @@ export default function HomePage() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
+            justifyContent: smallScreen ? "center" : "flex-end",
             paddingBottom: "5%",
             zIndex: "20",
           }}

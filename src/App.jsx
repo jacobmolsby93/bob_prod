@@ -1,9 +1,9 @@
-import React, { lazy, Suspense, useState, useEffect } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
-import { Route, Routes, useLocation, Redirect } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 

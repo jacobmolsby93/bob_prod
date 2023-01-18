@@ -50,7 +50,7 @@ export default function Intro(props) {
       >
         <Box
           className="col-12 col-lg-6"
-          padding={lgScreen ? "0 20px 0 0" : "0"}
+          padding={!lgScreen ? "0 20px 0 0" : "0"}
         >
           <img
             className="intro-image img-fluid h-100"
