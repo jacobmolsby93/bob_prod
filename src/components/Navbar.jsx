@@ -26,7 +26,7 @@ const menuItems = [
   },
   {
     menuItem: "Badrum",
-    url: "badrum",
+    url: "vara-tjanster/badrum",
     id: 2,
   },
   {

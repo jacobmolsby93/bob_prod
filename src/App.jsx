@@ -3,7 +3,7 @@ import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Redirect } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -44,7 +44,7 @@ function App() {
             <Route path="/vara-tjanster/badrum" element={<Services />}></Route>
             <Route path="/behorigheter" element={<Certifications />}></Route>
             <Route path="/kontakt" element={<Contact />}></Route>
-            <Route path="/om-oss" element={<About />}></Route>
+            <Route path="/omoss" element={<About />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
           <Footer />

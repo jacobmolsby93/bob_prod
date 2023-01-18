@@ -153,7 +153,7 @@ export default function Footer() {
                 </Typography>
                 <List component="ul">
                   <ListItem sx={styledLinks}>
-                    <Link to="/badrum">Badrum</Link>
+                    <Link to="/vara-tjanster/badrum">Badrum</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Link to="/behorigheter">Behörigheter</Link>
