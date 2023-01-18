@@ -25,7 +25,7 @@ import faq from "../../assets/faq.png";
 import image from "../../assets/carouselhome1.webp";
 
 // Animation
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import AnimatedBox from "../../animation/Animated.jsx";
 
 const images = [
@@ -107,14 +107,17 @@ export default function HomePage() {
       {/* Landing Page */}
       <Box className="landing-box-home">
         <Box className="landing-box-home__overlay" zIndex="10"></Box>
-        <Box
-          className="landing-box-home__image"
-          style={{
-            backgroundImage: imagesLoaded
-              ? `url(${images[currentIndex]})`
-              : `url(${images[0]})`,
-          }}
-        ></Box>
+        <AnimatePresence>
+          <Box
+            className="landing-box-home__image"
+            style={{
+              transition: "ease-in-out 600ms",
+              backgroundImage: imagesLoaded
+                ? `url(${images[currentIndex]})`
+                : `url(${images[0]})`,
+            }}
+          ></Box>
+        </AnimatePresence>
         {/* Hero Section */}
         <Box
           className="container"
