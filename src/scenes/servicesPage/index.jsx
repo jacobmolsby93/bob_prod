@@ -49,7 +49,7 @@ export default function Services() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
+            justifyContent: smallScreen ? "center" : "flex-end",
             paddingBottom: "5%",
             zIndex: "20",
           }}
