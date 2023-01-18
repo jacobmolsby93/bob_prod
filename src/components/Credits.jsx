@@ -31,11 +31,11 @@ export default function Credits(props) {
 
   return (
     <div className="container text-center">
-      <Box className="row flex-centerd-justify">
+      <Box className="row" sx={{ justifyContent: "space-between"}}>
         {facts.map((fact) => {
           return (
             <Box
-              className="col-12 col-sm-6 col-lg-3 flex-centerd-justify"
+              className="col-3 flex-centerd-justify"
               key={fact.counter}
             >
               <Box className="mt-2 mt-sm-2 mt-none">
@@ -45,7 +45,7 @@ export default function Credits(props) {
                   </Box>
                   <Box className="counter">
                     {counterOn && (
-                      <Typography variant="h2" fontWeight="bold" color={props.dark ? "#2d2d2d" : "#e0e0e0"}>
+                      <Typography variant="h3" fontWeight="bold" color={props.dark ? "#2d2d2d" : "#e0e0e0"} sx={{ fontSize: "clamp(16px, 5vw, 32px)"}}>
                         <CountUp
                           start={0}
                           end={fact.counter}
@@ -61,6 +61,7 @@ export default function Credits(props) {
                   variant="body1"
                   className="text-uppercase body-paragrapy"
                   color={props.dark ? "#2d2d2d" : "#e0e0e0"}
+                  sx={{ fontSize: "clamp(8px, 2vw, 16px)"}}
                 >
                   {fact.text}
                 </Typography>
@@ -75,6 +76,6 @@ export default function Credits(props) {
 
 
 const icon = {
-  width: "50px",
-  height: "50px"
+  width: "clamp(30px, 5vw, 50px)",
+  height: "clamp(30px, 5vw, 50px)"
 }
