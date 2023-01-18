@@ -65,7 +65,8 @@ export default function Planer() {
         <Box className="col-12 col-xl-6" sx={{ paddingLeft: !lgScreen ? "3rem" : "0"}}>
           <img
             src={collageImage}
-            className="img-fluid h-100"
+            className="img-fluid"
+            style={{ maxHeight: "100%" }}
             alt="Collage med 3 bilder på olika badrum"
           />
         </Box>
