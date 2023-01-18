@@ -21,17 +21,17 @@ const Intro = () => {
       {!lgScreen ? (
         <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
           <Box >
-          <img src={desktopCollageImage} className="img-fluid" style={{ maxHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
+          <img src={desktopCollageImage} className="img-fluid" style={{ minHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
           </Box>
         </Box>
       ) : (
         <Box
           className="col-12"
-          sx={{ maxHeight: "500px", marginBottom: "2rem" }}
+          sx={{ marginBottom: "2rem" }}
         >
           <img
             src={mobileImage}
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", maxHeight: "400px", width: "100%" }}
             className="img-fluid"
           />
         </Box>

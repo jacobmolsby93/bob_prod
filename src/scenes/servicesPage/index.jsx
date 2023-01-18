@@ -105,6 +105,7 @@ export default function Services() {
         </Box>
       </Box>
       <Spacer />
+
       <AnimatedBox>
         <section id="intro">
           <Box className="container">

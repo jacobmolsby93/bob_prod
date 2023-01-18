@@ -26,7 +26,7 @@ export default function WhyUs() {
   const GridItem = ({ src, alt, id }) => {
     const [hover, setHover] = useState(false);
     return (
-      <Grid item sm={5}>
+      <Grid item xs={6} lg={5}>
         <Box
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
@@ -41,7 +41,6 @@ export default function WhyUs() {
             boxShadow: hover
               ? "0px 0px 4px 4px rgba(194, 102, 45, 0.5)"
               : "0px 4px 4px rgba(0, 0, 0, 0.25)",
-            margin: "10px",
             transition: "300ms",
           }}
         >
@@ -157,6 +156,7 @@ export default function WhyUs() {
             >
               <Grid
                 container
+                spacing={2}
                 justifyContent="center"
                 margin="0 !important"
               >
