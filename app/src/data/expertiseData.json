@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "logo": "https://i.ibb.co/SPFPg5c/bath.png",
+            "selectedLogo": "https://i.ibb.co/1Q8381P/orange-bath.png",
+            "title": "Badrum",
+            "subtitle": "Lite information om badrumsrenoveringar",
+            "paragraph": "När du renoverar ditt badrum är det viktigt att tänka på flera saker. Först och främst är det viktigt att planera och budgetera för projektet noga, så att du vet vad som är möjligt och vad det kommer att kosta. Du kan använda vår kostnadskalkylator för att få en översikt över vad du behöver tänka på och få en uppskattning på hur mycket en renovering bör kosta. Du bör också tänka på vilka befintliga strukturer och installationer som finns i rummet, så att du vet vad som behöver bytas ut och vad som kan behållas. Det är också viktigt att välja rätt företag att göra renoveringen åt dig. Se till att du väljer ett företag med erfarenhet och bra referenser, så att du kan vara säker på att jobbet blir gjort på ett bra sätt. Det finns många olika saker att tänka på när du renoverar ditt badrum, men med lite planering och förberedelse kan du få det badrum du alltid har drömt om.",
+            "backgroundImage": "https://i.ibb.co/5Mf6D9w/bathroom-background.png",
+            "key": "bath"
+        },
+        {
+            "logo": "https://i.ibb.co/syMrmDf/toilet.png",
+            "selectedLogo": "https://i.ibb.co/YRRRgV5/orange-toilet.png",
+            "title": "Wc",
+            "subtitle": "Att tänka på inför en toalett renovering",
+            "paragraph": "Att renovera ett badrum är en stor investering, och det är viktigt att välja ett byggföretag som har den kompetens och erfarenhet som krävs för att få jobbet gjort rätt. Ett dåligt utfört badrumsrenovering kan leda till allvarliga problem som vattenläckage och fuktskador, vilket kan bli mycket kostsamt att åtgärda i efterhand. Därför är det viktigt att välja ett byggföretag som följer alla regler och föreskrifter när det gäller att renovera toaletter och badrum. Ett pålitligt byggföretag kommer att sätta din trygghet och säkerhet främst, och se till att allt görs på ett professionellt och korrekt sätt. Genom att välja rätt byggföretag kan du vara säker på att du får ett badrum som du kan njuta av under många år framöver.",
+            "backgroundImage": "https://i.ibb.co/fSHW56d/wc-background.png",
+            "key": "wc"
+        },
+        {
+            "logo": "https://i.ibb.co/72myNzY/washing-machine.png",
+            "selectedLogo": "https://i.ibb.co/MgGqVHV/orange-washing-mashine.png",
+            "title": "Tvättstuga",
+            "subtitle": "Varför en bra tvättstuga är värt att investera i",
+            "paragraph": "När du renoverar din tvättstuga är det viktigt att tänka på flera saker. Först och främst är det viktigt att planera och budgetera för projektet noga, så att du vet vad som är möjligt och vad det kommer att kosta. Du kan använda vår kostnadskalkylator för att få en översikt över vad du behöver tänka på och få en uppskattning på hur mycket en renovering bör kosta. Du bör också tänka på vilka befintliga strukturer och installationer som finns i rummet, så att du vet vad som behöver bytas ut och vad som kan behållas. Det är också viktigt att välja rätt företag att göra renoveringen åt dig. Se till att du väljer ett företag med erfarenhet och bra referenser, så att du kan vara säker på att jobbet blir gjort på ett bra sätt. Det finns många olika saker att tänka på när du renoverar din tvättstuga, men med lite planering och förberedelse kan du få den tvättstuga du alltid har drömt om. Tänk på att välja lämplig utrustning och förvaring, så att du kan organisera dina tvättar och tvättmedel på ett praktiskt sätt. Du bör också tänka på belysning och ventilation, så att rummet blir bekvämt att använda.",
+            "backgroundImage": "https://i.ibb.co/427VbFb/laundry-room-background.png",
+            "key": "laundry"
+        }
+    ]
+}

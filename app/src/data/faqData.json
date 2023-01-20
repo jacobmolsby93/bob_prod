@@ -1,0 +1,40 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "Hur Lång tid tar de att renovera ett badrum?",
+        "answer": "Ett standard badrum tar ca 4 veckor från start till klart, ett standard badrum räknas som 4kvm."
+      },
+      {
+        "id": 2,
+        "question": "Kan jag lägga in golvvärme i mitt badrum under renoveringen?",
+        "answer": "Ja, det är möjligt att lägga in golvvärme i ett badrum under renoveringen!"
+      },
+      {
+        "id": 3,
+        "question": "Hjälper ni med att planera badrummet?",
+        "answer": "Vi hjälper till med inrednings planering. Erfarena projekt ledare tar över arbetet vid projektets start!"
+      },
+      {
+        "id": 4,
+        "question": "Hur vet man när man måste byta golv brunn?",
+        "answer": "Enligt BKR regler, så måste man byta brunn om den inte är bytt efter 1990!",
+        "link": "/kontakt"
+      },
+      {
+        "id": 5,
+        "question": "Vad kostar ett badrum att renovera med BOB?",
+        "answer": "Kontakta oss idag för att reda på vad just ditt badrum kan komma och kosta."
+      },
+      {
+        "id": 6,
+        "question": "Varför ska bygg-firmor vara behöriga att renovera badrum?",
+        "answer": "Vi är behöriga för att renovera badrum, vi följer alla regler och lagar för att säkerställa ett godkännt badrum!"
+      },
+      {
+        "id": 7,
+        "question": "Vad behöver jag tänka på inför min badrums renovering?",
+        "answer": "De kan va bra att ha en grundlig överblick hur man vill att badrummet ska se ut, börja titta vilken typ av inredning och kakel som ska införskaffas."
+      }
+    ]
+  }
