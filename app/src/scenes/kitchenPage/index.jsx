@@ -70,6 +70,10 @@ export default function Kitchen() {
       </section>  
       <Spacer />
 
+      <section>
+          
+      </section>
+
       <Spacer /> 
       <section className="credits-bg">
         <Credits dark={true} />

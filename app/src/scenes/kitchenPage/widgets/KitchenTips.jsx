@@ -4,7 +4,7 @@ import { Box, Typography, useMediaQuery } from "@mui/material"
 const steg = [
     {
         step: "Steg 1.",
-        text: " Innan vi sätter igång, skriver vi ett avtal utformat av Konsumentverket, det så kallade Hantverksformuläret 14, där vi avtalar om en fast tidsplan, fast pris och vem er projektledare kommer att bli."
+        text: "Innan vi sätter igång, skriver vi ett avtal utformat av Konsumentverket, det så kallade Hantverksformuläret 14, där vi avtalar om en fast tidsplan, fast pris och vem er projektledare kommer att bli."
     },
     {
         step: "Steg 2.",
@@ -12,7 +12,7 @@ const steg = [
     },
     {
         step: "Steg 3.",
-        text: " Innan vi sätter igång, skriver vi ett avtal utformat av Konsumentverket, det så kallade Hantverksformuläret 14, där vi avtalar om en fast tidsplan, fast pris och vem er projektledare kommer att bli."
+        text: "Efter uppstartsmötet börjar vi direkt med själva renoveringen och vi kommer att ha kontinuerlig kontakt med dig för att se till att allt blir precis som du vill."
     },
     {
         step: "Steg 4.",
