@@ -101,9 +101,9 @@ export default function ContactPage() {
 
       <Spacer />
 
-      <div className="credits-bg">
+      <section className="credits-bg">
         <Credits dark={true} />
-      </div>
+      </section>
     </Box>
   );
 }

@@ -197,21 +197,22 @@ export default function HomePage() {
       </Box>
       <Spacer />
       {/* Intro */}
-
       <Spacer />
-      <AnimatedBox>
-        <Intro
-          image={image}
-          title="Badrumsrenovering Med Fast Pris Och Fastställd Tidplan"
-          body="Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering & köksrenovering. Vi är en byggfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor."
-          alt="picture of the owners"
-          pageLink={false}
-          to="/kontakt"
-          className="button-text"
-          aria-label="Länk tillt kontakt"
-          linkName="Kontakta Oss"
-        />
-      </AnimatedBox>
+      <section id="hem-intro">
+        <AnimatedBox>
+          <Intro
+            image={image}
+            title="Badrumsrenovering Med Fast Pris Och Fastställd Tidplan"
+            body="Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering & köksrenovering. Vi är en byggfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor."
+            alt="picture of the owners"
+            pageLink={false}
+            to="/kontakt"
+            className="button-text"
+            aria-label="Länk tillt kontakt"
+            linkName="Kontakta Oss"
+          />
+        </AnimatedBox>
+      </section>
       <Spacer />
       {/* Why Us */}
       <AnimatedBox>
@@ -219,6 +220,7 @@ export default function HomePage() {
       </AnimatedBox>
       <Spacer />
       {/* Previous Work Carousel */}
+      <section id="tidigare-projekt">
       <AnimatedBox>
         <Box className="container">
           <Box className="row">
@@ -234,8 +236,10 @@ export default function HomePage() {
           </Box>
         </Box>
       </AnimatedBox>
+      </section>
       <Spacer />
       {/* Contact Form */}
+      <section id="hem-kontakt">
       <AnimatedBox>
         <Box
           className="contact-background"
@@ -248,6 +252,7 @@ export default function HomePage() {
           </Box>
         </Box>
       </AnimatedBox>
+      </section>
       <Spacer />
       {/* Frequently Asked Questions */}
       <AnimatedBox>

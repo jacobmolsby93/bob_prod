@@ -25,10 +25,10 @@ const Certifications = lazy(() =>
 );
 const Contact = lazy(() => import("./scenes/contactPage/index.jsx"));
 const About = lazy(() => import("./scenes/aboutPage/index.jsx"));
-const Bathroom = lazy(() => import("./scenes/bathroom/index.jsx"))
-const Kitchen = lazy(() => import("./scenes/kitchen/index.jsx"))
-const Comfort = lazy(() => import("./scenes/comfort/index.jsx"))
-const Questions = lazy(() => import("./scenes/questions/index.jsx"))
+const Bathroom = lazy(() => import("./scenes/bathroomPage/index.jsx"))
+const Kitchen = lazy(() => import("./scenes/kitchenPage/index.jsx"))
+const Comfort = lazy(() => import("./scenes/comfortPage/index.jsx"))
+const Questions = lazy(() => import("./scenes/questionsPage/index.jsx"))
 
 function App() {
   const mode = useSelector((state) => state.global.mode);

@@ -3,6 +3,8 @@ import {
   Box,
   Typography,
   Button,
+  List,
+  ListItem,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -13,6 +15,8 @@ import CallIcon from "@mui/icons-material/Call";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { Navbar, Offcanvas } from "react-bootstrap";
+
+import { motion, AnimatePresence } from "framer-motion"
 
 // Images
 import logo from "../assets/boblogo.png";
@@ -25,8 +29,8 @@ const menuItems = [
     id: 1,
   },
   {
-    menuItem: "Badrum",
-    url: "vara-tjanster/badrum",
+    menuItem: "Våra Tjänster",
+    url: "vara-tjanster",
     id: 2,
   },
   {
@@ -45,6 +49,19 @@ const menuItems = [
     id: 5,
   },
 ];
+
+const options = [
+  {
+    menuItem: "Badrum",
+    url: "vara-tjanster/badrum"
+  },
+  {
+    menuItem: "Köksrenovering",
+    url: "vara-tjanster/koksrenovering"
+  }
+  
+];
+
 
 export default function NavbarComp() {
   const theme = useTheme();
@@ -81,6 +98,10 @@ export default function NavbarComp() {
 
   const handleClose = () => setToggle(false);
   const handleShow = () => setToggle(true);
+
+  // Dropdown menu
+  
+  const [showMenu, setShowMenu] = useState(false)
 
   const buttonStyle = {
     width: "30px",
@@ -154,7 +175,54 @@ export default function NavbarComp() {
         {breakpoint ? (
           <Box display="flex">
             {menuItems.map((item) => (
-              <Link
+              item.url === "vara-tjanster" ? (
+                <Link
+                onClick={(event) => handleClick(event)}
+                className={`nav-link-main ${
+                  activeLink === item.menuItem ? "active" : ""
+                }`}
+                aria-label={`Länk till ${item.menuItem}`}
+                key={item.url}
+                to={`/${item.url}`}
+                data-replace={item.menuItem}
+                style={{
+                  color: toggle ? "#000" : theme.palette.background.default,
+                  position: "relative"
+                }}
+                onMouseOver={() => setShowMenu(true)}
+                onMouseLeave={() => setShowMenu(false)}
+              >
+                {item.menuItem}
+                <AnimatePresence>
+                  <motion.div style={{ display: showMenu ? "flex" : "none"}} onMouseLeave={() => setShowMenu(false)}>
+                    <Box sx={dropdownBox} className="bg-dark">
+                      <List
+                        component="nav"
+                        sx={{ padding: "0"}}
+                        
+                      >
+                        {options.map((listItem) => (
+                          <ListItem sx={{ padding: 0}}>
+                            <Link to={listItem.url}                 
+                                className={`nav-link-main ${
+                                  activeLink === listItem.menuItem ? "active" : ""}`}
+                                  data-replace={listItem.menuItem}
+                                  style={{
+                                    color: toggle ? "#000" : theme.palette.background.default,
+                                    position: "relative"
+                                  }}
+                              >
+                            {listItem.menuItem}
+                            </Link>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Box>
+                  </motion.div>
+                </AnimatePresence>
+              </Link>
+              ) : (
+                <Link
                 onClick={(event) => handleClick(event)}
                 className={`nav-link-main ${
                   activeLink === item.menuItem ? "active" : ""
@@ -169,6 +237,7 @@ export default function NavbarComp() {
               >
                 {item.menuItem}
               </Link>
+              )
             ))}
             <Box>
               <a
@@ -314,4 +383,14 @@ export default function NavbarComp() {
       </Box>
     </Navbar>
   );
+}
+
+
+const dropdownBox = {
+  position: "absolute",
+  top: "100%",
+  backgroundColor: "inherit", 
+  width: "max-content", 
+  padding: "20px 20px", 
+  height: "auto",
 }

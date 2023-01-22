@@ -66,7 +66,7 @@ export default function Intro(props) {
           className="col-12 col-lg-6"
         >
           <article>
-            <Typography variant="h1" className="title-font">
+            <Typography variant="h2" className="title-font">
               {props.title}
             </Typography>
             <Box display="flex" mt="3rem">
@@ -80,49 +80,49 @@ export default function Intro(props) {
               ></span>
               <p className="body-paragraph">{props.body}</p>
             </Box>
-          </article>
-          <Box mt="2.5rem">
-            <Button
-              variant="contained"
-              sx={buttonStyleContained}
-              aria-label="Länk till sidan kontakta oss"
-            >
-              {props.pageLink ? (
-                <PageLink
-                  to={props.to}
-                  className="button-text"
-                  aria-label={props.label}
-                  smooth={true}
-                  duration={200}
-                >
-                  {props.linkName}
-                </PageLink>
-              ) : (
-                <Link
-                  sx={buttonStyleContained}
-                  to={props.to}
-                  className="button-text"
-                  aria-label={props.label}
-                >
-                  {props.linkName}
-                </Link>
-              )}
-            </Button>
-            <Button
-              aria-label="Länk till sidan om oss"
-              className="body-paragraph"
-              variant="outlined"
-              sx={buttonStyleOutline}
-            >
-              <Link
-                to="/om-oss"
-                className="button-text"
-                aria-label="länk företag"
+            <Box mt="2.5rem">
+              <Button
+                variant="contained"
+                sx={buttonStyleContained}
+                aria-label="Länk till sidan kontakta oss"
               >
-                Om Företaget
-              </Link>
-            </Button>
-          </Box>
+                {props.pageLink ? (
+                  <PageLink
+                    to={props.to}
+                    className="button-text"
+                    aria-label={props.label}
+                    smooth={true}
+                    duration={200}
+                  >
+                    {props.linkName}
+                  </PageLink>
+                ) : (
+                  <Link
+                    sx={buttonStyleContained}
+                    to={props.to}
+                    className="button-text"
+                    aria-label={props.label}
+                  >
+                    {props.linkName}
+                  </Link>
+                )}
+              </Button>
+              <Button
+                aria-label="Länk till sidan om oss"
+                className="body-paragraph"
+                variant="outlined"
+                sx={buttonStyleOutline}
+              >
+                <Link
+                  to="/om-oss"
+                  className="button-text"
+                  aria-label="länk företag"
+                >
+                  Om Företaget
+                </Link>
+              </Button> 
+            </Box>
+          </article>
         </Box>
       </Box>
     </Box>

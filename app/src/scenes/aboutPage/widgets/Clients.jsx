@@ -62,7 +62,7 @@ const images = [
     url: "https://www.rexel.se/swe/"
   }
 ].map((image) => ({
-  id: crypto.randomUUID(),
+  id: image.id,
   image: image.image,
   url: image.url
 }));
