@@ -23,7 +23,7 @@ export default function NotFound() {
   };
 
   useEffect(() => {
-    const currentError = window.location.pathname.slice(-3);
+    const currentError = window.location.pathname;
     setErrorCode(currentError);
   }, []);
   return (
