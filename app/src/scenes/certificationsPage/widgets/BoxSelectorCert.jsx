@@ -42,6 +42,8 @@ export default function WhyUs() {
               ? "0px 0px 4px 4px rgba(194, 102, 45, 0.5)"
               : "0px 4px 4px rgba(0, 0, 0, 0.25)",
             transition: "300ms",
+            height: "100%",
+            width: "100%"
           }}
         >
           <img
@@ -50,9 +52,9 @@ export default function WhyUs() {
             style={{
               borderRadius: "7px",
               padding: "20%",
+              width: "100%",
+              height: "100%",
             }}
-            width="100%"
-            height="auto"
             alt={alt}
           />
         </Box>
@@ -90,7 +92,7 @@ export default function WhyUs() {
                 return selected == text.id ? (
                   <Box key={text.id}>
                     <Typography
-                      variant="h1"
+                      variant="h2"
                       fontWeight="bold"
                       fontSize="20px"
                       color={theme.palette.primary[500]}

@@ -38,7 +38,7 @@ const Intro = () => {
       )}
       <Box className="col-12 col-xl-6">
         <article>
-          <Typography variant="h1" className="title-font">
+          <Typography variant="h2" className="title-font">
             Vi Renoverar Ditt Badrum Med Engagemang Och Respekt För Dig Och Ditt
             Hem!
           </Typography>

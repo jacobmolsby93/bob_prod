@@ -77,14 +77,16 @@ export default function Faq(props) {
                 </p>
               </Box>
               {question.link && (
-                <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till kontakta oss">
-                  <Link
-                    to={question.link}
-                    aria-label={`Länk till ${question.link}`}
-                  >
-                    Kontakta Oss
-                  </Link>
-                </Button>
+                <Box padding="20px 20px">
+                  <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till kontakta oss">
+                    <Link
+                      to={question.link}
+                      aria-label={`Länk till ${question.link}`}
+                    >
+                      Kontakta Oss
+                    </Link>
+                  </Button>
+                </Box>
               )}
             </AccordionDetails>
           </Accordion>

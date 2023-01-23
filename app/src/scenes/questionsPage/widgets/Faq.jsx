@@ -13,9 +13,11 @@ export default function Questions() {
       </Typography>
       <Box className="mt-3 row">
         {qa.map((item) => (
-          <Box className="col-12 col-lg-6" padding="20px">
-            <Typography variant="h3" fontWeight="bold">{item.question}</Typography>
-            <p className="body-paragraph">{item.answer}</p>
+          <Box className="col-12 col-lg-6" padding="10px">
+            <Box padding="10px" border="5px solid rgba(0, 0, 0, 0.05)">
+              <Typography variant="h3" fontWeight="bold">{item.question}</Typography>
+              <p className="body-paragraph">{item.answer}</p>
+            </Box>
           </Box>  
         ))}
       </Box>

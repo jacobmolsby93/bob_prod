@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 // Componenets
 import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
+import Credits from "../../components/Credits.jsx"
 
 // Widgets
 import Faq from "./widgets/Faq.jsx";
@@ -294,6 +295,10 @@ export default function HomePage() {
         </Box>
       </AnimatedBox>
       <Spacer />
+
+      <Box padding="3rem 0">
+        <Credits dark={true}/>
+      </Box>
     </Box>
   );
 }

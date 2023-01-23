@@ -66,7 +66,7 @@ export default function TipsCarousel() {
               </Box>
               <Box className="col-12 col-lg-6" sx={{ padding: smallScreen ?  "1rem 1rem 3rem 1rem" : "3rem" }}>
                 <Box className="TextBox">
-                  <Typography variant="h1" className="carousel-title-font">
+                  <Typography variant="h2" className="carousel-title-font">
                     <span style={{ marginRight: ".5rem" }}>{item.id}.</span>
                     {item.title}
                   </Typography>

@@ -78,8 +78,8 @@ export default function Services() {
       <Spacer />
       
       <Box display="flex" justifyContent="center">
-        <Button variant="outlined" sx={buttonStyleOutline}>
-          <Link>
+        <Button variant="outlined" sx={buttonStyleOutline} aria-label="Klicka för att komma till sidan kontakta oss">
+          <Link aria-label="Länk till kontakta oss" to="/kontakt">
             <strong className="body-paragraph">Kontakta Oss För Offert</strong>
           </Link>
         </Button>

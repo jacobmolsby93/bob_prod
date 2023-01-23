@@ -1,6 +1,9 @@
+import { Box } from "@mui/material"
+
 // Components
 import Spacer from "../../components/Spacer.jsx";
 import Intro from "../../components/Intro.jsx";
+import Contact from "../../components/Contact.jsx"
 import LandingBox from "../../components/LandingBox.jsx";
 
 import BoxSelector from "./widgets/BoxSelectorCert.jsx";
@@ -33,6 +36,14 @@ export default function CertPage() {
         <BoxSelector />
       </AnimatedBox>
       <Spacer />
+
+      <AnimatedBox>
+        <Box className="container">
+          <Box className="row">
+            <Contact />
+          </Box>
+        </Box>
+      </AnimatedBox>
     </div>
   );
 }

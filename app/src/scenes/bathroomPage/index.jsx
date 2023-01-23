@@ -118,7 +118,7 @@ export default function Bathroom() {
             <Box className="row">
               <Box className="flex-centerd-justify" mb="2rem">
                 <Box textAlign="center">
-                  <Typography variant="h1" className="title-font">
+                  <Typography variant="h2" className="title-font">
                     10 Tips Inför Din Badrumsrenovering
                   </Typography>
                   <Box className="flex-centerd-justify">
@@ -164,7 +164,6 @@ export default function Bathroom() {
           </Box>
         </section>
       </AnimatedBox>
-      <Spacer />
       <div className="credits-bg">
         <Credits dark={true}/>
       </div>

@@ -29,7 +29,7 @@ export default function Intro() {
           <Box marginLeft="20px" className="col-12 col-md-5">
             <article>
               <Typography
-                variant="h1"
+                variant="h2"
                 fontWeight="bold"
                 fontSize="clamp(32px, 4vw, 55px)"
               >

@@ -4,6 +4,7 @@ import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material"
 // Components
 import Spacer from '../../components/Spacer.jsx'
 import Credits from '../../components/Credits.jsx'
+import Contact from "../../components/Contact"
 
 
 // Widgets
@@ -70,6 +71,16 @@ export default function Questions() {
           <Box className="container">
               <Faq />
           </Box>
+      </section>
+
+      <Spacer />
+
+      <section>
+        <Box className="container">
+          <Box className="row">
+              <Contact />
+          </Box>
+        </Box>
       </section>
 
       <Spacer /> 

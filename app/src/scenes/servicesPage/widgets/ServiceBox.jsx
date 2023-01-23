@@ -74,15 +74,15 @@ export default function ServiceBox() {
                         <Button
                             variant="contained"
                             sx={buttonStyleContained}
-                            aria-label="Länk till sidan kontakta oss"
+                            aria-label={`Klicka för att komma till sidan ${item.serviceTitle} oss`}
                         >
                             <Link
                                 sx={buttonStyleContained}
                                 to={item.serviceLink}
                                 className="button-text"
-                                aria-label="LÄNK"
+                                aria-label={`Länk till sidan ${item.serviceTitle}`}
                             >
-                                Läs Mer
+                                Läs mer om {item.serviceTitle}
                             </Link>
                         </Button>
                         </Box>

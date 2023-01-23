@@ -7,6 +7,7 @@ import Intro from './widgets/Intro';
 // Components
 import Spacer from '../../components/Spacer';
 import Credits from '../../components/Credits';
+import Contact from "../../components/Contact"
 
 // Images
 import heroImage from "../../assets/landingbackground2.webp"
@@ -78,6 +79,15 @@ export default function Comfort() {
       </section>
 
       <Spacer />
+
+      <section>
+        <Box className="container">
+          <Box className="row">
+            <Contact/>
+          </Box>
+        </Box>
+      </section>
+
 
       <section className="credits-bg">
         <Credits dark={true} />

@@ -89,7 +89,7 @@ export default function ContactPage() {
         <section
           id="contact"
           className="credits-bg"
-          style={{ minHeight: "100vh" }}
+          style={{ minHeight: "70vh" }}
         >
           <Box className="container">
             <Box className="row">
@@ -98,8 +98,6 @@ export default function ContactPage() {
           </Box>
         </section>
       </AnimatedBox>
-
-      <Spacer />
 
       <section className="credits-bg">
         <Credits dark={true} />

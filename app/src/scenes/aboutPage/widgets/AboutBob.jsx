@@ -44,7 +44,7 @@ const Intro = () => {
       <Box className="col-12 col-xl-6" display="flex" justifyContent="center" flexDirection="column">
         <Box>
           <article>
-            <Typography variant="h1" className="title-font">
+            <Typography variant="h2" className="title-font">
               Om Bob Badrum
             </Typography>
             <Box display="flex" mt="2.5rem">

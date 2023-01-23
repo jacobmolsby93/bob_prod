@@ -18,7 +18,7 @@ export default function Intro() {
       <div>
         <Box className="row">
           <Box className="col-12 col-xl-6 order-last order-xl-first" sx={{ marginTop: "20px"}}>
-            <Typography variant="h1" component="h1" className="title-font">
+            <Typography variant="h2" component="h2" className="title-font">
               Bra Att Tänka På När Du Planerar Ditt Badrum!
             </Typography>
             <Box display="flex" mt="30px">

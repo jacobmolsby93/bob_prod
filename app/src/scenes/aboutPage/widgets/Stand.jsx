@@ -55,12 +55,12 @@ const Stand = () => {
         <Box className="heading-bg heading-right" padding="0 0 2rem 0">
           <Typography
             className="mb-0 subtitle-font primary"
-            variant="h1"
+            variant="body1"
             component="p"
           >
             Vi är BOB Badrum
           </Typography>
-          <Typography variant="h1" component="h1" className="title-font">
+          <Typography variant="h2" component="h2" className="title-font">
             Vi Innoverar Badrum.
           </Typography>
         </Box>
@@ -68,8 +68,8 @@ const Stand = () => {
           <Box className="col-xs-12 col-sm-12 col-md-6 feature-1">
             <Typography
               className="text-uppercase subtitle-font"
-              variant="h2"
-              component="h2"
+              variant="h3"
+              component="h3"
             >
               Pålitliga
             </Typography>

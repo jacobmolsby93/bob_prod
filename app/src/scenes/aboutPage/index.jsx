@@ -79,10 +79,7 @@ export default function AboutPage() {
       </AnimatedBox>
       <Spacer />
       <AnimatedBox>
-        <section id="about-credits" className="credits-bg">
-          <Credits dark={true} />
-        </section>
-        <section id="contact-about" className="credits-bg">
+      <section id="contact-about">
           <Box className="container">
             <Contact />
           </Box>

@@ -18,13 +18,13 @@
       {
         "id": 4,
         "question": "Hur vet man när man måste byta golv brunn?",
-        "answer": "Enligt BKR regler, så måste man byta brunn om den inte är bytt efter 1990!",
-        "link": "/kontakt"
+        "answer": "Enligt BKR regler, så måste man byta brunn om den inte är bytt efter 1990!"
       },
       {
         "id": 5,
         "question": "Vad kostar ett badrum att renovera med BOB?",
-        "answer": "Kontakta oss idag för att reda på vad just ditt badrum kan komma och kosta."
+        "answer": "Kontakta oss idag för att reda på vad just ditt badrum kan komma och kosta.",
+        "link": "/kontakt"
       },
       {
         "id": 6,

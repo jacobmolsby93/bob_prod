@@ -50,6 +50,7 @@ function App() {
               <Route path="/vara-tjanster/koksrenovering" element={<Kitchen />}></Route>
             <Route path="/behorigheter" element={<Certifications />}></Route>
             <Route path="/kontakt" element={<Contact />}></Route>
+            <Route path="/offertforfragan" element={<Contact />}></Route>
             <Route path="/omoss" element={<About />}></Route>
             <Route path="/vanliga-fragor" element={<Questions />}></Route>
             <Route path="/trygg-renovering" element={<Comfort />}></Route>
