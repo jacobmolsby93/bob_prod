@@ -41,6 +41,7 @@ const MessageFields = () => {
     };
   }
   const [envVariables, setEnvVariables] = useState(envVars);
+  console.log(envVariables)
 
 
 
