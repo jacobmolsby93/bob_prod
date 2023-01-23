@@ -35,11 +35,11 @@ const MessageFields = () => {
   // const [envVariables, setEnvVariables] = useState(envVars);
   // console.log(envVariables)
 
-  const templateId = process.env.VITE_TEMPLATE_ID
-  const serviceId = process.env.VITE_SERVICE_ID
-  const publicKey = process.env.VITE_PUBLIC_KEY
+  const templateId = import.meta.env.VITE_TEMPLATE_ID
+  const serviceId = import.meta.env.VITE_SERVICE_ID
+  const publicKey = import.meta.env.VITE_PUBLIC_KEY
 
-  console.log(process.env)
+  console.log(import.meta.env)
 
 
   const handleClose = () => {
