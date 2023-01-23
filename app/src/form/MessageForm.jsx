@@ -29,12 +29,6 @@ const MessageFields = () => {
   let envVars = {};
   if (process.env.NODE_ENV === 'production') {
     envVars = {
-      templateId: process.env.VITE_TEMPLATE_ID,
-      serviceId: process.env.VITE_SERVICE_ID,
-      publicKey: process.env.VITE_PUBLIC_KEY,
-    };
-  } else {
-    envVars = {
       templateId: import.meta.env.VITE_TEMPLATE_ID,
       serviceId: import.meta.env.VITE_SERVICE_ID,
       publicKey: import.meta.env.VITE_PUBLIC_KEY,
