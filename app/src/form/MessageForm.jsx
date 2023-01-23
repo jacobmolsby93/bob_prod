@@ -16,6 +16,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import axios from "axios"
 
 const MessageFields = () => {
   const theme = useTheme();
@@ -26,21 +27,10 @@ const MessageFields = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
-  // let envVars = {};
-  // envVars = {
-  //   templateId: import.meta.env.VITE_TEMPLATE_ID,
-  //   serviceId: import.meta.env.VITE_SERVICE_ID,
-  //   publicKey: import.meta.env.VITE_PUBLIC_KEY,
-  // }
-  // const [envVariables, setEnvVariables] = useState(envVars);
-  // console.log(envVariables)
 
-  const templateId = import.meta.env.VITE_TEMPLATE_ID
   const serviceId = import.meta.env.VITE_SERVICE_ID
   const publicKey = import.meta.env.VITE_PUBLIC_KEY
-
-  console.log(import.meta.env)
-
+  const templateId = import.meta.env.VITE_TEMPLATE_ID
 
   const handleClose = () => {
     setOpen(false);

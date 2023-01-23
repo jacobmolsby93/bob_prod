@@ -56,7 +56,7 @@ export default function Comfort() {
               textTransform="uppercase"
               color="#E6E6E6"
             >
-              Kontakt
+              Trygg Renovering
             </Typography>
           </AnimatedBox>
         </Box>

@@ -2,6 +2,10 @@ import React from 'react'
 import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
 
+
+// Images
+import placeImage from "../../../assets/landingbackground3.webp"
+
 export default function SectionTwo() {
     const theme = useTheme();
     const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -45,14 +49,12 @@ export default function SectionTwo() {
             className="col-12 col-lg-6"
             padding={!lgScreen ? "0 20px 0 0" : "0"}
           >
-            <Box height="auto">
             <img
               className="img-fluid"
-              src=""
-              alt=""
-              style={{ objectFit: "cover", height: smallScreen ? "400px": "100%", width: smallScreen ? "100%" : "auto"}}
+              src={placeImage}
+              alt="Placeholder image"
+              style={{ objectFit: "cover", height: smallScreen ? "400px": "100%"}}
             />
-            </Box>
           </Box>
           <Box
             padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
@@ -60,7 +62,7 @@ export default function SectionTwo() {
           >
             <article>
               <Typography variant="h2" className="title-font">
-                TITT
+              Trygg Renovering
               </Typography>
               <Box display="flex" mt="3rem">
                 <span
@@ -71,7 +73,14 @@ export default function SectionTwo() {
                     backgroundColor: "#c2662d",
                   }}
                 ></span>
-                <p className="body-paragraph">BODY</p>
+                <p className="body-paragraph">
+                    Och självklart har vi alla behörigheter som krävs för att få arbeta med tätskikt, el- samt rörarbeten och vi följer alla branschregler för att säkerställa kvaliteten i varje enskilt projekt.
+                    <br />
+                    <br />
+                    Vårt motto är att du ska känna dig trygg i varje steg av ditt byggprojekt, oavsett om det handlar om tidplan, kvalitet, branschregler eller pengar. Vi går helt enkelt ”all in” och ger dig det där lilla extra som våra konkurrenter ofta talar om men sällan levererar.
+                    <br />
+                    <br/>
+                    Låter det kaxigt? Bra, för vi tror på det vi gör. Och framför allt tror vi på din vilja att välja trygghet i ett byggprojekt. Läs mer om våra tjänster.</p>
               </Box>
               <Box mt="2.5rem">
                 <Button
@@ -81,11 +90,11 @@ export default function SectionTwo() {
                 >
                     <Link
                       sx={buttonStyleContained}
-                      to="/"
+                      to="/vanliga-fragor"
                       className="button-text"
                       aria-label="Label"
                     >
-                      LÄNK
+                      Vanliga Frågor
                     </Link>
                 </Button>
                 <Button
@@ -95,11 +104,11 @@ export default function SectionTwo() {
                   sx={buttonStyleOutline}
                 >
                   <Link
-                    to="/om-oss"
+                    to="/kontakt"
                     className="button-text"
                     aria-label="länk företag"
                   >
-                    Om Företaget
+                    Vill du bli uppringd?
                   </Link>
                 </Button> 
               </Box>

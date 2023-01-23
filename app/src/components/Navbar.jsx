@@ -176,51 +176,52 @@ export default function NavbarComp() {
           <Box display="flex">
             {menuItems.map((item) => (
               item.url === "vara-tjanster" ? (
-                <Link
-                onClick={(event) => handleClick(event)}
-                className={`nav-link-main ${
-                  activeLink === item.menuItem ? "active" : ""
-                }`}
-                aria-label={`Länk till ${item.menuItem}`}
-                key={item.url}
-                to={`/${item.url}`}
-                data-replace={item.menuItem}
-                style={{
-                  color: toggle ? "#000" : theme.palette.background.default,
-                  position: "relative"
-                }}
-                onMouseOver={() => setShowMenu(true)}
-                onMouseLeave={() => setShowMenu(false)}
-              >
-                {item.menuItem}
-                <AnimatePresence>
-                  <motion.div style={{ display: showMenu ? "flex" : "none"}} onMouseLeave={() => setShowMenu(false)}>
-                    <Box sx={dropdownBox}>
-                      <List
-                        component="nav"
-                        sx={{ padding: "0"}}
-                        
-                      >
-                        {options.map((listItem) => (
-                          <ListItem sx={{ padding: 0}}>
-                            <Link to={listItem.url}                 
-                                className={`nav-link-main ${
-                                  activeLink === listItem.menuItem ? "active" : ""}`}
-                                  data-replace={listItem.menuItem}
-                                  style={{
-                                    color: toggle ? "#000" : theme.palette.background.default,
-                                    position: "relative"
-                                  }}
-                              >
-                            {listItem.menuItem}
-                            </Link>
-                          </ListItem>
-                        ))}
-                      </List>
-                    </Box>
-                  </motion.div>
-                </AnimatePresence>
-              </Link>
+                <Box position="relative" display="flex" onMouseLeave={() => setShowMenu(false)} key={item.url}>
+                  <Link
+                  onClick={(event) => handleClick(event)}
+                  className={`nav-link-main ${
+                    activeLink === item.menuItem ? "active" : ""
+                  }`}
+                  aria-label={`Länk till ${item.menuItem}`}
+                  key={item.url}
+                  to={`/${item.url}`}
+                  data-replace={item.menuItem}
+                  style={{
+                    color: toggle ? "#000" : theme.palette.background.default,
+                    position: "relative"
+                  }}
+                  onMouseOver={() => setShowMenu(true)}
+                >
+                  {item.menuItem}
+                </Link>
+                    <AnimatePresence>
+                    <motion.div style={{ display: showMenu ? "flex" : "none"}} onMouseLeave={() => setShowMenu(false)}>
+                      <Box sx={dropdownBox}>
+                        <List
+                          component="nav"
+                          sx={{ padding: "0"}}
+                          
+                        >
+                          {options.map((listItem) => (
+                            <ListItem sx={{ padding: 0}} key={listItem.url}>
+                              <Link to={listItem.url}                 
+                                  className={`nav-link-main ${
+                                    activeLink === listItem.menuItem ? "active" : ""}`}
+                                    data-replace={listItem.menuItem}
+                                    style={{
+                                      color: toggle ? "#000" : theme.palette.background.default,
+                                      position: "relative"
+                                    }}
+                                >
+                              {listItem.menuItem}
+                              </Link>
+                            </ListItem>
+                          ))}
+                        </List>
+                      </Box>
+                    </motion.div>
+                  </AnimatePresence>
+                </Box>
               ) : (
                 <Link
                 onClick={(event) => handleClick(event)}
