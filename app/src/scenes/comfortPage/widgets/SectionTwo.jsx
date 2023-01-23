@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 // Images
 import placeImage from "../../../assets/landingbackground3.webp"
+import AnimatedLazyImage from '../../../components/LazyImage'
 
 export default function SectionTwo() {
     const theme = useTheme();
@@ -49,7 +50,7 @@ export default function SectionTwo() {
             className="col-12 col-lg-6"
             padding={!lgScreen ? "0 20px 0 0" : "0"}
           >
-            <img
+            <AnimatedLazyImage
               className="img-fluid"
               src={placeImage}
               alt="Placeholder image"

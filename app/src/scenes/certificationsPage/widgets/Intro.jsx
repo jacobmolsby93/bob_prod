@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 
 // Images
 import image from "../../../assets/carouselhome1.webp";
+import AnimatedLazyImage from '../../../components/LazyImage';
 
 
 export default function Intro() {
@@ -19,7 +20,7 @@ export default function Intro() {
           alignItems="center"
         >
           <Box className="col-12 col-md-6">
-            <img
+            <AnimatedLazyImage
               src={image}
               alt="picture of the 2 owners"
               width="100%"

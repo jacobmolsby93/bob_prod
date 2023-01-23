@@ -7,6 +7,7 @@ import kitchenimage from "../../../assets/kitchentips.webp"
 
 // Animation
 import AnimatedBox from '../../../animation/Animated'
+import AnimatedLazyImage from '../../../components/LazyImage'
 
 const steg = [
     {
@@ -48,7 +49,7 @@ export default function KitchenTips() {
     <Box className="row">
         <AnimatedBox>
             <Typography variant="h2" className="title-font" sx={{ marginBottom: "1rem"}}>Tips inför en köksrenovering</Typography>
-            <img src={kitchenimage} style={{ width: "100%", height: "auto"}} title="Ett collage på olika kök" alt="" />
+            <AnimatedLazyImage src={kitchenimage} style={{ width: "100%", height: "auto"}} title="Ett collage på olika kök" alt="" />
         </AnimatedBox>
         <Box>
             <AnimatedBox>

@@ -9,12 +9,16 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import AnimatedLazyImage from "../../../components/LazyImage";
+
 // Images & Logos
 import teamwork from "../../../assets/support.png";
 import sketch from "../../../assets/sketch.png";
 import quality from "../../../assets/quality.png";
 import podium from "../../../assets/podium.png";
 import shapes from "../../../assets/backgroundshapes.png";
+
+
 
 export default function WhyUs() {
   const theme = useTheme();
@@ -42,7 +46,7 @@ export default function WhyUs() {
             transition: "300ms",
           }}
         >
-          <img
+          <AnimatedLazyImage
             src={src}
             style={{ width: "70px", height: "70px", margin: "20px" }}
             alt={alt}

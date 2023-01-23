@@ -11,6 +11,7 @@ import {
 import data from "../../../data/certData.json";
 import shapes from "../../../assets/backgroundshapes.png";
 import LaunchIcon from '@mui/icons-material/Launch';
+import AnimatedLazyImage from "../../../components/LazyImage";
 
 export default function WhyUs() {
   const theme = useTheme();
@@ -46,7 +47,7 @@ export default function WhyUs() {
             width: "100%"
           }}
         >
-          <img
+          <AnimatedLazyImage
             id={id}
             src={src}
             style={{

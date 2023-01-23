@@ -1,5 +1,8 @@
 import {Box, useMediaQuery } from "@mui/material";
 
+import AnimatedLazyImage from "../../../components/LazyImage";
+
+
 const CardContainer = ({ images, speed = 5000 }) => {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -17,7 +20,7 @@ const CardContainer = ({ images, speed = 5000 }) => {
           {images.map(({ id, image, url }) => (
             <Box className="banner-image" key={id}>
               <a href={url} target="_blank">
-                <img
+                <AnimatedLazyImage
                   className="banner-img-src"
                   style={bannerImage}
                   src={image}
@@ -31,7 +34,7 @@ const CardContainer = ({ images, speed = 5000 }) => {
           {images.map(({ id, image, url }) => (
             <div className="banner-image" key={id}>
               <a href={url} target="_blank">
-                <img
+                <AnimatedLazyImage
                   className="banner-img-src"
                   style={bannerImage}
                   src={image}
@@ -45,7 +48,7 @@ const CardContainer = ({ images, speed = 5000 }) => {
           {images.map(({ id, image, url }) => (
             <div className="banner-image" key={id}>
               <a href={url} target="_blank">
-                <img
+                <AnimatedLazyImage
                   className="banner-img-src"
                   style={bannerImage}
                   src={image}

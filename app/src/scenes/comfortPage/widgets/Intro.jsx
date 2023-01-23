@@ -5,6 +5,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import collageImage from "../../../assets/landingbackground3.webp"
 
+import AnimatedLazyImage from '../../../components/LazyImage';
+
 export default function Intro() {
     const theme = useTheme();
     const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm")) 
@@ -53,7 +55,7 @@ export default function Intro() {
             </Box>
           </Box>
           <Box className="col-12 col-xl-6" sx={{ paddingLeft: !lgScreen ? "3rem" : "0"}}>
-            <img
+            <AnimatedLazyImage
               src={collageImage}
               className="img-fluid"
               style={{ maxHeight: "100%", height: "100%", objectFit: "cover" }}

@@ -9,6 +9,8 @@ import bathroom from "../../../assets/bathroom.webp"
 // Spacer
 import Spacer from '../../../components/Spacer'
 
+import AnimatedLazyImage from '../../../components/LazyImage'
+
 const services = [
     {
         serviceImage: bathroom,
@@ -51,7 +53,7 @@ export default function ServiceBox() {
         {services.map((item) => (
         <Box className="row">
             <Box className={`col-12 col-lg-6 ${item.id % 2 === 0 && "mt-5 mt-lg-0"}`} >
-            <img src={item.serviceImage} alt="A detailed description of the image" title="A title for the image" style={{width: "100%", height: "100%", maxHeight: "660px", objectFit: "cover"}} />
+            <AnimatedLazyImage src={item.serviceImage} alt="A detailed description of the image" title="A title for the image" style={{width: "100%", height: "100%", maxHeight: "660px", objectFit: "cover"}} />
             </Box>
             <Box className={`col-12 col-lg-6 ${item.id % 2 === 0 && "order-last order-lg-first"}`} padding={lgScreen ? "2rem 0 0 0" : "0 2rem 0 2rem"}>
                 <Box className="flex-centerd-align" height="100%">

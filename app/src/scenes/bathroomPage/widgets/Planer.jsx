@@ -8,6 +8,8 @@ import {
   useTheme,
 } from "@mui/material";
 
+import AnimatedLazyImage from "../../../components/LazyImage";
+
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
@@ -63,7 +65,7 @@ export default function Planer() {
           </Box>
         </Box>
         <Box className="col-12 col-xl-6" sx={{ paddingLeft: !lgScreen ? "3rem" : "0"}}>
-          <img
+          <AnimatedLazyImage
             src={collageImage}
             className="img-fluid"
             style={{ maxHeight: "100%" }}

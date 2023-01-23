@@ -8,6 +8,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 // Images
 import tip1 from "../../../assets/carouselhome1.webp";
 
+import AnimatedLazyImage from "../../../components/LazyImage";
+
 
 export default function TipsCarousel() {
   const theme = useTheme();
@@ -58,7 +60,7 @@ export default function TipsCarousel() {
                     : "order-first"
                 }`}
               >
-                <img
+                <AnimatedLazyImage
                   src={item.image}
                   className="img-fluid"
                   alt={item.title}

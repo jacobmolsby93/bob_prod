@@ -8,6 +8,9 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+
+import AnimatedLazyImage from "../../../components/LazyImage";
+
 // Images
 import mobileImage from "../../../assets/aboutimage1.webp";
 import desktopCollageImage from "../../../assets/servicesintro.webp"
@@ -21,7 +24,7 @@ const Intro = () => {
       {!lgScreen ? (
         <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
           <Box >
-          <img src={desktopCollageImage} className="img-fluid" style={{ minHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
+          <AnimatedLazyImage src={desktopCollageImage} className="img-fluid" style={{ minHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
           </Box>
         </Box>
       ) : (
@@ -29,7 +32,7 @@ const Intro = () => {
           className="col-12"
           sx={{ marginBottom: "2rem" }}
         >
-          <img
+          <AnimatedLazyImage
             src={mobileImage}
             style={{ objectFit: "cover", maxHeight: "400px", width: "100%" }}
             className="img-fluid"
