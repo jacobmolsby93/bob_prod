@@ -26,6 +26,23 @@ const MessageFields = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
+  let envVars = {};
+  if (process.env.NODE_ENV === 'production') {
+    envVars = {
+      templateId: process.env.VITE_TEMPLATE_ID,
+      serviceId: process.env.VITE_SERVICE_ID,
+      publicKey: process.env.VITE_PUBLIC_KEY,
+    };
+  } else {
+    envVars = {
+      templateId: import.meta.env.VITE_TEMPLATE_ID,
+      serviceId: import.meta.env.VITE_SERVICE_ID,
+      publicKey: import.meta.env.VITE_PUBLIC_KEY,
+    };
+  }
+  const [envVariables, setEnvVariables] = useState(envVars);
+
+
 
   const handleClose = () => {
     setOpen(false);
@@ -36,11 +53,6 @@ const MessageFields = () => {
     setGdprAccepted(true);
     setOpenModal(false);
   };
-
-  let templateId, serviceId, publicKey;
-  templateId = import.meta.env.VITE_TEMPLATE_ID;
-  serviceId = import.meta.env.VITE_SERVICE_ID;
-  publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
   const styledInput = {
     marginBottom: "20px",
@@ -125,7 +137,7 @@ const MessageFields = () => {
         reply_to: epost,
       };
       emailjs
-        .send(serviceId, templateId, valuesWithCustomFields, publicKey)
+        .send(envVariables.serviceId, envVariables.templateId, valuesWithCustomFields, envVariables.publicKey)
         .then(
           (result) => {
             setOpen(true);

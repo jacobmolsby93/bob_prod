@@ -195,7 +195,7 @@ export default function NavbarComp() {
                 {item.menuItem}
                 <AnimatePresence>
                   <motion.div style={{ display: showMenu ? "flex" : "none"}} onMouseLeave={() => setShowMenu(false)}>
-                    <Box sx={dropdownBox} className="bg-dark">
+                    <Box sx={dropdownBox}>
                       <List
                         component="nav"
                         sx={{ padding: "0"}}
@@ -389,7 +389,8 @@ export default function NavbarComp() {
 const dropdownBox = {
   position: "absolute",
   top: "100%",
-  backgroundColor: "inherit", 
+  left: "0",
+  backgroundColor: "rgba(33, 37, 41)", 
   width: "max-content", 
   padding: "20px 20px", 
   height: "auto",
