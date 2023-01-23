@@ -26,17 +26,18 @@ const MessageFields = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
-  let envVars = {};
-  if (process.env.NODE_ENV === 'production') {
-    envVars = {
-      templateId: import.meta.env.VITE_TEMPLATE_ID,
-      serviceId: import.meta.env.VITE_SERVICE_ID,
-      publicKey: import.meta.env.VITE_PUBLIC_KEY,
-    };
-  }
-  const [envVariables, setEnvVariables] = useState(envVars);
-  console.log(envVariables)
+  // let envVars = {};
+  // envVars = {
+  //   templateId: import.meta.env.VITE_TEMPLATE_ID,
+  //   serviceId: import.meta.env.VITE_SERVICE_ID,
+  //   publicKey: import.meta.env.VITE_PUBLIC_KEY,
+  // }
+  // const [envVariables, setEnvVariables] = useState(envVars);
+  // console.log(envVariables)
 
+  const templateId = process.env.VITE_TEMPLATE_ID
+  const serviceId = process.env.VITE_SERVICE_ID
+  const publicKey = process.env.VITE_PUBLIC_KEY
 
 
   const handleClose = () => {
@@ -132,7 +133,7 @@ const MessageFields = () => {
         reply_to: epost,
       };
       emailjs
-        .send(envVariables.serviceId, envVariables.templateId, valuesWithCustomFields, envVariables.publicKey)
+        .send(serviceId, templateId, valuesWithCustomFields, publicKey)
         .then(
           (result) => {
             setOpen(true);
