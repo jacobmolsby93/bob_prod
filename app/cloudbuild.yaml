@@ -1,0 +1,14 @@
+steps:
+- name: node:16.17.1-alpine3.16
+  entrypoint: npm
+  args: ["install"]
+- name: node:16.17.1-alpine3.16
+  entrypoint: npm
+  args: ["run", "create-env"]
+  env:
+    - 'VITE_TEMPLATE_ID=${_VITE_TEMPLATE_ID}'
+    - 'VITE_PUBLIC_KEY=${_VITE_PUBLIC_KEY}'
+    - 'VITE_SERVICE_ID=${_VITE_SERVICE_ID}'
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy"]
+timeout: "1600s"
