@@ -1,0 +1,10 @@
+steps:
+
+name: "gcr.io/cloud-builders/docker"
+args: ["build", "--no-cache", "-t", "eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA", ".", "-f", "Dockerfile.prod"]
+env: ["VITE_PUBLIC_KEY=$_VITE_PUBLIC_KEY", "VITE_SERVICE_ID=$_VITE_SERVICE_ID", "VITE_TEMPLATE_ID=$_VITE_TEMPLATE_ID"]
+name: "gcr.io/cloud-builders/docker"
+args: ["push", "eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA"]
+name: "gcr.io/cloud-builders/gcloud"
+args: ["run", "deploy", "bob", "--image", "eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA", "--region", "$_DEPLOY_REGION", "--allow-unauthenticated", "--platform", "$_PLATFORM"]
+timeout: "600s"
