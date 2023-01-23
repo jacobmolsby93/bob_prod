@@ -1,14 +1,12 @@
 steps:
-- name: node:16.17.1
-  entrypoint: npm
-  args: ["install"]
-- name: node:16.17.1
-  entrypoint: npm
-  args: ["run", "create-env"]
-  env:
-    - 'VITE_TEMPLATE_ID=${_VITE_TEMPLATE_ID}'
-    - 'VITE_PUBLIC_KEY=${_VITE_PUBLIC_KEY}'
-    - 'VITE_SERVICE_ID=${_VITE_SERVICE_ID}'
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/bob_prod:$COMMIT_SHA", "."]
+  env: ["VITE_PUBLIC_KEY=$_VITE_PUBLIC_KEY", "VITE_SERVICE_ID=$_VITE_SERVICE_ID", "VITE_TEMPLATE_ID=$_VITE_TEMPLATE_ID"]
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/$PROJECT_ID/bob_prod:$COMMIT_SHA"]
 - name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
-timeout: "1600s"
+  args: ["run", "deploy", "bob", "--image", "gcr.io/$PROJECT_ID/bob_prod:$COMMIT_SHA", "--region", "$_DEPLOY_REGION", "--allow-unauthenticated", "--platform", "$_PLATFORM"]
+  env: ["CLOUDSDK_COMPUTE_ZONE=$_DEPLOY_REGION"]
+  env: ["CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=True"]
+
+timeout: "600s"
