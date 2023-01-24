@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import dotenv from "dotenv"
-dotenv.config({ path: './.env' });
+const env = dotenv.config().parsed;
 
 
 export default {
@@ -39,13 +39,6 @@ export default {
     }),
     new MiniCssExtractPlugin({
       filename: "index.css",
-    }),
-    new webpack.DefinePlugin({
-      "import.meta.env": {
-        VITE_TEMPLATE_ID: JSON.stringify("your_template_id"),
-        VITE_SERVICE_ID: JSON.stringify("your_service_id"),
-        VITE_PUBLIC_KEY: JSON.stringify("your_public_key"),
-      },
     }),
   ],
   optimization: {
