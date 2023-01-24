@@ -34,7 +34,7 @@ const MessageFields = () => {
   const [publicKey, setPublicKey] = useState(null)
   const [templateId, setTemplateId] = useState(null)
 
-  if(import.meta.env.MODE === "PROD") {
+  if(process.env.NODE_ENV === "production") {
     console.log(`process.env - ${process.env}`)
     console.log(serviceId, publicKey, templateId)
     console.log(`import.meta.env - ${import.meta.env}`)
