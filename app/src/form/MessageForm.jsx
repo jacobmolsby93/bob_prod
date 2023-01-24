@@ -35,6 +35,12 @@ const MessageFields = () => {
   const templateId = import.meta.env.VITE_TEMPLATE_ID
   console.log(serviceId, publicKey, templateId)
 
+  console.log(`import.meta.env - ${import.meta.env}`)
+  if(process.env.NODE_ENV === "production") {
+    console.log(`process.env - ${process.env}`)
+  }
+
+
   const handleClose = () => {
     setOpen(false);
     setOpenModal(false);
