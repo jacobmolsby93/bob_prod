@@ -35,7 +35,6 @@ const MessageFields = () => {
   const [templateId, setTemplateId] = useState(null)
 
   if(process.env.NODE_ENV === "production") {
-    console.log(`process.env - ${process.env}`)
     console.log(serviceId, publicKey, templateId)
     console.log(`import.meta.env - ${import.meta.env}`)
     console.log(import.meta.env.MODE)
