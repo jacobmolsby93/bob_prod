@@ -28,13 +28,9 @@ const MessageFields = () => {
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
 
-  const [serviceId, setServiceId] = useState(null)
-  const [publicKey, setPublicKey] = useState(null)
-  const [templateId, setTemplateId] = useState(null)
-
-  setServiceId(import.meta.env.VITE_SERVICE_ID)
-  setTemplateId(import.meta.env.VITE_TEMPLATE_ID)
-  setPublicKey(import.meta.env.VITE_PUBLIC_KEY)
+  const serviceId = import.meta.env.VITE_SERVICE_ID
+  const publicKey = import.meta.env.VITE_PUBLIC_KEY
+  const templateId = import.meta.env.VITE_TEMPLATE_ID
 
 
   const handleClose = () => {
