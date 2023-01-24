@@ -30,16 +30,22 @@ const MessageFields = () => {
 
 
 
-  const serviceId = import.meta.env.VITE_SERVICE_ID
-  const publicKey = import.meta.env.VITE_PUBLIC_KEY
-  const templateId = import.meta.env.VITE_TEMPLATE_ID
+  const [serviceId, setServiceId] = useState(null)
+  const [publicKey, setPublicKey] = useState(null)
+  const [templateId, setTemplateId] = useState(null)
 
-  console.log(`import.meta.env - ${import.meta.env}`)
   if(import.meta.env.MODE === "PROD") {
     console.log(`process.env - ${process.env}`)
     console.log(serviceId, publicKey, templateId)
+    console.log(`import.meta.env - ${import.meta.env}`)
+    console.log(import.meta.env.MODE)
   }
 
+  useEffect(() => {
+    setServiceId(import.meta.env.VITE_SERVICE_ID)
+    setTemplateId(import.meta.env.VITE_TEMPLATE_ID)
+    setPublicKey(import.meta.env.VITE_PUBLIC_KEY)
+  })  
 
   const handleClose = () => {
     setOpen(false);
