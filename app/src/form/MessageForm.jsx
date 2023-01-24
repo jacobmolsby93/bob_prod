@@ -28,23 +28,14 @@ const MessageFields = () => {
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
 
-
-
   const [serviceId, setServiceId] = useState(null)
   const [publicKey, setPublicKey] = useState(null)
   const [templateId, setTemplateId] = useState(null)
 
-  if(process.env.NODE_ENV === "production") {
-    console.log(serviceId, publicKey, templateId)
-    console.log(`import.meta.env - ${import.meta.env}`)
-    console.log(import.meta.env.MODE)
-  }
+  setServiceId(import.meta.env.VITE_SERVICE_ID)
+  setTemplateId(import.meta.env.VITE_TEMPLATE_ID)
+  setPublicKey(import.meta.env.VITE_PUBLIC_KEY)
 
-  useEffect(() => {
-    setServiceId(import.meta.env.VITE_SERVICE_ID)
-    setTemplateId(import.meta.env.VITE_TEMPLATE_ID)
-    setPublicKey(import.meta.env.VITE_PUBLIC_KEY)
-  })  
 
   const handleClose = () => {
     setOpen(false);
@@ -179,9 +170,8 @@ const MessageFields = () => {
               sx={{ mt: 2 }}
               component="p"
             >
-              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om
-              våra
-              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster" sx={{ marginLeft: ".5rem"}}>
+              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om våra
+              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster" style={{ marginLeft: ".5rem"}}>
                 tjänster
               </Link>
               .
