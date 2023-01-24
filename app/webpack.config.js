@@ -3,8 +3,6 @@ import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
-import dotenv from "dotenv"
-const env = dotenv.config().parsed;
 
 
 export default {

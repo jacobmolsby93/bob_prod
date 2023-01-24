@@ -16,6 +16,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import { template } from "@babel/core";
 
 const MessageFields = () => {
   const theme = useTheme();
@@ -28,15 +29,11 @@ const MessageFields = () => {
   const [gdprAccepted, setGdprAccepted] = useState(false);
 
 
+
   const serviceId = import.meta.env.VITE_SERVICE_ID
   const publicKey = import.meta.env.VITE_PUBLIC_KEY
   const templateId = import.meta.env.VITE_TEMPLATE_ID
-  if(process.env.NODE_ENV === "production") {
-    console.log(import.meta.env.VITE_PUBLIC_KEY)
-    console.log(import.meta.env.VITE_TEMPLATE_ID)
-    console.log(import.meta.env.VITE_SERVICE_ID)
-    console.log(process.env.VITE_PUBLIC_KEY)
-  }
+  console.log(serviceId, publicKey, templateId)
 
   const handleClose = () => {
     setOpen(false);
