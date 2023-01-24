@@ -17,6 +17,11 @@ steps:
     args:
       - push
       - 'eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA'
+  - name: node:16.17.1-alpine3.16
+    entrypoint: npm
+    args: ["run", "create-env"]
+    env:
+      - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'  
   - name: gcr.io/cloud-builders/gcloud
     args:
       - run
