@@ -33,11 +33,11 @@ const MessageFields = () => {
   const serviceId = import.meta.env.VITE_SERVICE_ID
   const publicKey = import.meta.env.VITE_PUBLIC_KEY
   const templateId = import.meta.env.VITE_TEMPLATE_ID
-  console.log(serviceId, publicKey, templateId)
 
   console.log(`import.meta.env - ${import.meta.env}`)
-  if(process.env.NODE_ENV === "production") {
+  if(import.meta.env.MODE === "PROD") {
     console.log(`process.env - ${process.env}`)
+    console.log(serviceId, publicKey, templateId)
   }
 
 
