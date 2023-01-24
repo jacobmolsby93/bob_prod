@@ -31,7 +31,9 @@ const MessageFields = () => {
   const serviceId = import.meta.env.VITE_SERVICE_ID
   const publicKey = import.meta.env.VITE_PUBLIC_KEY
   const templateId = import.meta.env.VITE_TEMPLATE_ID
-
+  if(process.env.NODE_ENV === "production") {
+    console.log(process.env.VITE_SERVICE_ID)
+  }
 
   const handleClose = () => {
     setOpen(false);
