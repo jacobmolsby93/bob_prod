@@ -265,57 +265,6 @@ export default function QuiltedImageList() {
           </motion.div>
         ))}
       </ImageList>
-      <Modal open={modalIsOpen}>
-        <motion.div
-          style={style}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          <Box position="absolute" width="100%" height="100%">
-            <Box display="flex" justifyContent="flex-end" m="20px">
-              <FullscreenExitIcon
-                aria-label="Klicka för att stänga fullskärs läge"
-                onClick={() => setModalIsOpen(!modalIsOpen)}
-                sx={iconStyle}
-              />
-            </Box>
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: "0",
-                left: "0",
-                right: "0",
-              }}
-            >
-              <Box display="flex" justifyContent="center" style={indicatorBox}>
-                <Button
-                  aria-label="Klicka för att välja föregående bild"
-                  variant="contained"
-                  sx={buttonStyle}
-                  onClick={handlePrev}
-                >
-                  <ArrowBackIcon />
-                </Button>
-                <Button
-                  aria-label="Klicka för att komma till nästa bild"
-                  variant="contained"
-                  sx={buttonStyle}
-                  onClick={handleNext}
-                >
-                  <ArrowForwardIcon />
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-          <img
-            src={selectedImg && selectedImg.img_url}
-            alt={selectedImg && selectedImg.title}
-            style={modalImgStyle}
-          />
-        </motion.div>
-      </Modal>
     </Box>
   );
 }

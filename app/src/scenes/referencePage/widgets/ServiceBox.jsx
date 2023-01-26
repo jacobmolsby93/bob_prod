@@ -43,7 +43,8 @@ export default function ServiceBox() {
 
   const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",
-    borderRadius: "0",
+    padding: 0,
+    borderRadius: 0,
     border: "none",
     marginRight: "1rem",
     backgroundColor: theme.palette.primary[500],
@@ -79,7 +80,7 @@ export default function ServiceBox() {
             className={`col-12 col-lg-6 ${
               item.id % 2 === 0 && "order-last order-lg-first"
             }`}
-            padding={lgScreen ? "2rem 0 0 0" : "0 2rem 0 2rem"}
+            padding={lgScreen ? "2rem 0" : "2rem 2rem"}
           >
             <Box className="flex-centerd-align" height="100%">
               <article>
@@ -105,12 +106,12 @@ export default function ServiceBox() {
                     aria-label={`Klicka för att komma till sidan ${item.serviceTitle} oss`}
                   >
                     <Link
-                      sx={buttonStyleContained}
+                      style={{ height: "100%", width: "100%", padding: "6px 16px"}}
                       to={item.serviceLink}
                       className="button-text"
                       aria-label={`Länk till sidan ${item.serviceTitle}`}
                     >
-                      Läs mer om {item.serviceTitle}
+                      Se Tidigare {`${item.serviceTitle}S`} Projekt 
                     </Link>
                   </Button>
                 </Box>

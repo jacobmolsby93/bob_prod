@@ -209,7 +209,7 @@ export default function Footer() {
                     </a>
                   </ListItem>
                   <ListItem sx={styledLinks}>
-                    <Box display="flex" alignItems="flex-starr">
+                    <Box display="flex" alignItems="flex-start">
                       <FmdGoodRoundedIcon sx={footerIcon} />
                       <a
                         style={contactP}

@@ -86,7 +86,9 @@ export default function Bathroom() {
                 borderRadius: "0",
                 backgroundColor: theme.palette.primary[500],
                 marginRight: "20px",
+                padding: 0,
                 "&>a": {
+                  padding: "6px 16px",
                   color: theme.palette.background.default,
                   textDecoration: "none",
                 },

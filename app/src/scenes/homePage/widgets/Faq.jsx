@@ -25,9 +25,11 @@ export default function Faq(props) {
     marginTop: smallScreen ? "1rem" : "",
     borderRadius: "0",
     border: "none",
+    padding: 0,
     marginRight: "1rem",
     backgroundColor: theme.palette.primary[500],
     "&>a": {
+      padding: "6px 16px",
       textDecoration: "none",
       color: "#fff",
     },

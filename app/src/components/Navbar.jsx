@@ -14,6 +14,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
 
 import { Navbar, Offcanvas } from "react-bootstrap";
 
@@ -135,6 +136,12 @@ export default function NavbarComp() {
     },
   };
 
+  const canvasIcon = {
+    color: theme.palette.primary[500],
+    fontSize: "1.5rem",
+    marginRight: ".5rem",
+  };
+
   const expandClose = {
     color: theme.palette.primary[500],
     fontSize: "2rem",
@@ -148,7 +155,6 @@ export default function NavbarComp() {
   useEffect(() => {
     // Get the current pathname
     const currentPathname = window.location.pathname;
-
     // Iterate through menuItems and check if the current pathname matches a menu item's url
     const activeItem = menuItems.find(
       (item) => `/${item.url}` === currentPathname
@@ -505,7 +511,23 @@ export default function NavbarComp() {
               </Box>
               <Box>
                 {/* Canvas Footer */}
-                <Box sx={{ padding: "15px" }}>
+                <Box sx={{ padding: "1rem" }}>
+                <Box display="flex" alignItems="flex-start" padding="2rem 0" flexDirection="column">
+                  <Link to="/" aria-label="Länk till hem">
+                    <img src={logo} style={{ width: "50px", height: "50px", marginBottom: "1rem"}} title="BOB Logga" alt="BOB VÅTRUMSRENOVERING AB LOGGA" />
+                  </Link>
+                      <a
+                        style={contactP}
+                        href="https://maps.google.com/?q=59.3293234,18.0685808"
+                        target="_blank"
+                      >
+                        BOB VÅTRUMSRENOVERING AB,
+                        <br />
+                        Org-nummer: 556963-1905
+                        <br />
+                        Ǻsvägen 9, 155 32, Nykvarn
+                      </a>
+                    </Box>
                   <Button
                     aria-label="Tidigare objekt"
                     variant="contained"
@@ -570,4 +592,12 @@ const dropdownBox = {
   width: "max-content",
   padding: "20px 20px",
   height: "auto",
+};
+
+
+
+const contactP = {
+  margin: "0",
+  color: "#1d1d1d",
+  textDecoration: "none",
 };

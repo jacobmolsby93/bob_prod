@@ -19,10 +19,12 @@ export default function SectionTwo() {
   const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",
     borderRadius: "0",
+    padding: 0,
     border: "none",
     marginRight: "1rem",
     backgroundColor: theme.palette.primary[500],
     "&>a": {
+      padding: "6px 16px",
       textDecoration: "none",
       color: "#fff",
     },
