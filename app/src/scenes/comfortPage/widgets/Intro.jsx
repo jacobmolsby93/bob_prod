@@ -38,6 +38,7 @@ export default function Intro() {
             <span
               style={{
                 width: ".7rem",
+                maxWidth: ".2rem",
                 height: "auto",
                 marginRight: "1rem",
                 backgroundColor: theme.palette.primary[500],

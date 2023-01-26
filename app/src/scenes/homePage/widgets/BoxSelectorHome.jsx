@@ -76,7 +76,8 @@ export default function WhyUs() {
             <Box sx={{ marginTop: marginTop }}>
               <span
                 style={{
-                  width: "18px",
+                  width: ".2rem",
+                  maxWidth: ".2rem", 
                   height: "auto",
                   marginRight: "10px",
                   backgroundColor: theme.palette.primary[500],

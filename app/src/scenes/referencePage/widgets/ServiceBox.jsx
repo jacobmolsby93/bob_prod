@@ -22,7 +22,7 @@ const services = [
     serviceImage: bathroom,
     serviceTitle: "Badrum",
     serviceText:
-      "Är det dags att renovera badrummet? Låt BOB vara med och räkna på vad det skulle kosta! Vi renoverar ett stort antal badrum och tvättstugor varje år. När vi utför en badrumsrenovering får ni alltid ett fast pris, en fastställd tidplan och en kontaktperson som är med er hela vägen från start till slut.",
+      "Se några av våra tidigare renoverade badrum. Få lite inpsiration inför din badrumsrenovering!",
     serviceLink: "/vara-tjanster/badrumsrenovering",
     id: 1,
   },
@@ -30,7 +30,7 @@ const services = [
     serviceImage: kitchen,
     serviceTitle: "Kök",
     serviceText:
-      "Är det dags att renovera köket? Från skiss till färdigt kök, vi hjälper dig hela vägen! Vi lämnar alltid 2 års garanti, 10 års ansvarstid, fast pris och tidsplan på din köksrenovering. Vi på BOB hjälper er att förverkliga ert drömkök.",
+      "Några kök vi har gjort iordning. Få lite inpsiration inför din köksrenovering!",
     serviceLink: "/vara-tjanster/koksrenovering",
     id: 2,
   },
@@ -89,6 +89,7 @@ export default function ServiceBox() {
                 <Box display="flex" mt="3rem">
                   <span
                     style={{
+                      maxWidth: ".2rem",
                       width: "1rem",
                       height: "auto",
                       marginRight: "1rem",

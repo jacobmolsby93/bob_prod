@@ -77,6 +77,7 @@ export default function Intro(props) {
               <span
                 style={{
                   width: "1rem",
+                  maxWidht: ".2rem",
                   height: "auto",
                   marginRight: "1rem",
                   backgroundColor: "#c2662d",

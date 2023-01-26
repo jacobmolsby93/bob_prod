@@ -35,20 +35,25 @@ const menuItems = [
     id: 2,
   },
   {
+    menuItem: "Tidigare Projekt",
+    url: "referenser",
+    id: 3
+  },
+  {
     menuItem: "Behörigheter",
     url: "behorigheter",
-    id: 3,
+    id: 4,
   },
   {
     menuItem: "Kontakt",
     url: "kontakt",
-    id: 4,
+    id: 5,
   },
   {
     menuItem: "Om Oss",
     url: "omoss",
-    id: 5,
-  },
+    id: 6,
+  }
 ];
 
 const options = [

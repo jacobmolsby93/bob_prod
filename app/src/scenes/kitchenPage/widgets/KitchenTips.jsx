@@ -90,7 +90,8 @@ export default function KitchenTips() {
             <Box display="flex" mt="2rem">
               <span
                 style={{
-                  width: ".5rem",
+                  width: ".2rem",
+                  maxWidth: ".2rem",
                   height: "auto",
                   marginRight: "1rem",
                   backgroundColor: "#c2662d",

@@ -78,6 +78,7 @@ export default function TipsCarousel() {
                     <span
                       style={{
                         width: ".4rem",
+                        maxWidth: ".2rem",
                         height: "auto",
                         marginRight: "1rem",
                         backgroundColor: theme.palette.primary[500],

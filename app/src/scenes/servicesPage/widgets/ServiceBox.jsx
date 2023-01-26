@@ -97,6 +97,7 @@ export default function ServiceBox() {
                 <Box display="flex" mt="3rem">
                   <span
                     style={{
+                      maxWidth: ".2rem",
                       width: "1rem",
                       height: "auto",
                       marginRight: "1rem",

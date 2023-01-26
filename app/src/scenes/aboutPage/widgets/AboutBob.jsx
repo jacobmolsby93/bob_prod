@@ -55,6 +55,7 @@ const Intro = () => {
               <span
                 style={{
                   width: "18px",
+                  maxWidht: ".2rem",
                   height: "auto",
                   marginRight: "10px",
                   backgroundColor: theme.palette.primary[500],

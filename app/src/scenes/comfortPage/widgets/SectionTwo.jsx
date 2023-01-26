@@ -77,6 +77,7 @@ export default function SectionTwo() {
               <span
                 style={{
                   width: "1rem",
+                  maxWidth: ".2rem",
                   height: "auto",
                   marginRight: "1rem",
                   backgroundColor: "#c2662d",

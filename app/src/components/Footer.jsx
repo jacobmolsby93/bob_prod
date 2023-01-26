@@ -152,8 +152,11 @@ export default function Footer() {
                   Länkar
                 </Typography>
                 <List component="ul">
-                  <ListItem sx={styledLinks}>
+                 <ListItem sx={styledLinks}>
                     <Link to="/vara-tjanster">Våra Tjänster</Link>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/referenser">Tidigare Projekt</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Link to="/behorigheter">Behörigheter</Link>

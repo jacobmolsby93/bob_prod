@@ -61,7 +61,7 @@ export default function Total() {
           <span
             style={{
               width: "2%",
-              maxWidth: "2px",
+              maxWidth: ".2rem",
               height: "auto",
               marginRight: "1rem",
               backgroundColor: "#c2662d",
