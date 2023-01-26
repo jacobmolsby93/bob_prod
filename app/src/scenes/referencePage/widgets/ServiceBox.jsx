@@ -23,7 +23,7 @@ const services = [
     serviceTitle: "Badrum",
     serviceText:
       "Se några av våra tidigare renoverade badrum. Få lite inpsiration inför din badrumsrenovering!",
-    serviceLink: "/vara-tjanster/badrumsrenovering",
+    serviceLink: "/referenser/badrumsrenovering",
     id: 1,
   },
   {
@@ -31,7 +31,7 @@ const services = [
     serviceTitle: "Kök",
     serviceText:
       "Några kök vi har gjort iordning. Få lite inpsiration inför din köksrenovering!",
-    serviceLink: "/vara-tjanster/koksrenovering",
+    serviceLink: "/referenser/koksrenoveringar",
     id: 2,
   },
 ];
