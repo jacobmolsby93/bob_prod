@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const MessageFields = () => {
   const theme = useTheme();
@@ -115,29 +114,29 @@ const MessageFields = () => {
       gdpr: Yup.boolean(),
     }),
     onSubmit: (values) => {
-      formik.setSubmitting(true);
-      const { namn, epost, telefon, medelande } = values;
-      setFormValues(values);
-      const valuesWithCustomFields = {
-        ...values,
-        to_name: "Bob Badrum",
-        from_name: namn,
-        message: `${medelande} \n Telefon: ${telefon}`,
-        reply_to: epost,
-      };
-      axios
-        .post("http://your_server_url/submit-form", valuesWithCustomFields)
-        .then((response) => {
-          setOpen(true);
-          setFormStatus("success");
-          formik.resetForm();
-        })
-        .catch((error) => {
-          setFormStatus("error");
-        })
-        .finally(() => {
-          formik.setSubmitting(false);
-        });
+      // formik.setSubmitting(true);
+      // const { namn, epost, telefon, medelande } = values;
+      // setFormValues(values);
+      // const valuesWithCustomFields = {
+      //   ...values,
+      //   to_name: "Bob Badrum",
+      //   from_name: namn,
+      //   message: `${medelande} \n Telefon: ${telefon}`,
+      //   reply_to: epost,
+      // };
+      // axios
+      //   .post("http://your_server_url/submit-form", valuesWithCustomFields)
+      //   .then((response) => {
+      //     setOpen(true);
+      //     setFormStatus("success");
+      //     formik.resetForm();
+      //   })
+      //   .catch((error) => {
+      //     setFormStatus("error");
+      //   })
+      //   .finally(() => {
+      //     formik.setSubmitting(false);
+      //   });
     },
   });
 
