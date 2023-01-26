@@ -213,7 +213,7 @@ export default function Footer() {
                         href="https://maps.google.com/?q=59.3293234,18.0685808"
                         target="_blank"
                       >
-                        BOB Våtrumsrenovering,
+                        BOB VÅTRUMSRENOVERING AB,
                         <br />
                         Org-nummer: 556963-1905
                         <br />
