@@ -1,5 +1,11 @@
-import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
-import { Link } from "react-router-dom"
+import {
+  Box,
+  Typography,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 // Widgets
 import Total from "./widgets/Total";
@@ -68,31 +74,31 @@ export default function Remodel() {
                 </p>
               </Box>
               <Box>
-              <Button
-              aria-label="Klicka för att komma till kontaka oss sidan"
-              variant="contained"
-              sx={{
-                marginTop: "30px",
-                borderRadius: "0",
-                backgroundColor: theme.palette.primary[500],
-                marginRight: "20px",
-                "&>a": {
-                  color: theme.palette.background.default,
-                  textDecoration: "none",
-                },
-                "&:hover": {
-                  backgroundColor: theme.palette.primary[600],
-                },
-              }}
-            >
-              <Link
-                to="/kontakt"
-                className="button-text"
-                aria-label="Länk till kontakta oss"
-              >
-                Kontakta Oss
-              </Link>
-            </Button>
+                <Button
+                  aria-label="Klicka för att komma till kontaka oss sidan"
+                  variant="contained"
+                  sx={{
+                    marginTop: "30px",
+                    borderRadius: "0",
+                    backgroundColor: theme.palette.primary[500],
+                    marginRight: "20px",
+                    "&>a": {
+                      color: theme.palette.background.default,
+                      textDecoration: "none",
+                    },
+                    "&:hover": {
+                      backgroundColor: theme.palette.primary[600],
+                    },
+                  }}
+                >
+                  <Link
+                    to="/kontakt"
+                    className="button-text"
+                    aria-label="Länk till kontakta oss"
+                  >
+                    Kontakta Oss
+                  </Link>
+                </Button>
               </Box>
             </Box>
           </AnimatedBox>

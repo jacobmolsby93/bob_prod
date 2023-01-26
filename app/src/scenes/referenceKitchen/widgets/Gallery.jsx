@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 
-import galleryData from "../../../data/galleryData.json";
+import galleryData from "../../../data/galleryData";
 
 export default function QuiltedImageList() {
   const theme = useTheme();
@@ -369,7 +369,6 @@ const style = {
   border: "none !important",
   outline: "none",
   boxShadow: 24,
-  borderRadius: "10px important",
   backgroundColor: "rgba(0, 0, 0, 0.8)",
   borderRadius: "10px",
   p: 4,

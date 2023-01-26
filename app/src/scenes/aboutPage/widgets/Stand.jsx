@@ -30,7 +30,7 @@ const Stand = () => {
     color: theme.palette.background.default,
     padding: 0,
     "&:>a": {
-      padding: "6px 16px"
+      padding: "6px 16px",
     },
     "&:hover": {
       backgroundColor: theme.palette.primary[600],

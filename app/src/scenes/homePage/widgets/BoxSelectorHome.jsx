@@ -77,7 +77,7 @@ export default function WhyUs() {
               <span
                 style={{
                   width: ".2rem",
-                  maxWidth: ".2rem", 
+                  maxWidth: ".2rem",
                   height: "auto",
                   marginRight: "10px",
                   backgroundColor: theme.palette.primary[500],

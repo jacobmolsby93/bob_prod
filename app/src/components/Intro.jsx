@@ -19,7 +19,9 @@ export default function Intro(props) {
     border: "none",
     marginRight: "1rem",
     backgroundColor: theme.palette.primary[500],
+    padding: 0,
     "&>a": {
+      padding: "6px 16px",
       textDecoration: "none",
       color: "#fff",
     },
@@ -103,7 +105,6 @@ export default function Intro(props) {
                   </PageLink>
                 ) : (
                   <Link
-                    sx={buttonStyleContained}
                     to={props.to}
                     className="button-text"
                     aria-label={props.label}

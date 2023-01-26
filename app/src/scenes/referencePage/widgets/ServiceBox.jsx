@@ -106,12 +106,16 @@ export default function ServiceBox() {
                     aria-label={`Klicka för att komma till sidan ${item.serviceTitle} oss`}
                   >
                     <Link
-                      style={{ height: "100%", width: "100%", padding: "6px 16px"}}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "6px 16px",
+                      }}
                       to={item.serviceLink}
                       className="button-text"
                       aria-label={`Länk till sidan ${item.serviceTitle}`}
                     >
-                      Se Tidigare {`${item.serviceTitle}S`} Projekt 
+                      Se Tidigare {`${item.serviceTitle}S`} Projekt
                     </Link>
                   </Button>
                 </Box>

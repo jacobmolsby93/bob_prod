@@ -53,48 +53,57 @@ export default function Total() {
       <Box>
         {textContent.map((item) => (
           <AnimatedBox key={item.id}>
-          <Box mt="2rem">
-          <Typography variant="h3" className="subtitle-font">
-            {item.title}
-          </Typography>
-          <Box display="flex" mt="1rem">
-          <span
-            style={{
-              width: "2%",
-              maxWidth: ".2rem",
-              height: "auto",
-              marginRight: "1rem",
-              backgroundColor: "#c2662d",
-            }}
-          ></span>
-          <p className="body-paragraph">
-            {item.paragraph}
-          </p>
-          </Box>
-          </Box>
+            <Box mt="2rem">
+              <Typography variant="h3" className="subtitle-font">
+                {item.title}
+              </Typography>
+              <Box display="flex" mt="1rem">
+                <span
+                  style={{
+                    width: "2%",
+                    maxWidth: ".2rem",
+                    height: "auto",
+                    marginRight: "1rem",
+                    backgroundColor: "#c2662d",
+                  }}
+                ></span>
+                <p className="body-paragraph">{item.paragraph}</p>
+              </Box>
+            </Box>
           </AnimatedBox>
         ))}
-            <Box className="mt-3" display="flex" justifyContent="flex-end">
-              <Link to="/trygg-renovering" style={{ textDecoration: "none" }} aria-label="Länk till trygg renovering">
-                <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till trygg renoverings sidans">
-                  Trygg Renovering
-                </Button>
-              </Link>
-            </Box>
-          </Box>
+        <Box className="mt-3" display="flex" justifyContent="flex-end">
+          <Link
+            to="/trygg-renovering"
+            style={{ textDecoration: "none" }}
+            aria-label="Länk till trygg renovering"
+          >
+            <Button
+              variant="contained"
+              sx={buttonStyleContained}
+              aria-label="Klicka för att komma till trygg renoverings sidans"
+            >
+              Trygg Renovering
+            </Button>
+          </Link>
+        </Box>
+      </Box>
     </Box>
   );
 }
 
 const textContent = [
   {
-    title: "BOB Våtrumsrenovering Vill Förändra Totalrenovering Trygghet Och Kommunikation Måste Vara Ledorden.",
-    paragraph: "I Sverige finns det en uppfattning om att det är krångligt att anlita en hantverkare för att renovera lägenheten eller huset. Många tycker att det är svårt att få tag i sin hantverkare och svårt att veta vad priset landar på. BOB VÅTRUMSRENOVERING är ett familjeföretag som försöker slå hål på dessa myter – vi renoverar till fast pris och du får en specifik projektledare hos oss som du alltid kan höra av dig till. Detta kallar vi för trygg renovering. Det finns en stor efterfrågan på hantverkare just nu. Det beror delvis på att människor ser ett stort värde i att fräscha upp sin boendestandard och dels på att en renovering kan höja bostadens värde betydligt. ",
-    id: 1
+    title:
+      "BOB Våtrumsrenovering Vill Förändra Totalrenovering Trygghet Och Kommunikation Måste Vara Ledorden.",
+    paragraph:
+      "I Sverige finns det en uppfattning om att det är krångligt att anlita en hantverkare för att renovera lägenheten eller huset. Många tycker att det är svårt att få tag i sin hantverkare och svårt att veta vad priset landar på. BOB VÅTRUMSRENOVERING är ett familjeföretag som försöker slå hål på dessa myter – vi renoverar till fast pris och du får en specifik projektledare hos oss som du alltid kan höra av dig till. Detta kallar vi för trygg renovering. Det finns en stor efterfrågan på hantverkare just nu. Det beror delvis på att människor ser ett stort värde i att fräscha upp sin boendestandard och dels på att en renovering kan höja bostadens värde betydligt. ",
+    id: 1,
   },
   {
     title: "BOB VÅTRUMSRENOVERING Är Ett Familjeföretag.",
-    paragraph: "med stor erfarenhet av att hjälpa privatpersoner med renoveringar av kök. Vi ger dig en offert med ett fast pris innan arbetet påbörjas så du slipper oroa dig för vad kostnaden ska landa på i slutändan. Du får också en projektledare hos oss som är den enda personen du behöver ha kontakt med under hela processen. På så sätt behöver du varken oroa dig över priset eller över att falla mellan stolarna i kontakten med oss.",
+    paragraph:
+      "med stor erfarenhet av att hjälpa privatpersoner med renoveringar av kök. Vi ger dig en offert med ett fast pris innan arbetet påbörjas så du slipper oroa dig för vad kostnaden ska landa på i slutändan. Du får också en projektledare hos oss som är den enda personen du behöver ha kontakt med under hela processen. På så sätt behöver du varken oroa dig över priset eller över att falla mellan stolarna i kontakten med oss.",
     id: 2,
   },
   {
@@ -121,5 +130,5 @@ const textContent = [
     av dig till oss för en offert.
     `,
     id: 3,
-  }
-]
+  },
+];

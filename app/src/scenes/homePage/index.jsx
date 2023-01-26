@@ -198,7 +198,6 @@ export default function HomePage() {
           </AnimatedBox>
         </Box>
       </Box>
-      <Spacer />
       {/* Intro */}
       <Spacer />
       <section id="hem-intro">

@@ -58,7 +58,8 @@ export default function Footer() {
     fontSize: "1rem",
     backgroundColor: theme.palette.primary[500],
     color: "#fff",
-    "&>a": { color: "#fff", textDecoration: "none" },
+    padding: 0,
+    "&>a": { color: "#fff", textDecoration: "none", padding: "6px 16px" },
     "&:hover": { backgroundColor: theme.palette.primary[600] },
   };
 
@@ -152,7 +153,7 @@ export default function Footer() {
                   Länkar
                 </Typography>
                 <List component="ul">
-                 <ListItem sx={styledLinks}>
+                  <ListItem sx={styledLinks}>
                     <Link to="/vara-tjanster">Våra Tjänster</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
@@ -254,11 +255,15 @@ export default function Footer() {
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Button
-                      name="offert förfrågan"
+                      aria-label="Klicka för att komma till kontakta oss sidan"
                       variant="contained"
                       sx={buttonStyle}
                     >
-                      <Link to="/kontakt" className="button-text">
+                      <Link
+                        to="/kontakt"
+                        className="button-text"
+                        aria-label="Länk till kontakt"
+                      >
                         Få en offert idag
                       </Link>
                     </Button>

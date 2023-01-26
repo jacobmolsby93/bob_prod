@@ -36,7 +36,8 @@ const ProjectKitchen = lazy(() =>
   import("./scenes/referenceKitchen/index.jsx")
 );
 const Remodel = lazy(() => import("./scenes/totalRemodel/index.jsx"));
-const References = lazy(() => import("./scenes/referencePage/index.jsx"))
+const References = lazy(() => import("./scenes/referencePage/index.jsx"));
+const Detail = lazy(() => import("./scenes/referenceDetail/index.jsx"))
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -78,6 +79,7 @@ function App() {
               path="/referenser/badrumsrenovering"
               element={<ProjectBathroom />}
             ></Route>
+            <Route path="/referenscase/:titleUrl" element={<Detail />} />
             <Route path="/omoss" element={<About />}></Route>
             <Route path="/vanliga-fragor" element={<Questions />}></Route>
             <Route path="/trygg-renovering" element={<Comfort />}></Route>
