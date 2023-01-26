@@ -41,7 +41,7 @@ export default function Total() {
           className="title-font"
           sx={{ marginBottom: "1rem" }}
         >
-          Ttotalrenovering I Stockholm Med Omnejd
+          Totalrenovering I Stockholm Med Omnejd
         </Typography>
         <AnimatedLazyImage
           src={introImage}
