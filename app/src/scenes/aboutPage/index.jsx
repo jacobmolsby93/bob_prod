@@ -79,7 +79,7 @@ export default function AboutPage() {
       </AnimatedBox>
       <Spacer />
       <AnimatedBox>
-      <section id="contact-about">
+        <section id="contact-about">
           <Box className="container">
             <Contact />
           </Box>

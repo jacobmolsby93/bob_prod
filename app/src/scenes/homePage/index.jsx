@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // Componenets
 import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
-import Credits from "../../components/Credits.jsx"
+import Credits from "../../components/Credits.jsx";
 
 // Widgets
 import Faq from "./widgets/Faq.jsx";
@@ -222,37 +222,40 @@ export default function HomePage() {
       <Spacer />
       {/* Previous Work Carousel */}
       <section id="tidigare-projekt">
-      <AnimatedBox>
-        <Box className="container">
-          <Box className="row">
-            <Box className="col-12" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)">
-              <Carousel
-                image1={carouselImage1}
-                image2={carouselImage2}
-                image3={carouselImage3}
-                image4={carouselImage4}
-                smallScreen={smallScreen}
-              />
+        <AnimatedBox>
+          <Box className="container">
+            <Box className="row">
+              <Box
+                className="col-12"
+                boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              >
+                <Carousel
+                  image1={carouselImage1}
+                  image2={carouselImage2}
+                  image3={carouselImage3}
+                  image4={carouselImage4}
+                  smallScreen={smallScreen}
+                />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </AnimatedBox>
+        </AnimatedBox>
       </section>
       <Spacer />
       {/* Contact Form */}
       <section id="hem-kontakt">
-      <AnimatedBox>
-        <Box
-          className="contact-background"
-          minHeight={!smallScreen ? "640px" : undefined}
-        >
-          <Box className="container">
-            <Box className="row">
-              <Contact />
+        <AnimatedBox>
+          <Box
+            className="contact-background"
+            minHeight={!smallScreen ? "640px" : undefined}
+          >
+            <Box className="container">
+              <Box className="row">
+                <Contact />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </AnimatedBox>
+        </AnimatedBox>
       </section>
       <Spacer />
       {/* Frequently Asked Questions */}
@@ -297,7 +300,7 @@ export default function HomePage() {
       <Spacer />
 
       <Box padding="3rem 0">
-        <Credits dark={true}/>
+        <Credits dark={true} />
       </Box>
     </Box>
   );

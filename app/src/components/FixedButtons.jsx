@@ -64,7 +64,7 @@ const FixedButtons = () => {
             initial={{ x: "100vw", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", bounce: "0.1", duration: "0.8" }}
-            exit={{ x: "100vw", transition: "ease-out 0.8"}}
+            exit={{ x: "100vw", transition: "ease-out 0.8" }}
             style={fixed}
           >
             <Box sx={sideButtons}>

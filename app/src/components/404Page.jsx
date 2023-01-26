@@ -43,12 +43,19 @@ export default function NotFound() {
             <br />
             Klicka gärna på länken nedan för att komma tillbaka till hemsidan!
             <br />
-            Eller kontakta oss på <a href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</a>
+            Eller kontakta oss på{" "}
+            <a href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</a>
           </p>
         </Box>
 
         <Link to="/" className="button-text" aria-label="Länk hem">
-          <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till hem"><p className="button-text">Hem</p></Button>
+          <Button
+            variant="contained"
+            sx={buttonStyleContained}
+            aria-label="Klicka för att komma till hem"
+          >
+            <p className="button-text">Hem</p>
+          </Button>
         </Link>
 
         <img

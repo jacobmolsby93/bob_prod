@@ -53,12 +53,16 @@ export default function Intro(props) {
           padding={!lgScreen ? "0 20px 0 0" : "0"}
         >
           <Box height="auto">
-          <img
-            className="img-fluid"
-            src={props.image}
-            alt={props.alt}
-            style={{ objectFit: "cover", height: smallScreen ? "400px": "100%", width: smallScreen ? "100%" : "auto"}}
-          />
+            <img
+              className="img-fluid"
+              src={props.image}
+              alt={props.alt}
+              style={{
+                objectFit: "cover",
+                height: smallScreen ? "400px" : "100%",
+                width: smallScreen ? "100%" : "auto",
+              }}
+            />
           </Box>
         </Box>
         <Box
@@ -120,7 +124,7 @@ export default function Intro(props) {
                 >
                   Om Företaget
                 </Link>
-              </Button> 
+              </Button>
             </Box>
           </article>
         </Box>

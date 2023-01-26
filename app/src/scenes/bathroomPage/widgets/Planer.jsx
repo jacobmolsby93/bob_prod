@@ -14,13 +14,12 @@ import AnimatedLazyImage from "../../../components/LazyImage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // Images
-import collageImage from "../../../assets/collage-image-light.webp"
-
+import collageImage from "../../../assets/collage-image-light.webp";
 
 export default function Planer() {
   const theme = useTheme();
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm")) 
-  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"))
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
   const arrowIcon = {
     color: theme.palette.primary[500],
@@ -29,7 +28,10 @@ export default function Planer() {
   return (
     <div>
       <Box className="row">
-        <Box className="col-12 col-xl-6 order-last order-xl-first" sx={{ marginTop: "20px"}}>
+        <Box
+          className="col-12 col-xl-6 order-last order-xl-first"
+          sx={{ marginTop: "20px" }}
+        >
           <Typography variant="h2" component="h2" className="title-font">
             Bra Att Tänka På När Du Planerar Ditt Badrum!
           </Typography>
@@ -54,7 +56,7 @@ export default function Planer() {
           <Box>
             <List className="list-unstyled">
               {tips.map((tip, index) => (
-                <ListItem key={index} sx={{ paddingLeft: "0"}}>
+                <ListItem key={index} sx={{ paddingLeft: "0" }}>
                   <span style={{ marginRight: "1rem" }}>
                     <ArrowForwardIcon sx={arrowIcon} />
                   </span>
@@ -64,7 +66,10 @@ export default function Planer() {
             </List>
           </Box>
         </Box>
-        <Box className="col-12 col-xl-6" sx={{ paddingLeft: !lgScreen ? "3rem" : "0"}}>
+        <Box
+          className="col-12 col-xl-6"
+          sx={{ paddingLeft: !lgScreen ? "3rem" : "0" }}
+        >
           <AnimatedLazyImage
             src={collageImage}
             className="img-fluid"

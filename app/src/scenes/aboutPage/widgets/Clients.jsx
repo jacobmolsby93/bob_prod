@@ -1,6 +1,4 @@
-import {
-  Box,
-} from "@mui/material";
+import { Box } from "@mui/material";
 
 // Images
 import beijer from "../../../assets/beijer.webp";
@@ -9,8 +7,8 @@ import bahuahs from "../../../assets/bauhaus.webp";
 import okq8 from "../../../assets/okq8.webp";
 import optimera from "../../../assets/optimera.webp";
 import bostik from "../../../assets/bostik.webp";
-import dahl from "../../../assets/dahl.webp"
-import rexel from "../../../assets/rexel.webp"
+import dahl from "../../../assets/dahl.webp";
+import rexel from "../../../assets/rexel.webp";
 
 const images = [
   {
@@ -53,18 +51,18 @@ const images = [
     id: 7,
     image: dahl,
     alt: "Logga Dahl",
-    url: "https://www.dahl.se/"
+    url: "https://www.dahl.se/",
   },
   {
     id: 8,
     image: rexel,
     alt: "Logga Rexel",
-    url: "https://www.rexel.se/swe/"
-  }
+    url: "https://www.rexel.se/swe/",
+  },
 ].map((image) => ({
   id: image.id,
   image: image.image,
-  url: image.url
+  url: image.url,
 }));
 
 import CardContainer from "./CardContainer.jsx";
@@ -74,7 +72,7 @@ const Clients = () => {
     <div>
       <Box justifyContent="center">
         <Box className="slider-wrap">
-          <CardContainer images={images} speed={80000}/>
+          <CardContainer images={images} speed={80000} />
         </Box>
       </Box>
     </div>

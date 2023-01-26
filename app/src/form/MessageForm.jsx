@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 const MessageFields = () => {
   const theme = useTheme();
@@ -27,10 +27,10 @@ const MessageFields = () => {
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
 
-  const serviceId = import.meta.env.VITE_SERVICE_ID
-  const publicKey = import.meta.env.VITE_PUBLIC_KEY
-  const templateId = import.meta.env.VITE_TEMPLATE_ID
-
+  // This will be replaced when backend comes to play
+  const serviceId = import.meta.env.VITE_SERVICE_ID;
+  const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+  const templateId = import.meta.env.VITE_TEMPLATE_ID;
 
   const handleClose = () => {
     setOpen(false);
@@ -115,6 +115,7 @@ const MessageFields = () => {
       gdpr: Yup.boolean(),
     }),
     onSubmit: (values) => {
+      formik.setSubmitting(true);
       const { namn, epost, telefon, medelande } = values;
       setFormValues(values);
       const valuesWithCustomFields = {
@@ -124,18 +125,16 @@ const MessageFields = () => {
         message: `${medelande} \n Telefon: ${telefon}`,
         reply_to: epost,
       };
-      emailjs
-        .send(serviceId, templateId, valuesWithCustomFields, publicKey)
-        .then(
-          (result) => {
-            setOpen(true);
-            setFormStatus("success");
-            formik.resetForm();
-          },
-          (error) => {
-            setFormStatus("error");
-          }
-        )
+      axios
+        .post("http://your_server_url/submit-form", valuesWithCustomFields)
+        .then((response) => {
+          setOpen(true);
+          setFormStatus("success");
+          formik.resetForm();
+        })
+        .catch((error) => {
+          setFormStatus("error");
+        })
         .finally(() => {
           formik.setSubmitting(false);
         });
@@ -165,8 +164,13 @@ const MessageFields = () => {
               sx={{ mt: 2 }}
               component="p"
             >
-              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om våra
-              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster" style={{ marginLeft: ".5rem"}}>
+              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om
+              våra
+              <Link
+                to="/vara-tjanster"
+                aria-label="Länk till våra Tjänster"
+                style={{ marginLeft: ".5rem" }}
+              >
                 tjänster
               </Link>
               .

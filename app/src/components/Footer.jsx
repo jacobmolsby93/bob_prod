@@ -48,7 +48,7 @@ export default function Footer() {
     },
     "&:hover": {
       textDecoration: "none",
-      "&>a": { color: theme.palette.primary[800] },
+      "&>a": { color: theme.palette.primary[200] },
     },
   };
 
@@ -153,7 +153,7 @@ export default function Footer() {
                 </Typography>
                 <List component="ul">
                   <ListItem sx={styledLinks}>
-                    <Link to="/vara-tjanster/badrum">Badrum</Link>
+                    <Link to="/vara-tjanster">Våra Tjänster</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Link to="/behorigheter">Behörigheter</Link>
@@ -163,6 +163,12 @@ export default function Footer() {
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Link to="/omoss">Om Oss</Link>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/vanliga-fragor">Vanliga Frågor</Link>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/trygg-renovering">Trygg Renovering</Link>
                   </ListItem>
                 </List>
               </Box>
@@ -200,14 +206,18 @@ export default function Footer() {
                     </a>
                   </ListItem>
                   <ListItem sx={styledLinks}>
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="flex-starr">
                       <FmdGoodRoundedIcon sx={footerIcon} />
                       <a
                         style={contactP}
                         href="https://maps.google.com/?q=59.3293234,18.0685808"
                         target="_blank"
                       >
-                        BOB Badrum Stockholm
+                        BOB Våtrumsrenovering,
+                        <br />
+                        Org-nummer: 556963-1905
+                        <br />
+                        Ǻsvägen 9, 155 32, Nykvarn
                       </a>
                     </Box>
                   </ListItem>

@@ -78,7 +78,11 @@ export default function Faq(props) {
               </Box>
               {question.link && (
                 <Box padding="20px 20px">
-                  <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till kontakta oss">
+                  <Button
+                    variant="contained"
+                    sx={buttonStyleContained}
+                    aria-label="Klicka för att komma till kontakta oss"
+                  >
                     <Link
                       to={question.link}
                       aria-label={`Länk till ${question.link}`}

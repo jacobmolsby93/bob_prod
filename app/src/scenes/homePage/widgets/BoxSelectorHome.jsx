@@ -18,8 +18,6 @@ import quality from "../../../assets/quality.png";
 import podium from "../../../assets/podium.png";
 import shapes from "../../../assets/backgroundshapes.png";
 
-
-
 export default function WhyUs() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -68,7 +66,7 @@ export default function WhyUs() {
         sx={{ margin: mediumScreen ? "30px 0 30px 0" : "0" }}
       >
         <Box className="row flex-centerd-align" height="100%">
-          <Box className="col-12 col-lg-6" sx={{ zIndex: "10 "}}>
+          <Box className="col-12 col-lg-6" sx={{ zIndex: "10 " }}>
             <Typography variant="h2" className="subtitle-font primary">
               Vad Vi Står För.
             </Typography>
@@ -86,7 +84,14 @@ export default function WhyUs() {
               ></span>
               <Box>
                 <p className="body-paragraph">
-                Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är en badrumsrenoveringsfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrumsrenoveringar. Vi har massa lyckade uppdrag runt om i Stockholm. Vi fokuserar endast på badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i alla led.
+                  Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens
+                  inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är
+                  en badrumsrenoveringsfirma som erbjuder våra kunder en
+                  helhetslösning när det kommer till allt inom
+                  badrumsrenoveringar. Vi har massa lyckade uppdrag runt om i
+                  Stockholm. Vi fokuserar endast på badrumsrenoveringar, wc &
+                  tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i
+                  alla led.
                 </p>
               </Box>
             </Box>
@@ -116,7 +121,11 @@ export default function WhyUs() {
           </Box>
           <Box
             className="col-12 col-lg-6 flex-centerd-align"
-            sx={{ zIndex: "10", flexWrap: "wrap", marginTop: mediumScreen ? "20px" : "" }}
+            sx={{
+              zIndex: "10",
+              flexWrap: "wrap",
+              marginTop: mediumScreen ? "20px" : "",
+            }}
           >
             <Grid container spacing={2} diplay="flex" justifyContent="center">
               <GridItem
@@ -138,7 +147,7 @@ export default function WhyUs() {
           sx={{
             backgroundPosition: mediumScreen ? "top" : "right",
             backgroundImage: `url(${shapes})`,
-            zIndex: "-1"
+            zIndex: "-1",
           }}
         ></Box>
       </Box>

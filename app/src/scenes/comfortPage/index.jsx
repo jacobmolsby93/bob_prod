@@ -1,20 +1,26 @@
-import React from 'react'
-import { Box, Typography, useTheme, useMediaQuery, Button} from "@mui/material"
+import React from "react";
+import {
+  Box,
+  Typography,
+  useTheme,
+  useMediaQuery,
+  Button,
+} from "@mui/material";
 
 // Widgets
-import Intro from './widgets/Intro';
+import Intro from "./widgets/Intro";
 
 // Components
-import Spacer from '../../components/Spacer';
-import Credits from '../../components/Credits';
-import Contact from "../../components/Contact"
+import Spacer from "../../components/Spacer";
+import Credits from "../../components/Credits";
+import Contact from "../../components/Contact";
 
 // Images
-import heroImage from "../../assets/landingbackground2.webp"
+import heroImage from "../../assets/landingbackground2.webp";
 
 // Animation
-import AnimatedBox from '../../animation/Animated';
-import SectionTwo from './widgets/SectionTwo';
+import AnimatedBox from "../../animation/Animated";
+import SectionTwo from "./widgets/SectionTwo";
 
 export default function Comfort() {
   const theme = useTheme();
@@ -66,15 +72,15 @@ export default function Comfort() {
 
       <section>
         <Box className="container">
-            <Intro/>
+          <Intro />
         </Box>
       </section>
 
       <Spacer />
-          
+
       <section>
         <Box className="container">
-            <SectionTwo/>
+          <SectionTwo />
         </Box>
       </section>
 
@@ -83,11 +89,10 @@ export default function Comfort() {
       <section>
         <Box className="container">
           <Box className="row">
-            <Contact/>
+            <Contact />
           </Box>
         </Box>
       </section>
-
 
       <section className="credits-bg">
         <Credits dark={true} />

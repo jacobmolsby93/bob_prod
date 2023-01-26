@@ -1,18 +1,18 @@
-import React from 'react'
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material"
+import React from "react";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 // Widgets
-import KitchenTips from "./widgets/KitchenTips"
+import KitchenTips from "./widgets/KitchenTips";
 
 // Components
-import Spacer from '../../components/Spacer';
-import Credits from '../../components/Credits';
+import Spacer from "../../components/Spacer";
+import Credits from "../../components/Credits";
 
 //Animation
-import AnimatedBox from '../../animation/Animated';
+import AnimatedBox from "../../animation/Animated";
 
 // Images
-import heroImage from "../../assets/kitchenhero.webp"
+import heroImage from "../../assets/kitchenhero.webp";
 
 export default function Kitchen() {
   const theme = useTheme();
@@ -26,7 +26,7 @@ export default function Kitchen() {
           className="landing-box-home__image"
           sx={{
             backgroundImage: `url(${heroImage})`,
-            backgroundPosition: "center top"
+            backgroundPosition: "center top",
           }}
         ></Box>
         {/* Hero Section */}
@@ -64,20 +64,18 @@ export default function Kitchen() {
       <Spacer />
 
       <section id="tips">
-            <Box className="container">
-              <KitchenTips />
-            </Box>
-      </section>  
+        <Box className="container">
+          <KitchenTips />
+        </Box>
+      </section>
       <Spacer />
 
-      <section>
-          
-      </section>
+      <section></section>
 
-      <Spacer /> 
+      <Spacer />
       <section className="credits-bg">
         <Credits dark={true} />
       </section>
     </Box>
-  )
+  );
 }

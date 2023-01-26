@@ -10,10 +10,9 @@ import tip1 from "../../../assets/carouselhome1.webp";
 
 import AnimatedLazyImage from "../../../components/LazyImage";
 
-
 export default function TipsCarousel() {
   const theme = useTheme();
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"))
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -26,16 +25,16 @@ export default function TipsCarousel() {
     transition: "200ms",
     "&:hover": {
       transform: "scale(1.2)",
-    }
-  }
+    },
+  };
 
   return (
     <Box className="row" width="100%">
       <Carousel
         id="tips-carousel"
         indicators={false}
-        nextIcon={<ArrowForwardIosIcon sx={carouselIconStyle}/>}
-        prevIcon={<ArrowBackIosNewIcon sx={carouselIconStyle}/>}
+        nextIcon={<ArrowForwardIosIcon sx={carouselIconStyle} />}
+        prevIcon={<ArrowBackIosNewIcon sx={carouselIconStyle} />}
         activeIndex={index}
         onSelect={handleSelect}
         interval={null}
@@ -66,7 +65,10 @@ export default function TipsCarousel() {
                   alt={item.title}
                 />
               </Box>
-              <Box className="col-12 col-lg-6" sx={{ padding: smallScreen ?  "1rem 1rem 3rem 1rem" : "3rem" }}>
+              <Box
+                className="col-12 col-lg-6"
+                sx={{ padding: smallScreen ? "1rem 1rem 3rem 1rem" : "3rem" }}
+              >
                 <Box className="TextBox">
                   <Typography variant="h2" className="carousel-title-font">
                     <span style={{ marginRight: ".5rem" }}>{item.id}.</span>
@@ -131,7 +133,7 @@ const tipsData = [
     image: tip1,
     title: "Ta inspiration från andra badrumsrenoveringar.",
     paragraph:
-      "Det kan vara svårt att veta exakt hur man vill ha sitt badrum. Det bästa sättet att få inspiration till hur en badrumsrenovering kan göras är att titta på tex. pintrest eller instagram. De finns 1000 olika sätt att renovera badrummet på och det är bara fantasin som sätter stopp för att få just ditt dröm badrum."
+      "Det kan vara svårt att veta exakt hur man vill ha sitt badrum. Det bästa sättet att få inspiration till hur en badrumsrenovering kan göras är att titta på tex. pintrest eller instagram. De finns 1000 olika sätt att renovera badrummet på och det är bara fantasin som sätter stopp för att få just ditt dröm badrum.",
   },
   {
     id: 5,

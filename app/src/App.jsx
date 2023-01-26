@@ -25,10 +25,14 @@ const Certifications = lazy(() =>
 );
 const Contact = lazy(() => import("./scenes/contactPage/index.jsx"));
 const About = lazy(() => import("./scenes/aboutPage/index.jsx"));
-const Bathroom = lazy(() => import("./scenes/bathroomPage/index.jsx"))
-const Kitchen = lazy(() => import("./scenes/kitchenPage/index.jsx"))
-const Comfort = lazy(() => import("./scenes/comfortPage/index.jsx"))
-const Questions = lazy(() => import("./scenes/questionsPage/index.jsx"))
+const Bathroom = lazy(() => import("./scenes/bathroomPage/index.jsx"));
+const Kitchen = lazy(() => import("./scenes/kitchenPage/index.jsx"));
+const Comfort = lazy(() => import("./scenes/comfortPage/index.jsx"));
+const Questions = lazy(() => import("./scenes/questionsPage/index.jsx"));
+const ProjectBathroom = lazy(() =>
+  import("./scenes/referenceBathroom/index.jsx")
+);
+const ProjectKitchen = lazy(() => import("./scenes/referenceKitchen/index.jsx"));
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -46,11 +50,25 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/vara-tjanster" element={<Services />}></Route>
-            <Route path="/vara-tjanster/badrum" element={<Bathroom />}></Route>
-              <Route path="/vara-tjanster/koksrenovering" element={<Kitchen />}></Route>
+            <Route
+              path="/vara-tjanster/badrumsrenovering"
+              element={<Bathroom />}
+            ></Route>
+            <Route
+              path="/vara-tjanster/koksrenovering"
+              element={<Kitchen />}
+            ></Route>
             <Route path="/behorigheter" element={<Certifications />}></Route>
             <Route path="/kontakt" element={<Contact />}></Route>
             <Route path="/offertforfragan" element={<Contact />}></Route>
+            <Route
+              path="/referenser/koksrenoveringar"
+              element={<ProjectKitchen />}
+            ></Route>
+            <Route
+              path="/referenser/badrumsrenovering"
+              element={<ProjectBathroom />}
+            ></Route>
             <Route path="/omoss" element={<About />}></Route>
             <Route path="/vanliga-fragor" element={<Questions />}></Route>
             <Route path="/trygg-renovering" element={<Comfort />}></Route>

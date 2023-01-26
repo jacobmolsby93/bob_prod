@@ -1,9 +1,8 @@
 import path from "path";
-import webpack from "webpack"
+import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
-
 
 export default {
   mode: "production",

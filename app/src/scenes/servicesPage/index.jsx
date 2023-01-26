@@ -1,7 +1,11 @@
-
-
-import { Link } from "react-router-dom"
-import { Box, Typography, useMediaQuery, Button, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
+import {
+  Box,
+  Typography,
+  useMediaQuery,
+  Button,
+  useTheme,
+} from "@mui/material";
 
 import Spacer from "../../components/Spacer.jsx";
 
@@ -13,10 +17,9 @@ import landingImage from "../../assets/aboutimage1.webp";
 import AnimatedBox from "../../animation/Animated.jsx";
 import Credits from "../../components/Credits.jsx";
 
-
 export default function Services() {
-  const theme = useTheme()
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"))
+  const theme = useTheme();
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const titleFontSize = "54px";
   const buttonStyleOutline = {
     marginTop: smallScreen ? "1rem" : "",
@@ -76,15 +79,18 @@ export default function Services() {
       <ServiceBox />
 
       <Spacer />
-      
+
       <Box display="flex" justifyContent="center">
-        <Button variant="outlined" sx={buttonStyleOutline} aria-label="Klicka för att komma till sidan kontakta oss">
+        <Button
+          variant="outlined"
+          sx={buttonStyleOutline}
+          aria-label="Klicka för att komma till sidan kontakta oss"
+        >
           <Link aria-label="Länk till kontakta oss" to="/kontakt">
             <strong className="body-paragraph">Kontakta Oss För Offert</strong>
           </Link>
         </Button>
       </Box>
-
 
       <Spacer />
 
@@ -92,5 +98,5 @@ export default function Services() {
         <Credits dark={true} />
       </section>
     </Box>
-  )
+  );
 }

@@ -8,12 +8,11 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-
 import AnimatedLazyImage from "../../../components/LazyImage";
 
 // Images
 import mobileImage from "../../../assets/aboutimage1.webp";
-import desktopCollageImage from "../../../assets/servicesintro.webp"
+import desktopCollageImage from "../../../assets/servicesintro.webp";
 
 const Intro = () => {
   const theme = useTheme();
@@ -23,15 +22,17 @@ const Intro = () => {
     <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
       {!lgScreen ? (
         <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
-          <Box >
-          <AnimatedLazyImage src={desktopCollageImage} className="img-fluid" style={{ minHeight: "100%" }} alt="Collage av 3 bilder på badrum" />
+          <Box sx={{ height: "100%"}}>
+            <AnimatedLazyImage
+              src={desktopCollageImage}
+              className="img-fluid"
+              style={{ minHeight: "100%"}}
+              alt="Collage av 3 bilder på badrum"
+            />
           </Box>
         </Box>
       ) : (
-        <Box
-          className="col-12"
-          sx={{ marginBottom: "2rem" }}
-        >
+        <Box className="col-12" sx={{ marginBottom: "2rem" }}>
           <AnimatedLazyImage
             src={mobileImage}
             style={{ objectFit: "cover", maxHeight: "400px", width: "100%" }}
@@ -92,7 +93,11 @@ const Intro = () => {
               },
             }}
           >
-            <Link to="/kontakt" className="button-text" aria-label="Länk till kontakta oss">
+            <Link
+              to="/kontakt"
+              className="button-text"
+              aria-label="Länk till kontakta oss"
+            >
               Kontakta Oss
             </Link>
           </Button>
@@ -113,7 +118,11 @@ const Intro = () => {
               },
             }}
           >
-            <Link to="/om-oss" className="button-text" aria-label="Länk till om oss">
+            <Link
+              to="/om-oss"
+              className="button-text"
+              aria-label="Länk till om oss"
+            >
               Om Företaget
             </Link>
           </Button>

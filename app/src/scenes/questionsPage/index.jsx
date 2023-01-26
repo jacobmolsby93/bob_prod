@@ -1,21 +1,25 @@
-import React from 'react'
-import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material"
+import React from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 // Components
-import Spacer from '../../components/Spacer.jsx'
-import Credits from '../../components/Credits.jsx'
-import Contact from "../../components/Contact"
-
+import Spacer from "../../components/Spacer.jsx";
+import Credits from "../../components/Credits.jsx";
+import Contact from "../../components/Contact";
 
 // Widgets
-import Faq from "./widgets/Faq.jsx"
+import Faq from "./widgets/Faq.jsx";
 
 // Images
-import heroImage from "../../assets/landingbackground2.webp"
+import heroImage from "../../assets/landingbackground2.webp";
 
 // Animations
-import AnimatedBox from '../../animation/Animated.jsx'
-
+import AnimatedBox from "../../animation/Animated.jsx";
 
 export default function Questions() {
   const theme = useTheme();
@@ -29,7 +33,7 @@ export default function Questions() {
           className="landing-box-home__image"
           sx={{
             backgroundImage: `url(${heroImage})`,
-            backgroundPosition: "center top"
+            backgroundPosition: "center top",
           }}
         ></Box>
         {/* Hero Section */}
@@ -66,11 +70,10 @@ export default function Questions() {
       </Box>
       <Spacer />
 
-            
       <section>
-          <Box className="container">
-              <Faq />
-          </Box>
+        <Box className="container">
+          <Faq />
+        </Box>
       </section>
 
       <Spacer />
@@ -78,16 +81,15 @@ export default function Questions() {
       <section>
         <Box className="container">
           <Box className="row">
-              <Contact />
+            <Contact />
           </Box>
         </Box>
       </section>
 
-      <Spacer /> 
+      <Spacer />
       <section className="credits-bg">
         <Credits dark={true} />
       </section>
     </Box>
-  )
+  );
 }
-

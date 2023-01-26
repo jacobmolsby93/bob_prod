@@ -37,7 +37,12 @@ export default function Team() {
       justifyContent={!lgScreen ? "space-between" : "center"}
     >
       {data.persons.map((person) => (
-        <Box className="col-10 col-md-4 mt-2 mt-md-none" padding="0 10px" maxWidth={smallScreen ? "" : "350px"} key={person.id}>
+        <Box
+          className="col-10 col-md-4 mt-2 mt-md-none"
+          padding="0 10px"
+          maxWidth={smallScreen ? "" : "350px"}
+          key={person.id}
+        >
           <Card
             className="flex-centerd-justify"
             position="relative"
@@ -45,12 +50,19 @@ export default function Team() {
           >
             <Box sx={cardBackground}></Box>
             <Box sx={socialList} display="flex" justifyContent="center">
-              <nav style={{ width: "100%"}}
-              >
+              <nav style={{ width: "100%" }}>
                 <List className="team-social-list">
                   <ListItem className="social-icon-wrapper">
-                    <a href={person.facebook} target="_blank" aria-label="Länk för facebook knapp">
-                      <Button variant="outlined" sx={styledIconOutlined} aria-label="Se BOB Badrums Facebook konto">
+                    <a
+                      href={person.facebook}
+                      target="_blank"
+                      aria-label="Länk för facebook knapp"
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={styledIconOutlined}
+                        aria-label="Se BOB Badrums Facebook konto"
+                      >
                         <img
                           src={FacebookIcon}
                           width="20.56px"
@@ -61,22 +73,46 @@ export default function Team() {
                     </a>
                   </ListItem>
                   <ListItem className="social-icon-wrapper">
-                    <a href={person.facebook} target="_blank" aria-label="Länk för instagram knapp"> 
-                      <Button variant="outlined" sx={styledIconOutlined} aria-label="Se BOB Badrums Instagram konto"> 
+                    <a
+                      href={person.facebook}
+                      target="_blank"
+                      aria-label="Länk för instagram knapp"
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={styledIconOutlined}
+                        aria-label="Se BOB Badrums Instagram konto"
+                      >
                         <InstagramIcon />
                       </Button>
                     </a>
                   </ListItem>
                   <ListItem className="social-icon-wrapper">
-                    <a href={person.facebook} target="_blank" aria-label="Länk för telefon knapp">
-                      <Button variant="outlined" sx={styledIconOutlined} aria-label="Ring BOB Badrum">
+                    <a
+                      href={person.facebook}
+                      target="_blank"
+                      aria-label="Länk för telefon knapp"
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={styledIconOutlined}
+                        aria-label="Ring BOB Badrum"
+                      >
                         <CallIcon />
                       </Button>
                     </a>
                   </ListItem>
                   <ListItem className="social-icon-wrapper">
-                    <a href={person.facebook} target="_blank" aria-label="Länk för email knapp">
-                      <Button variant="outlined" sx={styledIconOutlined} aria-label="Skicka email till BOB Badrum">
+                    <a
+                      href={person.facebook}
+                      target="_blank"
+                      aria-label="Länk för email knapp"
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={styledIconOutlined}
+                        aria-label="Skicka email till BOB Badrum"
+                      >
                         <EmailOutlinedIcon />
                       </Button>
                     </a>

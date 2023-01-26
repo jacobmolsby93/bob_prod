@@ -8,13 +8,12 @@ import MessageForm from "../form/MessageForm.jsx";
 import FacebookIcon from "../assets/facebook.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
-import MailRoundedIcon from '@mui/icons-material/MailRounded';
+import MailRoundedIcon from "@mui/icons-material/MailRounded";
 
 export default function Contact() {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const theme = useTheme();
-
 
   const contactIcon = {
     color: theme.palette.primary[500],
@@ -120,7 +119,10 @@ export default function Contact() {
             </a>
           </Box>
           <Box mt="30px">
-            <a className="body-paragraph contact-info" href="mailto:hej@bobbadrum.se?subject=Offert">
+            <a
+              className="body-paragraph contact-info"
+              href="mailto:hej@bobbadrum.se?subject=Offert"
+            >
               <span style={{ marginRight: ".5rem" }}>
                 <MailRoundedIcon sx={contactIcon} />
               </span>

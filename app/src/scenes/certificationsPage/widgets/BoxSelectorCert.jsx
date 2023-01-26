@@ -10,13 +10,13 @@ import {
 
 import data from "../../../data/certData.json";
 import shapes from "../../../assets/backgroundshapes.png";
-import LaunchIcon from '@mui/icons-material/Launch';
+import LaunchIcon from "@mui/icons-material/Launch";
 import AnimatedLazyImage from "../../../components/LazyImage";
 
 export default function WhyUs() {
   const theme = useTheme();
-  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"))
-  const mediumScreen = useMediaQuery(() => theme.breakpoints.down("md  "))
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
+  const mediumScreen = useMediaQuery(() => theme.breakpoints.down("md  "));
   const [certData, setCertData] = useState(data.entries);
   const [selected, setSelected] = useState(certData[0].id);
 
@@ -44,7 +44,7 @@ export default function WhyUs() {
               : "0px 4px 4px rgba(0, 0, 0, 0.25)",
             transition: "300ms",
             height: "100%",
-            width: "100%"
+            width: "100%",
           }}
         >
           <AnimatedLazyImage
@@ -80,7 +80,10 @@ export default function WhyUs() {
         display="flex"
         alignItems="center"
       >
-        <Box className="flex-centerd-align" sx={{ padding: !lgScreen ? "" : "30px 0"}}>
+        <Box
+          className="flex-centerd-align"
+          sx={{ padding: !lgScreen ? "" : "30px 0" }}
+        >
           <Box
             className="row flex-centerd-align"
             justifyContent="space-between"
@@ -145,7 +148,7 @@ export default function WhyUs() {
                           href={text.url}
                           target="_blank"
                         >
-                          Läs Mer <LaunchIcon sx={{ marginLeft: ".5rem"}}/>
+                          Läs Mer <LaunchIcon sx={{ marginLeft: ".5rem" }} />
                         </a>
                       </Button>
                     </Box>

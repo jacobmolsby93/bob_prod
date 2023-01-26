@@ -95,7 +95,11 @@ export default function Bathroom() {
                 },
               }}
             >
-              <Link to="/kontakt" className="button-text" aria-label="Länk till kontakta oss">
+              <Link
+                to="/kontakt"
+                className="button-text"
+                aria-label="Länk till kontakta oss"
+              >
                 Kontakta Oss
               </Link>
             </Button>
@@ -131,7 +135,8 @@ export default function Bathroom() {
                     >
                       Den som äger ett hus eller en lägenhet i Stockholm behöver
                       lägga tid och pengar för att renovera sin bostad. En av de
-                      vanligaste, och roligaste rummen att renovera enligt oss är såklart badrum!
+                      vanligaste, och roligaste rummen att renovera enligt oss
+                      är såklart badrum!
                     </p>
                   </Box>
                 </Box>
@@ -165,7 +170,7 @@ export default function Bathroom() {
         </section>
       </AnimatedBox>
       <div className="credits-bg">
-        <Credits dark={true}/>
+        <Credits dark={true} />
       </div>
     </div>
   );
