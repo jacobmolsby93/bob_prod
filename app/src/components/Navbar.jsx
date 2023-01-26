@@ -97,7 +97,7 @@ export default function NavbarComp() {
     window.addEventListener("scroll", function () {
       if (window.scrollY > 0) {
         setScrollTop(false);
-        setShowMenu(false)
+        setShowMenu(false);
       } else if (window.scrollY === 0) {
         setScrollTop(true);
       }
@@ -137,7 +137,7 @@ export default function NavbarComp() {
   const expandCloseDesktop = {
     color: theme.palette.primary[500],
     fontSize: "1.3rem",
-  }
+  };
 
   const [activeLink, setActiveLink] = useState("/");
   useEffect(() => {
@@ -156,7 +156,7 @@ export default function NavbarComp() {
   }, []);
 
   const handleClick = (event) => {
-    console.log(event.target)
+    console.log(event.target);
     toggle && handleClose();
     setActiveLink(event.target.dataset.replace);
   };
@@ -202,7 +202,8 @@ export default function NavbarComp() {
                 <Box
                   key={`${item.url} + ${item.id}`}
                   position="relative"
-                  display="flex"expandClose
+                  display="flex"
+                  expandClose
                   onMouseLeave={() => setShowMenu(false)}
                 >
                   <Link
@@ -218,16 +219,23 @@ export default function NavbarComp() {
                       color: toggle ? "#000" : theme.palette.background.default,
                       position: "relative",
                       display: "flex",
-                      alignItems: "center"
+                      alignItems: "center",
                     }}
                     onMouseOver={() => setShowMenu(true)}
                   >
                     {item.menuItem}
                     <motion.div
-                    style={{ marginLeft: ".5rem"}}
-                          animate={{ rotate: showMenu ? -180 : 0, transition: { type: "spring", bounce: .5, duration: .5}}}
-                        >
-                      <ExpandMoreIcon sx={expandCloseDesktop}/>
+                      style={{ marginLeft: ".5rem" }}
+                      animate={{
+                        rotate: showMenu ? -180 : 0,
+                        transition: {
+                          type: "spring",
+                          bounce: 0.5,
+                          duration: 0.5,
+                        },
+                      }}
+                    >
+                      <ExpandMoreIcon sx={expandCloseDesktop} />
                     </motion.div>
                   </Link>
                   <motion.div
@@ -359,19 +367,29 @@ export default function NavbarComp() {
                   {menuItems.map((item) =>
                     // Dropdown menu offcanvas
                     item.url === "vara-tjanster" ? (
-                      <Box position="relative" display="block" width="100%" key={item.id}>
+                      <Box
+                        position="relative"
+                        display="block"
+                        width="100%"
+                        key={item.id}
+                      >
                         <motion.div
-                        onClick={() => setShowMenu(!showMenu)}
+                          onClick={() => setShowMenu(!showMenu)}
                           style={{
                             position: "absolute",
                             top: "5px",
                             right: "0",
                           }}
-                          animate={{ rotate: showMenu ? -180 : 0, transition: { type: "spring", bounce: .5, duration: .5}}}
+                          animate={{
+                            rotate: showMenu ? -180 : 0,
+                            transition: {
+                              type: "spring",
+                              bounce: 0.5,
+                              duration: 0.5,
+                            },
+                          }}
                         >
-                          <ExpandMoreIcon
-                            style={expandClose}
-                          />
+                          <ExpandMoreIcon style={expandClose} />
                         </motion.div>
                         <Typography
                           variant="h2"

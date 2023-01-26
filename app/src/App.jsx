@@ -32,7 +32,10 @@ const Questions = lazy(() => import("./scenes/questionsPage/index.jsx"));
 const ProjectBathroom = lazy(() =>
   import("./scenes/referenceBathroom/index.jsx")
 );
-const ProjectKitchen = lazy(() => import("./scenes/referenceKitchen/index.jsx"));
+const ProjectKitchen = lazy(() =>
+  import("./scenes/referenceKitchen/index.jsx")
+);
+const Remodel = lazy(() => import("./scenes/totalRemodel/index.jsx"));
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -57,6 +60,10 @@ function App() {
             <Route
               path="/vara-tjanster/koksrenovering"
               element={<Kitchen />}
+            ></Route>
+            <Route
+              path="/vara-tjanster/totalrenovering-stockholm"
+              element={<Remodel />}
             ></Route>
             <Route path="/behorigheter" element={<Certifications />}></Route>
             <Route path="/kontakt" element={<Contact />}></Route>

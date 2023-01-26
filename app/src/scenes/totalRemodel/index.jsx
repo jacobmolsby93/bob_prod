@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
+import { Link } from "react-router-dom"
 
 // Widgets
-import KitchenTips from "./widgets/Total";
+import Total from "./widgets/Total";
 
 // Components
 import Spacer from "../../components/Spacer";
@@ -14,7 +14,7 @@ import AnimatedBox from "../../animation/Animated";
 // Images
 import heroImage from "../../assets/kitchenhero.webp";
 
-export default function Total() {
+export default function Remodel() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const titleFontSize = "54px";
@@ -44,20 +44,57 @@ export default function Total() {
           }}
         >
           <AnimatedBox>
-            <Typography
-              variant="h1"
-              fontWeight="bold"
-              className="hero_title"
-              fontSize={
-                smallScreen
-                  ? `clamp(32px, 4vw, ${titleFontSize})`
-                  : titleFontSize
-              }
-              textTransform="uppercase"
-              color="#E6E6E6"
+            <Box className="row">
+              <Typography
+                variant="h1"
+                fontWeight="bold"
+                className="hero_title"
+                fontSize={
+                  smallScreen
+                    ? `clamp(32px, 4vw, ${titleFontSize})`
+                    : titleFontSize
+                }
+                textTransform="uppercase"
+                color="#E6E6E6"
+              >
+                Total Renovering Tips
+              </Typography>
+              <Box className="col-12 col-lg-7">
+                <p className="button-text" style={{ color: "#E6E6E6" }}>
+                  Behöver du totalrenovera hemma? Vi kan hjälpa er med
+                  badrumsrenoveringen, köksrenoveringen, tvättstugan eller
+                  toaletten. Om du vill totalrenovera och vill ha en expert som
+                  utför våtutrymmena så är vi rätt kontakt för dig!
+                </p>
+              </Box>
+              <Box>
+              <Button
+              aria-label="Klicka för att komma till kontaka oss sidan"
+              variant="contained"
+              sx={{
+                marginTop: "30px",
+                borderRadius: "0",
+                backgroundColor: theme.palette.primary[500],
+                marginRight: "20px",
+                "&>a": {
+                  color: theme.palette.background.default,
+                  textDecoration: "none",
+                },
+                "&:hover": {
+                  backgroundColor: theme.palette.primary[600],
+                },
+              }}
             >
-              Total Renovering Tips
-            </Typography>
+              <Link
+                to="/kontakt"
+                className="button-text"
+                aria-label="Länk till kontakta oss"
+              >
+                Kontakta Oss
+              </Link>
+            </Button>
+              </Box>
+            </Box>
           </AnimatedBox>
         </Box>
       </Box>

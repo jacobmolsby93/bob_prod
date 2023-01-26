@@ -8,7 +8,7 @@ const AnimatedLazyImage = ({ src, alt, className, style, ...props }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      style={{ height: "100%"}}
+      style={{ height: "100%" }}
     >
       <LazyLoadImage
         src={src}

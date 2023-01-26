@@ -22,11 +22,11 @@ const Intro = () => {
     <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
       {!lgScreen ? (
         <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
-          <Box sx={{ height: "100%"}}>
+          <Box sx={{ height: "100%" }}>
             <AnimatedLazyImage
               src={desktopCollageImage}
               className="img-fluid"
-              style={{ minHeight: "100%"}}
+              style={{ minHeight: "100%" }}
               alt="Collage av 3 bilder på badrum"
             />
           </Box>
