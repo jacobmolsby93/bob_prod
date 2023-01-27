@@ -37,7 +37,7 @@ const ProjectKitchen = lazy(() =>
 );
 const Remodel = lazy(() => import("./scenes/totalRemodel/index.jsx"));
 const References = lazy(() => import("./scenes/referencePage/index.jsx"));
-const Detail = lazy(() => import("./scenes/referenceDetail/index.jsx"))
+const Detail = lazy(() => import("./scenes/referenceDetail/index.jsx"));
 
 function App() {
   const mode = useSelector((state) => state.global.mode);

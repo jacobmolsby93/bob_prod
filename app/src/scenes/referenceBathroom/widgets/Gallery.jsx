@@ -19,7 +19,7 @@ export default function QuiltedImageList() {
   const matches = useMediaQuery("(min-width: 1000px)");
   const [isHovered, setIsHovered] = useState(false);
   const [category, setCategory] = useState(null);
-  const [gallery, setGallery] = useState(galleryData)
+  const [gallery, setGallery] = useState(galleryData);
   const navigate = useNavigate();
 
   const buttonStyleOutline = {
@@ -61,15 +61,11 @@ export default function QuiltedImageList() {
     },
   };
 
+  const categories = [...new Set(gallery.map((item) => item.category))];
 
-   const categories = [
-      ...new Set(gallery.map((item) => item.category)),
-    ];
-  
-   const filteredData = gallery.filter(
-      (item) => category == null || category == item.category
-    );
-
+  const filteredData = gallery.filter(
+    (item) => category == null || category == item.category
+  );
 
   return (
     <Box position="relative">

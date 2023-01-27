@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MessageFields = () => {
   const theme = useTheme();
@@ -22,14 +23,10 @@ const MessageFields = () => {
   const [formStatus, setFormStatus] = useState(null);
   const [open, setOpen] = useState(false);
   const [formValues, setFormValues] = useState(null);
-
+  const [errorMessage, setErrorMessage] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
-
-  // This will be replaced when backend comes to play
-  const serviceId = import.meta.env.VITE_SERVICE_ID;
-  const publicKey = import.meta.env.VITE_PUBLIC_KEY;
-  const templateId = import.meta.env.VITE_TEMPLATE_ID;
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -87,6 +84,13 @@ const MessageFields = () => {
     },
   };
 
+  useEffect(() => {
+    if (formValues) {
+      setShowThankYou(true);
+      setOpen(true);
+    }
+  }, [formValues]);
+
   const formik = useFormik({
     initialValues: {
       namn: "",
@@ -114,35 +118,37 @@ const MessageFields = () => {
       gdpr: Yup.boolean(),
     }),
     onSubmit: (values) => {
-      // formik.setSubmitting(true);
-      // const { namn, epost, telefon, medelande } = values;
-      // setFormValues(values);
-      // const valuesWithCustomFields = {
-      //   ...values,
-      //   to_name: "Bob Badrum",
-      //   from_name: namn,
-      //   message: `${medelande} \n Telefon: ${telefon}`,
-      //   reply_to: epost,
-      // };
-      // axios
-      //   .post("http://your_server_url/submit-form", valuesWithCustomFields)
-      //   .then((response) => {
-      //     setOpen(true);
-      //     setFormStatus("success");
-      //     formik.resetForm();
-      //   })
-      //   .catch((error) => {
-      //     setFormStatus("error");
-      //   })
-      //   .finally(() => {
-      //     formik.setSubmitting(false);
-      //   });
+      const { namn, epost, telefon, medelande } = values;
+      const data = {
+        name: namn,
+        email: epost,
+        telephone: telefon,
+        message: medelande,
+        gdpr: true,
+      };
+
+      axios({
+        method: "POST",
+        url: "https://bob-backend-3ut3rnueta-uc.a.run.app/api/email/",
+        data: data,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (res) {
+          setFormValues(values);
+          formik.resetForm();
+        })
+        .catch(function (error) {
+          setErrorMessage(
+            "Ojsan något gick fel, Vänligen klicka på email adressen till vänster om formuläret"
+          );
+          console.log(error);
+        });
     },
   });
 
   return (
     <Grid item xs={12} md={8} lg={6} className="mt-sm-3 mt-lg-none">
-      {formValues && (
+      {showThankYou && (
         <Modal
           open={open}
           onClose={handleClose}
@@ -156,22 +162,28 @@ const MessageFields = () => {
               variant="h3"
               component="h2"
             >
-              Tack för ditt medelande, {formValues.namn}!
+              {!errorMessage
+                ? `Tack för ditt medelande, ${formValues.namn}!`
+                : "Oj då"}
             </Typography>
             <Typography
               id="modal-modal-description"
               sx={{ mt: 2 }}
-              component="p"
+              variant="body1"
+              className="body-paragraph"
             >
-              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om
-              våra
-              <Link
-                to="/vara-tjanster"
-                aria-label="Länk till våra Tjänster"
-                style={{ marginLeft: ".5rem" }}
-              >
-                tjänster
-              </Link>
+              {!errorMessage
+                ? "Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om våra"
+                : `${errorMessage}`}
+              {!errorMessage && (
+                <Link
+                  to="/vara-tjanster"
+                  aria-label="Länk till våra Tjänster"
+                  style={{ marginLeft: ".5rem" }}
+                >
+                  tjänster
+                </Link>
+              )}
               .
             </Typography>
           </Box>
