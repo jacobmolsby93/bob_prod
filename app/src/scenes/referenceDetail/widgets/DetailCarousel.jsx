@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Box, Button, Modal } from "@mui/material";
 import AnimatedLazyImage from "../../../components/LazyImage";
 import { motion } from "framer-motion";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 const ImageSlider = ({ thisRenovation }) => {
   const [width, setWidth] = useState(0);
@@ -65,9 +66,9 @@ const ImageSlider = ({ thisRenovation }) => {
                   key={`${index}} + ${item.length}`}
                 />
 
-<Box sx={{ position: "absolute", right: "0", left: "0", top: "0", bottom: "0", backgroundColor: "black", width: "100%"}}>
-
-</Box>
+              <Box sx={{ position: "absolute", right: "0", left: "0", top: "0", bottom: "0", backgroundColor: "rgba(0, 0, 0, 0.4)", width: "100%"}}>
+                  <FullscreenIcon onClick={handleOpen}/>
+              </Box>
               </motion.div>
             ))}
           </motion.div>
