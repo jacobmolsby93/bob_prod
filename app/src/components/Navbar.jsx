@@ -164,7 +164,6 @@ export default function NavbarComp() {
   }, []);
 
   const handleClick = (event) => {
-    console.log(event.target);
     toggle && handleClose();
     setActiveLink(event.target.dataset.replace);
   };
