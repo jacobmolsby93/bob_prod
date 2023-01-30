@@ -26,7 +26,7 @@ const MessageFields = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -86,7 +86,7 @@ const MessageFields = () => {
 
   useEffect(() => {
     if (formValues) {
-      setShowThankYou(true);
+      setShowMessage(true);
       setOpen(true);
     }
   }, [formValues]);
@@ -138,6 +138,7 @@ const MessageFields = () => {
           formik.resetForm();
         })
         .catch(function (error) {
+          setShowMessage(true)
           setErrorMessage(
             "Ojsan något gick fel, Vänligen klicka på email adressen till vänster om formuläret"
           );
@@ -148,7 +149,7 @@ const MessageFields = () => {
 
   return (
     <Grid item xs={12} md={8} lg={6} className="mt-sm-3 mt-lg-none">
-      {showThankYou && (
+      {showMessage && (
         <Modal
           open={open}
           onClose={handleClose}

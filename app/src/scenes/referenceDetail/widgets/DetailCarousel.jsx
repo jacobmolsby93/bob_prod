@@ -66,7 +66,7 @@ const ImageSlider = ({ thisRenovation }) => {
                   key={`${index}} + ${item.length}`}
                 />
 
-              <Box sx={{ position: "absolute", right: "0", left: "0", top: "0", bottom: "0", backgroundColor: "rgba(0, 0, 0, 0.4)", width: "100%"}}>
+              <Box sx={{ position: "absolute", right: "0", left: "0", top: "0", bottom: "0", backgroundColor: "rgba(0, 0, 0, 0.1)", width: "100%"}}>
                   <FullscreenIcon onClick={handleOpen}/>
               </Box>
               </motion.div>
@@ -88,9 +88,9 @@ const ImageSlider = ({ thisRenovation }) => {
         </Box>
       </Modal>
     </Box>
-    <Box className="row" backgroundColor="black">
+    <Box className="row" backgroundColor="transparent">
         <Box className="col-12" height="10px">
-
+              {/* A bar that slides, to indicate where the slide is. */}
         </Box>
     </Box>
     </Box>
