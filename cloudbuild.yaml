@@ -17,8 +17,4 @@ substitutions:
   _SERVICE_NAME: bob-frontend
 
 images:
-<<<<<<< HEAD
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
-=======
-  - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
->>>>>>> origin/main
