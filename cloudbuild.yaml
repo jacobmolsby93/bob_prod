@@ -1,37 +1,20 @@
 steps:
-  - name: gcr.io/cloud-builders/docker
-    env:
-      - >-
-        -"VITE_PUBLIC_KEY={$_VITE_PUBLIC_KEY}",
-        -"VITE_SERVICE_ID={$_VITE_SERVICE_ID}",
-        -"VITE_TEMPLATE_ID={$_VITE_TEMPLATE_ID}"
-    args:
-      - build
-      - '--no-cache'
-      - '-t'
-      - 'eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA'
-      - .
-      - '-f'
-      - Dockerfile.prod
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - push
-      - 'eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA'
-  - name: node:16.17.1-alpine3.16
-    entrypoint: npm
-    args: ["run", "create-env"]
-    env:
-      - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'  
-  - name: gcr.io/cloud-builders/gcloud
-    args:
-      - run
-      - deploy
-      - bob
-      - '--image'
-      - 'eu.gcr.io/wise-mantra-319517/bob_prod/bob:$COMMIT_SHA'
-      - '--region'
-      - $_DEPLOY_REGION
-      - '--allow-unauthenticated'
-      - '--platform'
-      - $_PLATFORM
-timeout: 600s
+  - id: "build image"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}", "-f", "Dockerfile.prod", "."]
+
+  - id: "push image"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"]
+
+  - id: "deploy to cloud run"
+    name: "gcr.io/cloud-builders/gcloud"
+    args: ["run", "services", "update", "--image", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}", "--region", "${_REGION}",  "${_SERVICE_NAME}" ]
+
+substitutions:
+  #  _INSTANCE_NAME: bob-backend
+  _REGION: europe-north1
+  _SERVICE_NAME: bob-frontend
+
+images:
+  - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
