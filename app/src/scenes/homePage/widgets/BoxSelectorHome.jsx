@@ -85,7 +85,7 @@ export default function WhyUs() {
               ></span>
               <Box>
                 <p className="body-paragraph">
-                  Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens
+                  Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
                   inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är
                   en badrumsrenoveringsfirma som erbjuder våra kunder en
                   helhetslösning när det kommer till allt inom

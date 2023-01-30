@@ -205,7 +205,7 @@ export default function HomePage() {
           <Intro
             image={image}
             title="Badrumsrenovering Med Fast Pris Och Fastställd Tidplan"
-            body="Vi på BOB Badrum har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering & köksrenovering. Vi är en byggfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor."
+            body="Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering & köksrenovering. Vi är en byggfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor."
             alt="picture of the owners"
             pageLink={false}
             to="/kontakt"

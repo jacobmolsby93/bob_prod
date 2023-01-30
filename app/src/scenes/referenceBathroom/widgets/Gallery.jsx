@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import galleryData from "../../../data/galleryData";
+import galleryData from "../../../data/galleryDataBathroom";
 
-export default function QuiltedImageList() {
+export default function BathroomGallery() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
@@ -21,6 +21,22 @@ export default function QuiltedImageList() {
   const [category, setCategory] = useState(null);
   const [gallery, setGallery] = useState(galleryData);
   const navigate = useNavigate();
+
+  const buttonStyleContained = {    
+    marginTop: smallScreen ? "1rem" : "",
+  borderRadius: "0",
+  border: "none",
+  marginRight: "1rem",
+  backgroundColor: theme.palette.primary[500],
+  padding: 0,
+  "&>a": {
+    padding: "6px 16px",
+    textDecoration: "none",
+    color: "#fff",
+  },
+  "&:hover": {
+    backgroundColor: theme.palette.primary[600],
+  },}
 
   const buttonStyleOutline = {
     marginTop: smallScreen ? "1rem" : "",
@@ -72,7 +88,7 @@ export default function QuiltedImageList() {
       <Box className="gallery-title col-8">
         <article>
           <Typography variant="h1" component="h1" className="section-title">
-            Se våra senaste renoveringar.
+            Se Våra Senaste Badrumsrenoveringar.
           </Typography>
           <Box display="flex" mt="30px">
             <span
@@ -150,11 +166,12 @@ export default function QuiltedImageList() {
             variants={GalleryVariants}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
             style={{
               position: "relative",
               height: "100% !important",
               cursor: "pointer",
+              minHeight: smallScreen ? "400px" : "700px"
             }}
             onHoverStart={() => setIsHovered(item.img_url)}
           >
@@ -167,7 +184,6 @@ export default function QuiltedImageList() {
             {/* What is this ? */}
             {isHovered == item.img_url && (
               <motion.div
-                onClick={() => navigate(`/referenscase/${item.item_url}`)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -180,23 +196,37 @@ export default function QuiltedImageList() {
                     height: "100%",
                     width: "100%",
                     position: "relative",
+                    padding: "2rem",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
                   }}
                 >
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: "20px",
-                      left: "20px",
-                    }}
-                  >
-                    <Typography
-                      variant="h4"
+                  <Box>
+                  <Typography
+                      variant="h3"
                       style={{ color: "white" }}
                       className="subtitle-font"
                     >
                       {item.title}
                     </Typography>
-                  </span>
+
+                  <Typography variant="body1" component="p" className="body-paragraph" sx={{ color: "#fff", padding: "1rem 0"}}>{`${item.paragraph.slice(0, 100)}...`}</Typography>
+
+                  <Button
+                variant="contained"
+                sx={buttonStyleContained}
+                aria-label={`Klicka för att läsa mer om ${item.title}`}
+              >
+                  <Link
+                    to={`/referenscase/${item.type}-${item.item_url}`}
+                    className="button-text"
+                    aria-label={`Länk till ${item.item_url}`}
+                  >
+                    Läs Mer
+                  </Link>
+              </Button>
+                  </Box>
                 </Box>
               </motion.div>
             )}

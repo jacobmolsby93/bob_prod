@@ -10,16 +10,16 @@ import { Link } from "react-router-dom";
 
 import AnimatedLazyImage from "../../../components/LazyImage";
 
-const Intro = ({ thisBathroom }) => {
+const Intro = ({ thisRenovation }) => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   return (
     <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
-      <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
+      <Box className="col-12 col-lg-6" display="flex" padding={!smallScreen ? "0 3rem 0 0" : "0"}>
         <Box sx={{ height: "100%", width: "100%" }}>
           <AnimatedLazyImage
-            src={thisBathroom.img_url}
+            src={thisRenovation.img_url}
             className="img-fluid"
             style={{
               minHeight: "100%",
@@ -34,7 +34,7 @@ const Intro = ({ thisBathroom }) => {
       <Box className="col-12 col-xl-6" display="flex" alignItems="center">
         <article>
           <Typography variant="h2" className="title-font">
-            {thisBathroom.title}
+            {thisRenovation.title}
           </Typography>
           <Box display="flex" mt="2.5rem">
             <span
@@ -47,7 +47,7 @@ const Intro = ({ thisBathroom }) => {
                 backgroundColor: theme.palette.primary[500],
               }}
             ></span>
-            <p className="body-paragraph">{thisBathroom.paragraph}</p>
+            <p className="body-paragraph">{thisRenovation.paragraph}</p>
           </Box>
           <Box mt="2.5rem" display="flex" justifyContent="flex-end">
             <Button
@@ -82,10 +82,10 @@ const Intro = ({ thisBathroom }) => {
       </Box>
       <Box
         className="row mt-5"
-        display={thisBathroom.subtitle ? "flex" : "none"}
+        display={thisRenovation.subtitle ? "flex" : "none"}
       >
         <Typography variant="h3" className="subtitle-font mb-3">
-          {thisBathroom.subtitle}
+          {thisRenovation.subtitle}
         </Typography>
         <Box className="col-12" display="flex" justifyContent="center">
           <span
@@ -97,13 +97,13 @@ const Intro = ({ thisBathroom }) => {
               backgroundColor: "#c2662d",
             }}
           ></span>
-          <p className="body-paragraph">{thisBathroom.paragraph2}</p>
+          <p className="body-paragraph">{thisRenovation.paragraph2}</p>
         </Box>
 
-        {thisBathroom.paragraph3 && (
+        {thisRenovation.paragraph3 && (
           <>
             <Typography variant="h3" className="subtitle-font mb-3">
-              {thisBathroom.subtitle}
+              {thisRenovation.subtitle}
             </Typography>
             <Box className="col-12" display="flex" justifyContent="center">
               <span
@@ -115,7 +115,7 @@ const Intro = ({ thisBathroom }) => {
                   backgroundColor: "#c2662d",
                 }}
               ></span>
-              <p className="body-paragraph">{thisBathroom.paragraph2}</p>
+              <p className="body-paragraph">{thisRenovation.paragraph2}</p>
             </Box>
           </>
         )}

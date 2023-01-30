@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -8,25 +8,18 @@ import {
   ImageList,
   useMediaQuery,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
+import galleryData from "../../../data/galleryDataKitchen";
 
-import galleryData from "../../../data/galleryData";
-
-export default function QuiltedImageList() {
+export default function KitchenGallery() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const matches = useMediaQuery("(min-width: 1000px)");
-  const [isHovered, setIsHovered] = useState(null);
-  const [selectedImg, setSelectedImg] = useState(null);
-  const [category, setCategory] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [gallery, setGallery] = useState(galleryData);
+  const navigate = useNavigate();
 
   const buttonStyleOutline = {
     marginTop: smallScreen ? "1rem" : "",
@@ -67,52 +60,12 @@ export default function QuiltedImageList() {
     },
   };
 
-  // Loading Images
-  const [imageLoading, setImageLoading] = useState(true);
-  const [pulsing, setPulsing] = useState(true);
-
-  const imageLoaded = () => {
-    setImageLoading(false);
-    setTimeout(() => setPulsing(false), 500);
-  };
-
-  // Modal
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const handleFullScreen = (item) => {
-    setSelectedImg(item);
-    setModalIsOpen(!modalIsOpen);
-  };
-  const handleNext = () => {
-    const index = galleryData.images.findIndex((item) => item === selectedImg);
-    const nextImg = galleryData.images[index + 1];
-    if (nextImg !== undefined) {
-      setSelectedImg(nextImg);
-    }
-  };
-
-  const handlePrev = () => {
-    const index = galleryData.images.findIndex((item) => selectedImg === item);
-    const prevImg = galleryData.images[index - 1];
-    if (prevImg !== undefined) {
-      setSelectedImg(prevImg);
-    }
-  };
-
-  const categories = [
-    ...new Set(galleryData.images.map((item) => item.category)),
-  ];
-
-  const filteredData = galleryData.images.filter(
-    (item) => category == null || category == item.category
-  );
-
   return (
     <Box position="relative">
       <Box className="gallery-title col-8">
         <article>
           <Typography variant="h1" component="h1" className="section-title">
-            Se våra senaste renoveringar.
+            Se Våra Senaste Köks Renoveringar.
           </Typography>
           <Box display="flex" mt="30px">
             <span
@@ -133,37 +86,9 @@ export default function QuiltedImageList() {
       </Box>
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         margin={!smallScreen ? "2rem 0 0.5rem 0" : "1rem 0"}
       >
-        <Box>
-          <Button
-            aria-label="Klicka för att visa alla bilder på renoveringar"
-            sx={{
-              margin: "5px",
-              color: "#2d2d2d",
-            }}
-            disableRipple={true}
-            onClick={() => setCategory(null)}
-          >
-            Alla
-          </Button>
-          {categories.map((category) => (
-            <Button
-              aria-label={`Klicka för att visa bilder inom ${category}`}
-              key={category}
-              sx={{
-                margin: "5px",
-                color: "#2d2d2d",
-              }}
-              disableRipple={true}
-              onClick={() => setCategory(category)}
-            >
-              {category}
-            </Button>
-          ))}
-        </Box>
-
         <Link
           to="/kontakt"
           aria-label="Länk till konakt sidan"
@@ -184,194 +109,78 @@ export default function QuiltedImageList() {
         className="portfolio-wrapper"
         sx={{ overflow: "hidden" }}
       >
-        {filteredData.map((item) => (
+        {gallery.map((item) => (
           <motion.div
             key={item.img_url}
+            variants={GalleryVariants}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.5 }}
-            style={{ position: "relative", height: "100% !important" }}
+            style={{
+              position: "relative",
+              height: "100% !important",
+              cursor: "pointer",
+            }}
             onHoverStart={() => setIsHovered(item.img_url)}
           >
-            <motion.div variants={GalleryVariants} style={{ height: "100%" }}>
+            <motion.div style={{ height: "100%", maxHeight: "700px" }}>
               <motion.img
-                onLoad={imageLoaded}
                 style={{ objectFit: "cover", height: "100%", maxWidth: "100%" }}
                 src={item.img_url}
               />
             </motion.div>
-            {!lgScreen ? (
-              isHovered == item.img_url && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 100 }}
-                  style={isHoverdStyle}
-                  onHoverEnd={() => setIsHovered(false)}
+            {/* What is this ? */}
+            {isHovered == item.img_url && (
+              <motion.div
+                onClick={() =>
+                  navigate(`/referenscase/${item.type}-${item.item_url}`)
+                }
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ type: "spring", stiffness: 100 }}
+                style={isHoverdStyle}
+                onHoverEnd={() => setIsHovered(false)}
+              >
+                <Box
+                  sx={{
+                    height: "100%",
+                    width: "100%",
+                    maxHeight: "700px",
+                    position: "relative",
+                  }}
                 >
-                  <Box
-                    sx={{
-                      height: "100%",
-                      width: "100%",
-                      position: "relative",
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "20px",
+                      left: "20px",
                     }}
                   >
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: "20px",
-                        right: "20px",
-                      }}
+                    <Typography
+                      variant="h4"
+                      style={{ color: "white" }}
+                      className="subtitle-font"
                     >
-                      <FullscreenIcon
-                        onClick={() => handleFullScreen(item)}
-                        sx={iconStyle}
-                      />
-                    </span>
-                    <span
-                      style={{
-                        position: "absolute",
-                        bottom: "20px",
-                        left: "20px",
-                      }}
-                    >
-                      <Typography
-                        variant="h4"
-                        style={{ color: "white" }}
-                        className="subtitle-font"
-                      >
-                        {item.title}
-                      </Typography>
-                    </span>
-                  </Box>
-                </motion.div>
-              )
-            ) : (
-              <span
-                style={{
-                  position: "absolute",
-                  top: "20px",
-                  right: "20px",
-                }}
-              >
-                <FullscreenIcon
-                  aria-label="Klicka för att aktivera fullskärms läge"
-                  onClick={() => handleFullScreen(item)}
-                  sx={iconStyle}
-                />
-              </span>
+                      {item.title}
+                    </Typography>
+                  </span>
+                </Box>
+              </motion.div>
             )}
           </motion.div>
         ))}
       </ImageList>
-      <Modal open={modalIsOpen}>
-        <motion.div
-          style={style}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          <Box position="absolute" width="100%" height="100%">
-            <Box display="flex" justifyContent="flex-end" m="20px">
-              <FullscreenExitIcon
-                aria-label="Klicka för att stänga fullskärs läge"
-                onClick={() => setModalIsOpen(!modalIsOpen)}
-                sx={iconStyle}
-              />
-            </Box>
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: "0",
-                left: "0",
-                right: "0",
-              }}
-            >
-              <Box display="flex" justifyContent="center" style={indicatorBox}>
-                <Button
-                  aria-label="Klicka för att välja föregående bild"
-                  variant="contained"
-                  sx={buttonStyle}
-                  onClick={handlePrev}
-                >
-                  <ArrowBackIcon />
-                </Button>
-                <Button
-                  aria-label="Klicka för att komma till nästa bild"
-                  variant="contained"
-                  sx={buttonStyle}
-                  onClick={handleNext}
-                >
-                  <ArrowForwardIcon />
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-          <img
-            src={selectedImg && selectedImg.img_url}
-            alt={selectedImg && selectedImg.title}
-            style={modalImgStyle}
-          />
-        </motion.div>
-      </Modal>
     </Box>
   );
 }
-
-const buttonStyle = {
-  marginRight: "20px",
-  color: "#2d2d2d",
-  borderColor: "#2d2d2d",
-  "&:hover": {
-    borderColor: "#2d2d2d",
-    backgroundColor: "#fff",
-  },
-};
-
-const iconStyle = {
-  transition: "300ms",
-  color: "white",
-  cursor: "pointer",
-  fontSize: "2rem",
-  "&:hover": { transform: "scale(1.2)" },
-};
 
 const isHoverdStyle = {
   position: "absolute",
   top: 0,
   left: 0,
+  maxHeight: "700px",
   width: "100%",
   height: "100%",
   backgroundColor: "rgba(0, 0, 0, 0.3)",
-};
-
-const indicatorBox = {
-  padding: "30px",
-  borderRadius: "0 0 10px 10px",
-};
-
-const modalImgStyle = {
-  width: "auto",
-  maxWidth: "90vw",
-  maxHeight: "90vh",
-  objectFit: "cover",
-  boxShadow: "0px 2px 4px 4px rgba(0, 0, 0, 0.2) ",
-};
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "transparent",
-  border: "none !important",
-  outline: "none",
-  boxShadow: 24,
-  backgroundColor: "rgba(0, 0, 0, 0.8)",
-  borderRadius: "10px",
-  p: 4,
-  display: "flex",
-  justifyContent: "center",
 };

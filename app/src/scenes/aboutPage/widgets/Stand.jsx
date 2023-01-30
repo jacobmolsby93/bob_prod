@@ -62,7 +62,7 @@ const Stand = () => {
             variant="body1"
             component="p"
           >
-            Vi är BOB Badrum
+            Om Bob Våtrumsrenovering AB
           </Typography>
           <Typography variant="h2" component="h2" className="title-font">
             Vi Innoverar Badrum.
@@ -105,7 +105,7 @@ const Stand = () => {
               Genomskilniga Priser
             </Typography>
             <Typography variant="body1">
-              Med BOB Badrum kan du vara säker på att projektet kommer att
+              Med Om Bob Våtrumsrenovering AB kan du vara säker på att projektet kommer att
               levereras precis i tid och inom budgetramarna, utan oväntade
               kostnader eller förseningar.
             </Typography>

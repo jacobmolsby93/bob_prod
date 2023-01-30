@@ -10,7 +10,7 @@ import Gallery from "./widgets/Gallery.jsx";
 // Images
 import landingImage from "../../assets/landingbackground3.webp";
 
-export default function Projects() {
+export default function KitchenProjects() {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <div>

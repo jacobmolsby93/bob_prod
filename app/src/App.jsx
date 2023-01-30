@@ -43,7 +43,6 @@ function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const [isLoading, setIsloading] = useState(true);
-  const location = useLocation();
 
   return (
     <div className="app">
@@ -79,7 +78,7 @@ function App() {
               path="/referenser/badrumsrenovering"
               element={<ProjectBathroom />}
             ></Route>
-            <Route path="/referenscase/:titleUrl" element={<Detail />} />
+            <Route path="/referenscase/:typeUrl" element={<Detail />}></Route>
             <Route path="/omoss" element={<About />}></Route>
             <Route path="/vanliga-fragor" element={<Questions />}></Route>
             <Route path="/trygg-renovering" element={<Comfort />}></Route>
