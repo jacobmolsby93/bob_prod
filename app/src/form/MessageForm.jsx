@@ -129,7 +129,7 @@ const MessageFields = () => {
 
       axios({
         method: "POST",
-        url: "https://bob-backend-3ut3rnueta-uc.a.run.app/api/email/",
+        url: "https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/",
         data: data,
         headers: { "Content-Type": "multipart/form-data" },
       })
