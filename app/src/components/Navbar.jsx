@@ -133,11 +133,6 @@ export default function NavbarComp() {
     },
   };
 
-  const canvasIcon = {
-    color: theme.palette.primary[500],
-    fontSize: "1.5rem",
-    marginRight: ".5rem",
-  };
 
   const expandClose = {
     color: theme.palette.primary[500],

@@ -88,7 +88,7 @@ const ImageSlider = ({ thisRenovation }) => {
         </Box>
       </Modal>
     </Box>
-    <Box className="row" backgroundColor="transparent">
+    <Box className="row" backgroundColor="rgba(0, 0, 0, 0)">
         <Box className="col-12" height="10px">
               {/* A bar that slides, to indicate where the slide is. */}
         </Box>
