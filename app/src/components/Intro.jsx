@@ -120,7 +120,7 @@ export default function Intro(props) {
                 sx={buttonStyleOutline}
               >
                 <Link
-                  to="/om-oss"
+                  to="/omoss"
                   className="button-text"
                   aria-label="länk företag"
                 >
