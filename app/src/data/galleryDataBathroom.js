@@ -7,20 +7,12 @@ export default [
     unique_key: "key1",
     title: "Badrum Och Gästrum I Sollentuna",
     paragraph: `
-      Idag hälsar vi på hos Ludvig med familj i Sollentuna.
-      Familjen består av Ludvig med hustru samt tre barn i åldrarna 13-17 år. Huset byggdes 1990 och familjen flyttade in 2002. Ett av badrummen var då tämligen nygjort men det på övervåningen hade inte gjorts något åt sedan familjen flyttade in. Eftersom ingen använde det badrummet som hade badkar på övervåningen –  och med 3 tonåringar i huset så bestämde sig familjen för att renovera badrummet.
-      Ludvig googlade på Badrumsrenovering i Sollentuna och började att ta in offerter.
-      På en hundpromenad med grannen fick han tips om att kontakta Bygg & BadrumsPartner.
-      När offerterna kommit in så visade det sig att de var någorlunda jämna i pris allesammans – det skiljde ett par tusenlappar mellan och i det här fallet till konkurrenternas fördel. Skillnaden var dock margniell och Ludvig uppmanar alla till att noggrant läsa igenom texter på företagens hemsidor. Känns de förtroendeingivande och äkta? Hur är företagets omdömen?
-      Det som fick Ludvig att bestämma sig för Bygg & BadrumsPartner var att han dels fått tips  från en granne som var mycket nöjd och sedan att Bygg & BadrumsPartner hade så goda rekommendationer och omdömen på nätet.
-      Vi slår oss ner i det hemtrevliga köket med varsin kaffekopp. Hunden Tyra vill gärna vara med och är förtjusande söt.
+      Idag hälsar vi på hos Ludvig med familj i Sollentuna. Familjen består av Ludvig med hustru samt tre barn i åldrarna 13-17 år. Huset byggdes 1990 och familjen flyttade in 2002. Ett av badrummen var då tämligen nygjort men det på övervåningen hade inte gjorts något åt sedan familjen flyttade in. Eftersom ingen använde det badrummet som hade badkar på övervåningen – och med 3 tonåringar i huset så bestämde sig familjen för att renovera badrummet. Ludvig googlade på Badrumsrenovering i Sollentuna och började att ta in offerter. På en hundpromenad med grannen fick han tips om att kontakta BOB VÅTRUMSRENOVERING AB. När offerterna kommit in så visade det sig att de var någorlunda jämna i pris allesammans – det skiljde ett par tusenlappar mellan och i det här fallet till konkurrenternas fördel. Skillnaden var dock margniell och Ludvig uppmanar alla till att noggrant läsa igenom texter på företagens hemsidor. Känns de förtroendeingivande och äkta? Hur är företagets omdömen? Det som fick Ludvig att bestämma sig för BOB VÅTRUMSRENOVERING var att han dels fått tips från en granne som var mycket nöjd och sedan att BOB VÅTRUMSRENOVERING hade så goda rekommendationer och omdömen på nätet. Vi slår oss ner i det hemtrevliga köket med varsin kaffekopp. Hunden Tyra vill gärna vara med och är förtjusande söt.
     `,
 
     subtitle:
-      "Berätta nu, hur har ni upplevt den här badrumsrenoveringen ni har genomfört med Bygg & Badrumspartner?",
-    paragraph2: `Jag måste säga att vi har haft en väldigt bra dialog både före och efter vi skrev på offerten om våra behov. Vi fick en väldigt bra initial kontakt. Jag kände omedelbart förtroende. Dialogen vi hade var lika bra under hela tiden byggnationen pågick. berättar Ludvig.
-    Det är en viktig sak att tänka på när man handlar upp ett jobb, att man har en god kommunikation och dialog  med sig hela vägen under byggnationens gång.
-    ”När vi hade skrivit kontraktet och arbetet pågick så hade vi en klar och tydlig kommunikation om badrumsrenoveringen, för att saker och ting kanske inte alltid stämmer med den bild man har haft ursprungligen. Vi hade en tydlig bild av hur vi ville att slutresultatet skulle bli. Men under byggnationen av badrummet så blir det en del beslut man inte har tänkt på som man måste ta upp till diskussion. Vårt badrum om 6 m2 är långsmalt  och har snedtak. Så frågorna blev många. Storleken på duschväggen exempelvis – hur stor duschvägg får man plats med i ett litet badrum med snedtak? Hur stor badrumsspegel kan vi ha för att det skall se snyggt ut?  Badrumsskåpet och kommoden för att maxa förvaringen? Och vägghängd toa, skulle man få plats med att bygga in själva vattencisternen?”,`,
+      "Berätta nu, hur har ni upplevt den här badrumsrenoveringen ni har genomfört med BOB VÅTRUMSRENOVERING AB",
+    paragraph2: `Jag måste säga att vi har haft en väldigt bra dialog både före och efter vi skrev på offerten om våra behov. Vi fick en väldigt bra initial kontakt. Jag kände omedelbart förtroende. Dialogen vi hade var lika bra under hela tiden byggnationen pågick. berättar Ludvig. Det är en viktig sak att tänka på när man handlar upp ett jobb, att man har en god kommunikation och dialog med sig hela vägen under byggnationens gång. ”När vi hade skrivit kontraktet och arbetet pågick så hade vi en klar och tydlig kommunikation om badrumsrenoveringen, för att saker och ting kanske inte alltid stämmer med den bild man har haft ursprungligen. Vi hade en tydlig bild av hur vi ville att slutresultatet skulle bli. Men under byggnationen av badrummet så blir det en del beslut man inte har tänkt på som man måste ta upp till diskussion. Vårt badrum om 6 m2 är långsmalt och har snedtak. Så frågorna blev många. Storleken på duschväggen exempelvis – hur stor duschvägg får man plats med i ett litet badrum med snedtak? Hur stor badrumsspegel kan vi ha för att det skall se snyggt ut? Badrumsskåpet och kommoden för att maxa förvaringen? Och vägghängd toa, skulle man få plats med att bygga in själva vattencisternen?”`,
     type: "badrumsrenovering",
     item_url: "sollentuna",
     gallery: [
@@ -86,8 +78,8 @@ export default [
       "https://i.ibb.co/RbXNDZ1/19-image00196.jpg",
       "https://i.ibb.co/X8t4Lqr/21-image00198.jpg",
       "https://i.ibb.co/3YtCjPQ/22-image00203.jpg",
-      "https://i.ibb.co/Y38thmS/23-image00211.jpg"
-    ]
+      "https://i.ibb.co/Y38thmS/23-image00211.jpg",
+    ],
   },
   {
     img_url: "https://i.ibb.co/pyzkP3W/image00071.jpg",
@@ -96,7 +88,8 @@ export default [
     id: "id4",
     unique_key: "key4",
     title: "Badrum - Enskede",
-    paragraph: "Det här badrummet har en markant kontrast mellan kaklet på väggarna. En vägg är täckt med en vacker mosaik av gröna och blå inslag som ger rummet karaktär. De övriga väggarna har en slät yta av grå kakel som ger en balanserad och neutral bakgrund. De svarta och guldiga detaljerna ger rummet en lyxig känsla, såsom den svarta lampan och de guldiga detaljerna på handfatet och duschmunstycket. Tillsammans skapar de en unik färg och material kombination.",
+    paragraph:
+      "Det här badrummet har en markant kontrast mellan kaklet på väggarna. En vägg är täckt med en vacker mosaik av gröna och blå inslag som ger rummet karaktär. De övriga väggarna har en slät yta av grå kakel som ger en balanserad och neutral bakgrund. De svarta och guldiga detaljerna ger rummet en lyxig känsla, såsom den svarta lampan och de guldiga detaljerna på handfatet och duschmunstycket. Tillsammans skapar de en unik färg och material kombination.",
     type: "badrumsrenovering",
     item_url: "enskede",
     gallery: [
@@ -110,8 +103,7 @@ export default [
       "https://i.ibb.co/3hVGLC6/image00076.jpg",
       "https://i.ibb.co/CncLR1p/image00078.jpg",
       "https://i.ibb.co/qJ3RXxG/image00084.jpg",
-      "https://i.ibb.co/6bcxpJy/image00085.jpg"
-      
-    ]
+      "https://i.ibb.co/6bcxpJy/image00085.jpg",
+    ],
   },
 ];

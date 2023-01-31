@@ -16,11 +16,6 @@ const ImageSlider = ({ thisRenovation }) => {
     display: "flex",
   };
 
-  const handleNextClick = () => {
-    console.log(width);
-    console.log(slider_wraper);
-  };
-
   useEffect(() => {
     setWidth(
       slider_wraper.current.scrollWidth - slider_wraper.current.offsetWidth

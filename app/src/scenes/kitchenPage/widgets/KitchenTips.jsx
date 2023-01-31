@@ -99,7 +99,7 @@ export default function KitchenTips() {
               ></span>
               <p className="body-paragraph">
                 Ett av stegen, utifrån ovan nämnda punkter, är att planera. Vi
-                på BOB menar på att planera en köksrenovering innebär så mycket
+                på BOB Våtrumsrenovering menar på att planera en köksrenovering innebär så mycket
                 mer än att endast rita upp en ritning, det handlar om att
                 överväga varje litet steg. Med anledning av detta är det viktigt
                 att du har koll på avgörande faktorer när det kommer till just
@@ -153,7 +153,7 @@ export default function KitchenTips() {
                 <br />
                 <br />
                 Misstag som tenderar att kosta tid och pengar. Att renovera kök
-                är dyrt men vi på BOB ser gärna att du får en offer med ett fast
+                är dyrt men vi på BOB Våtrumsrenovering ser gärna att du får en offer med ett fast
                 pris från början därav vikten av att göra rätt redan i
                 uppstarten av bygget. I filmen nedan berättar vår kollega Eddie
                 om tryggheten BOB garanterar dig som kund. Från det att du
@@ -166,7 +166,7 @@ export default function KitchenTips() {
                 <br />
                 <br />
                 Kontakta oss för en kostnadsfri offert och ett
-                förutsättningslöst möte. Du når oss på 08-400 263 00 eller genom
+                förutsättningslöst möte. Du når oss på 08 - 33 36 63 eller genom
                 att skicka ett meddelande här.
               </p>
             </Box>
