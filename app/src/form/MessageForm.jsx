@@ -84,13 +84,6 @@ const MessageFields = () => {
     },
   };
 
-  useEffect(() => {
-    if (formValues) {
-      setShowMessage(true);
-      setOpen(true);
-    }
-  }, [formValues]);
-
   const formik = useFormik({
     initialValues: {
       namn: "",
@@ -117,33 +110,28 @@ const MessageFields = () => {
       ),
       gdpr: Yup.boolean(),
     }),
-    onSubmit: (values) => {
-      const { namn, epost, telefon, medelande } = values;
+    onSubmit: async (values) => {
+      const { namn, epost, medelande, telefon } = values;
       const data = {
         name: namn,
         email: epost,
-        telephone: telefon,
         message: medelande,
-        gdpr: true,
+        telefon: telefon,
       };
-
-      axios({
-        method: "POST",
-        url: "https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/",
-        data: data,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-        .then(function (res) {
-          setFormValues(values);
-          formik.resetForm();
-        })
-        .catch(function (error) {
-          setShowMessage(true)
-          setErrorMessage(
-            "Ojsan något gick fel, Vänligen klicka på email adressen till vänster om formuläret"
-          );
-          console.log(error);
+    
+      try {
+        await axios.post("https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/", data, {
+          headers: { "Content-Type": "application/json" },
         });
+        setFormValues(values)
+        setShowMessage(true);
+        setOpen(true);
+        formik.resetForm();
+      } catch (error) {
+        setShowMessage(true);
+        setErrorMessage("Ojsan något gick fel, Vänligen klicka på email adressen till vänster om formuläret");
+        console.error(error);
+      }
     },
   });
 
