@@ -36,7 +36,7 @@ const services = [
   },
   {
     serviceImage: kitchen,
-    serviceTitle: "Total renovering",
+    serviceTitle: "Totalrenovering",
     serviceText:
       "Behöver du totalrenovera bostaden? Vi på Bygg & BadrumsPartner är specialiserade på totalrenoveringar och hjälper mer än gärna till med helhetslösningar.",
     serviceLink: "/vara-tjanster/totalrenovering-stockholm",

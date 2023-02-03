@@ -83,7 +83,7 @@ export default function Total() {
               sx={buttonStyleContained}
               aria-label="Klicka för att komma till trygg renoverings sidans"
             >
-              Trygg Renovering
+              Tryggrenovering
             </Button>
           </Link>
         </Box>

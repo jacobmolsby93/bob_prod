@@ -63,7 +63,7 @@ export default function Remodel() {
                 textTransform="uppercase"
                 color="#E6E6E6"
               >
-                Total Renovering Tips
+                Totalrenovering Tips
               </Typography>
               <Box className="col-12 col-lg-7">
                 <p className="button-text" style={{ color: "#E6E6E6" }}>
