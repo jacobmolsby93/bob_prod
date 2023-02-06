@@ -116,22 +116,24 @@ const MessageFields = () => {
         name: namn,
         email: epost,
         message: medelande,
-        telefon: telefon,
+        telephone: telefon,
+        gdpr: false
       };
-    
-      try {
-        await axios.post("https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/", data, {
-          headers: { "Content-Type": "application/json" },
-        });
+      await axios.post('https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/', data, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
         setFormValues(values)
         setShowMessage(true);
         setOpen(true);
         formik.resetForm();
-      } catch (error) {
+      })
+      .catch(error => {
         setShowMessage(true);
         setErrorMessage("Ojsan något gick fel, Vänligen klicka på email adressen till vänster om formuläret");
-        console.error(error);
-      }
+      });
     },
   });
 
