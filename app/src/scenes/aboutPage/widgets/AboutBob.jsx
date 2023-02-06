@@ -11,13 +11,16 @@ import { Link } from "react-router-dom";
 import AnimatedLazyImage from "../../../components/LazyImage.jsx";
 
 // Images
-import mobileImage from "../../../assets/aboutimage1.webp";
-import desktopCollageImage from "../../../assets/servicesintro.webp";
+const mobileImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
+const desktopCollageImage = "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp"
+
 
 const Intro = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
+
+
   return (
     <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
       {!lgScreen ? (
@@ -49,7 +52,7 @@ const Intro = () => {
         <Box>
           <article>
             <Typography variant="h2" className="title-font">
-              Om Bob Badrum
+              Om Bob Våtrumsrenovering AB
             </Typography>
             <Box display="flex" mt="2.5rem">
               <span

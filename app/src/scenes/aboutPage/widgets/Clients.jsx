@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
 
 // Images
-import beijer from "../../../assets/beijer.webp";
-import bosch from "../../../assets/bosch.webp";
-import bahuahs from "../../../assets/bauhaus.webp";
-import okq8 from "../../../assets/okq8.webp";
-import optimera from "../../../assets/optimera.webp";
-import bostik from "../../../assets/bostik.webp";
-import dahl from "../../../assets/dahl.webp";
-import rexel from "../../../assets/rexel.webp";
+const beijer = "https://storage.googleapis.com/bob-prod-images/media/assets/beijer.webp"
+const bosch = "https://storage.googleapis.com/bob-prod-images/media/assets/bosch.webp"
+const bahuahs = "https://storage.googleapis.com/bob-prod-images/media/assets/bauhaus.webp"
+const okq8 = "https://storage.googleapis.com/bob-prod-images/media/assets/okq8.webp"
+const optimera = "https://storage.googleapis.com/bob-prod-images/media/assets/optimera.webp"
+const bostik = "https://storage.googleapis.com/bob-prod-images/media/assets/bostik.webp"
+const dahl = "https://storage.googleapis.com/bob-prod-images/media/assets/dahl.webp"
+const rexel = "https://storage.googleapis.com/bob-prod-images/media/assets/rexel.webp"
 
 const images = [
   {

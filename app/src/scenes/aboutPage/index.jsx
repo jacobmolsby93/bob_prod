@@ -5,7 +5,6 @@ import Contact from "../../components/Contact.jsx";
 //  Widgets
 import AboutBob from "./widgets/AboutBob.jsx";
 import Stand from "./widgets/Stand.jsx";
-import Credits from "../../components/Credits.jsx";
 import Clients from "./widgets/Clients.jsx";
 
 // images
