@@ -105,7 +105,7 @@ const Stand = () => {
               Genomskilniga Priser
             </Typography>
             <Typography variant="body1">
-              Med Om Bob Våtrumsrenovering AB kan du vara säker på att projektet kommer att
+              Med Bob Våtrumsrenovering AB kan du vara säker på att projektet kommer att
               levereras precis i tid och inom budgetramarna, utan oväntade
               kostnader eller förseningar.
             </Typography>
