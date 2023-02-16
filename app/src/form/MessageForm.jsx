@@ -20,7 +20,6 @@ import axios from "axios";
 const MessageFields = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const [formStatus, setFormStatus] = useState(null);
   const [open, setOpen] = useState(false);
   const [formValues, setFormValues] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -37,6 +36,10 @@ const MessageFields = () => {
     setGdprAccepted(true);
     setOpenModal(false);
   };
+
+  useEffect(() => {
+
+  }, [])
 
   const styledInput = {
     marginBottom: "20px",
@@ -318,8 +321,8 @@ const MessageFields = () => {
                     rätt att få tillgång till, korrigera och radera dina
                     personuppgifter och att invända mot bearbetning av dina
                     personuppgifter. Du kan utöva dessa rättigheter genom att
-                    skicka ett e-postmeddelande till följande adress{" "}
-                    <Link href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</Link>
+                    skicka ett e-postmeddelande till följande adress.
+                    <Link href="mailto:hej@bobvatrumsrenovering.se">hej@bobvatrumsrenovering.se</Link>
                     .
                     <br />
                     <br />

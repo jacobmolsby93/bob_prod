@@ -1,6 +1,6 @@
 export default [
   {
-    img_url: "https://i.ibb.co/8zJrP09/koksodertalje.jpg",
+    img_url: "https://storage.googleapis.com/bob-prod-images/media/koksodertalje/koksodertalje.jpg",
     index: 1,
     category: "Kök",
     id: "id1",
@@ -12,9 +12,9 @@ export default [
     type: "koksrenovering",
     item_url: "sodertalje",
     gallery: [
-      "https://i.ibb.co/8zJrP09/koksodertalje.jpg",
-      "https://i.ibb.co/HdwGgkW/koksodertalje1.jpg",
-      "https://i.ibb.co/tDZ1mJS/koksodertalje2.jpg",
+      "https://storage.googleapis.com/bob-prod-images/media/koksodertalje/koksodertalje.jpg",
+      "https://storage.googleapis.com/bob-prod-images/media/koksodertalje/koksodertalje1.jpg",
+      "https://storage.googleapis.com/bob-prod-images/media/koksodertalje/koksodertalje2.jpg",
     ],
   },
 ];

@@ -10,10 +10,7 @@ import { Link } from "react-router-dom";
 import Call from "@mui/icons-material/Call";
 
 // Images
-import aboutImage from "../../../assets/aboutimage1.webp";
-
-// Data
-import data from "../../../data/Info.json";
+const aboutImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
 
 const Stand = () => {
   const theme = useTheme();
@@ -143,16 +140,16 @@ const Stand = () => {
             <Button
               aria-label="Klicka för att ringa till företaget"
               sx={buttonStyleOutlined}
-              name={`Telefon Nummer ${data.telefon}`}
+              name={`Telefon Nummer 08 - 33 36 63`}
               variant="outlined"
             >
               <Call className="call-icon-dark" />
               <a
-                href={`tel:${data.telefon}`}
+                href={`tel:08 - 33 36 63`}
                 className="button-text"
                 aria-label="Länk för att ringa företaget direkts"
               >
-                {data.telefon}
+                08 - 33 36 63
               </a>
             </Button>
           </Box>

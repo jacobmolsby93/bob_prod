@@ -63,7 +63,7 @@ export default function NotFound() {
           width="50px"
           height="50px"
           src={logo}
-          alt="Logga av företaget, BOB Badrum"
+          alt="Logga av företaget, BOB VÅTRUMSRENOVERING"
         />
       </Box>
     </Box>

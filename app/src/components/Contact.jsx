@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Grid, Typography, Button, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import logo from "../assets/boblogo.png";
-
 import MessageForm from "../form/MessageForm.jsx";
-
 import FacebookIcon from "../assets/facebook.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import MailRoundedIcon from "@mui/icons-material/MailRounded";
+
+
+const logo = "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png"
+const tikTok = "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok.png"
 
 export default function Contact() {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -100,20 +101,20 @@ export default function Contact() {
               </Button>
             </a>
             <a
-              href="https://www.facebook.com/byggobadrumspartner"
+              href="https://www.tiktok.com/@bob.badrum"
               target="_blank"
-              aria-label="Länk till företages Facebook sida"
+              aria-label="Länk till företages Tik-Tok sida"
             >
               <Button
-                aria-label="Facebook"
+                aria-label="Tik-Tok"
                 variant="outlined"
                 sx={styledIconOutlined}
               >
                 <img
-                  src={FacebookIcon}
+                  src={tikTok}
                   width="20px"
                   height="20px"
-                  alt="Facebook ikon"
+                  alt="Tik-Tok ikon"
                 />
               </Button>
             </a>
@@ -121,12 +122,12 @@ export default function Contact() {
           <Box mt="30px">
             <a
               className="body-paragraph contact-info"
-              href="mailto:hej@bobbadrum.se?subject=Offert"
+              href="mailto:hej@bobvatrumsrenovering.se?subject=Offert"
             >
               <span style={{ marginRight: ".5rem" }}>
                 <MailRoundedIcon sx={contactIcon} />
               </span>
-              hej@bobbadrum.se
+              hej@bobvatrumsrenovering.se
             </a>
             <p className="body-paragraph contact-info">
               <span style={{ marginRight: ".5rem" }}>

@@ -9,18 +9,18 @@ import employee from "../assets/employee.png";
 
 const facts = [
   {
-    counter: 498,
+    counter: 78,
     text: "Avklarade Projekt",
     icon: costumer,
   },
   {
-    counter: 20,
+    counter: 15,
     text: "Anställda",
     icon: employee,
   },
   {
-    counter: 5,
-    text: "Rekommenderat Företag",
+    counter: 100,
+    text: "Mål - 100% kundnöjdhet",
     icon: medal,
   },
 ];
@@ -31,7 +31,7 @@ export default function Credits(props) {
   return (
     <div className="container text-center">
       <Box className="row" sx={{ justifyContent: "space-between" }}>
-        {facts.map((fact) => {
+        {facts.map((fact, index) => {
           return (
             <Box className="col-3 flex-centerd-justify" key={fact.counter}>
               <Box className="mt-2 mt-sm-2 mt-none">
@@ -44,21 +44,22 @@ export default function Credits(props) {
                     />
                   </Box>
                   <Box className="counter">
-                    {counterOn && (
-                      <Typography
-                        variant="h3"
-                        fontWeight="bold"
-                        color={props.dark ? "#2d2d2d" : "#e0e0e0"}
-                        sx={{ fontSize: "clamp(16px, 5vw, 32px)" }}
-                      >
-                        <CountUp
-                          start={0}
-                          end={fact.counter}
-                          duration={2}
-                          delay={0}
-                        />
-                      </Typography>
-                    )}
+                      {counterOn && (
+                        <Typography
+                          variant="h3"
+                          fontWeight="bold"
+                          color={props.dark ? "#2d2d2d" : "#e0e0e0"}
+                          sx={{ fontSize: "clamp(16px, 5vw, 32px)" }}
+                        >
+                          <CountUp
+                            start={0}
+                            end={fact.counter}
+                            duration={2}
+                            delay={0}
+                          />
+                          {index === 2 ? ( "%" ) : ("")}
+                        </Typography>
+                      )}
                   </Box>
                 </ScrollTrigger>
 

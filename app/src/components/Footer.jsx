@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // icons
-import FacebookIcon from "../assets/facebookwhite.png";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
@@ -18,7 +18,8 @@ import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import CopyrightRoundedIcon from "@mui/icons-material/CopyrightRounded";
 
 // Images (will need to be urls find suitable place to upload them)
-import logo from "../assets/boblogo.png";
+const logo = "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
+const TikTok = "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok-white.png";
 
 export default function Footer() {
   const theme = useTheme();
@@ -118,20 +119,20 @@ export default function Footer() {
                   </Button>
                 </a>
                 <a
-                  href="https://www.facebook.com/byggobadrumspartner"
+                  href="https://www.tiktok.com/@bob.badrum"
                   target="_blank"
-                  aria-label="Länk till företages Facebook sida"
+                  aria-label="Länk till företages Tik-Tok sida"
                 >
                   <Button
-                    aria-label="Klicka för att komma till företagets hemsida."
+                    aria-label="Klicka för att komma till företagets Tik-Tok sida."
                     variant="outlined"
                     sx={styledIconOutlined}
                   >
                     <img
-                      src={FacebookIcon}
+                      src={TikTok}
                       width="20px"
                       height="20px"
-                      alt="Facebook ikon"
+                      alt="Tik-Tok ikon"
                     />
                   </Button>
                 </a>
@@ -202,11 +203,11 @@ export default function Footer() {
                     </p>
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0" }}>
-                    <a href="mailto:hej@bobbadrum.se" style={contactP}>
+                    <a href="mailto:hej@bobvatrumsrenovering.se" style={contactP}>
                       <span>
                         <EmailRoundedIcon sx={footerIcon} />
                       </span>
-                      hej@bobbadrum.se
+                      hej@bobvatrumsrenovering.se
                     </a>
                   </ListItem>
                   <ListItem sx={styledLinks}>

@@ -305,7 +305,7 @@ export default function NavbarComp() {
             <Box>
               <a
                 aria-label="Länk til företagets email"
-                href="mailto:hej@bobbadrum.se"
+                href="mailto:hej@bobvatrumsrenovering.se"
                 style={{ width: "30px", height: "30px" }}
               >
                 <Button

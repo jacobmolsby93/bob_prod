@@ -12,7 +12,8 @@ import AnimatedLazyImage from "../../../components/LazyImage";
 
 // Images
 import mobileImage from "../../../assets/aboutimage1.webp";
-import desktopCollageImage from "../../../assets/servicesintro.webp";
+const mobileImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
+const desktopCollageImage = "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp"
 
 const Intro = () => {
   const theme = useTheme();

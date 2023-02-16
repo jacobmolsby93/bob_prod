@@ -1,6 +1,6 @@
 export default [
   {
-    img_url: "https://i.ibb.co/G9JrP5M/sollentuna4.webp",
+    img_url: "https://i.ibb.co/B45JvHd/sollentuna3.webp",
     index: 1,
     category: "Badrum",
     id: "id1",
@@ -19,7 +19,6 @@ export default [
       "https://i.ibb.co/WyGGTKD/sollentuna1.webp",
       "https://i.ibb.co/brbSKH8/sollentuna2.webp",
       "https://i.ibb.co/B45JvHd/sollentuna3.webp",
-      "https://i.ibb.co/G9JrP5M/sollentuna4.webp",
       "https://i.ibb.co/KWHTJDX/sollentuna5.webp",
       "https://i.ibb.co/FJspchF/sollentuna7.webp",
     ],
