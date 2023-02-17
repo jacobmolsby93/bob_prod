@@ -44,90 +44,90 @@ export default function Intro(props) {
 
   return (
     <Box className="container">
-    <Box
-      display="flex"
-      justifyContent={!smallScreen ? "center" : "space-between"}
-      alignItems="center"
-      className="row"
-    >
-    <Box
-      className="col-12 col-lg-6"
-      padding={!lgScreen ? "0 20px 0 0" : "0"}
-      style={{ height: "100%" }}
-    >
-        <img
-          src={props.image}
-          alt={props.alt}
+  <Box
+    display="flex"
+    justifyContent={!smallScreen ? "center" : "space-between"}
+    alignItems="center"
+    className="row"
+  >
+  <Box
+    className="col-12 col-lg-6"
+    padding={!lgScreen ? "0 20px 0 0" : "0"}
+    style={{ height: "100%" }}
+  >
+      <img
+        src={props.image}
+        alt={props.alt}
+        style={{
+          maxHeight: "90%",
+          width: "100%"
+        }}
+      />
+  </Box>
+  <Box
+    padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
+    className="col-12 col-lg-6"
+  >
+    <article>
+      <Typography variant="h2" className="title-font">
+        {props.title}
+      </Typography>
+      <Box display="flex" mt="3rem">
+        <span
           style={{
-            height: "100% !important",
-            width: "100%"
+            width: "1rem",
+            maxWidht: ".2rem",
+            height: "auto",
+            marginRight: "1rem",
+            backgroundColor: "#c2662d",
           }}
-        />
-    </Box>
-    <Box
-      padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
-      className="col-12 col-lg-6"
-    >
-      <article>
-        <Typography variant="h2" className="title-font">
-          {props.title}
-        </Typography>
-        <Box display="flex" mt="3rem">
-          <span
-            style={{
-              width: "1rem",
-              maxWidht: ".2rem",
-              height: "auto",
-              marginRight: "1rem",
-              backgroundColor: "#c2662d",
-            }}
-          ></span>
-          <p className="body-paragraph">{props.body}</p>
-        </Box>
-        <Box mt="2.5rem">
-          <Button
-            variant="contained"
-            sx={buttonStyleContained}
-            aria-label="Länk till sidan kontakta oss"
-          >
-            {props.pageLink ? (
-              <PageLink
-                to={props.to}
-                className="button-text"
-                aria-label={props.label}
-                smooth={true}
-                duration={200}
-              >
-                {props.linkName}
-              </PageLink>
-            ) : (
-              <Link
-                to={props.to}
-                className="button-text"
-                aria-label={props.label}
-              >
-                {props.linkName}
-              </Link>
-            )}
-          </Button>
-          <Button
-            aria-label="Länk till sidan om oss"
-            className="body-paragraph"
-            variant="outlined"
-            sx={buttonStyleOutline}
-          >
-            <Link
-              to="/omoss"
+        ></span>
+        <p className="body-paragraph">{props.body}</p>
+      </Box>
+      <Box mt="2.5rem">
+        <Button
+          variant="contained"
+          sx={buttonStyleContained}
+          aria-label="Länk till sidan kontakta oss"
+        >
+          {props.pageLink ? (
+            <PageLink
+              to={props.to}
               className="button-text"
-              aria-label="länk företag"
+              aria-label={props.label}
+              smooth={true}
+              duration={200}
             >
-              Om Företaget
+              {props.linkName}
+            </PageLink>
+          ) : (
+            <Link
+              to={props.to}
+              className="button-text"
+              aria-label={props.label}
+            >
+              {props.linkName}
             </Link>
-          </Button>
-        </Box>
-      </article>
-    </Box>
-    </Box>
+          )}
+        </Button>
+        <Button
+          aria-label="Länk till sidan om oss"
+          className="body-paragraph"
+          variant="outlined"
+          sx={buttonStyleOutline}
+        >
+          <Link
+            to="/omoss"
+            className="button-text"
+            aria-label="länk företag"
+          >
+            Om Företaget
+          </Link>
+        </Button>
+      </Box>
+    </article>
+  </Box>
+  </Box>
     </Box>
   );
 }

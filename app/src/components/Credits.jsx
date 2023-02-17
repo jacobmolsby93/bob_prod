@@ -30,10 +30,10 @@ export default function Credits(props) {
 
   return (
     <div className="container text-center">
-      <Box className="row" sx={{ justifyContent: "space-between" }}>
+      <Box className="row" sx={{ justifyContent: "space-evenly" }}>
         {facts.map((fact, index) => {
           return (
-            <Box className="col-3 flex-centerd-justify" key={fact.counter}>
+            <Box className="col-3 flex-centerd-justify" key={fact.counter} sx={{ boxShadow: "rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 20px 20px -20px", padding: "3rem 0"}}>
               <Box className="mt-2 mt-sm-2 mt-none">
                 <ScrollTrigger onEnter={() => setCounterOn(true)}>
                   <Box>

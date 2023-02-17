@@ -254,22 +254,6 @@ export default function HomePage() {
         </AnimatedBox>
       </section>
       <Spacer />
-      {/* Contact Form */}
-      <section id="hem-kontakt">
-        <AnimatedBox>
-          <Box
-            className="contact-background"
-            minHeight={!smallScreen ? "640px" : undefined}
-          >
-            <Box className="container">
-              <Box className="row">
-                <Contact />
-              </Box>
-            </Box>
-          </Box>
-        </AnimatedBox>
-      </section>
-      <Spacer />
       {/* Frequently Asked Questions */}
       <AnimatedBox>
         <Box className="container">
@@ -310,10 +294,24 @@ export default function HomePage() {
         </Box>
       </AnimatedBox>
       <Spacer />
-
-      <Box padding="3rem 0">
-        <Credits dark={true} />
-      </Box>
+            {/* Contact Form */}
+            <section id="hem-kontakt">
+        <AnimatedBox>
+          <Box
+            className="contact-background"
+            minHeight={!smallScreen ? "640px" : undefined}
+          >
+            <Box className="container">
+              <Box className="row">
+                <Contact />
+              </Box>
+            </Box>
+          </Box>
+        </AnimatedBox>
+      </section>
+      <Spacer />
+      <Reco />
+      <Spacer />
     </Box>
   );
 }

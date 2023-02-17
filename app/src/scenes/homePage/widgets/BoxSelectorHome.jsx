@@ -74,7 +74,7 @@ export default function WhyUs() {
               display="flex"
               flexDirection="column"
               alignItems="center"
-              boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
+              boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 20px 20px -20px"
               backgroundColor="rgba(233, 229, 225, 1)"
               margin="0"
               padding="2rem 1rem"
