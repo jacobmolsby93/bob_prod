@@ -38,11 +38,12 @@ export default function Footer() {
 
   const styledLinks = {
     padding: "0 0 5px",
-    fontSize: ".8rem",
+    fontSize: "1rem",
     marginTop: ".4rem",
     color: "#000",
     "&>a": {
-      color: "#9d9d9d",
+      color: "#fff",
+      fontWeight: "regular",
       textDecoration: "none",
       transition: "200ms",
       fontSize: "1rem",
@@ -292,8 +293,9 @@ export default function Footer() {
 
 const contactP = {
   margin: "0",
-  color: "#9d9d9d",
+  color: "#fff",
   textDecoration: "none",
+  fontSize: "1rem"
 };
 
 const styledIconOutlined = {

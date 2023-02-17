@@ -56,7 +56,7 @@ export default function Faq(props) {
   return (
     <>
       {questions.map((question) => (
-        <Box key={question.id} sx={{ marginBottom: "10px" }}>
+        <Box key={question.id} sx={{ marginBottom: "1.2rem" }}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -67,7 +67,7 @@ export default function Faq(props) {
               <Typography
                 variant="h5"
                 component="h3"
-                style={{ margin: "0", paddingLeft: "20px", fontWeight: "600" }}
+                style={{ margin: "0", padding: "1rem 1.8rem", fontWeight: "600", fontSize: "1.3rem" }}
               >
                 {question.question}
               </Typography>

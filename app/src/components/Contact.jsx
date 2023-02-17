@@ -81,8 +81,9 @@ export default function Contact() {
                 maxWidth: !smallScreen ? "70%" : "100%",
               }}
             >
-              Fyll i informationen och beskriv vad du vill ha hjälp med så
-              kontaktar vi dig inom kort!
+              Vill du ha hjälp med din renovering? Genom att fylla i formuläret till så
+              kommer vi att kontakta dig för ett kostnadsfritt möte. Vi hjälper dig med din nästa
+              badrumsrenovering.
             </p>
           </Box>
           <Box mt="30px">

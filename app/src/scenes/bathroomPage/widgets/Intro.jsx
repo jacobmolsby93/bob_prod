@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import AnimatedLazyImage from "../../../components/LazyImage";
 
 // Images
-import mobileImage from "../../../assets/aboutimage1.webp";
 const mobileImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
 const desktopCollageImage = "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp"
 

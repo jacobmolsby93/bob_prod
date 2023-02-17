@@ -119,8 +119,9 @@ export default function NavbarComp() {
   const [showMenu, setShowMenu] = useState(false);
 
   const buttonStyle = {
-    width: "30px",
-    minWidth: "30px",
+    width: "40px",
+    minWidth: "40px",
+    height: "40px",
     borderRadius: "50%",
     backgroundColor: theme.palette.primary[500],
     marginLeft: toggle ? "0" : "10px",
@@ -179,22 +180,25 @@ export default function NavbarComp() {
       }}
     >
       <Box
-        className="container"
+        className="container-fluid"
         display="flex"
         alignItems="center"
-        justifyContent="space-between"
+        sx={{ padding: !smallScreen ? ".5rem 2rem" : "0"}}
       >
         <Box>
-          <Navbar.Brand>
-            <Link to="/" aria-label="Länk till hem">
+          <nav>
+            <Link to="/" aria-label="Länk till hem" className="unstyled-link">
+              <Box display="flex">
               <img
                 src={logo}
                 title="BOB Logga"
                 alt="Company logo"
                 style={{ width: "80px", height: "80px" }}
               />
+              <Typography variant="body1" className="subtitle-font" sx={{ marginLeft: "1rem", marginBottom: "0", color: "#fff"}}>BOB <br/>VÅTRUMSRENOVERING</Typography>
+              </Box>
             </Link>
-          </Navbar.Brand>
+          </nav>
         </Box>
         {/* Desktop Nav */}
         {breakpoint ? (
@@ -261,7 +265,7 @@ export default function NavbarComp() {
                     >
                       <List component="nav" sx={{ padding: "0" }}>
                         {options.map((listItem) => (
-                          <ListItem sx={{ padding: 0 }} key={listItem.url}>
+                          <ListItem sx={{ padding: "1rem 0.5rem"}} key={listItem.url}>
                             <Link
                               to={listItem.url}
                               className={`nav-link-main ${
@@ -306,7 +310,7 @@ export default function NavbarComp() {
               <a
                 aria-label="Länk til företagets email"
                 href="mailto:hej@bobvatrumsrenovering.se"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "40px", height: "40px" }}
               >
                 <Button
                   aria-label="Email icon"
@@ -315,7 +319,7 @@ export default function NavbarComp() {
                 >
                   <MailOutlineIcon
                     sx={{
-                      fontSize: "20px",
+                      fontSize: "1.5rem",
                       color: theme.palette.background.default,
                     }}
                   />
@@ -330,7 +334,7 @@ export default function NavbarComp() {
                 >
                   <CallIcon
                     sx={{
-                      fontSize: "20px",
+                      fontSize: "1.5rem",
                       color: theme.palette.background.default,
                     }}
                   />
@@ -572,7 +576,7 @@ export default function NavbarComp() {
                     name="Telefon Nummer 08-333663"
                     variant="outlined"
                   >
-                    <CallIcon sx={{ marginRight: "5px", color: "#1d1d1d" }} />
+                    <CallIcon sx={{ marginRight: "10px", color: "#1d1d1d" }} />
                     <a
                       aria-label="Telefon nummer 08333663"
                       href="tel:08333663"
@@ -599,6 +603,7 @@ const dropdownBox = {
   width: "max-content",
   padding: "20px 20px",
   height: "auto",
+  boxShadow: "rgba(17, 17, 26, 0.1) 4px 5px 5px"
 };
 
 const contactP = {

@@ -23,6 +23,9 @@ import carouselImage2 from "../../assets/carouselhome2.webp";
 import carouselImage3 from "../../assets/carouselhome3.webp";
 import carouselImage4 from "../../assets/carouselhome4.webp";
 import faq from "../../assets/faq.png";
+
+
+
 import image from "../../assets/carouselhome1.webp";
 
 // Animation
@@ -33,7 +36,7 @@ const images = [
   landingBackground,
   landingBackground2,
   landingBackground3,
-  landingBackground4,
+  landingBackground4
 ];
 
 export default function HomePage() {
@@ -42,7 +45,7 @@ export default function HomePage() {
 
   // Css style variables
   const backgroundQuestion = "#FBF9F9";
-  const titleFontSize = "58px";
+  const titleFontSize = "50px";
   const marginTop = "30px";
   const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",
@@ -144,24 +147,25 @@ export default function HomePage() {
               textTransform="uppercase"
               color="#E6E6E6"
             >
-              Ditt nya badrum är bara ett steg bort!
+              VÄLKOMMEN TILL BOB VÅTRUMSRENOVERING! PROFFS PÅ VÅTUTRYMMEN.
             </Typography>
             {!smallScreen && (
               <Box className="col-12 col-lg-7">
                 <Typography
-                  className="hero_paragraph"
+                  sx={{ fontSize: "1.3rem"}}
                   color="#E3E3E3"
                   mt={marginTop}
                   variant="h4"
                   component="p"
                 >
-                  Vi är den pålitliga och trygga badrumsrenoveraren som du
-                  nästan inte trodde fanns. Men vi finns här för dig, och vi
-                  står vid din sida hela vägen från idé till verklighet. För oss
-                  är trygghet och tillgänglighet själva grundpelarna i det vi
-                  gör, och vi levererar alltid hantverk av högsta kvalitet. Låt
-                  oss hjälpa dig att skapa det drömbadrum du alltid har önskat
-                  dig.
+                Vi är den pålitliga och trygga hantverkaren som du
+                nästan inte trodde fanns. Men vi finns här för dig, och vi står vid
+                din sida hela vägen från idé till verklighet. För oss är trygghet
+                och tillgänglighet själva grundpelarna i det vi gör, och vi
+                levererar alltid hantverk av högsta kvalitet. Låt oss hjälpa dig att
+                skapa det drömbadrum du alltid har önskat dig. För att vi ska
+                kunna hjälpa dig på bästa sätt rekommenderar vi att boka in ett första möte med en av våra kollegor. Skicka gärna in ett
+                meddelande i formuläret så kontaktar vi dig.
                 </Typography>
               </Box>
             )}
@@ -204,8 +208,15 @@ export default function HomePage() {
         <AnimatedBox>
           <Intro
             image={image}
-            title="Badrumsrenovering Med Fast Pris Och Fastställd Tidplan"
-            body="Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering & köksrenovering. Vi är en byggfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor."
+            title="Badrumsrenovering I Stockholm Med Omnejd Till En Fast
+            tidsplan och med ett fast pris."
+            body="Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
+            inom badrumsrenovering & köksrenovering. Vi är ett specialistföretag inom
+            våtutrymmen som erbjuder våra kunder en helhetslösning när det kommer till allt
+            inom badrum, wc & tvättstugor. Önskar du få hjälp med inredning, kakel och klinker
+            har vi samarbeten med flera inredare. Denna tjänst är förstås helt kostnadsfri när du
+            väljer att renovera med oss. Låt oss veta dina önskemål så hjälper vi dig att få ditt
+            dröm badrum."
             alt="picture of the owners"
             pageLink={false}
             to="/kontakt"
@@ -263,7 +274,7 @@ export default function HomePage() {
       <AnimatedBox>
         <Box className="container">
           <Box className="row" display="flex" justifyContent="center">
-            <Box className="col-12 col-lg-10">
+            <Box className="col-12">
               <Typography
                 variant="h2"
                 component="h2"

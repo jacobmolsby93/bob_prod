@@ -7,7 +7,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 import AnimatedLazyImage from "../../../components/LazyImage";
 
@@ -17,131 +16,83 @@ import sketch from "../../../assets/sketch.png";
 import quality from "../../../assets/quality.png";
 import podium from "../../../assets/podium.png";
 import shapes from "../../../assets/backgroundshapes.png";
+import best from "../../../assets/best-price.png"
+import offer from "../../../assets/offer.png"
+import book from "../../../assets/open-book.png"
+import document from "../../../assets/contract.png"
 
 export default function WhyUs() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const marginTop = "30px";
-  const marginRight = "20px";
-  // Map Grid Items
-  const GridItem = ({ src, alt, text }) => {
-    const [hover, setHover] = useState(false);
 
-    return (
-      <Grid item lg={5}>
-        <Box
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          sx={{
-            width: "100%",
-            minWidth: "168px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "#ECEAE8",
-            padding: smallScreen ? "10px" : "20px",
-            transition: "300ms",
-          }}
-        >
-          <AnimatedLazyImage
-            src={src}
-            style={{ width: "70px", height: "70px", margin: "20px" }}
-            alt={alt}
-          />
-          <Typography variant="h3" fontWeight="bold" textAlign="center">
-            {text}
-          </Typography>
-        </Box>
-      </Grid>
-    );
-  };
+
   return (
-    <Box className="wrapper why-us-wrapper" minHeight="70vh">
+    <Box className="wrapper why-us-wrapper">
       <Box
         className="container"
-        minHeight="100%"
-        display="flex"
-        alignItems="center"
-        sx={{ margin: mediumScreen ? "30px 0 30px 0" : "0" }}
+        margin="5rem 0"
       >
-        <Box className="row flex-centerd-align" height="100%">
-          <Box className="col-12 col-lg-6" sx={{ zIndex: "10 " }}>
-            <Typography variant="h2" className="subtitle-font primary">
-              Vad Vi Står För.
-            </Typography>
-            <Typography variant="h3" className="title-font">
-              Varför Renovera Med Oss?
-            </Typography>
-            <Box sx={{ marginTop: marginTop }}>
-              <span
-                style={{
-                  width: ".2rem",
-                  maxWidth: ".2rem",
-                  height: "auto",
-                  marginRight: "10px",
-                  backgroundColor: theme.palette.primary[500],
-                }}
-              ></span>
-              <Box>
-                <p className="body-paragraph">
-                  Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
-                  inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är
-                  en badrumsrenoveringsfirma som erbjuder våra kunder en
-                  helhetslösning när det kommer till allt inom
-                  badrumsrenoveringar. Vi har massa lyckade uppdrag runt om i
-                  Stockholm. Vi fokuserar endast på badrumsrenoveringar, wc &
-                  tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i
-                  alla led.
-                </p>
+        <Box className="row flex-centerd-align" height="100">
+          <Box className="col-12" sx={{ zIndex: "10 " }} textAlign="center" display="flex" justifyContent="center">
+            <Box>
+              <Typography variant="h3" className="title-font">
+                Varför Renovera Med Oss?
+              </Typography>
+              <Box sx={{ marginTop: marginTop }}>
+                <span
+                  style={{
+                    width: ".2rem",
+                    maxWidth: ".2rem",
+                    height: "auto",
+                    marginRight: "10px",
+                    backgroundColor: theme.palette.primary[500],
+                  }}
+                ></span>
+                <Box>
+                  <p className="body-paragraph">
+                    Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
+                    inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är
+                    en badrumsrenoveringsfirma som erbjuder våra kunder en
+                    helhetslösning när det kommer till allt inom
+                    badrumsrenoveringar. Vi har massa lyckade uppdrag runt om i
+                    Stockholm. Vi fokuserar endast på badrumsrenoveringar, wc &
+                    tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i
+                    alla led.
+                  </p>
+                </Box>
               </Box>
             </Box>
-            <Box sx={{ marginTop: marginTop }}>
-              <Button
-                aria-label="Gratis offert"
-                variant="contained"
-                sx={{
-                  marginTop: smallScreen ? "10px" : "",
-                  borderRadius: "0",
-                  backgroundColor: theme.palette.primary[500],
-                  marginRight: marginRight,
-                  "&>a": {
-                    color: theme.palette.background.default,
-                    textDecoration: "none",
-                  },
-                  "&:hover": {
-                    backgroundColor: theme.palette.primary[600],
-                  },
-                }}
+          </Box>
+        </Box>
+        <Box className="row" margin="3rem 0">
+          {ListBoxes.map((item) => (
+            <Box className="col-12 col-md-6 col-xl-3" padding="10px" key={item.id}>
+              <Box
+              height="100%"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
+              backgroundColor="rgba(233, 229, 225, 1)"
+              margin="0"
+              padding="2rem 1rem"
               >
-                <Link to="/kontakt" className="button-text">
-                  Gratis Offert
-                </Link>
-              </Button>
+                <AnimatedLazyImage
+                  src={item.src}
+                  style={{ width: "70px", height: "70px"}}
+                  alt={item.alt}
+                />
+                <Typography variant="h3" fontWeight="bold" textAlign="center" sx={{ margin: "1rem 0"}}>
+                  {item.title}
+                </Typography>
+                <Box margin=".6rem 0" textAlign="center">
+                <Typography variant="body1" className="body-paragraph">{item.text}</Typography>
+                </Box>
+              </Box>
             </Box>
-          </Box>
-          <Box
-            className="col-12 col-lg-6 flex-centerd-align"
-            sx={{
-              zIndex: "10",
-              flexWrap: "wrap",
-              marginTop: mediumScreen ? "20px" : "",
-            }}
-          >
-            <Grid container spacing={2} diplay="flex" justifyContent="center">
-              <GridItem
-                src={sketch}
-                sx={{
-                  backgroundColor: "#ECEAE8",
-                }}
-                alt="Logo Sketch Paper"
-                text="Planering"
-              />
-              <GridItem src={quality} alt="Logo Quality" text="Kvalité" />
-              <GridItem src={teamwork} alt="Logo hands shake" text="Teamwork" />
-              <GridItem src={podium} alt="Logo podium" text="Kund fokus" />
-            </Grid>
-          </Box>
+          ))}
         </Box>
         <Box
           className="absolute-box-why"
@@ -155,3 +106,64 @@ export default function WhyUs() {
     </Box>
   );
 }
+
+
+const ListBoxes = [
+  {
+    id: 1,
+    src: sketch,
+    alt: "Logo Sketch Paper",
+    title: "Besiktning",
+    text: "Vi har en egen besiktningsman som kontrollerar varje kritiskt moment. Alltid bra med fyra ögon på arbetet som utförts.",
+  },
+  {
+    id: 2,
+    src: quality,
+    alt: "Logo Quality",
+    title: "Egenkontroller",
+    text: "Vi utför egenkontroller på samtliga arbeten. Dem överlämnats till slutkund i samband med avslutningsmötet.",
+  },
+  {
+    id: 3,
+    src: teamwork,
+    alt: "Logo Sketch Paper",
+    title: "Hög tillgänglighet",
+    text: "Vi finns här för dig från start till slut. Du har alltid en eller flera personer att vända dig till.",
+  },
+  {
+    id: 4,
+    src: podium,
+    alt: "Logo Sketch Paper",
+    title: "100% Nöjda Kunder",
+    text: "Vi på BOB VÅTRUMSRENOVERING strävar alltid efter att ha 100 % nöjda kunder. Kvalité är viktigt för oss.",
+  },
+  {
+    id: 5,
+    src: best,
+    alt: "Logo Sketch Paper",
+    title: "Fasta Priser",
+    text: "Vi lämnar alltid ett fast pris på våra renoveringar. Du kan känna dig trygg med att priset står fast från start till slut.",
+  },
+  {
+    id: 6,
+    src: document,
+    alt: "Logo Sketch Paper",
+    title: "Dokumentation",
+    text: "Våra kunder får alltid en fullständig dokumentation när projektet har slutförts, som intygar att arbetet är gjort på korrekt vis!",
+  },
+  {
+    id: 7,
+    src: book,
+    alt: "Logo Sketch Paper",
+    title: "Utbildade projektledare",
+    text: "Med våra utbiladade projektledare så kan vi säkerställa att alla projekt kan hålla samma höga standard vi lovar våra kunder. Samt att projektet kan bli klart inom den tidsram vi lovat.",
+  },
+  {
+    id: 8,
+    src: offer,
+    alt: "Logo Sketch Paper",
+    title: "Rabatter",
+    text: "Med hjälp av våra samarbetspartners, kan vi säkerställa bättre priser på en mängd olika material, som speglar priset mot våra kunder!",
+  },
+
+]

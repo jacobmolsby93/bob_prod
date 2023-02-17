@@ -44,93 +44,90 @@ export default function Intro(props) {
 
   return (
     <Box className="container">
-      <Box
-        display="flex"
-        justifyContent={!smallScreen ? "center" : "space-between"}
-        alignItems="center"
-        className="row"
-      >
-        <Box
-          className="col-12 col-lg-6"
-          padding={!lgScreen ? "0 20px 0 0" : "0"}
-        >
-          <Box height="auto">
-            <img
-              className="img-fluid"
-              src={props.image}
-              alt={props.alt}
-              style={{
-                objectFit: "cover",
-                height: smallScreen ? "400px" : "100%",
-                width: smallScreen ? "100%" : "auto",
-              }}
-            />
-          </Box>
+    <Box
+      display="flex"
+      justifyContent={!smallScreen ? "center" : "space-between"}
+      alignItems="center"
+      className="row"
+    >
+    <Box
+      className="col-12 col-lg-6"
+      padding={!lgScreen ? "0 20px 0 0" : "0"}
+      style={{ height: "100%" }}
+    >
+        <img
+          src={props.image}
+          alt={props.alt}
+          style={{
+            height: "100% !important",
+            width: "100%"
+          }}
+        />
+    </Box>
+    <Box
+      padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
+      className="col-12 col-lg-6"
+    >
+      <article>
+        <Typography variant="h2" className="title-font">
+          {props.title}
+        </Typography>
+        <Box display="flex" mt="3rem">
+          <span
+            style={{
+              width: "1rem",
+              maxWidht: ".2rem",
+              height: "auto",
+              marginRight: "1rem",
+              backgroundColor: "#c2662d",
+            }}
+          ></span>
+          <p className="body-paragraph">{props.body}</p>
         </Box>
-        <Box
-          padding={lgScreen ? "2rem 0 0 0" : "0 0 0 2rem"}
-          className="col-12 col-lg-6"
-        >
-          <article>
-            <Typography variant="h2" className="title-font">
-              {props.title}
-            </Typography>
-            <Box display="flex" mt="3rem">
-              <span
-                style={{
-                  width: "1rem",
-                  maxWidht: ".2rem",
-                  height: "auto",
-                  marginRight: "1rem",
-                  backgroundColor: "#c2662d",
-                }}
-              ></span>
-              <p className="body-paragraph">{props.body}</p>
-            </Box>
-            <Box mt="2.5rem">
-              <Button
-                variant="contained"
-                sx={buttonStyleContained}
-                aria-label="Länk till sidan kontakta oss"
+        <Box mt="2.5rem">
+          <Button
+            variant="contained"
+            sx={buttonStyleContained}
+            aria-label="Länk till sidan kontakta oss"
+          >
+            {props.pageLink ? (
+              <PageLink
+                to={props.to}
+                className="button-text"
+                aria-label={props.label}
+                smooth={true}
+                duration={200}
               >
-                {props.pageLink ? (
-                  <PageLink
-                    to={props.to}
-                    className="button-text"
-                    aria-label={props.label}
-                    smooth={true}
-                    duration={200}
-                  >
-                    {props.linkName}
-                  </PageLink>
-                ) : (
-                  <Link
-                    to={props.to}
-                    className="button-text"
-                    aria-label={props.label}
-                  >
-                    {props.linkName}
-                  </Link>
-                )}
-              </Button>
-              <Button
-                aria-label="Länk till sidan om oss"
-                className="body-paragraph"
-                variant="outlined"
-                sx={buttonStyleOutline}
+                {props.linkName}
+              </PageLink>
+            ) : (
+              <Link
+                to={props.to}
+                className="button-text"
+                aria-label={props.label}
               >
-                <Link
-                  to="/omoss"
-                  className="button-text"
-                  aria-label="länk företag"
-                >
-                  Om Företaget
-                </Link>
-              </Button>
-            </Box>
-          </article>
+                {props.linkName}
+              </Link>
+            )}
+          </Button>
+          <Button
+            aria-label="Länk till sidan om oss"
+            className="body-paragraph"
+            variant="outlined"
+            sx={buttonStyleOutline}
+          >
+            <Link
+              to="/omoss"
+              className="button-text"
+              aria-label="länk företag"
+            >
+              Om Företaget
+            </Link>
+          </Button>
         </Box>
-      </Box>
+      </article>
+    </Box>
+    </Box>
     </Box>
   );
 }
