@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
 import Credits from "../../components/Credits.jsx";
+import Reco from "../../components/Reco.jsx"
 
 // Widgets
 import Faq from "./widgets/Faq.jsx";
@@ -23,7 +24,6 @@ import carouselImage2 from "../../assets/carouselhome2.webp";
 import carouselImage3 from "../../assets/carouselhome3.webp";
 import carouselImage4 from "../../assets/carouselhome4.webp";
 import faq from "../../assets/faq.png";
-
 
 
 import image from "../../assets/carouselhome1.webp";

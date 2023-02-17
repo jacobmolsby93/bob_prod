@@ -97,8 +97,9 @@ export default function WhyUs() {
         <Box
           className="absolute-box-why"
           sx={{
-            backgroundPosition: mediumScreen ? "top" : "right",
+            backgroundPosition: "top",
             backgroundImage: `url(${shapes})`,
+            backgroundSize: "cover",
             zIndex: "-1",
           }}
         ></Box>
@@ -149,21 +150,21 @@ const ListBoxes = [
     src: document,
     alt: "Logo Sketch Paper",
     title: "Dokumentation",
-    text: "Våra kunder får alltid en fullständig dokumentation när projektet har slutförts, som intygar att arbetet är gjort på korrekt vis!",
+    text: "Med BOB VÅTRUMSRENOVERING kan du känna dig trygg, all nödvändig dokumentation överlämnas till dig som kund efter slutfört arbete!",
   },
   {
     id: 7,
     src: book,
     alt: "Logo Sketch Paper",
-    title: "Utbildade projektledare",
-    text: "Med våra utbiladade projektledare så kan vi säkerställa att alla projekt kan hålla samma höga standard vi lovar våra kunder. Samt att projektet kan bli klart inom den tidsram vi lovat.",
+    title: "Utbildningar",
+    text: "Vi håller oss ständigt uppdaterade gällande normer och regler inom branschen!",
   },
   {
     id: 8,
     src: offer,
     alt: "Logo Sketch Paper",
     title: "Rabatter",
-    text: "Med hjälp av våra samarbetspartners, kan vi säkerställa bättre priser på en mängd olika material, som speglar priset mot våra kunder!",
+    text: "Vi erbjuder alla våra kunder rabatter hos våra leverantörer. Tala med din kontaktperson och få veta mer.",
   },
 
 ]
