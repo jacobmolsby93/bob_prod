@@ -164,6 +164,7 @@ export default function NavbarComp() {
                 to={`/${item.url}`}
                 data-replace={item.menuItem}
                 style={{
+                  fontSize: "16px",
                   color: toggle ? "#000" : theme.palette.background.default,
                 }}
               >
@@ -254,6 +255,7 @@ export default function NavbarComp() {
                       data-replace={item.menuItem}
                       to={`/${item.url}`}
                       style={{
+                        fontSize: "16px",
                         color: "#1d1d1d",
                       }}
                     >
