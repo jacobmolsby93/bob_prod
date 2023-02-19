@@ -152,10 +152,10 @@ export default function HomePage() {
             {!smallScreen && (
               <Box className="col-12 col-lg-7">
                 <Typography
-                  sx={{ fontSize: "1.3rem"}}
+                  sx={{ fontSize: "1.2rem"}}
                   color="#E3E3E3"
                   mt={marginTop}
-                  variant="h4"
+                  variant="body1"
                   component="p"
                 >
                 Vi är den pålitliga och trygga hantverkaren som du
