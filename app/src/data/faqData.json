@@ -3,7 +3,15 @@
       {
         "id": 1,
         "question": "Hur lång tid kommer min renovering att ta?",
-        "answer": "Beroende på vad du har för typ av utrymme och vad du ska renovera tar det lite olika tid Stapla upp svaren en och en med en punkt eller likande framför. Nedan följer olika tidsplaner för dem olika renoveringarna. Badrum 2-6 kvm. 4 veckor. Badrum 7-12 kvm 5-6 veckor. Wc 2-3 veckor. Tvättstuga 3-4 veckor. Innan vi startar renoveringen hemma hos dig kommer du få en fast tidsplan för just ditt projekt. I avtalet lägger vi alltid till en vecka ifall någon behöver vara frånvarande från arbetet. Hör av dig till oss för att få veta mer om hur lång tid din renovering tar."
+        "answerList": {
+          "title": "Nedan följer olika tidsplaner för dem olika renoveringarna.",
+          "list1": "Badrum 2-6 kvm. 4 veckor.",
+          "list2": "Badrum 7-12 kvm 5-6 veckor.",
+          "list3": "Wc 2-3 veckor.",
+          "list4": "Tvättstuga 3-4 veckor.",
+          "body": "Innan vi startar renoveringen hemma hos dig kommer du få en fast tidsplan för just ditt projekt. I avtalet lägger vi alltid till en vecka ifall någon behöver vara frånvarande från arbetet. Hör av dig till oss för att få veta mer om hur lång tid din renovering tar."
+        },
+        "link": "#kontakt"
       },
       {
         "id": 2,

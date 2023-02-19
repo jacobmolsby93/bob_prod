@@ -294,8 +294,8 @@ export default function HomePage() {
         </Box>
       </AnimatedBox>
       <Spacer />
-            {/* Contact Form */}
-            <section id="hem-kontakt">
+      {/* Contact Form */}
+      <section id="kontakt">
         <AnimatedBox>
           <Box
             className="contact-background"
