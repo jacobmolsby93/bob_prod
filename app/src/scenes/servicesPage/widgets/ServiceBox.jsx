@@ -38,7 +38,7 @@ const services = [
     serviceImage: kitchen,
     serviceTitle: "Totalrenovering",
     serviceText:
-      "Behöver du totalrenovera bostaden? Vi på Bygg & BadrumsPartner är specialiserade på totalrenoveringar och hjälper mer än gärna till med helhetslösningar.",
+      "Behöver du totalrenovera bostaden? Vi på BOB VÅTRUMSRENOVERING är specialiserade på totalrenoveringar och hjälper mer än gärna till med helhetslösningar.",
     serviceLink: "/vara-tjanster/totalrenovering-stockholm",
     id: 3,
   },
