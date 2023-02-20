@@ -100,9 +100,7 @@ export default function Footer() {
                 ;
               </Box>
               <p style={{ color: "#fff", margin: "0", fontSize: "1rem" }}>
-                Pålitliga badrumsrenoverare hjälper dig att skapa drömbadrum.
-                Högkvalitativt hantverk, trygghet och tillgänglighet är vår
-                prioritet.
+                Pålitliga hantverkare som hjälper dig att göra verklighet av badrummet du drömmer om. Högkvalitativt hantverk, trygghet och tillgänglighet är ledord i vårt företag.
               </p>
               <Box dispaly="flex" mt="2rem">
                 <a

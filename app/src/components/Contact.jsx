@@ -81,9 +81,7 @@ export default function Contact() {
                 maxWidth: !smallScreen ? "70%" : "100%",
               }}
             >
-              Vill du ha hjälp med din renovering? Genom att fylla i formuläret till så
-              kommer vi att kontakta dig för ett kostnadsfritt möte. Vi hjälper dig med din nästa
-              badrumsrenovering.
+              Vill du ha hjälp med din renovering? Genom att fylla i formuläret nedan så kommer vi att kontakta dig för ett kostnadsfritt möte. Vi hjälper dig med att förverkliga din nästa badrumsrenovering. Välkommen till oss på BOD Våtrumsrenovering AB - vi ser fram emot att hjälpa dig med ditt projekt!
             </p>
           </Box>
           <Box mt="30px">
