@@ -52,14 +52,9 @@ export default function WhyUs() {
                 ></span>
                 <Box>
                   <p className="body-paragraph">
-                    Vi på Bob Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
-                    inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är
-                    en badrumsrenoveringsfirma som erbjuder våra kunder en
-                    helhetslösning när det kommer till allt inom
-                    badrumsrenoveringar. Vi har massa lyckade uppdrag runt om i
-                    Stockholm. Vi fokuserar endast på badrumsrenoveringar, wc &
-                    tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i
-                    alla led.
+                  Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är en badrumsrenoveringsfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrumsrenoveringar. Vi har många lyckade uppdrag runt om i Stockholm bakom oss och brinner för att sätta igång med nya projekt. Vi fokuserar endast på badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i alla led.
+Vi har i princip daglig kontakt och således mycket goda relationer till alla stora leverantörer av material för badrum och våtrum, såsom kakel och klinker. Det innebär att det blir fördelaktigt för dig som kund att beställa hela ditt badrum via oss, både material och arbete. Du slipper blanda in flera parter och kan tryggt luta dig tillbaka medan vi färdigställer ditt badrum. 
+Med vårt fastpris, tydliga tidsplan och noggranna dokumentation genom projektet, blir det enkelt för dig att kalkylera, planera och känna dig trygg med att ditt badrum håller högsta kvalité. Alla moment utförs självklart på ett fackmannamässigt sätt och vi har oberoende besiktningsmän som kontrollerar alla steg av våra projekt. 
                   </p>
                 </Box>
               </Box>

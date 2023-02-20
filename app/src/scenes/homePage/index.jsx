@@ -150,7 +150,7 @@ export default function HomePage() {
               VÄLKOMMEN TILL BOB VÅTRUMSRENOVERING! PROFFS PÅ VÅTUTRYMMEN.
             </Typography>
             {!smallScreen && (
-              <Box className="col-12 col-lg-7">
+              <Box className="col-12 col-lg-12">
                 <Typography
                   sx={{ fontSize: "1.2rem"}}
                   color="#E3E3E3"
@@ -158,14 +158,9 @@ export default function HomePage() {
                   variant="body1"
                   component="p"
                 >
-                Vi är den pålitliga och trygga hantverkaren som du
-                nästan inte trodde fanns. Men vi finns här för dig, och vi står vid
-                din sida hela vägen från idé till verklighet. För oss är trygghet
-                och tillgänglighet själva grundpelarna i det vi gör, och vi
-                levererar alltid hantverk av högsta kvalitet. Låt oss hjälpa dig att
-                skapa det drömbadrum du alltid har önskat dig. För att vi ska
-                kunna hjälpa dig på bästa sätt rekommenderar vi att boka in ett första möte med en av våra kollegor. Skicka gärna in ett
-                meddelande i formuläret så kontaktar vi dig.
+                Vill du anlita en hantverkare som specialiserat sig på exakt den typ av projekt som du vill utföra? Vi på BOB Våtrumsrenovering AB utför uteslutande renoveringar av badrum och tvättstugor, vilket har lett till att vi blivit extremt duktiga på det vi gör. Vi finns med dig genom ditt projekt, från start till mål och ser till att göra verklighet av din dröm. För oss är trygghet och tillgänglighet själva grundpelarna i det vi gör, och vi levererar alltid hantverk av högsta kvalitet. Låt oss hjälpa dig att skapa badrum du alltid drömt om. 
+                När våra kollegor i branschen är fullt upptagna med allt från fasadrenoveringar till anläggningar av trädgård och altaner, pysslar vi med våtrumsrenovering, från måndag till fredag och ser till att hela tiden fortsätta utvecklas inom vår profession. Vi kan allt och lite till om allt som rör våtrumsrenoveringar. Vi kan hjälpa dig med materialval, planlösningar, och allt annat som rör ditt badrum eller din tvättstuga.
+                För att vi ska kunna hjälpa dig på bästa sätt rekommenderar vi att boka in ett första möte med en av våra kollegor. Mötet är helt förutsättningslöst och ingenting vi tar betalt för. Skicka gärna ett meddelande i formuläret så kontaktar vi dig inom kort.
                 </Typography>
               </Box>
             )}
@@ -210,13 +205,9 @@ export default function HomePage() {
             image={image}
             title="Badrumsrenovering i Stockholm med omnejd till en fast
             tidsplan och med ett fast pris."
-            body="Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
-            inom badrumsrenovering & köksrenovering. Vi är ett specialistföretag inom
-            våtutrymmen som erbjuder våra kunder en helhetslösning när det kommer till allt
-            inom badrum, wc & tvättstugor. Önskar du få hjälp med inredning, kakel och klinker
-            har vi samarbeten med flera inredare. Denna tjänst är förstås helt kostnadsfri när du
-            väljer att renovera med oss. Låt oss veta dina önskemål så hjälper vi dig att få ditt
-            dröm badrum."
+            body="Finns det något härligare än att kliva in i sitt splitter nya badrum och inse att den vision man hade för några månader sedan, nu blivit till verklighet? Vi finns här för att skapa just den känslan. Det här är vår passion och det vi brinner för. Tillsammans ser vi till att du får precis det badrum du önskat dig. Vi hjälper dig också med inspiration och ideér, så att du kan ta alla nödvändiga beslut gällande utformningen av ditt badrum. Många gånger kan det enorma utbud av kakel och klinkers som finns på marknaden göra att man famlar bland alla val och möjligheter. Vi kan hjälpa dig med att avgränsa dina val och vägleda dig så att dina beslut blir enklare att ta.
+            Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens inom renovering av badrum och tvättstugor. Vi är ett specialistföretag inom våtutrymmen som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrum, wc & tvättstugor. Önskar du få hjälp med inredning, kakel och klinker har vi samarbeten med flera inredare. Denna tjänst är förstås helt kostnadsfri när du väljer att renovera med oss. Låt oss veta dina önskemål så hjälper vi dig att få det badrum du alltid drömt om.
+            "
             alt="Badrum"
             pageLink={false}
             to="/kontakt"
@@ -309,7 +300,16 @@ export default function HomePage() {
           </Box>
         </AnimatedBox>
       </section>
-      <Spacer />
+
+      <section id="testimonials">
+        <Box textAlign="center" pt="5rem" mb="2rem">
+          <Typography variant="h3" className="title-font">Våra kunder gillar oss!</Typography>
+        </Box>
+        <Spacer/>
+        <Box backgroundColor="#fff" className="container">
+          <iframe src="https://widget.reco.se/v2/widget/4053021?mode=HORIZONTAL&inverted=false&border=false" height="60" style={{width:"100%", border: 0, display:"flex", overflow: "hidden"}} data-reactroot=""></iframe>
+        </Box>
+      </section>
     </Box>
   );
 }
