@@ -208,7 +208,7 @@ export default function HomePage() {
         <AnimatedBox>
           <Intro
             image={image}
-            title="Badrumsrenovering I Stockholm Med Omnejd Till En Fast
+            title="Badrumsrenovering i Stockholm med omnejd till en fast
             tidsplan och med ett fast pris."
             body="Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens
             inom badrumsrenovering & köksrenovering. Vi är ett specialistföretag inom
@@ -217,7 +217,7 @@ export default function HomePage() {
             har vi samarbeten med flera inredare. Denna tjänst är förstås helt kostnadsfri när du
             väljer att renovera med oss. Låt oss veta dina önskemål så hjälper vi dig att få ditt
             dröm badrum."
-            alt="picture of the owners"
+            alt="Badrum"
             pageLink={false}
             to="/kontakt"
             className="button-text"
@@ -309,8 +309,6 @@ export default function HomePage() {
           </Box>
         </AnimatedBox>
       </section>
-      <Spacer />
-      <Reco />
       <Spacer />
     </Box>
   );
