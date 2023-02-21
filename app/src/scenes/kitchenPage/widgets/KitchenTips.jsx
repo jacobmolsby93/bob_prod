@@ -99,15 +99,15 @@ export default function KitchenTips() {
               ></span>
               <p className="body-paragraph">
                 Ett av stegen, utifrån ovan nämnda punkter, är att planera. Vi
-                på BOB Våtrumsrenovering menar på att planera en köksrenovering innebär så mycket
-                mer än att endast rita upp en ritning, det handlar om att
-                överväga varje litet steg. Med anledning av detta är det viktigt
-                att du har koll på avgörande faktorer när det kommer till just
-                din köksrenovering. BOB ser till att utföra detta steg i samband
-                med att du skickat in din ansökan och vill bolla dina tankar
-                samt idéer. Viktigt att veta är att besöket är helt
-                kostnadsfritt. Ett exempel på några faktorer att ha koll på när
-                det kommer till att renovera kök är ytan, ljusinsläppen samt
+                på BOB Våtrumsrenovering menar på att planera en köksrenovering
+                innebär så mycket mer än att endast rita upp en ritning, det
+                handlar om att överväga varje litet steg. Med anledning av detta
+                är det viktigt att du har koll på avgörande faktorer när det
+                kommer till just din köksrenovering. BOB ser till att utföra
+                detta steg i samband med att du skickat in din ansökan och vill
+                bolla dina tankar samt idéer. Viktigt att veta är att besöket är
+                helt kostnadsfritt. Ett exempel på några faktorer att ha koll på
+                när det kommer till att renovera kök är ytan, ljusinsläppen samt
                 materialet.
                 <br />
                 <br />
@@ -153,11 +153,11 @@ export default function KitchenTips() {
                 <br />
                 <br />
                 Misstag som tenderar att kosta tid och pengar. Att renovera kök
-                är dyrt men vi på BOB Våtrumsrenovering ser gärna att du får en offer med ett fast
-                pris från början därav vikten av att göra rätt redan i
-                uppstarten av bygget. I filmen nedan berättar vår kollega Eddie
-                om tryggheten BOB garanterar dig som kund. Från det att du
-                skickat in första ansökan tills dess att du besiktas
+                är dyrt men vi på BOB Våtrumsrenovering ser gärna att du får en
+                offer med ett fast pris från början därav vikten av att göra
+                rätt redan i uppstarten av bygget. I filmen nedan berättar vår
+                kollega Eddie om tryggheten BOB garanterar dig som kund. Från
+                det att du skickat in första ansökan tills dess att du besiktas
                 köksrenoveringen så finns vi där för en dialog. Vi kommunicerar
                 och bollar tankar och idéer längs med processens gång och finns
                 även närvarande under besiktningen av köket. Att renovera kök

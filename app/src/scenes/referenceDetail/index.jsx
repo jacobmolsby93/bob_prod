@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Typography,
@@ -24,22 +24,19 @@ import DetailCarousel from "./widgets/DetailCarousel";
 
 export default function Detail() {
   const { typeUrl } = useParams();
-  let thisRenovation = ""
-
-  
+  let thisRenovation = "";
 
   if (typeUrl.includes("badrumsrenovering")) {
     const foundItem = galleryData.find(
       (item) => `${item.type}-${item.item_url}` === typeUrl
     );
-    thisRenovation = foundItem
+    thisRenovation = foundItem;
   } else if (typeUrl.includes("koksrenovering")) {
     const foundItem = galleryDataKitchen.find(
       (item) => `${item.type}-${item.item_url}` === typeUrl
     );
-    thisRenovation = foundItem
+    thisRenovation = foundItem;
   }
-
 
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));

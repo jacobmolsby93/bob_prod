@@ -21,8 +21,8 @@ import Planer from "./widgets/Planer.jsx";
 import AnimatedBox from "../../animation/Animated.jsx";
 
 // Images
-const landingImage = "https://storage.googleapis.com/bob-prod-images/media/assets/servicesheroimg.webp"
-
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/servicesheroimg.webp";
 
 export default function Bathroom() {
   const theme = useTheme();

@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import Call from "@mui/icons-material/Call";
 
 // Images
-const aboutImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
+const aboutImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
 
 const Stand = () => {
   const theme = useTheme();
@@ -102,9 +103,9 @@ const Stand = () => {
               Genomskilniga Priser
             </Typography>
             <Typography variant="body1">
-              Med Bob Våtrumsrenovering AB kan du vara säker på att projektet kommer att
-              levereras precis i tid och inom budgetramarna, utan oväntade
-              kostnader eller förseningar.
+              Med Bob Våtrumsrenovering AB kan du vara säker på att projektet
+              kommer att levereras precis i tid och inom budgetramarna, utan
+              oväntade kostnader eller förseningar.
             </Typography>
           </Box>
           <Box className="col-xs-12 col-sm-12 col-md-6 feature-1 mb-0">

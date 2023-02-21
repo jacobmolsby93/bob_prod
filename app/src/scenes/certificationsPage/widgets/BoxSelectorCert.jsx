@@ -12,7 +12,8 @@ import data from "../../../data/certData.json";
 import LaunchIcon from "@mui/icons-material/Launch";
 import AnimatedLazyImage from "../../../components/LazyImage";
 
-const shapes = "https://storage.googleapis.com/bob-prod-images/media/assets/backgroundshapes.png"
+const shapes =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/backgroundshapes.png";
 
 export default function WhyUs() {
   const theme = useTheme();

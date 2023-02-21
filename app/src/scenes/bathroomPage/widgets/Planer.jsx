@@ -14,7 +14,8 @@ import AnimatedLazyImage from "../../../components/LazyImage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // Images
-const collageImage = "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-light.webp"
+const collageImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-light.webp";
 
 export default function Planer() {
   const theme = useTheme();

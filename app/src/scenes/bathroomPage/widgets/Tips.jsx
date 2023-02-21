@@ -6,7 +6,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 // Images
-const tip1 = "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp"
+const tip1 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
 
 import AnimatedLazyImage from "../../../components/LazyImage";
 

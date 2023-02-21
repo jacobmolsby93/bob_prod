@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
 import Credits from "../../components/Credits.jsx";
-import Reco from "../../components/Reco.jsx"
+import Reco from "../../components/Reco.jsx";
 
 // Widgets
 import Faq from "./widgets/Faq.jsx";
@@ -25,7 +25,6 @@ import carouselImage3 from "../../assets/carouselhome3.webp";
 import carouselImage4 from "../../assets/carouselhome4.webp";
 import faq from "../../assets/faq.png";
 
-
 import image from "../../assets/carouselhome1.webp";
 
 // Animation
@@ -36,7 +35,7 @@ const images = [
   landingBackground,
   landingBackground2,
   landingBackground3,
-  landingBackground4
+  landingBackground4,
 ];
 
 export default function HomePage() {
@@ -58,6 +57,7 @@ export default function HomePage() {
       padding: "6px 16px",
       textDecoration: "none",
       color: "#fff",
+      fontWeight: "bold",
     },
     "&:hover": {
       backgroundColor: theme.palette.primary[600],
@@ -71,6 +71,7 @@ export default function HomePage() {
     "&>a": {
       textDecoration: "none",
       color: "#fff",
+      fontWeight: "bold",
     },
     "&:hover": {
       border: `1px solid ${theme.palette.grey[0]}`,
@@ -152,15 +153,33 @@ export default function HomePage() {
             {!smallScreen && (
               <Box className="col-12 col-lg-12">
                 <Typography
-                  sx={{ fontSize: "1.2rem"}}
+                  sx={{ fontSize: "1.2rem" }}
                   color="#E3E3E3"
                   mt={marginTop}
                   variant="body1"
                   component="p"
                 >
-                Vill du anlita en hantverkare som specialiserat sig på exakt den typ av projekt som du vill utföra? Vi på BOB Våtrumsrenovering AB utför uteslutande renoveringar av badrum och tvättstugor, vilket har lett till att vi blivit extremt duktiga på det vi gör. Vi finns med dig genom ditt projekt, från start till mål och ser till att göra verklighet av din dröm. För oss är trygghet och tillgänglighet själva grundpelarna i det vi gör, och vi levererar alltid hantverk av högsta kvalitet. Låt oss hjälpa dig att skapa badrum du alltid drömt om. 
-                När våra kollegor i branschen är fullt upptagna med allt från fasadrenoveringar till anläggningar av trädgård och altaner, pysslar vi med våtrumsrenovering, från måndag till fredag och ser till att hela tiden fortsätta utvecklas inom vår profession. Vi kan allt och lite till om allt som rör våtrumsrenoveringar. Vi kan hjälpa dig med materialval, planlösningar, och allt annat som rör ditt badrum eller din tvättstuga.
-                För att vi ska kunna hjälpa dig på bästa sätt rekommenderar vi att boka in ett första möte med en av våra kollegor. Mötet är helt förutsättningslöst och ingenting vi tar betalt för. Skicka gärna ett meddelande i formuläret så kontaktar vi dig inom kort.
+                  Vill du anlita en hantverkare som specialiserat sig på exakt
+                  den typ av projekt som du vill utföra? Vi på BOB
+                  Våtrumsrenovering AB utför uteslutande renoveringar av badrum
+                  och tvättstugor, vilket har lett till att vi blivit extremt
+                  duktiga på det vi gör. Vi finns med dig genom ditt projekt,
+                  från start till mål och ser till att göra verklighet av din
+                  dröm. För oss är trygghet och tillgänglighet själva
+                  grundpelarna i det vi gör, och vi levererar alltid hantverk av
+                  högsta kvalitet. Låt oss hjälpa dig att skapa badrum du alltid
+                  drömt om. När våra kollegor i branschen är fullt upptagna med
+                  allt från fasadrenoveringar till anläggningar av trädgård och
+                  altaner, pysslar vi med våtrumsrenovering, från måndag till
+                  fredag och ser till att hela tiden fortsätta utvecklas inom
+                  vår profession. Vi kan allt och lite till om allt som rör
+                  våtrumsrenoveringar. Vi kan hjälpa dig med materialval,
+                  planlösningar, och allt annat som rör ditt badrum eller din
+                  tvättstuga. För att vi ska kunna hjälpa dig på bästa sätt
+                  rekommenderar vi att boka in ett första möte med en av våra
+                  kollegor. Mötet är helt förutsättningslöst och ingenting vi
+                  tar betalt för. Skicka gärna ett meddelande i formuläret så
+                  kontaktar vi dig inom kort.
                 </Typography>
               </Box>
             )}
@@ -303,11 +322,23 @@ export default function HomePage() {
 
       <section id="testimonials">
         <Box textAlign="center" pt="5rem" mb="2rem">
-          <Typography variant="h3" className="title-font">Våra kunder gillar oss!</Typography>
+          <Typography variant="h3" className="title-font">
+            Våra kunder gillar oss!
+          </Typography>
         </Box>
-        <Spacer/>
+        <Spacer />
         <Box backgroundColor="#fff" className="container">
-          <iframe src="https://widget.reco.se/v2/widget/4053021?mode=HORIZONTAL&inverted=false&border=false" height="60" style={{width:"100%", border: 0, display:"flex", overflow: "hidden"}} data-reactroot=""></iframe>
+          <iframe
+            src="https://widget.reco.se/v2/widget/4053021?mode=HORIZONTAL&inverted=false&border=false"
+            height="60"
+            style={{
+              width: "100%",
+              border: 0,
+              display: "flex",
+              overflow: "hidden",
+            }}
+            data-reactroot=""
+          ></iframe>
         </Box>
       </section>
     </Box>

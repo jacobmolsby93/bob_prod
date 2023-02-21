@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 import AnimatedLazyImage from "../../../components/LazyImage";
 
 // Images
-const mobileImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
-const desktopCollageImage = "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp"
+const mobileImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
+const desktopCollageImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp";
 
 const Intro = () => {
   const theme = useTheme();

@@ -134,7 +134,6 @@ export default function NavbarComp() {
     },
   };
 
-
   const expandClose = {
     color: theme.palette.primary[500],
     fontSize: "2rem",
@@ -183,19 +182,26 @@ export default function NavbarComp() {
         className="container-fluid"
         display="flex"
         alignItems="center"
-        sx={{ padding: !smallScreen ? ".5rem 2rem" : "0"}}
+        sx={{ padding: !smallScreen ? ".5rem 2rem" : "0" }}
       >
         <Box>
           <nav>
             <Link to="/" aria-label="Länk till hem" className="unstyled-link">
-              <Box display="flex">
-              <img
-                src={logo}
-                title="BOB Logga"
-                alt="Company logo"
-                style={{ width: "80px", height: "80px" }}
-              />
-              <Typography variant="body1" className="subtitle-font" sx={{ marginLeft: "1rem", marginBottom: "0", color: "#fff"}}>BOB <br/>VÅTRUMSRENOVERING</Typography>
+              <Box display="flex" alignItems="center">
+                <img
+                  src={logo}
+                  title="BOB Logga"
+                  alt="Company logo"
+                  style={{ width: "80px", height: "80px" }}
+                />
+                <Typography
+                  variant="body1"
+                  className="subtitle-font"
+                  sx={{ marginLeft: "1rem", marginBottom: "0", color: "#fff" }}
+                >
+                  BOB <br />
+                  VÅTRUMSRENOVERING
+                </Typography>
               </Box>
             </Link>
           </nav>
@@ -265,7 +271,10 @@ export default function NavbarComp() {
                     >
                       <List component="nav" sx={{ padding: "0" }}>
                         {options.map((listItem) => (
-                          <ListItem sx={{ padding: "1rem 0.5rem"}} key={listItem.url}>
+                          <ListItem
+                            sx={{ padding: "1rem 0.5rem" }}
+                            key={listItem.url}
+                          >
                             <Link
                               to={listItem.url}
                               className={`nav-link-main ${
@@ -603,7 +612,7 @@ const dropdownBox = {
   width: "max-content",
   padding: "20px 20px",
   height: "auto",
-  boxShadow: "rgba(17, 17, 26, 0.1) 4px 5px 5px"
+  boxShadow: "rgba(17, 17, 26, 0.1) 4px 5px 5px",
 };
 
 const contactP = {

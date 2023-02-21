@@ -22,21 +22,22 @@ export default function BathroomGallery() {
   const [gallery, setGallery] = useState(galleryData);
   const navigate = useNavigate();
 
-  const buttonStyleContained = {    
+  const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",
-  borderRadius: "0",
-  border: "none",
-  marginRight: "1rem",
-  backgroundColor: theme.palette.primary[500],
-  padding: 0,
-  "&>a": {
-    padding: "6px 16px",
-    textDecoration: "none",
-    color: "#fff",
-  },
-  "&:hover": {
-    backgroundColor: theme.palette.primary[600],
-  },}
+    borderRadius: "0",
+    border: "none",
+    marginRight: "1rem",
+    backgroundColor: theme.palette.primary[500],
+    padding: 0,
+    "&>a": {
+      padding: "6px 16px",
+      textDecoration: "none",
+      color: "#fff",
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.primary[600],
+    },
+  };
 
   const buttonStyleOutline = {
     marginTop: smallScreen ? "1rem" : "",
@@ -171,7 +172,7 @@ export default function BathroomGallery() {
               position: "relative",
               height: "100% !important",
               cursor: "pointer",
-              minHeight: smallScreen ? "400px" : "700px"
+              minHeight: smallScreen ? "400px" : "700px",
             }}
             onHoverStart={() => setIsHovered(item.img_url)}
           >
@@ -203,7 +204,7 @@ export default function BathroomGallery() {
                   }}
                 >
                   <Box>
-                  <Typography
+                    <Typography
                       variant="h3"
                       style={{ color: "white" }}
                       className="subtitle-font"
@@ -211,21 +212,26 @@ export default function BathroomGallery() {
                       {item.title}
                     </Typography>
 
-                  <Typography variant="body1" component="p" className="body-paragraph" sx={{ color: "#fff", padding: "1rem 0"}}>{`${item.paragraph.slice(0, 100)}...`}</Typography>
+                    <Typography
+                      variant="body1"
+                      component="p"
+                      className="body-paragraph"
+                      sx={{ color: "#fff", padding: "1rem 0" }}
+                    >{`${item.paragraph.slice(0, 100)}...`}</Typography>
 
-                  <Button
-                variant="contained"
-                sx={buttonStyleContained}
-                aria-label={`Klicka för att läsa mer om ${item.title}`}
-              >
-                  <Link
-                    to={`/referenscase/${item.type}-${item.item_url}`}
-                    className="button-text"
-                    aria-label={`Länk till ${item.item_url}`}
-                  >
-                    Läs Mer
-                  </Link>
-              </Button>
+                    <Button
+                      variant="contained"
+                      sx={buttonStyleContained}
+                      aria-label={`Klicka för att läsa mer om ${item.title}`}
+                    >
+                      <Link
+                        to={`/referenscase/${item.type}-${item.item_url}`}
+                        className="button-text"
+                        aria-label={`Länk till ${item.item_url}`}
+                      >
+                        Läs Mer
+                      </Link>
+                    </Button>
                   </Box>
                 </Box>
               </motion.div>

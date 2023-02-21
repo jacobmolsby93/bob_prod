@@ -18,8 +18,10 @@ import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import CopyrightRoundedIcon from "@mui/icons-material/CopyrightRounded";
 
 // Images (will need to be urls find suitable place to upload them)
-const logo = "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
-const TikTok = "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok-white.png";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
+const TikTok =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok-white.png";
 
 export default function Footer() {
   const theme = useTheme();
@@ -61,7 +63,12 @@ export default function Footer() {
     backgroundColor: theme.palette.primary[500],
     color: "#fff",
     padding: 0,
-    "&>a": { color: "#fff", textDecoration: "none", padding: "6px 16px" },
+    "&>a": {
+      color: "#fff",
+      textDecoration: "none",
+      padding: "6px 16px",
+      fontWeight: "bold",
+    },
     "&:hover": { backgroundColor: theme.palette.primary[600] },
   };
 
@@ -100,7 +107,9 @@ export default function Footer() {
                 ;
               </Box>
               <p style={{ color: "#fff", margin: "0", fontSize: "1rem" }}>
-                Pålitliga hantverkare som hjälper dig att göra verklighet av badrummet du drömmer om. Högkvalitativt hantverk, trygghet och tillgänglighet är ledord i vårt företag.
+                Pålitliga hantverkare som hjälper dig att göra verklighet av
+                badrummet du drömmer om. Högkvalitativt hantverk, trygghet och
+                tillgänglighet är ledord i vårt företag.
               </p>
               <Box dispaly="flex" mt="2rem">
                 <a
@@ -202,7 +211,10 @@ export default function Footer() {
                     </p>
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0" }}>
-                    <a href="mailto:hej@bobvatrumsrenovering.se" style={contactP}>
+                    <a
+                      href="mailto:hej@bobvatrumsrenovering.se"
+                      style={contactP}
+                    >
                       <span>
                         <EmailRoundedIcon sx={footerIcon} />
                       </span>
@@ -293,7 +305,7 @@ const contactP = {
   margin: "0",
   color: "#fff",
   textDecoration: "none",
-  fontSize: "1rem"
+  fontSize: "1rem",
 };
 
 const styledIconOutlined = {

@@ -8,7 +8,8 @@ import Stand from "./widgets/Stand.jsx";
 import Clients from "./widgets/Clients.jsx";
 
 // images
-const landingImage = "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp"
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
 
 import AnimatedBox from "../../animation/Animated.jsx";
 

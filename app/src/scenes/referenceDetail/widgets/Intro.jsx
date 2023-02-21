@@ -16,7 +16,11 @@ const Intro = ({ thisRenovation }) => {
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   return (
     <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
-      <Box className="col-12 col-lg-6" display="flex" padding={!smallScreen ? "0 3rem 0 0" : "0"}>
+      <Box
+        className="col-12 col-lg-6"
+        display="flex"
+        padding={!smallScreen ? "0 3rem 0 0" : "0"}
+      >
         <Box sx={{ height: "100%", width: "100%" }}>
           <AnimatedLazyImage
             src={thisRenovation.img_url}

@@ -16,10 +16,10 @@ import sketch from "../../../assets/sketch.png";
 import quality from "../../../assets/quality.png";
 import podium from "../../../assets/podium.png";
 import shapes from "../../../assets/backgroundshapes.png";
-import best from "../../../assets/best-price.png"
-import offer from "../../../assets/offer.png"
-import book from "../../../assets/open-book.png"
-import document from "../../../assets/contract.png"
+import best from "../../../assets/best-price.png";
+import offer from "../../../assets/offer.png";
+import book from "../../../assets/open-book.png";
+import document from "../../../assets/contract.png";
 
 export default function WhyUs() {
   const theme = useTheme();
@@ -27,18 +27,20 @@ export default function WhyUs() {
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const marginTop = "30px";
 
-
   return (
     <Box className="wrapper why-us-wrapper">
-      <Box
-        className="container"
-        margin="5rem 0"
-      >
+      <Box className="container" margin="5rem 0">
         <Box className="row flex-centerd-align" height="100">
-          <Box className="col-12" sx={{ zIndex: "10 " }} textAlign="center" display="flex" justifyContent="center">
+          <Box
+            className="col-12"
+            sx={{ zIndex: "10 " }}
+            textAlign="center"
+            display="flex"
+            justifyContent="center"
+          >
             <Box>
               <Typography variant="h3" className="title-font">
-                Varför Renovera Med Oss?
+                Varför renovera med oss?
               </Typography>
               <Box sx={{ marginTop: marginTop }}>
                 <span
@@ -52,9 +54,27 @@ export default function WhyUs() {
                 ></span>
                 <Box>
                   <p className="body-paragraph">
-                  Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt spetskompetens inom badrumsrenovering, wc-renoveringar och tvättstugor. Vi är en badrumsrenoveringsfirma som erbjuder våra kunder en helhetslösning när det kommer till allt inom badrumsrenoveringar. Vi har många lyckade uppdrag runt om i Stockholm bakom oss och brinner för att sätta igång med nya projekt. Vi fokuserar endast på badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan erbjuda högsta kvalitet i alla led.
-Vi har i princip daglig kontakt och således mycket goda relationer till alla stora leverantörer av material för badrum och våtrum, såsom kakel och klinker. Det innebär att det blir fördelaktigt för dig som kund att beställa hela ditt badrum via oss, både material och arbete. Du slipper blanda in flera parter och kan tryggt luta dig tillbaka medan vi färdigställer ditt badrum. 
-Med vårt fastpris, tydliga tidsplan och noggranna dokumentation genom projektet, blir det enkelt för dig att kalkylera, planera och känna dig trygg med att ditt badrum håller högsta kvalité. Alla moment utförs självklart på ett fackmannamässigt sätt och vi har oberoende besiktningsmän som kontrollerar alla steg av våra projekt. 
+                    Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet
+                    samt spetskompetens inom badrumsrenovering, wc-renoveringar
+                    och tvättstugor. Vi är en badrumsrenoveringsfirma som
+                    erbjuder våra kunder en helhetslösning när det kommer till
+                    allt inom badrumsrenoveringar. Vi har många lyckade uppdrag
+                    runt om i Stockholm bakom oss och brinner för att sätta
+                    igång med nya projekt. Vi fokuserar endast på
+                    badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan
+                    erbjuda högsta kvalitet i alla led. Vi har i princip daglig
+                    kontakt och således mycket goda relationer till alla stora
+                    leverantörer av material för badrum och våtrum, såsom kakel
+                    och klinker. Det innebär att det blir fördelaktigt för dig
+                    som kund att beställa hela ditt badrum via oss, både
+                    material och arbete. Du slipper blanda in flera parter och
+                    kan tryggt luta dig tillbaka medan vi färdigställer ditt
+                    badrum. Med vårt fastpris, tydliga tidsplan och noggranna
+                    dokumentation genom projektet, blir det enkelt för dig att
+                    kalkylera, planera och känna dig trygg med att ditt badrum
+                    håller högsta kvalité. Alla moment utförs självklart på ett
+                    fackmannamässigt sätt och vi har oberoende besiktningsmän
+                    som kontrollerar alla steg av våra projekt.
                   </p>
                 </Box>
               </Box>
@@ -63,27 +83,38 @@ Med vårt fastpris, tydliga tidsplan och noggranna dokumentation genom projektet
         </Box>
         <Box className="row" margin="3rem 0">
           {ListBoxes.map((item) => (
-            <Box className="col-12 col-md-6 col-xl-3" padding="10px" key={item.id}>
+            <Box
+              className="col-12 col-md-6 col-xl-3"
+              padding="10px"
+              key={item.id}
+            >
               <Box
-              height="100%"
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 20px 20px -20px"
-              backgroundColor="rgba(233, 229, 225, 1)"
-              margin="0"
-              padding="2rem 1rem"
+                height="100%"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 20px 20px -20px"
+                backgroundColor="rgba(233, 229, 225, 1)"
+                margin="0"
+                padding="2rem 1rem"
               >
                 <AnimatedLazyImage
                   src={item.src}
-                  style={{ width: "70px", height: "70px"}}
+                  style={{ width: "70px", height: "70px" }}
                   alt={item.alt}
                 />
-                <Typography variant="h3" fontWeight="bold" textAlign="center" sx={{ margin: "1rem 0"}}>
+                <Typography
+                  variant="h3"
+                  fontWeight="bold"
+                  textAlign="center"
+                  sx={{ margin: "1rem 0" }}
+                >
                   {item.title}
                 </Typography>
                 <Box margin=".6rem 0" textAlign="center">
-                <Typography variant="body1" className="body-paragraph">{item.text}</Typography>
+                  <Typography variant="body1" sx={{ fontSize: "1rem" }}>
+                    {item.text}
+                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -102,7 +133,6 @@ Med vårt fastpris, tydliga tidsplan och noggranna dokumentation genom projektet
     </Box>
   );
 }
-
 
 const ListBoxes = [
   {
@@ -161,5 +191,4 @@ const ListBoxes = [
     title: "Rabatter",
     text: "Vi erbjuder alla våra kunder rabatter hos våra leverantörer. Det innebär att du kan handla hela ditt badrum via oss, även materialet. Tala med din kontaktperson för att få veta mer.",
   },
-
-]
+];

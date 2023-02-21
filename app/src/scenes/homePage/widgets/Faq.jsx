@@ -69,46 +69,72 @@ export default function Faq(props) {
               <Typography
                 variant="h5"
                 component="h3"
-                style={{ margin: "0", padding: "1rem 1.8rem", fontWeight: "700", fontSize: "1.4rem" }}
+                style={{
+                  margin: "0",
+                  padding: "1rem 1.8rem",
+                  fontWeight: "700",
+                  fontSize: "1.4rem",
+                }}
               >
                 {question.question}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Box className="col-12" paddingLeft="20px">
-                <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.2rem" }}>
+                <Typography
+                  variant="body1"
+                  style={{ margin: "0 1rem", fontSize: "1.2rem" }}
+                >
                   {question.answer}
                 </Typography>
                 {question.answerList && (
                   <>
-                  <Typography variant="body1" style={{ margin: "0 1rem 1rem 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.title}
-                  </Typography>
-                  <ul>
-                    <li>
-                    <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.list1}
-                  </Typography>
-                    </li>
-                    <li>
-                    <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.list2}
-                  </Typography>
-                    </li>
-                    <li>
-                    <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.list3}
-                  </Typography>
-                    </li>
-                    <li>
-                    <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.list4}
-                  </Typography>
-                    </li>
-                  </ul>
-                  <Typography variant="body1" style={{ margin: "0 1rem", fontSize: "1.3rem" }}>
-                    {question.answerList.body}
-                  </Typography>
+                    <Typography
+                      variant="body1"
+                      style={{ margin: "0 1rem 1rem 1rem", fontSize: "1.3rem" }}
+                    >
+                      {question.answerList.title}
+                    </Typography>
+                    <ul>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                        >
+                          {question.answerList.list1}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                        >
+                          {question.answerList.list2}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                        >
+                          {question.answerList.list3}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                        >
+                          {question.answerList.list4}
+                        </Typography>
+                      </li>
+                    </ul>
+                    <Typography
+                      variant="body1"
+                      style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                    >
+                      {question.answerList.body}
+                    </Typography>
                   </>
                 )}
               </Box>
@@ -122,7 +148,7 @@ export default function Faq(props) {
                     <Link
                       to={question.link}
                       aria-label={`Länk till ${question.link}`}
-                      style={{ fontSize: "1rem", fontWeight: "800"}}
+                      style={{ fontSize: "1rem", fontWeight: "800" }}
                     >
                       Kontakta Oss
                     </Link>
