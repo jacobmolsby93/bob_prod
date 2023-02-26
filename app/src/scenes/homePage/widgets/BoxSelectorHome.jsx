@@ -8,127 +8,165 @@ import {
   useTheme,
 } from "@mui/material";
 
-import AnimatedLazyImage from "../../../components/LazyImage";
+// Components
+import Spacer from "../../../components/Spacer";
 
 // Images & Logos
 import teamwork from "../../../assets/support.png";
 import sketch from "../../../assets/sketch.png";
 import quality from "../../../assets/quality.png";
 import podium from "../../../assets/podium.png";
-import shapes from "../../../assets/backgroundshapes.png";
 import best from "../../../assets/best-price.png";
 import offer from "../../../assets/offer.png";
 import book from "../../../assets/open-book.png";
 import document from "../../../assets/contract.png";
+import collageImage4 from "../../../assets/collage-image-4.png";
+import collageImage5 from "../../../assets/collage-image-5.png";
+import collageImage6 from "../../../assets/collage-image-6.png";
 
 export default function WhyUs() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const marginTop = "30px";
 
   return (
-    <Box className="wrapper why-us-wrapper">
-      <Box className="container" margin="5rem 0">
-        <Box className="row flex-centerd-align" height="100">
-          <Box
-            className="col-12"
-            sx={{ zIndex: "10 " }}
-            textAlign="center"
-            display="flex"
-            justifyContent="center"
-          >
-            <Box>
-              <Typography variant="h3" className="title-font">
-                Varför renovera med oss?
-              </Typography>
-              <Box sx={{ marginTop: marginTop }}>
-                <span
-                  style={{
-                    width: ".2rem",
-                    maxWidth: ".2rem",
-                    height: "auto",
-                    marginRight: "10px",
-                    backgroundColor: theme.palette.primary[500],
-                  }}
-                ></span>
-                <Box>
-                  <p className="body-paragraph">
-                    Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet
-                    samt spetskompetens inom badrumsrenovering, wc-renoveringar
-                    och tvättstugor. Vi är en badrumsrenoveringsfirma som
-                    erbjuder våra kunder en helhetslösning när det kommer till
-                    allt inom badrumsrenoveringar. Vi har många lyckade uppdrag
-                    runt om i Stockholm bakom oss och brinner för att sätta
-                    igång med nya projekt. Vi fokuserar endast på
-                    badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan
-                    erbjuda högsta kvalitet i alla led. Vi har i princip daglig
-                    kontakt och således mycket goda relationer till alla stora
-                    leverantörer av material för badrum och våtrum, såsom kakel
-                    och klinker. Det innebär att det blir fördelaktigt för dig
-                    som kund att beställa hela ditt badrum via oss, både
-                    material och arbete. Du slipper blanda in flera parter och
-                    kan tryggt luta dig tillbaka medan vi färdigställer ditt
-                    badrum. Med vårt fastpris, tydliga tidsplan och noggranna
-                    dokumentation genom projektet, blir det enkelt för dig att
-                    kalkylera, planera och känna dig trygg med att ditt badrum
-                    håller högsta kvalité. Alla moment utförs självklart på ett
-                    fackmannamässigt sätt och vi har oberoende besiktningsmän
-                    som kontrollerar alla steg av våra projekt.
-                  </p>
-                </Box>
-              </Box>
-            </Box>
+    <Box>
+      <Box className="row" justifyContent="space-between">
+        <Box className="col-12 col-lg-4">
+          <Typography variant="h3" className="title-font">
+            Varför renovera
+            <br />
+            med oss?
+          </Typography>
+        </Box>
+        <Box className="col-12 col-lg-6 mt-3 mt-lg-0">
+          <Typography variant="body1" className="body-paragraph">
+            Vi på BOB Våtrumsrenovering AB har en gedigen erfarenhet samt
+            spetskompetens inom badrumsrenovering, wc-renoveringar och
+            tvättstugor. Vi är en badrumsrenoveringsfirma som erbjuder våra
+            kunder en helhetslösning när det kommer till allt inom
+            badrumsrenoveringar. Vi har många lyckade uppdrag runt om i
+            Stockholm bakom oss och brinner för att sätta igång med nya projekt.
+          </Typography>
+        </Box>
+      </Box>
+      <Box className="row" mt="2rem">
+        <Box
+          display="grid"
+          gridTemplateColumns="repeat(12, 1fr)"
+          gap={!lgScreen ? 4 : 2}
+          gridTemplateRows="20vw 40vw"
+        >
+          <Box gridColumn="1 / span 4" gridRow="1 / span 1">
+            <Box
+              sx={{
+                backgroundImage: `url(${collageImage4})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "100%",
+                width: "100%",
+                borderRadius: "10px",
+              }}
+            ></Box>
+          </Box>
+          <Box gridColumn="5 / span 8" gridRow="1 / span 1">
+            <Box
+              sx={{
+                backgroundImage: `url(${collageImage5})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "100%",
+                width: "100%",
+                borderRadius: "10px",
+              }}
+            ></Box>
+          </Box>
+          <Box gridColumn="1 / span 12" gridRow="2 / span 2">
+            <Box
+              sx={{
+                backgroundImage: `url(${collageImage6})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "100%",
+                width: "100%",
+                borderRadius: "10px",
+              }}
+            ></Box>
           </Box>
         </Box>
-        <Box className="row" margin="3rem 0">
-          {ListBoxes.map((item) => (
-            <Box
-              className="col-12 col-md-6 col-xl-3"
-              padding="10px"
-              key={item.id}
-            >
-              <Box
-                height="100%"
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 20px 20px -20px"
-                backgroundColor="rgba(233, 229, 225, 1)"
-                margin="0"
-                padding="2rem 1rem"
-              >
-                <AnimatedLazyImage
-                  src={item.src}
-                  style={{ width: "70px", height: "70px" }}
-                  alt={item.alt}
-                />
-                <Typography
-                  variant="h3"
-                  fontWeight="bold"
-                  textAlign="center"
-                  sx={{ margin: "1rem 0" }}
-                >
-                  {item.title}
-                </Typography>
-                <Box margin=".6rem 0" textAlign="center">
-                  <Typography variant="body1" sx={{ fontSize: "1rem" }}>
-                    {item.text}
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          ))}
+      </Box>
+      <Box className="row" mt="2rem" justifyContent="space-between">
+        <Box
+          className="col-12 col-lg-6"
+          sx={{ padding: !lgScreen ? "0" : "0 0 1rem 0" }}
+        >
+          <Typography variant="body1" className="body-paragraph">
+            Vi har många lyckade uppdrag runt om i Stockholm bakom oss och
+            brinner för att sätta igång med nya projekt. Vi fokuserar endast på
+            badrumsrenoveringar, wc & tvättstugor vilket gör att vi kan erbjuda
+            högsta kvalitet i alla led. Vi har i princip daglig kontakt och
+            således mycket goda relationer till alla stora leverantörer av
+            material för badrum och våtrum, såsom kakel och klinker. Det innebär
+            att det blir fördelaktigt för dig som kund att beställa hela ditt
+            badrum via oss, både material och arbete. Du slipper blanda in flera
+            parter och kan tryggt luta dig tillbaka medan vi färdigställer ditt
+            badrum.
+          </Typography>
         </Box>
         <Box
-          className="absolute-box-why"
-          sx={{
-            backgroundPosition: "top",
-            backgroundImage: `url(${shapes})`,
-            backgroundSize: "cover",
-            zIndex: "-1",
-          }}
-        ></Box>
+          className="col-12 col-lg-5"
+          sx={{ padding: !lgScreen ? "0 0 0 1rem" : "0" }}
+        >
+          <Typography variant="body1" className="body-paragraph">
+            Med vårt fastpris, tydliga tidsplan och noggranna dokumentation
+            genom projektet, blir det enkelt för dig att kalkylera, planera och
+            känna dig trygg med att ditt badrum håller högsta kvalité. Alla
+            moment utförs självklart på ett fackmannamässigt sätt och vi har
+            oberoende besiktningsmän som kontrollerar alla steg av våra projekt.
+          </Typography>
+        </Box>
+      </Box>
+      <Spacer />
+      <hr />
+      <Spacer />
+      <Box className="row">
+        {ListBoxes.map((item, index) => (
+          <Box
+            key={index}
+            className="col-12 col-md-6 col-lg-3"
+            padding={!lgScreen ? "1rem" : "0"}
+          >
+            <Box display="flex" alignItems="center">
+              <img
+                src={item.src}
+                alt={item.alt}
+                style={{ width: "2.5rem", height: "2.5rem" }}
+              />
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: "1.3rem",
+                  fontWeight: "bold",
+                  paddingLeft: "1rem",
+                }}
+              >
+                {item.title}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant="body1"
+                sx={{ color: "rgba(0, 0, 0, 0.7)", padding: "1rem 0" }}
+              >
+                {item.text}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

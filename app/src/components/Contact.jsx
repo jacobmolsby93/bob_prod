@@ -2,11 +2,16 @@ import React from "react";
 import { Box, Grid, Typography, Button, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MessageForm from "../form/MessageForm.jsx";
-import FacebookIcon from "../assets/facebookwhite.png";
+import FacebookIconOrange from "../assets/facebook-orange-icon.png";
+import FacebookIconBlack from "../assets/facebook.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import CallRoundedIcon from "@mui/icons-material/CallRounded";
-import MailRoundedIcon from "@mui/icons-material/MailRounded";
+import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import logoShapeIcon from "../assets/logo-shape-icon.png";
+import logoShapeGrey from "../assets/logo-shape-icon-grey.png";
+import ContactBackground from "../assets/contact-background.png";
+import Spacer from "./Spacer.jsx";
 
 const logo =
   "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
@@ -16,195 +21,152 @@ const tikTok =
 export default function Contact() {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const largeScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const theme = useTheme();
-
-  const contactIcon = {
-    color: theme.palette.primary[500],
-    fontSize: "1.8rem",
+  const sizeToSpacerCount = {
+    small: 1,
+    medium: 2,
+    large: 3,
   };
+  const size = smallScreen
+    ? 'small'
+    : mediumScreen
+    ? 'medium'
+    : largeScreen
+    ? 'large'
+    : null;
 
-  const styledIconOutlinedOrange = {
-    height: "40px",
-    width: "40px",
-    minWidth: "unset",
-    borderRadius: "50%",
-    color: "#2d2d2d",
-    margin: ".5rem",
-    backgroundColor: theme.palette.primary[500],
-    "&:hover": {
-      backgroundColor: theme.palette.primary[400],
-    },
-  };
+    const spacerCount = size ? sizeToSpacerCount[size] : null;
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      position="relative"
-      sx={{
-        marginTop: "30px",
-        marginBottom: "30px",
-        alignItems: "center",
-      }}
-    >
-      {/* Background Logo */}
-      <Box
-        style={{
-          backgroundImage: `url(${logo})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom",
-          backgroundSize: "contain",
-          opacity: "20%",
-          height: "30vw",
-          width: "30vw",
-          zIndex: "0",
-          position: "absolute",
-        }}
-      ></Box>
-      <Grid container zIndex="1" mt="20px">
-        {/* Text Area */}
-        <Box>
-          <Grid item xs={10} sx={{ marginBottom: "3rem" }}>
-            <Typography
-              className="subtitle-font"
-              variant="h2"
-              component="p"
-              color={theme.palette.primary[500]}
-            >
-              Få en kostnadsfri offert idag!
-            </Typography>
-            <Typography variant="h1" className="title-font">
-              Kontakta Oss Idag.
-            </Typography>
-            <Box display="flex" mt="2rem">
-              <span
-                style={{
-                  width: ".2rem",
-                  height: "auto",
-                  marginRight: "10px",
-                  backgroundColor: theme.palette.primary[500],
-                }}
-              ></span>
-              <p
-                className="body-paragraph"
-                style={{
-                  maxWidth: !smallScreen ? "70%" : "100%",
-                }}
-              >
+    <Box>
+      {/* Grey part */}
+      <Box backgroundColor="#F9F9F9" width="100%" padding="3rem 0">
+        <Box className="container">
+          <Box className="row">
+            <Box className="col-12 col-lg-6">
+              <Box>
+                <Typography variant="h4" className="title-font">
+                  Kontakta oss idag.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className="body-paragraph"
+                  sx={{ fontWeight: "bold", padding: "1rem 0" }}
+                >
+                  <MailOutlineIcon sx={{ marginRight: ".5rem" }} />
+                  hej@bobvatrumsrenovering.se
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className="body-paragraph"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  <PhoneInTalkIcon sx={{ marginRight: ".5rem" }} />
+                  08 - 33 36 63
+                </Typography>
+              </Box>
+            </Box>
+            <Box className="col-12 col-lg-6">
+              <Typography>
                 Vill du ha hjälp med din renovering? Genom att fylla i
                 formuläret nedan så kommer vi att kontakta dig för ett
                 kostnadsfritt möte. Vi hjälper dig med att förverkliga din nästa
                 badrumsrenovering. Välkommen till oss på BOB Våtrumsrenovering
                 AB - vi ser fram emot att hjälpa dig med ditt projekt!
-              </p>
+              </Typography>
+              <Box mt="2rem">
+                <nav style={{ display: "flex" }}>
+                  {IconsList.map((item) => (
+                    <a
+                      href={item.link}
+                      alt={`${item.name} Logga`}
+                      aria-label={`Länk till BOBs ${item.name}s sida`}
+                      style={{ marginRight: "1rem" }}
+                    >
+                      <Box
+                        sx={{
+                          backgroundImage: `url(${logoShapeGrey})`,
+                          backgroundPostition: "center",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "55px",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: "55px",
+                          width: "55px",
+                        }}
+                      >
+                        {item.icon}
+                      </Box>
+                    </a>
+                  ))}
+                </nav>
+              </Box>
             </Box>
-          </Grid>
+          </Box>
         </Box>
-        {/* Form Area */}
-        <Box width="100%" display="flex" justifyContent="center">
-          <MessageForm />
-        </Box>
+      </Box>
+      {/* Background Image part */}
+      <Box position="relative">
+        <Box
+          sx={{
+            backgroundImage: `url(${ContactBackground})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            minHeight: "30vw",
+            position: "absolute",
+            left: "0",
+            right: "0",
+            zIndex: "-1",
+          }}
+        ></Box>
         <Box>
-          {/* Social */}
-          <Grid item xs={10}></Grid>
-          <Box mt="30px" width="max-content">
-            <a
-              href="https://www.instagram.com/bob.badrum/"
-              target="_blank"
-              aria-label="Länk till företages Instagram"
-            >
-              <Button
-                aria-label="Instagram"
-                variant="outlined"
-                sx={styledIconOutlined}
-              >
-                <InstagramIcon sx={{ width: "20px", height: "20px" }} />
-              </Button>
-            </a>
-            <a
-              href=" https://www.facebook.com/bob.vatrumsrenovering/"
-              target="_blank"
-              aria-label="Länk till företages Tik-Tok sida"
-            >
-              <Button
-                aria-label="Tik-Tok"
-                variant="outlined"
-                sx={styledIconOutlinedOrange}
-              >
-                <img
-                  src={FacebookIcon}
-                  width="20px"
-                  height="20px"
-                  alt="Tik-Tok ikon"
-                />
-              </Button>
-            </a>
-            <a
-              href="https://www.tiktok.com/@bob.badrum"
-              target="_blank"
-              aria-label="Länk till företages Tik-Tok sida"
-            >
-              <Button
-                aria-label="Tik-Tok"
-                variant="outlined"
-                sx={styledIconOutlined}
-              >
-                <img
-                  src={tikTok}
-                  width="20px"
-                  height="20px"
-                  alt="Tik-Tok ikon"
-                />
-              </Button>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/info-bob-v%C3%A5trumsrenovering-ab-0bb772266/"
-              target="_blank"
-              aria-label="Länk till företages Instagram"
-            >
-              <Button
-                aria-label="Instagram"
-                variant="outlined"
-                sx={styledIconOutlinedOrange}
-              >
-                <LinkedInIcon
-                  sx={{ width: "20px", height: "20px", color: "#fff" }}
-                />
-              </Button>
-            </a>
-          </Box>
-          <Box
-            mt="30px"
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <a
-              className="body-paragraph contact-info"
-              href="mailto:hej@bobvatrumsrenovering.se?subject=Offert"
-              style={{ marginRight: "1rem" }}
-            >
-              <span style={{ marginRight: ".5rem" }}>
-                <MailRoundedIcon sx={contactIcon} />
-              </span>
-              hej@bobvatrumsrenovering.se
-            </a>
-
-            <p className="body-paragraph contact-info">
-              <span style={{ marginRight: ".5rem" }}>
-                <CallRoundedIcon sx={contactIcon} />
-              </span>
-              08 - 33 36 63
-            </p>
+          <Box className="row" justifyContent="center">
+            <MessageForm />
           </Box>
         </Box>
-      </Grid>
+      </Box>
     </Box>
   );
 }
+
+
+const IconsList = [
+  {
+    orange: true,
+    icon: (
+      <img
+        src={FacebookIconBlack}
+        alt="Facebook ikon"
+        width="auto"
+        height="22px"
+      />
+    ),
+    link: "https://www.linkedin.com/in/boblogo/",
+    name: "Facebook",
+  },
+  {
+    icon: (
+      <InstagramIcon sx={{ width: "auto", height: "22px", color: "#000" }} />
+    ),
+    link: "https://www.linkedin.com/in/boblogo/",
+    name: "Instagram",
+  },
+  {
+    icon: <img src={tikTok} alt="Tiktok ikon" width="auto" height="22px" />,
+    link: "https://www.linkedin.com/in/boblogo/",
+    name: "Tiktok",
+  },
+  {
+    icon: (
+      <LinkedInIcon sx={{ width: "auto", height: "22px", color: "#000" }} />
+    ),
+    link: "https://www.linkedin.com/in/boblogo/",
+    name: "LinkedIn",
+  },
+];
 
 const styledIconOutlined = {
   height: "40px",

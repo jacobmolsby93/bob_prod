@@ -169,17 +169,10 @@ const MessageFields = () => {
       {/* Form goes here */}
       <form onSubmit={formik.handleSubmit}>
         {/* Radio Buttons */}
-        <FormControl
-          required
-          component="fieldset"
-        >
+        <FormControl required component="fieldset">
           <FormLabel component="legend">Pick two</FormLabel>
           <FormGroup>
-            <Field
-              type="checkbox"
-              name="checkboxes"
-              value="gilad"
-            >
+            <Field type="checkbox" name="checkboxes" value="gilad">
               {({ field }) => (
                 <FormControlLabel
                   control={<Checkbox {...field} />}
@@ -187,11 +180,7 @@ const MessageFields = () => {
                 />
               )}
             </Field>
-            <Field
-              type="checkbox"
-              name="checkboxes"
-              value="jason"
-            >
+            <Field type="checkbox" name="checkboxes" value="jason">
               {({ field }) => (
                 <FormControlLabel
                   control={<Checkbox {...field} />}
@@ -199,11 +188,7 @@ const MessageFields = () => {
                 />
               )}
             </Field>
-            <Field
-              type="checkbox"
-              name="checkboxes"
-              value="antoine"
-            >
+            <Field type="checkbox" name="checkboxes" value="antoine">
               {({ field }) => (
                 <FormControlLabel
                   control={<Checkbox {...field} />}
@@ -212,9 +197,7 @@ const MessageFields = () => {
               )}
             </Field>
           </FormGroup>
-          <FormHelperText>
-            You can display an error
-          </FormHelperText>
+          <FormHelperText>You can display an error</FormHelperText>
         </FormControl>
         <TextField
           fullWidth

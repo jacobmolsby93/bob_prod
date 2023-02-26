@@ -43,13 +43,13 @@ const menuItems = [
     id: 4,
   },
   {
-    menuItem: "Kontakt",
-    url: "kontakt",
+    menuItem: "Om Oss",
+    url: "omoss",
     id: 5,
   },
   {
-    menuItem: "Om Oss",
-    url: "omoss",
+    menuItem: "Kontakt",
+    url: "kontakt",
     id: 6,
   },
 ];
@@ -81,6 +81,7 @@ export default function NavbarComp() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const breakpoint = useMediaQuery("(min-width:1200px)");
+  const xlScreen = useMediaQuery("(min-width:1500px)");
   const [scrollTop, setScrollTop] = useState(true);
   const [toggle, setToggle] = useState(false);
   let oldScrollY = 0;
@@ -118,19 +119,28 @@ export default function NavbarComp() {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const buttonStyle = {
-    width: "40px",
-    minWidth: "40px",
-    height: "40px",
-    borderRadius: "50%",
+  const buttonStyleOrange = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: ".5rem",
+    padding: "0.5rem 1rem",
+    border: "none",
+    marginLeft: "1rem",
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: "1rem",
     backgroundColor: theme.palette.primary[500],
-    marginLeft: toggle ? "0" : "10px",
-    "&>a": {
-      color: theme.palette.background.default,
-      textDecoration: "none",
-    },
     "&:hover": {
       backgroundColor: theme.palette.primary[600],
+    },
+  };
+
+  const navLinkStyle = {
+    color: theme.palette.grey[900],
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    "&:hover": {
+      color: `${theme.palette.primary[500]} !important`,
     },
   };
 
@@ -165,7 +175,7 @@ export default function NavbarComp() {
 
   return (
     <Navbar
-      bg={!scrollTop ? "dark" : "undefined"}
+      bg="white"
       expand="lg"
       fixed="top"
       style={{
@@ -179,7 +189,7 @@ export default function NavbarComp() {
       }}
     >
       <Box
-        className="container-fluid"
+        className={!xlScreen ? "container-fluid" : "container"}
         display="flex"
         alignItems="center"
         sx={{ padding: !smallScreen ? ".5rem 2rem" : "0" }}
@@ -192,12 +202,17 @@ export default function NavbarComp() {
                   src={logo}
                   title="BOB Logga"
                   alt="Company logo"
-                  style={{ width: "80px", height: "80px" }}
+                  style={{ width: "60px", height: "60px" }}
                 />
                 <Typography
                   variant="body1"
-                  className="subtitle-font"
-                  sx={{ marginLeft: "1rem", marginBottom: "0", color: "#fff" }}
+                  className="navbar-logo-font"
+                  sx={{
+                    marginLeft: ".5rem",
+                    marginBottom: "0",
+                    color: theme.palette.grey[900],
+                    lineHeight: "1.7rem",
+                  }}
                 >
                   BOB <br />
                   VÅTRUMSRENOVERING
@@ -220,19 +235,12 @@ export default function NavbarComp() {
                 >
                   <Link
                     onClick={(event) => handleClick(event)}
-                    className={`nav-link-main ${
-                      activeLink === item.menuItem ? "active" : ""
-                    }`}
+                    className="nav-link-main"
                     aria-label={`Länk till ${item.menuItem}`}
                     key={item.url}
                     to={`/${item.url}`}
                     data-replace={item.menuItem}
-                    style={{
-                      color: toggle ? "#000" : theme.palette.background.default,
-                      position: "relative",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
+                    style={navLinkStyle}
                     onMouseOver={() => setShowMenu(true)}
                   >
                     {item.menuItem}
@@ -297,59 +305,35 @@ export default function NavbarComp() {
                     </motion.div>
                   </motion.div>
                 </Box>
-              ) : (
+              ) : item.url === "kontakt" ? (
                 <Link
                   onClick={(event) => handleClick(event)}
-                  className={`nav-link-main ${
-                    activeLink === item.menuItem ? "active" : ""
-                  }`}
                   aria-label={`Länk till ${item.menuItem}`}
                   key={item.url}
                   to={`/${item.url}`}
                   data-replace={item.menuItem}
                   style={{
-                    color: toggle ? "#000" : theme.palette.background.default,
+                    textDecoration: "none",
                   }}
+                >
+                  <Button variant="contained" sx={buttonStyleOrange}>
+                    {item.menuItem}
+                  </Button>
+                </Link>
+              ) : (
+                <Link
+                  onClick={(event) => handleClick(event)}
+                  className="nav-link-main"
+                  aria-label={`Länk till ${item.menuItem}`}
+                  key={item.url}
+                  to={`/${item.url}`}
+                  data-replace={item.menuItem}
+                  style={navLinkStyle}
                 >
                   {item.menuItem}
                 </Link>
               )
             )}
-            <Box>
-              <a
-                aria-label="Länk til företagets email"
-                href="mailto:hej@bobvatrumsrenovering.se"
-                style={{ width: "40px", height: "40px" }}
-              >
-                <Button
-                  aria-label="Email icon"
-                  variant="contained"
-                  sx={buttonStyle}
-                >
-                  <MailOutlineIcon
-                    sx={{
-                      fontSize: "1.5rem",
-                      color: theme.palette.background.default,
-                    }}
-                  />
-                </Button>
-              </a>
-              <a href="tel:08333663" aria-label="Företagets telefon-nummer">
-                <Button
-                  aria-label="Telefon icon"
-                  name="Mail Ikon"
-                  variant="contained"
-                  sx={buttonStyle}
-                >
-                  <CallIcon
-                    sx={{
-                      fontSize: "1.5rem",
-                      color: theme.palette.background.default,
-                    }}
-                  />
-                </Button>
-              </a>
-            </Box>
           </Box>
         ) : (
           /* Movile nav*/
@@ -357,7 +341,7 @@ export default function NavbarComp() {
             <Box>
               <MenuIcon
                 sx={{
-                  color: "#fff",
+                  color: theme.palette.grey[900],
                   fontSize: "2rem",
                   zIndex: "10",
                   cursor: "pointer",

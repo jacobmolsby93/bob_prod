@@ -31,11 +31,12 @@ export default function ControlledCarousel(props) {
             <Box
               style={{
                 width: "100%",
-                height: props.smallScreen ? "400px" : "700px",
+                height: "400px",
                 backgroundImage: `url(${item.image})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
+                borderRadius: "10px",
               }}
             ></Box>
           </Carousel.Item>
