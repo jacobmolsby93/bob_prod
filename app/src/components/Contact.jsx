@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography, Button, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MessageForm from "../form/MessageForm.jsx";
@@ -19,24 +19,27 @@ const tikTok =
   "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok.png";
 
 export default function Contact() {
+  const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
-  const largeScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
-  const theme = useTheme();
-  const sizeToSpacerCount = {
-    small: 1,
-    medium: 2,
-    large: 3,
-  };
-  const size = smallScreen
-    ? 'small'
-    : mediumScreen
-    ? 'medium'
-    : largeScreen
-    ? 'large'
-    : null;
+  const xlScreen = "";
+  const [screenSize, setScreenSize] = useState([""]);
 
-    const spacerCount = size ? sizeToSpacerCount[size] : null;
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setScreenSize(["item"]);
+      } else if (width > 768 && width < 1200) {
+        setScreenSize(["item 1", "item 2"]);
+      } else {
+        setScreenSize(["item 1", "item 2", "item 3"]);
+      }
+    };
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
 
   return (
     <Box>
@@ -68,7 +71,7 @@ export default function Contact() {
               </Box>
             </Box>
             <Box className="col-12 col-lg-6">
-              <Typography>
+              <Typography variant="body1" className="body-paragraph">
                 Vill du ha hjälp med din renovering? Genom att fylla i
                 formuläret nedan så kommer vi att kontakta dig för ett
                 kostnadsfritt möte. Vi hjälper dig med att förverkliga din nästa
@@ -79,6 +82,7 @@ export default function Contact() {
                 <nav style={{ display: "flex" }}>
                   {IconsList.map((item) => (
                     <a
+                      key={item.name}
                       href={item.link}
                       alt={`${item.name} Logga`}
                       aria-label={`Länk till BOBs ${item.name}s sida`}
@@ -123,6 +127,9 @@ export default function Contact() {
           }}
         ></Box>
         <Box>
+          {screenSize.map((item, index) => (
+            <Spacer key={index} size={index + 1} />
+          ))}
           <Box className="row" justifyContent="center">
             <MessageForm />
           </Box>
@@ -131,7 +138,6 @@ export default function Contact() {
     </Box>
   );
 }
-
 
 const IconsList = [
   {
@@ -144,26 +150,26 @@ const IconsList = [
         height="22px"
       />
     ),
-    link: "https://www.linkedin.com/in/boblogo/",
+    link: "https://www.facebook.com/bob.vatrumsrenovering/",
     name: "Facebook",
   },
   {
     icon: (
       <InstagramIcon sx={{ width: "auto", height: "22px", color: "#000" }} />
     ),
-    link: "https://www.linkedin.com/in/boblogo/",
+    link: "https://www.instagram.com/bob.vatrumsrenovering/",
     name: "Instagram",
   },
   {
     icon: <img src={tikTok} alt="Tiktok ikon" width="auto" height="22px" />,
-    link: "https://www.linkedin.com/in/boblogo/",
+    link: "https://www.tiktok.com/@bob.vatrumsrenovering",
     name: "Tiktok",
   },
   {
     icon: (
       <LinkedInIcon sx={{ width: "auto", height: "22px", color: "#000" }} />
     ),
-    link: "https://www.linkedin.com/in/boblogo/",
+    link: "https://www.linkedin.com/in/info-bob-v%C3%A5trumsrenovering-ab-0bb772266/",
     name: "LinkedIn",
   },
 ];

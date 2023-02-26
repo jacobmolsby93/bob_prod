@@ -7,7 +7,6 @@ export const ButtonWhite = ({ buttonText, icon, aria, ariaAtag, href }) => {
   const buttonStyleWhite = {
     marginTop: smallScreen ? "1rem" : "",
     backgroundColor: "#fff",
-    color: "#242424",
     borderRadius: ".5rem",
     padding: "1rem",
     border: `1px solid ${theme.palette.grey[0]}`,

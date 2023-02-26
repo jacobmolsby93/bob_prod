@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { onSubmit } from "./onSubmit";
 import axios from "axios";
+import ButtonOrange from "../components/ButtonOrange";
 
 const validationSchema = Yup.object({
   typ: Yup.string(),
@@ -34,8 +35,28 @@ const validationSchema = Yup.object({
   telefon: Yup.string().required("Telefon är obligatoriskt"),
   arende: Yup.string().required("Ärende är obligatoriskt"),
   medelande: Yup.string().required("Medelande är obligatoriskt"),
+  bild: Yup.mixed()
+    .test("fileFormat", "Endast JPG, PNG eller GIF format stöds", (value) => {
+      if (value && value.length) {
+        const fileType = value[0].type;
+        return (
+          fileType === "image/jpeg" ||
+          fileType === "image/png" ||
+          fileType === "image/gif"
+        );
+      } else {
+        return true;
+      }
+    })
+    .test("fileSize", "Bilden får inte vara större än 2MB", (value) => {
+      if (value && value.length) {
+        const fileSize = value[0].size;
+        return fileSize <= 2000000;
+      } else {
+        return true;
+      }
+    }),
 });
-
 const MessageFields = () => {
   const [choices, setChoices] = useState([]);
 
@@ -58,7 +79,7 @@ const MessageFields = () => {
     <>
       <Box className="container">
         <Box className="row" justifyContent="center">
-          <Box className="col-12 col-md-10 col-lg-7">
+          <Box className="col-12 col-md-10 col-lg-8 col-xl-7">
             <Grid item>
               <Box
                 sx={{
@@ -97,9 +118,42 @@ const MessageFields = () => {
                 >
                   {(props) => (
                     <form onSubmit={props.handleSubmit}>
+                      <Grid item xs={12} sx={{ backgroundImage: `url()` }}>
+                        <Field name="typ">
+                          {({ field }) => (
+                            <FormControl component="fieldset">
+                              <FormLabel component="legend">
+                                Selected Option
+                              </FormLabel>
+                              <RadioGroup
+                                style={{
+                                  display: "inline",
+                                  color: "#fff",
+                                  padding: "1rem 0",
+                                }}
+                                {...field}
+                                value={props.values.typ}
+                                onChange={props.handleChange}
+                              >
+                                <FormControlLabel
+                                  control={<Radio />}
+                                  label="Option 1"
+                                  value="privat"
+                                />
+                                <FormControlLabel
+                                  control={<Radio />}
+                                  label="Option 2"
+                                  value="foretag"
+                                />
+                              </RadioGroup>
+                            </FormControl>
+                          )}
+                        </Field>
+                      </Grid>
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           id="fornamn"
                           name="fornamn"
                           label="Förnamn"
@@ -117,6 +171,7 @@ const MessageFields = () => {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           id="efternamn"
                           name="efternamn"
                           label="Efternamn"
@@ -135,6 +190,7 @@ const MessageFields = () => {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           id="epost"
                           name="epost"
                           label="Epost"
@@ -150,6 +206,7 @@ const MessageFields = () => {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           id="telefon"
                           name="telefon"
                           label="Telefon"
@@ -168,6 +225,7 @@ const MessageFields = () => {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           variant="outlined"
                           name="stadsdel_kommun"
                           id="stadsdel_kommun"
@@ -196,35 +254,9 @@ const MessageFields = () => {
                         </TextField>
                       </Grid>
                       <Grid item xs={12}>
-                        <Field name="typ">
-                          {({ field }) => (
-                            <FormControl component="fieldset">
-                              <FormLabel component="legend">
-                                Selected Option
-                              </FormLabel>
-                              <RadioGroup
-                                {...field}
-                                value={props.values.typ}
-                                onChange={props.handleChange}
-                              >
-                                <FormControlLabel
-                                  control={<Radio />}
-                                  label="Option 1"
-                                  value="privat"
-                                />
-                                <FormControlLabel
-                                  control={<Radio />}
-                                  label="Option 2"
-                                  value="foretag"
-                                />
-                              </RadioGroup>
-                            </FormControl>
-                          )}
-                        </Field>
-                      </Grid>
-                      <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
                           variant="outlined"
                           name="arende"
                           id="arende"
@@ -251,6 +283,9 @@ const MessageFields = () => {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
+                          sx={TextFieldStyles}
+                          rows={10}
+                          multiline
                           id="medelande"
                           name="medelande"
                           label="Medelande"
@@ -267,30 +302,42 @@ const MessageFields = () => {
                         />
                       </Grid>
                       <Grid item xs={12}>
-                        <Button
-                          type="submit"
-                          fullWidth
-                          variant="contained"
-                          color="primary"
-                        >
-                          Submit
-                        </Button>
+                        <input
+                          id="image"
+                          name="image"
+                          type="file"
+                          onChange={(event) => {
+                            props.setFieldValue(
+                              "image",
+                              event.currentTarget.files[0]
+                            );
+                          }}
+                        />
                       </Grid>
-                      <Typography
-                        variant="caption"
-                        display="block"
-                        gutterBottom
+                      <Box
+                        sx={{
+                          padding: "0.5rem 0",
+                          color: "#fff",
+                          width: "70%",
+                        }}
                       >
-                        Errors
-                      </Typography>
-                      <pre>{JSON.stringify(props.errors, null, 2)}</pre>
-                      <Typography
-                        variant="caption"
-                        display="block"
-                        gutterBottom
+                        <Typography>
+                          Genom att klicka på skicka medelande så godkänner du
+                          våran policy för gdpr, du kan när som helst skriva
+                          till oss för att ta bort dina uppgifter.
+                        </Typography>
+                      </Box>
+                      <Grid
+                        item
+                        xs={12}
+                        sx={{ display: "flex", justifyContent: "flex-end" }}
                       >
-                        Values
-                      </Typography>
+                        <ButtonOrange
+                          buttonText="Skicka Medelande"
+                          type="submit"
+                          aria="Klicka för att skicka medelande"
+                        />
+                      </Grid>
                       <pre>{JSON.stringify(props.values, null, 2)}</pre>
                     </form>
                   )}
@@ -305,3 +352,16 @@ const MessageFields = () => {
 };
 
 export default MessageFields;
+
+const TextFieldStyles = {
+  margin: ".5rem 0",
+  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
+  "& fieldset, textarea": { color: "#fff" },
+  "& MuiLabel-root": { color: "#fff" },
+  "& label": {
+    color: "#fff",
+  },
+  "& .MuiSvgIcon-root": {
+    color: "white",
+  },
+};

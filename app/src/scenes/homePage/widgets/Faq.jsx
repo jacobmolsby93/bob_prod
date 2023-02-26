@@ -22,6 +22,7 @@ export default function Faq(props) {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   // Handle question
   const [questions, setQuestions] = useState(faqData.questions);
+  const [activeQuestion, setActiveQuestion] = useState(0);
 
   const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",
@@ -57,14 +58,25 @@ export default function Faq(props) {
 
   return (
     <>
-      {questions.map((question) => (
-        <Box key={question.id} sx={{ marginBottom: "1.2rem" }}>
-          <Accordion>
+      {questions.map((question, index) => (
+        <Box key={question.id}>
+          <Accordion
+            sx={{
+              boxShadow: "none",
+              borderTop: "1px solid rgba(0, 0, 0, 0.15)",
+              borderBottom:
+                index === questions.length - 1
+                  ? "1px solid rgba(0, 0, 0, 0.15)"
+                  : "0",
+              borderRadius: "0 !important",
+            }}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls={`question-${question.id}-content`}
               id={`question-${question.id}-header`}
               onClick={() => handleToggleAnswer(question.id)}
+              title="Klicka för att se svar"
             >
               <Typography
                 variant="h5"

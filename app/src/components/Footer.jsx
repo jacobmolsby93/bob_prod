@@ -10,12 +10,16 @@ import {
 import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // icons
-
+import logoShapeLight from "../assets/logo-shape-icon-light.png";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "../assets/facebookwhite.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import CopyrightRoundedIcon from "@mui/icons-material/CopyrightRounded";
+import footerShape from "../assets/footer-logo-shape.png";
+import ButtonOrange from "./ButtonOrange";
 
 // Images (will need to be urls find suitable place to upload them)
 const logo =
@@ -29,13 +33,16 @@ export default function Footer() {
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   const logoFooter = {
-    width: "90px",
-    height: "90px",
+    width: "70px",
+    height: "70px",
   };
 
   const mediumMargin = {
     margin: mediumScreen ? "1.5rem 0 1.5rem 0" : "0",
     padding: lgScreen ? "1rem" : "0",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   };
 
   const styledLinks = {
@@ -56,24 +63,8 @@ export default function Footer() {
     },
   };
 
-  const buttonStyle = {
-    borderRadius: "0",
-    marginTop: ".5rem",
-    fontSize: "1rem",
-    backgroundColor: theme.palette.primary[500],
-    color: "#fff",
-    padding: 0,
-    "&>a": {
-      color: "#fff",
-      textDecoration: "none",
-      padding: "6px 16px",
-      fontWeight: "bold",
-    },
-    "&:hover": { backgroundColor: theme.palette.primary[600] },
-  };
-
   const footerIcon = {
-    color: theme.palette.primary[500],
+    color: "#fff",
     fontSize: "1.5rem",
     marginRight: ".5rem",
   };
@@ -81,8 +72,21 @@ export default function Footer() {
   return (
     <Box position="relative">
       <Box
+        position="absolute"
+        sx={{
+          backgroundImage: `url(${footerShape})`,
+          backgroundSize: "cover",
+          height: "300px",
+          width: "50vw",
+          bottom: "0",
+          right: "0",
+          opacity: "0.1",
+        }}
+      ></Box>
+      <Box
         sx={{
           backgroundColor: "#1a1a1a",
+          padding: "6rem 0",
         }}
       >
         <Box
@@ -93,61 +97,57 @@ export default function Footer() {
           justifyContent="center"
         >
           <Box className="row" padding="2rem 0">
-            <Box className="col-12 col-md-6 col-lg-3" style={mediumMargin}>
+            <Box className="col-12 col-md-6 col-lg-4" style={mediumMargin}>
               {/* Company logo and information */}
               <Box
                 display="flex"
-                justifyContent="space-between"
-                alignItems="flex-end"
+                alignItems="flex-start"
                 mb="1.5rem"
               >
                 <Link to="/" aria-label="Länk till hem">
                   <img src={logo} style={logoFooter} alt="Company logo, BOB" />
                 </Link>
-                ;
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "#fff",
+                    paddingLeft: "1rem",
+                    margin: "0",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Pålitliga hantverkare som hjälper dig att göra verklighet av
+                  badrummet du drömmer om. Högkvalitativt hantverk, trygghet och
+                  tillgänglighet är ledord i vårt företag.
+                </Typography>
               </Box>
-              <p style={{ color: "#fff", margin: "0", fontSize: "1rem" }}>
-                Pålitliga hantverkare som hjälper dig att göra verklighet av
-                badrummet du drömmer om. Högkvalitativt hantverk, trygghet och
-                tillgänglighet är ledord i vårt företag.
-              </p>
-              <Box dispaly="flex" mt="2rem">
-                <a
-                  href="https://www.instagram.com/bob.badrum/"
-                  target="_blank"
-                  aria-label="Länk till företages Instagram"
-                  className="social-icon"
-                >
-                  <Button
-                    aria-label="Instagram"
-                    variant="outlined"
-                    sx={styledIconOutlined}
-                  >
-                    <InstagramIcon sx={{ width: "20px", height: "20px" }} />
-                  </Button>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@bob.badrum"
-                  target="_blank"
-                  aria-label="Länk till företages Tik-Tok sida"
-                >
-                  <Button
-                    aria-label="Klicka för att komma till företagets Tik-Tok sida."
-                    variant="outlined"
-                    sx={styledIconOutlined}
-                  >
-                    <img
-                      src={TikTok}
-                      width="20px"
-                      height="20px"
-                      alt="Tik-Tok ikon"
+              <Box mb={lgScreen ? "0" : "20px"}>
+                <List>
+                  <ListItem sx={styledLinks}>
+                    <Typography
+                      variant="h6"
+                      style={{
+                        color: theme.palette.primary.light,
+                        fontSize: "1.2rem",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Vi Hjälper Dig Komma Igång!
+                    </Typography>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <ButtonOrange
+                      href="kontakt"
+                      ariaAtag="Länk till kontakta oss"
+                      aria="Klicka för att komma till kontakta oss sidan"
+                      buttonText="Offert förfrågan"
                     />
-                  </Button>
-                </a>
+                  </ListItem>
+                </List>
               </Box>
             </Box>
             <Box
-              className="col-12 col-md-6 col-lg-3"
+              className="col-12 col-md-6 col-lg-4"
               display="flex"
               justifyContent={lgScreen ? "flex-start" : "center"}
               style={mediumMargin}
@@ -187,7 +187,7 @@ export default function Footer() {
               </Box>
             </Box>
             <Box
-              className="col-12 col-md-6 col-lg-3"
+              className="col-12 col-md-6 col-lg-4"
               display="flex"
               justifyContent="space-between"
               style={mediumMargin}
@@ -236,6 +236,36 @@ export default function Footer() {
                         Ǻsvägen 9, 155 32, Nykvarn
                       </a>
                     </Box>
+                    <Box mt="2rem"></Box>
+                  </ListItem>
+                  <ListItem sx={{ marginTop: "2rem" }}>
+                    <nav style={{ display: "flex" }}>
+                      {IconsList.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.link}
+                          alt={`${item.name} Logga`}
+                          aria-label={`Länk till BOBs ${item.name}s sida`}
+                          style={{ marginRight: "1rem" }}
+                        >
+                          <Box
+                            sx={{
+                              backgroundImage: `url(${logoShapeLight})`,
+                              backgroundPostition: "center",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "55px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              height: "55px",
+                              width: "55px",
+                            }}
+                          >
+                            {item.icon}
+                          </Box>
+                        </a>
+                      ))}
+                    </nav>
                   </ListItem>
                 </List>
               </Box>
@@ -246,46 +276,11 @@ export default function Footer() {
               display="flex"
               justifyContent={mediumScreen ? "flex-start" : "center"}
               style={mediumMargin}
-            >
-              {/* CTA */}
-              <Box mb={lgScreen ? "0" : "20px"}>
-                <Typography
-                  variant="h1"
-                  color={theme.palette.primary.light}
-                  sx={{
-                    fontSize: "1.4rem",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Kom Igång
-                </Typography>
-                <List>
-                  <ListItem sx={styledLinks}>
-                    <p style={{ color: theme.palette.primary.light }}>
-                      Vi Hjälper Dig Komma Igång!
-                    </p>
-                  </ListItem>
-                  <ListItem sx={styledLinks}>
-                    <Button
-                      aria-label="Klicka för att komma till kontakta oss sidan"
-                      variant="contained"
-                      sx={buttonStyle}
-                    >
-                      <Link
-                        to="/kontakt"
-                        className="button-text"
-                        aria-label="Länk till kontakt"
-                      >
-                        Få en offert idag
-                      </Link>
-                    </Button>
-                  </ListItem>
-                </List>
-              </Box>
-            </Box>
+            ></Box>
           </Box>
         </Box>
       </Box>
+
       <Box position="absolute" bottom="20px" right="100px">
         <p style={{ color: "#fff", margin: "0", fontSize: ".7rem" }}>
           <span>
@@ -320,3 +315,33 @@ const styledIconOutlined = {
     backgroundColor: "#000",
   },
 };
+
+const IconsList = [
+  {
+    orange: true,
+    icon: (
+      <img src={FacebookIcon} alt="Facebook ikon" width="auto" height="22px" />
+    ),
+    link: "https://www.facebook.com/bob.vatrumsrenovering/",
+    name: "Facebook",
+  },
+  {
+    icon: (
+      <InstagramIcon sx={{ width: "auto", height: "22px", color: "#fff" }} />
+    ),
+    link: "https://www.instagram.com/bob.vatrumsrenovering/",
+    name: "Instagram",
+  },
+  {
+    icon: <img src={TikTok} alt="Tiktok ikon" width="auto" height="22px" />,
+    link: "https://www.tiktok.com/@bob.vatrumsrenovering",
+    name: "Tiktok",
+  },
+  {
+    icon: (
+      <LinkedInIcon sx={{ width: "auto", height: "22px", color: "#fff" }} />
+    ),
+    link: "https://www.linkedin.com/in/info-bob-v%C3%A5trumsrenovering-ab-0bb772266/",
+    name: "LinkedIn",
+  },
+];

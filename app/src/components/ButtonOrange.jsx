@@ -2,7 +2,7 @@ import React from "react";
 import { Button, useTheme, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const ButtonOrange = ({ href, ariaAtag, buttonText, aria }) => {
+export const ButtonOrange = ({ href, ariaAtag, buttonText, aria, type }) => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const buttonStyleOrange = {
@@ -21,20 +21,34 @@ export const ButtonOrange = ({ href, ariaAtag, buttonText, aria }) => {
     },
   };
   return (
-    <Link
-      to={`/${href}`}
-      aria-label={ariaAtag}
-      style={{ textDecoration: "none" }}
-    >
-      <Button
-        variant="contained"
-        className="button-text"
-        sx={buttonStyleOrange}
-        aria-label={aria}
-      >
-        {buttonText}
-      </Button>
-    </Link>
+    <>
+      {href ? (
+        <Link
+          to={`/${href}`}
+          aria-label={ariaAtag}
+          style={{ textDecoration: "none" }}
+        >
+          <Button
+            variant="contained"
+            className="button-text"
+            sx={buttonStyleOrange}
+            aria-label={aria}
+          >
+            {buttonText}
+          </Button>
+        </Link>
+      ) : (
+        <Button
+          type={type}
+          variant="contained"
+          className="button-text"
+          sx={buttonStyleOrange}
+          aria-label={aria}
+        >
+          {buttonText}
+        </Button>
+      )}
+    </>
   );
 };
 
