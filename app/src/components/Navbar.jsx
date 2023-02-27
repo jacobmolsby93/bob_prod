@@ -179,6 +179,7 @@ export default function NavbarComp() {
       expand="lg"
       fixed="top"
       style={{
+        zIndex: 9999999,
         transform:
           !smallScreen &&
           (!scrollTop + 100 && direction === "down"

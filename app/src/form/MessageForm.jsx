@@ -3,22 +3,17 @@ import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import {
   Box,
-  Button,
-  Checkbox,
   RadioGroup,
   TextField,
-  Select,
-  Container,
   FormControl,
   FormControlLabel,
-  FormGroup,
-  FormHelperText,
   FormLabel,
   Grid,
-  Paper,
   Radio,
   Typography,
   MenuItem,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { onSubmit } from "./onSubmit";
 import axios from "axios";
@@ -59,6 +54,8 @@ const validationSchema = Yup.object({
     }),
 });
 const MessageFields = () => {
+  const theme = useTheme();
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [choices, setChoices] = useState([]);
 
   useEffect(() => {
@@ -86,11 +83,24 @@ const MessageFields = () => {
                 sx={{
                   backgroundColor: "#1D1D1B",
                   borderRadius: "10px",
-                  padding: "5rem",
-                  position: "relative"
+                  padding: !smallScreen ? "5rem" : "1rem",
+                  position: "relative",
                 }}
               >
-                <Box sx={{ position: "absolute", bottom: 0, right: 0, backgroundImage: `url(${footerShape})`, backgroundPosition: "bottom right", backgroundRepeat: "no-repeat", width: "30vw", height: "20vw", backgroundSize: "cover", opacity: "0.1" }}></Box>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: 0,
+                    right: 0,
+                    backgroundImage: `url(${footerShape})`,
+                    backgroundPosition: "bottom right",
+                    backgroundRepeat: "no-repeat",
+                    width: !smallScreen ? "30vw" : "70vw",
+                    height: !smallScreen ? "20vw" : "40vw",
+                    backgroundSize: "cover",
+                    opacity: "0.1",
+                  }}
+                ></Box>
                 <Typography
                   variant="h5"
                   className="title-font"
@@ -320,7 +330,7 @@ const MessageFields = () => {
                         sx={{
                           padding: "0.5rem 0",
                           color: "#fff",
-                          width: "70%",
+                          width: !smallScreen ? "70%" : "80%",
                         }}
                       >
                         <Typography>
@@ -356,8 +366,8 @@ export default MessageFields;
 
 const TextFieldStyles = {
   margin: ".5rem 0",
-  "& .MuiInputBase-root": {color: "#fff"},
-  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)"},
+  "& .MuiInputBase-root": { color: "#fff" },
+  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
   "& textarea": { color: "#fff !important" },
   "& MuiLabel-root": { color: "#fff" },
   "& label": {

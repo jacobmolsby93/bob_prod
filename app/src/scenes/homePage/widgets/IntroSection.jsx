@@ -10,10 +10,6 @@ import Carousel from "./Carousel.jsx";
 import collageImage1 from "../../../assets/collage-image-1.png";
 import collageImage2 from "../../../assets/collage-image-2.png";
 import collageImage3 from "../../../assets/collage-image-fullwidth.png";
-import carouselImage1 from "../../../assets/carouselhome1.webp";
-import carouselImage2 from "../../../assets/carouselhome2.webp";
-import carouselImage3 from "../../../assets/carouselhome3.webp";
-import carouselImage4 from "../../../assets/carouselhome4.webp";
 
 export const IntroSection = () => {
   const theme = useTheme();
@@ -142,10 +138,10 @@ export const IntroSection = () => {
         <Box className="col-12 col-md-12">
           <Box className="carousel-wrapper" mb="2rem">
             <Carousel
-              image1={carouselImage1}
-              image2={carouselImage2}
-              image3={carouselImage3}
-              image4={carouselImage4}
+              image1={collageImage1}
+              image2={collageImage2}
+              image3={collageImage3}
+              image4={collageImage1}
               smallScreen={smallScreen}
             />
           </Box>

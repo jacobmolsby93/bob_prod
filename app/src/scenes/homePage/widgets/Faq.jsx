@@ -16,6 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // JSON data with questions
 import faqData from "../../../data/faqData.json";
+import ButtonOrange from "../../../components/ButtonOrange";
 
 export default function Faq(props) {
   const theme = useTheme();
@@ -83,19 +84,19 @@ export default function Faq(props) {
                 component="h3"
                 style={{
                   margin: "0",
-                  padding: "1rem 1.8rem",
+                  padding: !smallScreen ? "1rem 1.8rem" : "0.5rem",
                   fontWeight: "700",
-                  fontSize: "1.4rem",
+                  fontSize: !smallScreen ? "1.4rem" : "1.2rem",
                 }}
               >
                 {question.question}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Box className="col-12" paddingLeft="20px">
+              <Box className="col-12" sx={{paddingLeft: !smallScreen ? "20px" : "0"}}>
                 <Typography
                   variant="body1"
-                  style={{ margin: "0 1rem", fontSize: "1.2rem" }}
+                  style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                 >
                   {question.answer}
                 </Typography>
@@ -103,7 +104,7 @@ export default function Faq(props) {
                   <>
                     <Typography
                       variant="body1"
-                      style={{ margin: "0 1rem 1rem 1rem", fontSize: "1.3rem" }}
+                      style={{ margin: "0 1rem 1rem 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                     >
                       {question.answerList.title}
                     </Typography>
@@ -111,7 +112,7 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                         >
                           {question.answerList.list1}
                         </Typography>
@@ -119,7 +120,7 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                         >
                           {question.answerList.list2}
                         </Typography>
@@ -127,7 +128,7 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                         >
                           {question.answerList.list3}
                         </Typography>
@@ -135,7 +136,7 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                         >
                           {question.answerList.list4}
                         </Typography>
@@ -143,7 +144,7 @@ export default function Faq(props) {
                     </ul>
                     <Typography
                       variant="body1"
-                      style={{ margin: "0 1rem", fontSize: "1.3rem" }}
+                      style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
                     >
                       {question.answerList.body}
                     </Typography>
@@ -152,19 +153,7 @@ export default function Faq(props) {
               </Box>
               {question.link && (
                 <Box padding="1rem">
-                  <Button
-                    variant="contained"
-                    sx={buttonStyleContained}
-                    aria-label="Klicka för att komma till kontakta oss"
-                  >
-                    <Link
-                      to={question.link}
-                      aria-label={`Länk till ${question.link}`}
-                      style={{ fontSize: "1rem", fontWeight: "800" }}
-                    >
-                      Kontakta Oss
-                    </Link>
-                  </Button>
+                  <ButtonOrange href={question.link} aria={`Länk till ${question.link}`} ariaAtag="Klicka för att komma till kontakta oss" buttonText="Kontakta Oss"/>
                 </Box>
               )}
             </AccordionDetails>

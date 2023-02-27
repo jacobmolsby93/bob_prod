@@ -158,10 +158,13 @@ export default function HomePage() {
           zIndex="100"
         >
           <Box
-            position="relative"
-            top="-170px"
-            display="flex"
-            justifyContent="flex-end"
+            sx={{
+              position: "relative",
+              top: !smallScreen ? "-170px" : "-80px",
+              display: "flex",
+              justifyContent: "flex-end",
+              left: "-15px",
+            }}
           >
             <a
               href="https://www.reco.se/bob-vatrumsrenovering-ab"
@@ -236,12 +239,12 @@ export default function HomePage() {
           <Box
             className="row"
             sx={{
-              padding: "1rem 2rem",
+              padding: !smallScreen ? "1rem 2rem" : "2rem .8rem",
               backgroundColor: "#FFFAF5",
               zIndex: "10",
+              position: "relative",
+              top: !smallScreen ? "-150px" : "-40px",
             }}
-            position="relative"
-            top="-150px"
           >
             <Box
               className="col-12 col-lg-6"

@@ -29,6 +29,7 @@ const TikTok =
 
 export default function Footer() {
   const theme = useTheme();
+  const smallScreen = useMediaQuery(() => theme.breakpoints.down("sm"))
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
@@ -42,7 +43,7 @@ export default function Footer() {
     padding: lgScreen ? "1rem" : "0",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: !smallScreen ? "center" : "flex-start",
   };
 
   const styledLinks = {
@@ -77,7 +78,7 @@ export default function Footer() {
           backgroundImage: `url(${footerShape})`,
           backgroundSize: "cover",
           height: "300px",
-          width: "50vw",
+          width: !smallScreen ? "50vw" : "100vw",
           bottom: "0",
           right: "0",
           opacity: "0.1",
@@ -86,7 +87,7 @@ export default function Footer() {
       <Box
         sx={{
           backgroundColor: "#1a1a1a",
-          padding: "6rem 0",
+          padding: !smallScreen ?  "6rem 0" : "0",
         }}
       >
         <Box
@@ -99,11 +100,7 @@ export default function Footer() {
           <Box className="row" padding="2rem 0">
             <Box className="col-12 col-md-6 col-lg-4" style={mediumMargin}>
               {/* Company logo and information */}
-              <Box
-                display="flex"
-                alignItems="flex-start"
-                mb="1.5rem"
-              >
+              <Box display="flex" alignItems="flex-start" mb="1.5rem">
                 <Link to="/" aria-label="Länk till hem">
                   <img src={logo} style={logoFooter} alt="Company logo, BOB" />
                 </Link>
