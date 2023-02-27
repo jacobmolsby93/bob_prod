@@ -2,7 +2,14 @@ import React from "react";
 import { Button, useTheme, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const ButtonOrange = ({ href, ariaAtag, buttonText, aria, type }) => {
+export const ButtonOrange = ({
+  href,
+  ariaAtag,
+  buttonText,
+  aria,
+  type,
+  handleClose,
+}) => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const buttonStyleOrange = {
@@ -27,6 +34,7 @@ export const ButtonOrange = ({ href, ariaAtag, buttonText, aria, type }) => {
           to={`/${href}`}
           aria-label={ariaAtag}
           style={{ textDecoration: "none" }}
+          onClick={handleClose}
         >
           <Button
             variant="contained"

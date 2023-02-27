@@ -79,11 +79,9 @@ export default function Questions() {
       <Spacer />
 
       <section>
-        <Box className="container">
-          <Box className="row">
-            <Contact />
-          </Box>
-        </Box>
+        <AnimatedBox>
+          <Contact />
+        </AnimatedBox>
       </section>
 
       <Spacer />

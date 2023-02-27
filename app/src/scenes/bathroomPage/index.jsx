@@ -160,16 +160,8 @@ export default function Bathroom() {
       <Spacer />
       <AnimatedBox>
         <section id="tjanster-kontakt">
-          <Box
-            className="contact-background"
-            minHeight={!smallScreen ? "640px" : undefined}
-          >
-            <Box className="container">
-              <Box className="row">
-                <Contact />
-              </Box>
-            </Box>
-          </Box>
+          <Contact />
+          <Spacer />
         </section>
       </AnimatedBox>
       <div className="credits-bg">

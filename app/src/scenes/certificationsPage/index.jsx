@@ -38,11 +38,8 @@ export default function CertPage() {
       <Spacer />
 
       <AnimatedBox>
-        <Box className="container">
-          <Box className="row">
-            <Contact />
-          </Box>
-        </Box>
+        <Contact />
+        <Spacer />
       </AnimatedBox>
     </div>
   );

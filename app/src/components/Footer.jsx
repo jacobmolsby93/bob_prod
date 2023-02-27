@@ -29,7 +29,7 @@ const TikTok =
 
 export default function Footer() {
   const theme = useTheme();
-  const smallScreen = useMediaQuery(() => theme.breakpoints.down("sm"))
+  const smallScreen = useMediaQuery(() => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
@@ -87,7 +87,7 @@ export default function Footer() {
       <Box
         sx={{
           backgroundColor: "#1a1a1a",
-          padding: !smallScreen ?  "6rem 0" : "0",
+          padding: !smallScreen ? "6rem 0" : "0",
         }}
       >
         <Box

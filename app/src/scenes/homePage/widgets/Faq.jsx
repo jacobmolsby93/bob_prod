@@ -93,10 +93,16 @@ export default function Faq(props) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Box className="col-12" sx={{paddingLeft: !smallScreen ? "20px" : "0"}}>
+              <Box
+                className="col-12"
+                sx={{ paddingLeft: !smallScreen ? "20px" : "0" }}
+              >
                 <Typography
                   variant="body1"
-                  style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                  style={{
+                    margin: "0 1rem",
+                    fontSize: !smallScreen ? "1.2rem" : "1rem",
+                  }}
                 >
                   {question.answer}
                 </Typography>
@@ -104,7 +110,10 @@ export default function Faq(props) {
                   <>
                     <Typography
                       variant="body1"
-                      style={{ margin: "0 1rem 1rem 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                      style={{
+                        margin: "0 1rem 1rem 1rem",
+                        fontSize: !smallScreen ? "1.2rem" : "1rem",
+                      }}
                     >
                       {question.answerList.title}
                     </Typography>
@@ -112,7 +121,10 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
                         >
                           {question.answerList.list1}
                         </Typography>
@@ -120,7 +132,10 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
                         >
                           {question.answerList.list2}
                         </Typography>
@@ -128,7 +143,10 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
                         >
                           {question.answerList.list3}
                         </Typography>
@@ -136,7 +154,10 @@ export default function Faq(props) {
                       <li>
                         <Typography
                           variant="body1"
-                          style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
                         >
                           {question.answerList.list4}
                         </Typography>
@@ -144,7 +165,10 @@ export default function Faq(props) {
                     </ul>
                     <Typography
                       variant="body1"
-                      style={{ margin: "0 1rem", fontSize: !smallScreen ? "1.2rem" : "1rem" }}
+                      style={{
+                        margin: "0 1rem",
+                        fontSize: !smallScreen ? "1.2rem" : "1rem",
+                      }}
                     >
                       {question.answerList.body}
                     </Typography>
@@ -153,7 +177,12 @@ export default function Faq(props) {
               </Box>
               {question.link && (
                 <Box padding="1rem">
-                  <ButtonOrange href={question.link} aria={`Länk till ${question.link}`} ariaAtag="Klicka för att komma till kontakta oss" buttonText="Kontakta Oss"/>
+                  <ButtonOrange
+                    href={question.link}
+                    aria={`Länk till ${question.link}`}
+                    ariaAtag="Klicka för att komma till kontakta oss"
+                    buttonText="Kontakta Oss"
+                  />
                 </Box>
               )}
             </AccordionDetails>

@@ -21,8 +21,6 @@ const tikTok =
 export default function Contact() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
-  const xlScreen = "";
   const [screenSize, setScreenSize] = useState([""]);
 
   useEffect(() => {
@@ -63,7 +61,10 @@ export default function Contact() {
                 <Typography
                   variant="body1"
                   className="body-paragraph"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{
+                    fontWeight: "bold",
+                    paddingBottom: !smallScreen ? "0" : "1rem",
+                  }}
                 >
                   <PhoneInTalkIcon sx={{ marginRight: ".5rem" }} />
                   08 - 33 36 63
@@ -173,18 +174,3 @@ const IconsList = [
     name: "LinkedIn",
   },
 ];
-
-const styledIconOutlined = {
-  height: "40px",
-  width: "40px",
-  minWidth: "unset",
-  borderRadius: "50%",
-  color: "#2d2d2d",
-  margin: ".5rem",
-  backgroundColor: "transparent",
-  border: "1px solid #2d2d2d",
-  "&:hover": {
-    border: "1px solid #2d2d2d",
-    backgroundColor: "#fff",
-  },
-};

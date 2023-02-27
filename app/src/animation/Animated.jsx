@@ -27,7 +27,7 @@ const AnimatedBox = ({ children }) => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div variants={AnimationVariants}>{children}</motion.div>
       </motion.div>

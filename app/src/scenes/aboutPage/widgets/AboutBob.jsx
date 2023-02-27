@@ -7,14 +7,9 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import AnimatedLazyImage from "../../../components/LazyImage.jsx";
-
-// Images
-const mobileImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
-const desktopCollageImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp";
+import AboutIntro from "../../../assets/about-intro-image.png";
 
 const Intro = () => {
   const theme = useTheme();
@@ -22,88 +17,43 @@ const Intro = () => {
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
   return (
-    <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
-      {!lgScreen ? (
-        <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
-          <Box>
-            <AnimatedLazyImage
-              src={desktopCollageImage}
-              className="img-fluid h-100"
-              style={{ minHeight: "100%" }}
-              alt="Collage av 3 bilder på badrum"
-            />
-          </Box>
-        </Box>
-      ) : (
-        <Box className="col-12" sx={{ marginBottom: "2rem" }}>
-          <img
-            src={mobileImage}
-            style={{ objectFit: "cover", maxHeight: "300px", width: "100%" }}
-            className="img-fluid"
-          />
-        </Box>
-      )}
-      <Box
-        className="col-12 col-xl-6"
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-      >
-        <Box>
+    <Box
+      className="row"
+      sx={{
+        justifyContent: !lgScreen ? "" : "center",
+        padding: "50px 0",
+        display: "flex",
+        alignItems: "top",
+      }}
+    >
+      <Box className="col-12 col-lg-6">
+        <Typography variant="h2" className="title-font">
+          Om Bob våtrumsrenovering
+        </Typography>
+        <Box mt="2rem" className="col-12 col-md-10 col-sm-12">
           <article>
-            <Typography variant="h2" className="title-font">
-              Om Bob Våtrumsrenovering AB
+            <Typography variant="body1" className="body-paragraph">
+              Vi är en badrumsfirma i Stockholm som enbart renoverar
+              våtutrymmen. Det gör oss väldigt kvalitetssäkra inom området.
+              Skillnaden mellan oss och många andra är att vi bara sysslar med
+              våtrum. Vi har varit verksamma sedan 2014. Vårt mål med varje
+              renovering är att ge kunden en riktigt bra upplevelse och en
+              renovering utan krångel.
             </Typography>
-            <Box display="flex" mt="2.5rem">
-              <span
-                style={{
-                  width: "18px",
-                  maxWidht: ".2rem",
-                  height: "auto",
-                  marginRight: "10px",
-                  backgroundColor: theme.palette.primary[500],
-                }}
-              ></span>
-              <p className="body-paragraph">
-                Vi är en badrumsfirma i Stockholm som enbart renoverar
-                våtutrymmen. Det gör oss väldigt kvalitetssäkra inom området.
-                Skillnaden mellan oss och många andra är att vi bara sysslar med
-                våtrum. Vi har varit verksamma sedan 2014. Vårt mål med varje
-                renovering är att ge kunden en riktigt bra upplevelse och en
-                renovering utan krångel. 
-              </p>
-            </Box>
           </article>
         </Box>
-
-        <Box mt="2.5rem">
-          <Button
-            aria-label="Klicka för att komma till kontakta oss"
-            variant="contained"
-            sx={{
-              marginTop: smallScreen ? "0.5rem" : "",
-              borderRadius: "0",
-              backgroundColor: theme.palette.primary[500],
-              marginRight: "20px",
-              padding: 0,
-              "&>a": {
-                padding: "6px 16px",
-                color: theme.palette.background.default,
-                textDecoration: "none",
-              },
-              "&:hover": {
-                backgroundColor: theme.palette.primary[600],
-              },
-            }}
-          >
-            <Link
-              to="/kontakt"
-              className="button-text"
-              aria-label="Länk till kontakta oss"
-            >
-              Kontakta Oss
-            </Link>
-          </Button>
+        <Box mt="2rem">
+          <ButtonOrange buttonText="Kontakta oss" href="kontakt" />
+        </Box>
+      </Box>
+      <Box className="col-12 col-lg-6" position="relative">
+        {/* Image */}
+        <Box position="absolute" top="-100px">
+          <img
+            src={AboutIntro}
+            alt="Om oss introduktions bild, en bild på ett vardagsrum med fiskbensparkett"
+            style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+          />
         </Box>
       </Box>
     </Box>

@@ -53,25 +53,40 @@ const validationSchema = Yup.object({
       }
     }),
 });
+
+
 const MessageFields = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const [choices, setChoices] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/list-select/"
-        );
-        setChoices(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchData();
-  }, []);
+  const choices = [
+    "Stockholm",
+    "Botkyrka",
+    "Bromma",
+    "Danderyd",
+    "Ekerö",
+    "Enskede",
+    "Haninge",
+    "Huddinge",
+    "Järfälla",
+    "Kungsholmen",
+    "Lidingö",
+    "Märsta",
+    "Nacka",
+    "Norrtälje",
+    "Sollentuna",
+    "Solna",
+    "Södermalm",
+    "Södertälje",
+    "Tyresö",
+    "Täby",
+    "Vallentuna",
+    "Vasastan",
+    "Värmdö",
+    "Åkersberga",
+    "Årsta",
+    "Östermalm",
+  ];
+  const subject = ['Badrum', 'Wc', 'Tvätt-stuga']
 
   return (
     <>
@@ -131,7 +146,7 @@ const MessageFields = () => {
                 >
                   {(props) => (
                     <form onSubmit={props.handleSubmit}>
-                      <Grid item xs={12} sx={{ backgroundImage: `url()` }}>
+                      <Grid item xs={12}>
                         <Field name="typ">
                           {({ field }) => (
                             <FormControl component="fieldset">
@@ -253,13 +268,20 @@ const MessageFields = () => {
                             props.touched.stadsdel_kommun &&
                             props.errors.stadsdel_kommun
                           }
+                          SelectProps={{
+                            MenuProps: {
+                              PaperProps: {
+                                style: {
+                                  maxHeight: '300px',
+                                },
+                              },
+                            },
+                          }}
                         >
-                          <MenuItem key={""} value={""}>
-                            No Selected // Or Empty
-                          </MenuItem>
+  
                           {choices.length !== 0 &&
-                            choices.stadsdel_kommun.map((option) => (
-                              <MenuItem key={option} value={option}>
+                            choices.map((option) => (
+                              <MenuItem key={option} value={option} sx={{ "& < parent": {height: "300px"}}}>
                                 {option}
                               </MenuItem>
                             ))}
@@ -284,12 +306,15 @@ const MessageFields = () => {
                           }
                         >
                           <MenuItem key={""} value={""}></MenuItem>
-                          {choices.length !== 0 &&
-                            choices.arende.map((option) => (
+                          {subject ? (
+                            subject.map((option) => (
                               <MenuItem key={option} value={option}>
                                 {option}
                               </MenuItem>
-                            ))}
+                            ))
+                          ) : (
+                            <MenuItem key={""} value={""}></MenuItem>
+                          )}
                         </TextField>
                       </Grid>
                       <Grid item xs={12}>
@@ -366,6 +391,7 @@ export default MessageFields;
 
 const TextFieldStyles = {
   margin: ".5rem 0",
+  "& .Mui-active": { backgroundColor: "#000"},
   "& .MuiInputBase-root": { color: "#fff" },
   "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
   "& textarea": { color: "#fff !important" },

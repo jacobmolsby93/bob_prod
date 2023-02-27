@@ -176,14 +176,14 @@ hr {
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
-  min-height: 600px;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
 }
 @media screen and(max-width: 700px) {
-  .landing-box-home {
+  .landing-box-home, .landing-box {
     min-height: none !important;
   }
 }
@@ -213,6 +213,7 @@ hr {
   background-repeat: no-repeat;
   width: 100%;
   height: 60vh;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

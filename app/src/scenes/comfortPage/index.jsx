@@ -87,11 +87,8 @@ export default function Comfort() {
       <Spacer />
 
       <section>
-        <Box className="container">
-          <Box className="row">
-            <Contact />
-          </Box>
-        </Box>
+        <Contact />
+        <Spacer />
       </section>
 
       <section className="credits-bg">

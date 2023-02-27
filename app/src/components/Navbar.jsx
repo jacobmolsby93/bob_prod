@@ -10,12 +10,13 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Navbar, Offcanvas } from "react-bootstrap";
 import { AnimatePresence, motion } from "framer-motion";
+import ButtonOrange from "./ButtonOrange";
+import ButtonWhite from "./ButtonWhite";
 
 // Images
 import logo from "../assets/boblogo.png";
@@ -179,13 +180,14 @@ export default function NavbarComp() {
       expand="lg"
       fixed="top"
       style={{
-        zIndex: 9999999,
+        zIndex: 9999,
         transform:
           !smallScreen &&
           (!scrollTop + 100 && direction === "down"
             ? "translateY(-100%)"
             : "translateY(0)"),
         transition: "500ms",
+        padding: !smallScreen ? "10px 0 10px 0" : "10px",
         boxShadow: !scrollTop ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "",
       }}
     >
@@ -193,7 +195,7 @@ export default function NavbarComp() {
         className={!xlScreen ? "container-fluid" : "container"}
         display="flex"
         alignItems="center"
-        sx={{ padding: !smallScreen ? ".5rem 2rem" : "0" }}
+        sx={{ padding: !smallScreen ? ".5rem 0" : "0" }}
       >
         <Box>
           <nav>
@@ -353,7 +355,12 @@ export default function NavbarComp() {
               />
             </Box>
 
-            <Offcanvas show={toggle} placement="end" onHide={handleClose}>
+            <Offcanvas
+              show={toggle}
+              placement="end"
+              onHide={handleClose}
+              style={{ zIndex: 999999 }}
+            >
               <Box display="flex" justifyContent="flex-end" padding="20px">
                 <Button
                   aria-label="Stäng Meny"
@@ -533,26 +540,13 @@ export default function NavbarComp() {
                       Ǻsvägen 9, 155 32, Nykvarn
                     </a>
                   </Box>
-                  <Button
-                    aria-label="Klicka för att komma Tidigare objekt sidan"
-                    variant="contained"
-                    sx={{
-                      marginTop: smallScreen ? "10px" : "",
-                      borderRadius: "0",
-                      backgroundColor: theme.palette.primary[500],
-                      marginRight: "10px",
-                      "&:hover": {
-                        backgroundColor: theme.palette.primary[300],
-                      },
-                    }}
-                  >
-                    <Link
-                      className="body-paragraph unstyled-link"
-                      style={{ color: "#fff" }}
-                    >
-                      Tidiager Objekt
-                    </Link>
-                  </Button>
+                  <ButtonOrange
+                    handleClose={handleClose}
+                    href="referenser"
+                    aria="Klicka för att se tidigare projekt"
+                    ariaAtag="Länk till tidigare projekt"
+                    buttonText="Tidigare objekt"
+                  />
                   <Button
                     aria-label="Klicka för att ringa bobs Telefon-nummer"
                     sx={{
@@ -579,6 +573,7 @@ export default function NavbarComp() {
                       08 - 33 36 63
                     </a>
                   </Button>
+                  <ButtonWhite />
                 </Box>
               </Box>
             </Offcanvas>
