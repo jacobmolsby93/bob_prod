@@ -14,13 +14,12 @@ export const onSubmit = (values, actions) => {
   data.append('subject', values.arende);
   data.append('message', values.medelande);
   
-  console.log(values);
-  console.log(data);
-  
+  alert(`Tack ${values.fornamn}, för medelandet. Vi återkommer såfort vi kan!`)
+  actions.resetForm();
+
   axios.post('https://bob-backend-test-paa5jl3pga-lz.a.run.app/api/email/', data)
     .then(response => {
       console.log(response);
-      actions.resetForm();
       actions.setSubmitting(false);
     })
     .catch(error => {
