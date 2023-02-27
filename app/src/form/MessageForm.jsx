@@ -340,7 +340,6 @@ const MessageFields = () => {
                           aria="Klicka för att skicka medelande"
                         />
                       </Grid>
-                      <pre>{JSON.stringify(props.values, null, 2)}</pre>
                     </form>
                   )}
                 </Formik>
