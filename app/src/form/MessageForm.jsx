@@ -23,17 +23,18 @@ import {
 import { onSubmit } from "./onSubmit";
 import axios from "axios";
 import ButtonOrange from "../components/ButtonOrange";
+import footerShape from "../assets/footer-logo-shape.png";
 
 const validationSchema = Yup.object({
   typ: Yup.string(),
   fornamn: Yup.string().required("Förnamn är obligatoriskt"),
   efternamn: Yup.string().required("Efternamn är obligatoriskt"),
-  stadsdel_kommun: Yup.string().required("Ort är obligatoriskt"),
+  stadsdel_kommun: Yup.string(),
   epost: Yup.string()
     .email("Ogiltig e-postadress")
     .required("E-post är obligatoriskt"),
-  telefon: Yup.string().required("Telefon är obligatoriskt"),
-  arende: Yup.string().required("Ärende är obligatoriskt"),
+  telefon: Yup.string(),
+  arende: Yup.string(),
   medelande: Yup.string().required("Medelande är obligatoriskt"),
   bild: Yup.mixed()
     .test("fileFormat", "Endast JPG, PNG eller GIF format stöds", (value) => {
@@ -86,8 +87,10 @@ const MessageFields = () => {
                   backgroundColor: "#1D1D1B",
                   borderRadius: "10px",
                   padding: "5rem",
+                  position: "relative"
                 }}
               >
+                <Box sx={{ position: "absolute", bottom: 0, right: 0, backgroundImage: `url(${footerShape})`, backgroundPosition: "bottom right", backgroundRepeat: "no-repeat", width: "30vw", height: "20vw", backgroundSize: "cover", opacity: "0.1" }}></Box>
                 <Typography
                   variant="h5"
                   className="title-font"
@@ -129,7 +132,6 @@ const MessageFields = () => {
                                 style={{
                                   display: "inline",
                                   color: "#fff",
-                                  padding: "1rem 0",
                                 }}
                                 {...field}
                                 value={props.values.typ}
@@ -137,12 +139,12 @@ const MessageFields = () => {
                               >
                                 <FormControlLabel
                                   control={<Radio />}
-                                  label="Option 1"
+                                  label="Privat"
                                   value="privat"
                                 />
                                 <FormControlLabel
                                   control={<Radio />}
-                                  label="Option 2"
+                                  label="Företag"
                                   value="foretag"
                                 />
                               </RadioGroup>
@@ -355,8 +357,9 @@ export default MessageFields;
 
 const TextFieldStyles = {
   margin: ".5rem 0",
-  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
-  "& fieldset, textarea": { color: "#fff" },
+  "& .MuiInputBase-root": {color: "#fff"},
+  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)"},
+  "& textarea": { color: "#fff !important" },
   "& MuiLabel-root": { color: "#fff" },
   "& label": {
     color: "#fff",
