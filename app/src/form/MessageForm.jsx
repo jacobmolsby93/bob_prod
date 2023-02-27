@@ -86,7 +86,7 @@ const MessageFields = () => {
     "Årsta",
     "Östermalm",
   ];
-  const subject = ['Badrum', 'Wc', 'Tvätt-stuga']
+  const subject = ['Badrumsrenovering', 'Wcrenovering', 'Tvätt-stugerenovering']
 
   return (
     <>
