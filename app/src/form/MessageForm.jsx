@@ -54,7 +54,6 @@ const validationSchema = Yup.object({
     }),
 });
 
-
 const MessageFields = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -86,7 +85,11 @@ const MessageFields = () => {
     "Årsta",
     "Östermalm",
   ];
-  const subject = ['Badrumsrenovering', 'Wcrenovering', 'Tvätt-stugerenovering']
+  const subject = [
+    "Badrumsrenovering",
+    "Wcrenovering",
+    "Tvätt-stugerenovering",
+  ];
 
   return (
     <>
@@ -272,16 +275,19 @@ const MessageFields = () => {
                             MenuProps: {
                               PaperProps: {
                                 style: {
-                                  maxHeight: '300px',
+                                  maxHeight: "300px",
                                 },
                               },
                             },
                           }}
                         >
-  
                           {choices.length !== 0 &&
                             choices.map((option) => (
-                              <MenuItem key={option} value={option} sx={{ "& < parent": {height: "300px"}}}>
+                              <MenuItem
+                                key={option}
+                                value={option}
+                                sx={{ "& < parent": { height: "300px" } }}
+                              >
                                 {option}
                               </MenuItem>
                             ))}
@@ -391,7 +397,7 @@ export default MessageFields;
 
 const TextFieldStyles = {
   margin: ".5rem 0",
-  "& .Mui-active": { backgroundColor: "#000"},
+  "& .Mui-active": { backgroundColor: "#000" },
   "& .MuiInputBase-root": { color: "#fff" },
   "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
   "& textarea": { color: "#fff !important" },

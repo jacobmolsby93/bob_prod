@@ -8,6 +8,7 @@ import Contact from "../../components/Contact.jsx";
 import ButtonOrange from "../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../components/ButtonWhite.jsx";
 import Team from "../../components/Team.jsx";
+import InstagramWidget from "../../components/InstagramWidget.jsx";
 // Widgets
 import Faq from "./widgets/Faq.jsx";
 import IntroSection from "./widgets/IntroSection.jsx";
@@ -310,6 +311,13 @@ export default function HomePage() {
         <Spacer />
       </section>
 
+      {/* Instgram Widget */}
+      <section id="instagram-widget">
+        <AnimatedBox>
+          <InstagramWidget />
+        </AnimatedBox>
+      </section>
+
       {/* Contact Form */}
       <section id="kontakt">
         <AnimatedBox>
@@ -320,10 +328,10 @@ export default function HomePage() {
 
       {/* Team */}
       <Spacer />
-      <section id="Team" style={{ position: "relative"}}>
-      <Box className="container">
-        <Team />
-      </Box>
+      <section id="Team" style={{ position: "relative" }}>
+        <Box className="container">
+          <Team />
+        </Box>
       </section>
       <Spacer />
 

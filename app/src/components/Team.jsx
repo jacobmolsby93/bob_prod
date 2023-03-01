@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  useMediaQuery,
-  useTheme
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "../assets/facebook.png";
@@ -31,21 +26,69 @@ export default function Team() {
 
   return (
     <Box>
-    <Typography variant="h6" className="title-font">Teamet som skapar Bob Våtrumsrenovering</Typography>
+      <Typography variant="h6" className="title-font">
+        Teamet som skapar Bob Våtrumsrenovering
+      </Typography>
       <Box className="row" display="flex" justifyContent="center" mt="3rem">
         {PersonList.map((person) => (
-          <Box className="col-xs-12 col-sm-8 col-md-6 col-lg-3 mt-md-4" key={person.id} sx={{ maxWidth: "300px"}}>
-            <Box display="flex" justifyContent="center" flexDirection="column" padding="0 20px">
-              <Box backgroundColor={theme.palette.grey[200]} width="100%" position="relative" display="flex" alignItems="flex-end">
-              <Box sx={{ opacity: "1", position: "absolute", width: "100%", height: "85%", display: "flex", justifyContent: "center", zIndex: "1"}}>
-                  <img src={person.image} alt={person.name} title={person.name}/>
+          <Box
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-3 mt-md-4"
+            key={person.id}
+            sx={{ maxWidth: "300px" }}
+          >
+            <Box
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              padding="0 20px"
+            >
+              <Box
+                backgroundColor={theme.palette.grey[200]}
+                width="100%"
+                position="relative"
+                display="flex"
+                alignItems="flex-end"
+              >
+                <Box
+                  sx={{
+                    opacity: "1",
+                    position: "absolute",
+                    width: "100%",
+                    height: "85%",
+                    display: "flex",
+                    justifyContent: "center",
+                    zIndex: "1",
+                  }}
+                >
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    title={person.name}
+                  />
                 </Box>
-                <Box sx={{ backgroundImage: `url(${logo})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center", opacity: "0.3", width: "100%", height: "300px"}}>
-                </Box>
+                <Box
+                  sx={{
+                    backgroundImage: `url(${logo})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    opacity: "0.3",
+                    width: "100%",
+                    height: "300px",
+                  }}
+                ></Box>
               </Box>
               <Box textAlign="center">
-                <Typography variant="body1" className="subtitle-font">{person.name}</Typography>
-                <Typography variant="body1" className="body-paragraph" sx={{ fontWeight: "bold"}}>{person.title}</Typography>
+                <Typography variant="body1" className="subtitle-font">
+                  {person.name}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className="body-paragraph"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  {person.title}
+                </Typography>
               </Box>
             </Box>
           </Box>
@@ -71,7 +114,7 @@ const PersonList = [
   {
     id: 3,
     name: "Jacob Molsby",
-    title: `Kund Ansvarig | Web Ansvarig`,
+    title: "Kund Ansvarig",
     image: DefaultGuy,
   },
   {
@@ -80,5 +123,4 @@ const PersonList = [
     title: "Företagsledare",
     image: DefaultGirl,
   },
-]
-
+];
