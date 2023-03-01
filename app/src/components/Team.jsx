@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Card,
   useMediaQuery,
-  ListItem,
-  List,
-  Button,
+  useTheme
 } from "@mui/material";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "../assets/facebook.png";
 import CallIcon from "@mui/icons-material/Call";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-// Data
-import data from "../data/team.json";
-// Images
 import logo from "../assets/boblogo.png";
+import Hubert from "../assets/hubert.png";
+import Viktor from "../assets/viktor-profil.png";
+import DefaultGirl from "../assets/default-girl.png";
+import DefaultGuy from "../assets/default-guy.png";
 
 export default function Team() {
+  const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const cardStyle = {
@@ -31,150 +30,55 @@ export default function Team() {
   };
 
   return (
-    <Box
-      className="row"
-      display="flex"
-      justifyContent={!lgScreen ? "space-between" : "center"}
-    >
-      {data.persons.map((person) => (
-        <Box
-          className="col-10 col-md-4 mt-2 mt-md-none"
-          padding="0 10px"
-          maxWidth={smallScreen ? "" : "350px"}
-          key={person.id}
-        >
-          <Card
-            className="flex-centerd-justify"
-            position="relative"
-            sx={cardStyle}
-          >
-            <Box sx={cardBackground}></Box>
-            <Box sx={socialList} display="flex" justifyContent="center">
-              <nav style={{ width: "100%" }}>
-                <List className="team-social-list">
-                  <ListItem className="social-icon-wrapper">
-                    <a
-                      href={person.facebook}
-                      target="_blank"
-                      aria-label="Länk för facebook knapp"
-                    >
-                      <Button
-                        variant="outlined"
-                        sx={styledIconOutlined}
-                        aria-label="Se BOB Badrums Facebook konto"
-                      >
-                        <img
-                          src={FacebookIcon}
-                          width="20.56px"
-                          height="20.56px"
-                          alt="Facebook icon black"
-                        />
-                      </Button>
-                    </a>
-                  </ListItem>
-                  <ListItem className="social-icon-wrapper">
-                    <a
-                      href={person.facebook}
-                      target="_blank"
-                      aria-label="Länk för instagram knapp"
-                    >
-                      <Button
-                        variant="outlined"
-                        sx={styledIconOutlined}
-                        aria-label="Se BOB Badrums Instagram konto"
-                      >
-                        <InstagramIcon />
-                      </Button>
-                    </a>
-                  </ListItem>
-                  <ListItem className="social-icon-wrapper">
-                    <a
-                      href={person.facebook}
-                      target="_blank"
-                      aria-label="Länk för telefon knapp"
-                    >
-                      <Button
-                        variant="outlined"
-                        sx={styledIconOutlined}
-                        aria-label="Ring BOB Badrum"
-                      >
-                        <CallIcon />
-                      </Button>
-                    </a>
-                  </ListItem>
-                  <ListItem className="social-icon-wrapper">
-                    <a
-                      href={person.facebook}
-                      target="_blank"
-                      aria-label="Länk för email knapp"
-                    >
-                      <Button
-                        variant="outlined"
-                        sx={styledIconOutlined}
-                        aria-label="Skicka email till BOB Badrum"
-                      >
-                        <EmailOutlinedIcon />
-                      </Button>
-                    </a>
-                  </ListItem>
-                </List>
-              </nav>
+    <Box>
+    <Typography variant="h6" className="title-font">Teamet som skapar Bob Våtrumsrenovering</Typography>
+      <Box className="row" display="flex" justifyContent="center" mt="3rem">
+        {PersonList.map((person) => (
+          <Box className="col-xs-12 col-sm-8 col-md-6 col-lg-3 mt-md-4" key={person.id} sx={{ maxWidth: "300px"}}>
+            <Box display="flex" justifyContent="center" flexDirection="column" padding="0 20px">
+              <Box backgroundColor={theme.palette.grey[200]} width="100%" position="relative" display="flex" alignItems="flex-end">
+              <Box sx={{ opacity: "1", position: "absolute", width: "100%", height: "85%", display: "flex", justifyContent: "center", zIndex: "1"}}>
+                  <img src={person.image} alt={person.name} title={person.name}/>
+                </Box>
+                <Box sx={{ backgroundImage: `url(${logo})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center", opacity: "0.3", width: "100%", height: "300px"}}>
+                </Box>
+              </Box>
+              <Box textAlign="center">
+                <Typography variant="body1" className="subtitle-font">{person.name}</Typography>
+                <Typography variant="body1" className="body-paragraph" sx={{ fontWeight: "bold"}}>{person.title}</Typography>
+              </Box>
             </Box>
-            <Box textAlign="center" sx={textBelow}>
-              <Typography variant="h4" fontWeight="bold">
-                {person.namn}
-              </Typography>
-
-              <Typography variant="h5" color={"#963900"}>
-                {person.roll}
-              </Typography>
-            </Box>
-          </Card>
-        </Box>
-      ))}
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }
 
-const cardBackground = {
-  position: "absolute",
-  top: "0",
-  left: "0",
-  right: "0",
-  margin: "20px",
-  backgroundImage: `url(${logo})`,
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center top",
-  height: "100%",
-  opacity: 0.2,
-  zIndex: -1,
-};
-
-const textBelow = {
-  position: "absolute",
-  bottom: "-6rem",
-};
-
-const socialList = {
-  position: "absolute",
-  bottom: "-1.8rem",
-  backgroundColor: "#fff",
-  borderRadius: "2.5rem",
-  width: "80%",
-  maxWidth: "220px",
-};
-
-const styledIconOutlined = {
-  height: "35px",
-  width: "35px",
-  minWidth: "unset",
-  borderRadius: "50%",
-  backgroundColor: "transparent",
-  color: "#000",
-  fontSize: "1.2rem",
-  border: "1px solid #000",
-  "&:hover": {
-    border: "1px solid #000",
+const PersonList = [
+  {
+    id: 1,
+    name: "Viktor Nilsson",
+    title: "Projektledare",
+    image: Viktor,
   },
-};
+  {
+    id: 2,
+    name: "Hubert Peksyk",
+    title: "Projektledare",
+    image: Hubert,
+  },
+  {
+    id: 3,
+    name: "Jacob Molsby",
+    title: `Kund Ansvarig | Web Ansvarig`,
+    image: DefaultGuy,
+  },
+  {
+    id: 4,
+    name: "Elin Palmgren",
+    title: "Företagsledare",
+    image: DefaultGirl,
+  },
+]
+

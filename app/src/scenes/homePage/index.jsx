@@ -7,10 +7,9 @@ import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
 import ButtonOrange from "../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../components/ButtonWhite.jsx";
-
+import Team from "../../components/Team.jsx";
 // Widgets
 import Faq from "./widgets/Faq.jsx";
-import Carousel from "./widgets/Carousel.jsx";
 import IntroSection from "./widgets/IntroSection.jsx";
 import BoxSelector from "./widgets/BoxSelectorHome.jsx";
 //Images
@@ -18,7 +17,6 @@ import landingBackground from "../../assets/landingbackground.webp";
 import landingBackground2 from "../../assets/landingbackground2.webp";
 import landingBackground3 from "../../assets/landingbackground3.webp";
 import landingBackground4 from "../../assets/landingbackground4.webp";
-import faq from "../../assets/faq.png";
 import backgroundShape from "../../assets/logo-shape.png";
 // Animation
 import { AnimatePresence } from "framer-motion";
@@ -320,6 +318,15 @@ export default function HomePage() {
       </section>
       <Spacer />
 
+      {/* Team */}
+      <Spacer />
+      <section id="Team" style={{ position: "relative"}}>
+      <Box className="container">
+        <Team />
+      </Box>
+      </section>
+      <Spacer />
+
       {/* Frequently Asked Questions */}
       <section id="vanliga-fragor">
         <AnimatedBox>
@@ -346,8 +353,8 @@ export default function HomePage() {
             </Box>
           </Box>
         </AnimatedBox>
-        <Spacer />
       </section>
+      <Spacer />
     </Box>
   );
 }
