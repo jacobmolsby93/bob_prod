@@ -26,8 +26,8 @@ export default function Team() {
 
   return (
     <Box>
-      <Typography variant="h6" className="title-font">
-        Teamet som skapar Bob Våtrumsrenovering
+      <Typography variant="h6" className="title-font" textAlign="center">
+        Vi på Bob Våtrumsrenovering AB
       </Typography>
       <Box className="row" display="flex" justifyContent="center" mt="3rem">
         {PersonList.map((person) => (
@@ -64,6 +64,7 @@ export default function Team() {
                     src={person.image}
                     alt={person.name}
                     title={person.name}
+                    style={{ maxWidth: "100%" }}
                   />
                 </Box>
                 <Box
