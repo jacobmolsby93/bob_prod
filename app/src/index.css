@@ -64,7 +64,7 @@ hr {
   font-size: clamp(24px, 4vw, 34px) !important;
 }
 .body-paragraph {
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
   margin: 0;
 }
 .section-title {
