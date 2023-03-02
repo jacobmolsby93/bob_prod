@@ -1,16 +1,15 @@
 import React from "react";
 import {
   Box,
-  Button,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 // Components
 import Contact from "../../components/Contact.jsx";
 import Spacer from "../../components/Spacer.jsx";
 import Credits from "../../components/Credits.jsx";
+import ButtonOrange from "../../components/ButtonOrange.jsx";
 
 // Widgets
 import Intro from "./widgets/Intro.jsx";
@@ -19,10 +18,8 @@ import Planer from "./widgets/Planer.jsx";
 
 // Animation
 import AnimatedBox from "../../animation/Animated.jsx";
-
+import landingImage from "../../assets/servicesheroimg.webp";
 // Images
-const landingImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/servicesheroimg.webp";
 
 export default function Bathroom() {
   const theme = useTheme();
@@ -31,7 +28,7 @@ export default function Bathroom() {
   const titleFontSize = "54px";
   return (
     <div style={{ minHeight: "max-content" }}>
-      <Box className="landing-box-home">
+      <Box className="landing-box">
         <Box className="landing-box-home__overlay" zIndex="10"></Box>
         <Box
           className="landing-box-home__image"
@@ -48,64 +45,49 @@ export default function Bathroom() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: smallScreen ? "center" : "flex-end",
-            paddingBottom: "5%",
+            paddingTop: "100px",  
+            justifyContent: "center",
             zIndex: "20",
           }}
         >
           <AnimatedBox>
-            <Typography
-              variant="h1"
-              fontWeight="bold"
-              className="hero_title"
-              fontSize={
-                smallScreen
-                  ? `clamp(32px, 4vw, ${titleFontSize})`
-                  : titleFontSize
-              }
-              textTransform="uppercase"
-              color="#E6E6E6"
-            >
-              Badrumsrenovering?
-            </Typography>
-            <Box className="col-12 col-lg-7">
-              <p className="button-text" style={{ color: "#E6E6E6" }}>
-                Dags att renovera badrummet? Låt oss vara med och räkna. Vi
-                renoverar ett stort antal badrum och tvättstugor varje år och
-                hos oss får du ett fast pris, en tydlig och fastställd tidplan
-                och en engagerad projektledare som är med dig hela vägen från
-                start till mål. Kontakta BOB för en fri rådgivning av din
-                Badrumsrenovering i Stockholm.
-              </p>
+            <Box className="row" justifyContent="center">
+              <Box textAlign="center" className="col-12 col-md-7">
+                <Typography
+                  variant="h1"
+                  fontWeight="bold"
+                  className="hero_title"
+                  fontSize={
+                    smallScreen
+                      ? `clamp(32px, 4vw, ${titleFontSize})`
+                      : titleFontSize
+                  }
+                  textTransform="uppercase"
+                  color="#fff"
+                >
+                  Badrumsrenovering?
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className="body-paragraph"
+                  style={{ color: "#fff", marginTop: "2rem"}}
+                >
+                  Dags att renovera badrummet? Låt oss vara med och räkna. Vi
+                  renoverar ett stort antal badrum och tvättstugor varje år och
+                  hos oss får du ett fast pris, en tydlig och fastställd tidplan
+                  och en engagerad projektledare som är med dig hela vägen från
+                  start till mål. Kontakta BOB för en fri rådgivning av din
+                  Badrumsrenovering i Stockholm.
+                </Typography>
+                <Box mt="2rem">
+                <ButtonOrange
+                  aria="Klicka för att komma till kontakta oss sidan"
+                  ariaAtag="Länk till kontakta oss"
+                  buttonText="Kontakta oss"
+                />
+                </Box>
+              </Box>
             </Box>
-
-            <Button
-              aria-label="Klicka för att komma till kontaka oss sidan"
-              variant="contained"
-              sx={{
-                marginTop: "30px",
-                borderRadius: "0",
-                backgroundColor: theme.palette.primary[500],
-                marginRight: "20px",
-                padding: 0,
-                "&>a": {
-                  padding: "6px 16px",
-                  color: theme.palette.background.default,
-                  textDecoration: "none",
-                },
-                "&:hover": {
-                  backgroundColor: theme.palette.primary[600],
-                },
-              }}
-            >
-              <Link
-                to="/kontakt"
-                className="button-text"
-                aria-label="Länk till kontakta oss"
-              >
-                Kontakta Oss
-              </Link>
-            </Button>
           </AnimatedBox>
         </Box>
       </Box>

@@ -19,6 +19,7 @@ export default function AboutPage() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const titleFontSize = "54px";
   const recoScore = [1, 2, 3, 4, 5];
 
@@ -41,28 +42,13 @@ export default function AboutPage() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
+            justifyContent: !lgScreen ? "flex-end" : "center",
             paddingBottom: "5%",
             zIndex: "20",
+            position: "relative"
           }}
         >
-          <AnimatedBox>
-            <Box position="relative">
-              <Typography
-                variant="h1"
-                fontWeight="bold"
-                className="hero_title"
-                fontSize={
-                  smallScreen
-                    ? `clamp(32px, 4vw, ${titleFontSize})`
-                    : titleFontSize
-                }
-                textTransform="uppercase"
-                color="#E6E6E6"
-              >
-                Om Oss
-              </Typography>
-              <Box position="absolute" right="0">
+          <Box position="absolute" right="0" bottom="10px">
                 <a
                   href="https://www.reco.se/bob-vatrumsrenovering-ab"
                   target="_blank"
@@ -133,11 +119,27 @@ export default function AboutPage() {
                   </Box>
                 </a>
               </Box>
+          <AnimatedBox>
+            <Box>
+              <Typography
+                variant="h1"
+                fontWeight="bold"
+                className="hero_title"
+                fontSize={
+                  smallScreen
+                    ? `clamp(32px, 4vw, ${titleFontSize})`
+                    : titleFontSize
+                }
+                textTransform="uppercase"
+                color="#E6E6E6"
+              >
+                Om Oss
+              </Typography>
             </Box>
           </AnimatedBox>
         </Box>
-      </Box>
-      <Spacer />
+      </Box> 
+      {!lgScreen ? <Spacer /> : ""} 
       <AnimatedBox>
         <section id="intro-about">
           <Box className="container">
@@ -145,7 +147,7 @@ export default function AboutPage() {
           </Box>
         </section>
       </AnimatedBox>
-      <Spacer />
+      {!lgScreen ? <Spacer /> : ""} 
       {/* Orange part */}
       <Box
         sx={{
@@ -169,9 +171,7 @@ export default function AboutPage() {
       </Box>
       <AnimatedBox>
         <section id="stand">
-          <Box className="container-fluid">
             <Stand />
-          </Box>
         </section>
       </AnimatedBox>
       <Spacer />

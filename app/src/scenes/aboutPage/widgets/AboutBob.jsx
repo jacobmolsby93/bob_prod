@@ -8,12 +8,9 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
-import AnimatedLazyImage from "../../../components/LazyImage.jsx";
 import AboutIntro from "../../../assets/about-intro-image.png";
 
 const Intro = () => {
-  const theme = useTheme();
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
   return (
@@ -26,7 +23,7 @@ const Intro = () => {
         alignItems: "top",
       }}
     >
-      <Box className="col-12 col-lg-6">
+      <Box className="col-12 col-lg-6" sx={{ padding: !lgScreen ? "" : "2rem 0 0 0", display: "flex", flexDirection: "column", justifyContent: "center"}}>
         <Typography variant="h2" className="title-font">
           Om Bob våtrumsrenovering
         </Typography>
@@ -46,9 +43,9 @@ const Intro = () => {
           <ButtonOrange buttonText="Kontakta oss" href="kontakt" />
         </Box>
       </Box>
-      <Box className="col-12 col-lg-6" position="relative">
+      <Box className="col-12 col-lg-6 order-first order-lg-last" position="relative">
         {/* Image */}
-        <Box position="absolute" top="-100px">
+        <Box sx={{ position: !lgScreen ? "absolute" : "", top: "-100px"}}>
           <img
             src={AboutIntro}
             alt="Om oss introduktions bild, en bild på ett vardagsrum med fiskbensparkett"

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "../assets/facebook.png";
-import CallIcon from "@mui/icons-material/Call";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import logo from "../assets/boblogo.png";
 import Hubert from "../assets/hubert.png";
 import Viktor from "../assets/viktor-profil.png";

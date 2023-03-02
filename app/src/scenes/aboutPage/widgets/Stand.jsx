@@ -6,176 +6,97 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import Call from "@mui/icons-material/Call";
+import teamwork from "../../../assets/support.png";
+import skills from "../../../assets/skills.png";
+import offer from "../../../assets/offer.png";
+import time from "../../../assets/save-time.png";
+import aboutSecond from "../../../assets/about-second.png";
+
+import ButtonOrange from "../../../components/ButtonOrange";
+import ButtonWhite from "../../../components/ButtonWhite";
 
 // Images
 const aboutImage =
   "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
 
 const Stand = () => {
-  const theme = useTheme();
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
-  const marginRight = "20px";
+  const lgScreen = useMediaQuery((theme) =>  theme.breakpoints.up("lg"))
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const marginTop = "2rem";
 
-  const buttonStyleContained = {
-    marginTop: smallScreen ? "1rem" : "",
-    borderRadius: "0",
-    backgroundColor: theme.palette.primary[500],
-    marginRight: marginRight,
-    color: theme.palette.background.default,
-    padding: 0,
-    "&:>a": {
-      padding: "6px 16px",
-    },
-    "&:hover": {
-      backgroundColor: theme.palette.primary[600],
-    },
-  };
-
-  const buttonStyleOutlined = {
-    marginTop: smallScreen ? "1rem" : "",
-    borderRadius: "0",
-    border: `1px solid #1d1d1d`,
-    "&>a": {
-      textDecoration: "none",
-      color: "#1d1d1d",
-    },
-    "&:hover": {
-      border: `1px solid `,
-    },
-  };
-
   return (
-    <Box className="row" display="flex" alignItems="center">
-      <Box
-        className="col-12 col-lg-6 col-content-stand"
-        sx={{ margin: "50px 0" }}
-      >
-        <Box className="heading-bg heading-right" padding="0 0 2rem 0">
-          <Typography
-            className="mb-0 subtitle-font primary"
-            variant="body1"
-            component="p"
-          >
-            Om Bob Våtrumsrenovering AB
-          </Typography>
-          <Typography variant="h2" component="h2" className="title-font">
-            Vi Innoverar Badrum.
-          </Typography>
-        </Box>
-        <Box className="row">
-          <Box className="col-xs-12 col-sm-12 col-md-6 feature-1">
-            <Typography
-              className="text-uppercase subtitle-font"
-              variant="h3"
-              component="h3"
-            >
-              Pålitliga
-            </Typography>
-            <Typography variant="body1">
-              Vi strävar efter att vara ett pålitligt val för kunderna, med en
-              lång historia av att leverera projekten i tid och inom
-              budgetramarna, och med en dedikerad och kompetent personal.
-            </Typography>
-          </Box>
-          <Box className="col-xs-12 col-sm-12 col-md-6 feature-1">
-            <Typography
-              className="text-uppercase subtitle-font"
-              variant="h2"
-              component="h2"
-            >
-              Behöriga Hantverkare
-            </Typography>
-            <Typography variant="body1">
-              Vårt team av specialister är kompetenta och kapabla att maximera
-              resultaten och leverera projekten med högsta kvalitet.
-            </Typography>
-          </Box>
-          <Box className="col-xs-12 col-sm-12 col-md-6 feature-1 mb-0">
-            <Typography
-              className="text-uppercase subtitle-font"
-              variant="h2"
-              component="h2"
-            >
-              Genomskilniga Priser
-            </Typography>
-            <Typography variant="body1">
-              Med Bob Våtrumsrenovering AB kan du vara säker på att projektet
-              kommer att levereras precis i tid och inom budgetramarna, utan
-              oväntade kostnader eller förseningar.
-            </Typography>
-          </Box>
-          <Box className="col-xs-12 col-sm-12 col-md-6 feature-1 mb-0">
-            <Typography
-              className="text-uppercase subtitle-font"
-              variant="h2"
-              component="h2"
-            >
-              Tiden är viktig för oss
-            </Typography>
-            <Typography variant="body1">
-              Att renoveringen blir klar på avtalad tid är extremt viktigt för
-              oss. För att ni som kund skall kunna planera er vardag utifrån
-              renoveringen.
-            </Typography>
-          </Box>
-
-          <Box mt={marginTop}>
-            <Button
-              aria-label="Klicka för att komma till kontakt sidan"
-              variant="contained"
-              sx={buttonStyleContained}
-            >
-              <Link
-                aria-label="Länk till kontakta oss"
-                className="button-text"
-                to="/kontakt"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Skriv Till Oss
-              </Link>
-            </Button>
-            <Button
-              aria-label="Klicka för att ringa till företaget"
-              sx={buttonStyleOutlined}
-              name={`Telefon Nummer 08 - 33 36 63`}
-              variant="outlined"
-            >
-              <Call className="call-icon-dark" />
-              <a
-                href={`tel:08 - 33 36 63`}
-                className="button-text"
-                aria-label="Länk för att ringa företaget direkts"
-              >
-                08 - 33 36 63
-              </a>
-            </Button>
-          </Box>
-        </Box>
+    <Box className="row">
+        <Box className="col-12 col-xl-6">
+          <Box sx={{ backgroundImage: `url(${aboutSecond})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", height: !lgScreen ? "300px" : "100%", width: "auto", padding: "0 !important"}}></Box>
       </Box>
-      {!smallScreen && (
-        <Box
-          className="col-12 col-lg-6 col-img"
-          height={mdScreen ? null : "600px"}
-        >
-          <Box
-            style={{
-              backgroundImage: `url(${aboutImage})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              maxHeight: mdScreen ? "200px" : "",
-            }}
-          ></Box>
-        </Box>
-      )}
+      <Box
+        className="col-12 col-xl-6"
+        sx={{ padding: !lgScreen ? "3rem 1rem":"5rem 3rem 5rem 3rem", display: "flex", flexDirection: "column", justifyContent: "center" }}
+      >
+          <Typography variant="h3" className="title-font" sx={{ marginBottom: "2rem"}}>
+            Vi <br/>
+            innoverar Badrum.
+          </Typography>
+          <Box className="row">
+          {cols.map((col, index) => (
+          <Box className="col-12 col-lg-6" sx={{ padding: !mdScreen ? index === 0 || index === 2 ? "1.5rem 1.5rem 1.5rem 0" : "1.5rem 0 1.5rem 1.5rem" : "1rem 0",  borderBottom: !mdScreen ? index === 0 || index === 1 ? "2px solid rgba(0, 0, 0, 0.2)" : "none" : "",
+          borderRight: !mdScreen ? index === 0 || index === 2 ? "2px solid rgba(0, 0, 0, 0.2)" : "none" : ""}}>
+            <Box display="flex" alignItems="center" mb="1rem">
+              <img src={col.logo} alt="Logga som symboliserar titteln" style={{ width: "2.5rem", height: "2.5rem"}}/>
+            <Typography
+              className="subtitle-font"
+              variant="h4"
+              sx={{ marginLeft: ".5rem"}}
+            >
+              {col.title}
+            </Typography>
+            </Box>
+            <Typography variant="body1" className="body-paragraph">
+              {col.text}
+            </Typography>
+          </Box>
+          ))}
+          </Box>
+          <Box mt={marginTop}>
+            <ButtonOrange buttonText="Skriv till oss" aria="Klicka för att komma till kontakta oss sidan" ariaAtag="Länk till kontaka oss sidan" href="kontakt" />
+            <ButtonWhite buttonText="08 - 33 36 63" aria="Klicka för att ringa företaget" ariaAtag="Länk med företagets telefonnummer" href="tel:08333663" />
+          </Box>
+      </Box>
     </Box>
   );
 };
 
 export default Stand;
+
+
+const cols = [
+  {
+    id: 1,
+    title: "Pålitliga",
+    text: "Vi strävar efter att vara ett pålitligt val för kunderna, med en lång historia av att leverera projekten i tid och inom budgetramarna, och med en dedikerad och kompetent personal.",
+    logo: teamwork,
+    border: "right bottom"
+  },
+  {
+    id: 2,
+    title: "Behöriga Hantverkare",
+    text: "  Vårt team av specialister är kompetenta och kapabla att maximera resultaten och leverera projekten med högsta kvalitet.",
+    logo: skills,
+    border: "left bottom"
+  },
+  {
+    id: 3,
+    title: "Genomskilniga Priser",
+    text: "  Med Bob Våtrumsrenovering AB kan du vara säker på att projektet kommer att levereras precis i tid och inom budgetramarna, utan oväntade kostnader eller förseningar.",
+    logo: offer, 
+    border: "right top"
+  },
+  {
+    id: 4,
+    title: "Tiden är viktig för oss",
+    text: "  Att renoveringen blir klar på avtalad tid är extremt viktigt för oss. För att ni som kund skall kunna planera er vardag utifrån renoveringen.", 
+    logo: time,
+    border: "left top" 
+  },
+]
