@@ -43,8 +43,8 @@ const variants = {
       type: "spring",
       mass: 0.5,
       stiffness: 500,
-      damping: 50
-    }
+      damping: 50,
+    },
   },
   toRight: {
     x: "100%",
@@ -53,8 +53,8 @@ const variants = {
       type: "spring",
       mass: 0.5,
       stiffness: 500,
-      damping: 50
-    }
+      damping: 50,
+    },
   },
   center: {
     x: 0,
@@ -63,9 +63,9 @@ const variants = {
       type: "spring",
       mass: 0.5,
       stiffness: 500,
-      damping: 50
-    }
-  }
+      damping: 50,
+    },
+  },
 };
 
 export default function TipsCarousel() {
@@ -119,7 +119,6 @@ export default function TipsCarousel() {
       setDirection("prev");
     }
   };
-  
 
   const handleDragEnd = async (evt, { offset }) => {
     const power = swipePower(offset.x, rect.width);
@@ -218,7 +217,11 @@ export default function TipsCarousel() {
                     }}
                   >
                     <span
-                      style={{ color: theme.palette.primary[500], position: "relative", left: "100%"}}
+                      style={{
+                        color: theme.palette.primary[500],
+                        position: "relative",
+                        left: lgScreen ? "100%" : "0",
+                      }}
                       className="title-font"
                     >
                       {selected.id}
@@ -251,9 +254,7 @@ export default function TipsCarousel() {
                   </motion.div>
                   {/* Image Box */}
 
-                  <motion.div
-                    className={`col-12 col-lg-6`} 
-                  >
+                  <motion.div className={`col-12 col-lg-6`}>
                     <img
                       src={selected.image}
                       alt={selected.title}
@@ -282,13 +283,19 @@ export default function TipsCarousel() {
                   <motion.div
                     key={selected}
                     drag="x"
+                    dragDirectionLock
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={handleDragEnd}
                     variants={variants}
                     animate={animation}
                     dragMomentum={false}
                     transition={{
-                      x: { type: "spring", mass: 0.5, stiffness: 500, damping: 50 }
+                      x: {
+                        type: "spring",
+                        mass: 0.5,
+                        stiffness: 500,
+                        damping: 50,
+                      },
                     }}
                     className="col-12"
                     style={{

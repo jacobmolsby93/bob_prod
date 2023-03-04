@@ -21,6 +21,7 @@ import landingImage from "../../assets/contact-background.png";
 export default function Bathroom() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const titleFontSize = "54px";
   return (
     <div style={{ minHeight: "max-content" }}>
@@ -129,7 +130,7 @@ export default function Bathroom() {
         </section>
       </AnimatedBox>
       <Spacer />
-      <Spacer />
+      {!lgScreen && <Spacer />}
       <AnimatedBox>
         <section id="team">
           <Team />

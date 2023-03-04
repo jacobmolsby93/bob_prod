@@ -76,15 +76,15 @@ export default function Planer() {
           </Box>
         </Box>
         <Box
-          className="col-12 col-lg-6 order-first"
+          className="col-12 col-xl-6 order-first"
           sx={{
             paddingRight: !lgScreen ? "3rem" : "0",
             display: "flex",
             position: "relative",
-            bottom: !smallScreen ? "-50px" : "",
+            bottom: !lgScreen ? "-50px" : "",
           }}
         >
-          {!smallScreen ? (
+          {!lgScreen ? (
             <>
               <Box
                 sx={{
@@ -127,6 +127,7 @@ export default function Planer() {
               style={{
                 maxHeight: "400px",
                 width: "100%",
+                minWidth: "100%",
                 objectFit: "cover",
                 borderRadius: "10px",
               }}

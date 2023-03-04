@@ -28,7 +28,8 @@ export default function Team() {
         </Typography>
       ) : (
         <Typography variant="h6" className="title-font" textAlign="center">
-          Vi på <br />Bob Våtrumsrenovering AB
+          Vi på <br />
+          Bob Våtrumsrenovering AB
         </Typography>
       )}
       <Box className="row" display="flex" justifyContent="center" mt="3rem">

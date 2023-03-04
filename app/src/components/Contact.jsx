@@ -16,7 +16,7 @@ const logo =
 const tikTok =
   "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok.png";
 
-export default function Contact() {
+export default function Contact({ student }) {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [screenSize, setScreenSize] = useState([""]);
@@ -60,25 +60,27 @@ export default function Contact() {
             }}
           ></Box>
         </Box>
-        <Box className="container">
-          <Box className="row">
-            <Box className="col-12 col-lg-6" padding="3rem 0">
-              <Typography variant="h5" className="title-font">
-                Söker du praktikplats?
-              </Typography>
-              <Box mt="1rem">
-                <Typography variant="body1" className="body-paragraph">
-                  Studerar du på universitet eller högskola och är i behov av en
-                  praktikplats på sidan av dina studier alternativt under dina
-                  studier? Vi tillsätter just nu praktikanter och erbjuder
-                  praktikplatser inom flertalet områden, såsom; administration,
-                  ekonomi, hantverk och visuellt skapande. Kontakta oss via
-                  kontaktformuläret så berättar vi mer.
+        {student && (
+          <Box className="container">
+            <Box className="row">
+              <Box className="col-12 col-lg-6" padding="3rem 0">
+                <Typography variant="h5" className="title-font">
+                  Söker du praktikplats?
                 </Typography>
+                <Box mt="1rem">
+                  <Typography variant="body1" className="body-paragraph">
+                    Studerar du på universitet eller högskola och är i behov av
+                    en praktikplats på sidan av dina studier alternativt under
+                    dina studier? Vi tillsätter just nu praktikanter och
+                    erbjuder praktikplatser inom flertalet områden, såsom;
+                    administration, ekonomi, hantverk och visuellt skapande.
+                    Kontakta oss via kontaktformuläret så berättar vi mer.
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
+        )}
       </Box>
       {/* Grey part */}
       <Box backgroundColor="#F9F9F9" width="100%" padding="3rem 0">
