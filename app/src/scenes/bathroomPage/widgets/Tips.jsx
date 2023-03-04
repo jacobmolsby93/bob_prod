@@ -121,11 +121,11 @@ export default function TipsCarousel() {
   };
   const animation = useAnimation();
   const handleDragEnd = async (evt, { offset }) => {
-    const power = swipePower(offset.x, rect.width);
-    if (power > 60) {
+    const power = swipePower(offset, rect.width);
+    if (power > 30) {
       await animation.start("toRight");
       handlePrev();
-    } else if (power < -60) {
+    } else if (power < -30) {
       await animation.start("toLeft");
       handleNext();
     } else {
@@ -269,32 +269,29 @@ export default function TipsCarousel() {
                 </motion.div>
               ) : (
                 /* Mobile Carousel */
+                <AnimatePresence mode="wait">
                 <motion.div
                   className="row"
-                  key={selected.id}
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: 1,
                     x: "0%",
-                    transition: { duration: 0.2, type: "spring", bounce: 0.25 },
+                    transition: { duration: 0.5, type: "spring", bounce: 0.25 },
                   }}
-                  exit={{ opacity: 0, transition: { duration: 0.2 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.6, type: "easeInOut" } }}
                 >
                   <motion.div
-                    key={selected.id}
                     drag="x"
+                    key={selected.id}
                     dragDirectionLock={true}
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={handleDragEnd}
                     variants={variants}
                     animate={animation}
-                    dragMomentum={false}
+                    dragMomentum={true}
                     transition={{
                       x: {
-                        type: "spring",
-                        mass: 0.5,
-                        stiffness: 500,
-                        damping: 50,
+                        type: "easeInOut",
                       },
                     }}
                     className="col-12"
@@ -356,6 +353,7 @@ export default function TipsCarousel() {
                     </Card>
                   </motion.div>
                 </motion.div>
+                </AnimatePresence>
               ))}
           </AnimatePresence>
           <Box
