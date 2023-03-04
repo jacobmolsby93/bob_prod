@@ -40,10 +40,8 @@ export default function Credits(props) {
             key={fact.counter}
             sx={{
               backgroundColor: "#fff",
-              border: `2px solid rgba(194, 102, 45, 0.2)`,
               padding: !lgScreen ? "2rem 0" : ".5rem 0rem",
               width: "30%",
-              borderRadius: "10px",
             }}
           >
             <Box className="mt-2 mt-sm-2 mt-none">

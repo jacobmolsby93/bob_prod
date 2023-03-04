@@ -21,14 +21,20 @@ export default function Team() {
   };
 
   return (
-    <Box>
-      <Typography variant="h6" className="title-font" textAlign="center">
-        Vi på Bob Våtrumsrenovering AB
-      </Typography>
+    <Box className="container">
+      {!smallScreen ? (
+        <Typography variant="h6" className="title-font" textAlign="center">
+          Vi på Bob Våtrumsrenovering AB
+        </Typography>
+      ) : (
+        <Typography variant="h6" className="title-font" textAlign="center">
+          Vi på <br />Bob Våtrumsrenovering AB
+        </Typography>
+      )}
       <Box className="row" display="flex" justifyContent="center" mt="3rem">
         {PersonList.map((person) => (
           <Box
-            className="col-xs-12 col-sm-8 col-md-6 col-lg-3 mt-md-4"
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-3 mt-md-4 mt-4 mt-md-0"
             key={person.id}
             sx={{ maxWidth: "300px" }}
           >
@@ -76,7 +82,7 @@ export default function Team() {
                 ></Box>
               </Box>
               <Box textAlign="center">
-                <Typography variant="body1" className="subtitle-font">
+                <Typography variant="body1" className="title-font">
                   {person.name}
                 </Typography>
                 <Typography

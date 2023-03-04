@@ -7,6 +7,7 @@ import Credits from "../../components/Credits.jsx";
 import ButtonOrange from "../../components/ButtonOrange.jsx";
 import Video from "../../components/Video.jsx";
 import InstgramWidget from "../../components/InstagramWidget.jsx";
+import Team from "../../components/Team.jsx";
 // Widgets
 import Intro from "./widgets/Intro.jsx";
 import TipsCarousel from "./widgets/Tips.jsx";
@@ -90,36 +91,29 @@ export default function Bathroom() {
         </Box>
       </Box>
       <Spacer />
-
       <AnimatedBox>
         <section id="credits">
           <Credits />
         </section>
       </AnimatedBox>
-
       <Spacer />
       <AnimatedBox>
         <section id="intro">
           <Intro />
         </section>
       </AnimatedBox>
-
       <Spacer />
-
       <AnimatedBox>
         <section id="interview">
           <Video />
         </section>
       </AnimatedBox>
-
       <Spacer />
-
       <AnimatedBox>
         <section id="instagram">
           <InstgramWidget />
         </section>
       </AnimatedBox>
-
       <Spacer />
       <AnimatedBox>
         <section id="tips">
@@ -132,6 +126,13 @@ export default function Bathroom() {
           <Box className="container">
             <Planer />
           </Box>
+        </section>
+      </AnimatedBox>
+      <Spacer />
+      <Spacer />
+      <AnimatedBox>
+        <section id="team">
+          <Team />
         </section>
       </AnimatedBox>
       <Spacer />

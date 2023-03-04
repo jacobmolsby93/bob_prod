@@ -9,13 +9,14 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import Spacer from "../../../components/Spacer";
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../../components/ButtonWhite.jsx";
+import { wrap, swipePower } from "../utils/utils.js";
 import Call from "@mui/icons-material/Call";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
@@ -34,13 +35,48 @@ import tip10 from "../../../assets/contact-background.png";
 // const tip1 =
 //   "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
 
+const variants = {
+  toLeft: {
+    x: "-100%",
+    opacity: 0,
+    transition: {
+      type: "spring",
+      mass: 0.5,
+      stiffness: 500,
+      damping: 50
+    }
+  },
+  toRight: {
+    x: "100%",
+    opacity: 0,
+    transition: {
+      type: "spring",
+      mass: 0.5,
+      stiffness: 500,
+      damping: 50
+    }
+  },
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      mass: 0.5,
+      stiffness: 500,
+      damping: 50
+    }
+  }
+};
+
 export default function TipsCarousel() {
   const theme = useTheme();
+  const ref = useRef();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const [selected, setSelected] = useState(tipsData[0]);
   const [direction, setDirection] = useState(null);
+  const [rect, setRect] = useState();
 
   const controlButton = {
     height: "40px",
@@ -56,6 +92,12 @@ export default function TipsCarousel() {
     boxShadow: "0px 10px 40px rgba(193, 102, 45, 0.5)",
   };
 
+  useEffect(() => {
+    if (ref.current) {
+      setRect(ref.current.getBoundingClientRect());
+    }
+  }, []);
+
   const handleNext = () => {
     const nextIndex = selected.id + 1;
     if (nextIndex <= tipsData.length) {
@@ -66,7 +108,7 @@ export default function TipsCarousel() {
       setDirection("next");
     }
   };
-
+  const animation = useAnimation();
   const handlePrev = () => {
     const prevIndex = selected.id - 1;
     if (prevIndex >= 1) {
@@ -75,6 +117,20 @@ export default function TipsCarousel() {
     } else {
       setSelected(tipsData[tipsData.length - 1]); // loop back to the last item
       setDirection("prev");
+    }
+  };
+  
+
+  const handleDragEnd = async (evt, { offset }) => {
+    const power = swipePower(offset.x, rect.width);
+    if (power > 60) {
+      await animation.start("toRight");
+      handlePrev();
+    } else if (power < -60) {
+      await animation.start("toLeft");
+      handleNext();
+    } else {
+      await animation.start("reset");
     }
   };
 
@@ -153,17 +209,16 @@ export default function TipsCarousel() {
                 >
                   {/* Text Box */}
                   <motion.div
-                    className="col-12 col-lg-6"
+                    className="col-12 col-lg-6 order-last order-lg-first"
                     style={{
-                      padding:
-                        selected.id % 2 === 0 ? "0 0 0 3rem" : "0 3rem 0 0",
+                      padding: !lgScreen ? "0 3rem 0 0" : "2rem 2rem 0 0",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
                     }}
                   >
                     <span
-                      style={{ color: theme.palette.primary[500] }}
+                      style={{ color: theme.palette.primary[500], position: "relative", left: "100%"}}
                       className="title-font"
                     >
                       {selected.id}
@@ -197,9 +252,7 @@ export default function TipsCarousel() {
                   {/* Image Box */}
 
                   <motion.div
-                    className={`col-12 col-lg-6 ${
-                      selected.id % 2 === 0 ? "order-first" : "order-last"
-                    }`}
+                    className={`col-12 col-lg-6`} 
                   >
                     <img
                       src={selected.image}
@@ -227,26 +280,30 @@ export default function TipsCarousel() {
                   exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
                   <motion.div
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        onDragEnd={(event, info) => {
-                          const { point } = info;
-                          if (point.x < -100) {
-                            handleNext();
-                          } else if (point.x > 100) {
-                            handlePrev();
-                          }
-                        }}
-                        transition={{ duration: 0.5 }}
-                        exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                    key={selected}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDragEnd={handleDragEnd}
+                    variants={variants}
+                    animate={animation}
+                    dragMomentum={false}
+                    transition={{
+                      x: { type: "spring", mass: 0.5, stiffness: 500, damping: 50 }
+                    }}
                     className="col-12"
                     style={{
                       display: "flex",
                       justifyContent: "center",
-                      paddingBottom: "2rem"
+                      paddingBottom: "2rem",
                     }}
                   >
-                    <Card sx={{ width: "100%", boxShadow: "5px 5px 40px rgb(0 0 0 / 30%)", }}>
+                    <Card
+                      sx={{
+                        width: "100%",
+                        boxShadow: "5px 5px 40px rgb(0 0 0 / 30%)",
+                      }}
+                      ref={ref}
+                    >
                       <CardMedia
                         component="img"
                         title="swipea för att se fler tips"
@@ -256,16 +313,38 @@ export default function TipsCarousel() {
                         image={selected.image}
                       />
                       <CardContent>
-                        <Typography gutterBottom className="subtitle-font" variant="h5">
+                        <Typography
+                          gutterBottom
+                          className="subtitle-font"
+                          variant="h5"
+                        >
                           {selected.title}
                         </Typography>
-                        <Typography variant="body1" className="body-paragraph" color={theme.palette.grey[600]}>
+                        <Typography
+                          variant="body1"
+                          className="body-paragraph"
+                          color={theme.palette.grey[600]}
+                        >
                           {selected.paragraph}
                         </Typography>
                       </CardContent>
                       <CardActions>
-                        <a style={{ textDecoration: "none"}} href="#kontakt"><Button size="small" sx={{ color: theme.palette.primary[500] }} className="button-text">Tidigare Projekt</Button></a>
-                        <Button size="small" sx={{ color: theme.palette.grey[900] }} className="button-text">Kontakta oss</Button>
+                        <a style={{ textDecoration: "none" }} href="#kontakt">
+                          <Button
+                            size="small"
+                            sx={{ color: theme.palette.primary[500] }}
+                            className="button-text"
+                          >
+                            Tidigare Projekt
+                          </Button>
+                        </a>
+                        <Button
+                          size="small"
+                          sx={{ color: theme.palette.grey[900] }}
+                          className="button-text"
+                        >
+                          Kontakta oss
+                        </Button>
                       </CardActions>
                     </Card>
                   </motion.div>
@@ -421,7 +500,7 @@ const absoluteBox = {
   bottom: 0,
   height: "100%",
   width: "100%",
-  zIndex: 10
+  zIndex: 10,
 };
 
 const absolutePrev = {

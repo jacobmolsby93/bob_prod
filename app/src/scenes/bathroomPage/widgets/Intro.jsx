@@ -15,13 +15,14 @@ import completeCollage from "../../../assets/collage-complete.png";
 export const Intro = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   return (
     <Box className="container">
       <Box className="row">
-        <Box className="col-12 col-lg-6">
+        <Box className="col-12 col-lg-6 mb-4 mb-lg-0">
           <img
-            src={smallScreen ? collageImage2 : completeCollage}
+            src={lgScreen ? collageImage2 : completeCollage}
             width="100%"
             style={{ borderRadius: "10px" }}
             alt="Collage på olika badrum"
@@ -30,7 +31,7 @@ export const Intro = () => {
         <Box
           className="col-12 col-lg-6"
           sx={{
-            paddingLeft: smallScreen ? "" : "5rem",
+            paddingLeft: lgScreen ? "" : "5rem",
             padding: smallScreen ? "2rem 0" : "",
           }}
         >
