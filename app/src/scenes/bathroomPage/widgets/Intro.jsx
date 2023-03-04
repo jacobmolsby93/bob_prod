@@ -1,64 +1,47 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
 
-import AnimatedLazyImage from "../../../components/LazyImage";
+// Components
+import ButtonOrange from "../../../components/ButtonOrange.jsx";
+import ButtonWhite from "../../../components/ButtonWhite.jsx";
 
 // Images
-const mobileImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
-const desktopCollageImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/servicesintro.webp";
+import collageImage1 from "../../../assets/services-collage-1.png";
+import collageImage2 from "../../../assets/services-collage-2.png";
+import collageImage3 from "../../../assets/services-collage-3.png";
+import collageImage4 from "../../../assets/services-collage-4.png";
+import completeCollage from "../../../assets/collage-complete.png";
 
-const Intro = () => {
+export const Intro = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   return (
-    <Box className="row" sx={{ justifyContent: !lgScreen ? "" : "center" }}>
-      {!lgScreen ? (
-        <Box className="col-12 col-lg-6" display="flex" padding="0 3rem 0 0">
-          <Box sx={{ height: "100%" }}>
-            <AnimatedLazyImage
-              src={desktopCollageImage}
-              className="img-fluid"
-              style={{ minHeight: "100%" }}
-              alt="Collage av 3 bilder på badrum"
-            />
-          </Box>
-        </Box>
-      ) : (
-        <Box className="col-12" sx={{ marginBottom: "2rem" }}>
-          <AnimatedLazyImage
-            src={mobileImage}
-            style={{ objectFit: "cover", maxHeight: "400px", width: "100%" }}
-            className="img-fluid"
+    <Box className="container">
+      <Box className="row">
+        <Box className="col-12 col-lg-6">
+          <img
+            src={smallScreen ? collageImage2 : completeCollage}
+            width="100%"
+            style={{ borderRadius: "10px" }}
+            alt="Collage på olika badrum"
           />
         </Box>
-      )}
-      <Box className="col-12 col-xl-6">
-        <article>
-          <Typography variant="h2" className="title-font">
-            Vi Renoverar Ditt Badrum Med Engagemang Och Respekt För Dig Och Ditt
-            Hem!
-          </Typography>
-          <Box display="flex" mt="2.5rem">
-            <span
-              style={{
-                width: "18px",
-                maxWidth: ".2rem",
-                height: "auto",
-                marginRight: "10px",
-                backgroundColor: theme.palette.primary[500],
-              }}
-            ></span>
-            <p className="body-paragraph">
+        <Box
+          className="col-12 col-lg-6"
+          sx={{
+            paddingLeft: smallScreen ? "" : "5rem",
+            padding: smallScreen ? "2rem 0" : "",
+          }}
+        >
+          <Box mb="2rem">
+            <Typography variant="h2" className="title-font">
+              Vi Renoverar Ditt Badrum Med Engagemang Och Respekt För Dig Och
+              Ditt Hem!
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="body1" className="body-paragraph">
               Att renovera badrum är både en passion och en av våra
               specialiteter och vi har mer än tio års erfarenhet av renovering
               och ombyggnation i Stockholm med omnejd. Om du väljer oss så får
@@ -75,62 +58,22 @@ const Intro = () => {
               Stockholmsområdet för att kolla på er badrumsrenovering.
               Möjligheten om att begära en offert från oss utan hembesök går
               självklart också bra.
-            </p>
+            </Typography>
+            <Box mt="2rem">
+              <ButtonOrange
+                buttonText="Tidigare Projekt"
+                href="vara-tjanster"
+                aria="Klicka här för att komma till våra tjänster"
+                ariaAtag="Länk till våra tjänster"
+              />
+              <ButtonWhite
+                buttonText="Om oss"
+                href="/omoss"
+                aria="Klicka här för att läsa mer om Bob Våtrumsrenovering"
+                ariaAtag="Länk till om oss"
+              />
+            </Box>
           </Box>
-        </article>
-        <Box mt="2.5rem">
-          <Button
-            aria-label="Klicka för att komma till kontakta oss sidan"
-            variant="contained"
-            sx={{
-              marginTop: smallScreen ? "0.5rem" : "",
-              borderRadius: "0",
-              backgroundColor: theme.palette.primary[500],
-              marginRight: "20px",
-              padding: 0,
-              "&>a": {
-                padding: "6px 16px",
-                color: theme.palette.background.default,
-                textDecoration: "none",
-              },
-              "&:hover": {
-                backgroundColor: theme.palette.primary[600],
-              },
-            }}
-          >
-            <Link
-              to="/kontakt"
-              className="button-text"
-              aria-label="Länk till kontakta oss"
-            >
-              Kontakta Oss
-            </Link>
-          </Button>
-          <Button
-            aria-label="Läs Mer om företaget"
-            className="body-paragraph"
-            variant="outlined"
-            sx={{
-              marginTop: smallScreen ? ".5rem" : "",
-              borderRadius: "0",
-              border: `1px solid ${theme.palette.grey[900]}`,
-              "&>a": {
-                textDecoration: "none",
-                color: theme.palette.grey[900],
-              },
-              "&:hover": {
-                border: `1px solid ${theme.palette.grey[500]}`,
-              },
-            }}
-          >
-            <Link
-              to="/om-oss"
-              className="button-text"
-              aria-label="Länk till om oss"
-            >
-              Om Företaget
-            </Link>
-          </Button>
         </Box>
       </Box>
     </Box>

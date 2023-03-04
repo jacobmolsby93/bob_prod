@@ -95,7 +95,7 @@ const MessageFields = () => {
     <>
       <Box className="container">
         <Box className="row" justifyContent="center">
-          <Box className="col-12 col-md-10 col-lg-8 col-xl-7">
+          <Box className="col-12 col-md-10 col-xl-7">
             <Grid item>
               <Box
                 sx={{

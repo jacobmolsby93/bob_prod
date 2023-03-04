@@ -47,7 +47,7 @@ const images = [
     id: 5,
     image: beijer,
     alt: "Beijer Logga",
-    url: "https://www.beijer.se",
+    url: "https://www.beijerbygg.se/foretag",
   },
   {
     id: 6,

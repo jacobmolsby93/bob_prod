@@ -12,10 +12,14 @@ import AnimatedLazyImage from "../../../components/LazyImage";
 
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import LogoShape from "../../../assets/logo-shape-icon.png";
 
 // Images
-const collageImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-light.webp";
+// const collageImage =
+//   "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-light.webp";
+
+import collageImage1 from "../../../assets/collage-image-1.png";
+import collageImage2 from "../../../assets/bathroom-planner.webp";
 
 export default function Planer() {
   const theme = useTheme();
@@ -24,42 +28,45 @@ export default function Planer() {
 
   const arrowIcon = {
     color: theme.palette.primary[500],
-    fontSize: "1.7rem",
+    fontSize: "1.2rem",
   };
   return (
     <div>
       <Box className="row">
-        <Box
-          className="col-12 col-xl-6 order-last order-xl-first"
-          sx={{ marginTop: "20px" }}
-        >
+        <Box className="col-12 col-xl-6" sx={{ marginTop: "20px" }}>
           <Typography variant="h2" component="h2" className="title-font">
             Bra Att Tänka På När Du Planerar Ditt Badrum!
           </Typography>
           <Box display="flex" mt="30px">
-            <span
-              style={{
-                width: ".7rem",
-                maxWidth: ".2rem",
-                height: "auto",
-                marginRight: "1rem",
-                backgroundColor: theme.palette.primary[500],
-              }}
-            ></span>
-            <p className="body-paragraph">
+            <Typography variant="body1" className="body-paragraph">
               Att renovera badrum är både en passion och en av våra
               specialiteter och vi har mer än tio års erfarenhet av renovering
               och ombyggnation i Stockholm med omnejd. Om du väljer oss så får
               du ett fast pris, en tydlig och fastställd tidplan som respekteras
               samt en engagerad projektledare.
-            </p>
+            </Typography>
           </Box>
 
           <Box>
             <List className="list-unstyled">
               {tips.map((tip, index) => (
                 <ListItem key={index} sx={{ paddingLeft: "0" }}>
-                  <span style={{ marginRight: "1rem" }}>
+                  <span
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginRight: "1rem",
+                      backgroundImage: `url(${LogoShape})`,
+                      backgroundPosition: "center",
+                      height: "30px",
+                      width: "30px",
+                      minWidth: "30px",
+                      minHeight: "30px",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "contain",
+                    }}
+                  >
                     <ArrowForwardIcon sx={arrowIcon} />
                   </span>
                   {tip}
@@ -69,15 +76,64 @@ export default function Planer() {
           </Box>
         </Box>
         <Box
-          className="col-12 col-xl-6"
-          sx={{ paddingLeft: !lgScreen ? "3rem" : "0" }}
+          className="col-12 col-lg-6 order-first"
+          sx={{
+            paddingRight: !lgScreen ? "3rem" : "0",
+            display: "flex",
+            position: "relative",
+            bottom: !smallScreen ? "-50px" : "",
+          }}
         >
-          <AnimatedLazyImage
-            src={collageImage}
-            className="img-fluid"
-            style={{ maxHeight: "100%" }}
-            alt="Collage med 3 bilder på olika badrum"
-          />
+          {!smallScreen ? (
+            <>
+              <Box
+                sx={{
+                  padding: "0 10px 0 0",
+                  position: "relative",
+                  top: "-50px",
+                }}
+              >
+                <img
+                  src={collageImage2}
+                  alt="Bild på ett ljust badrum"
+                  className="img-fluid"
+                  style={{
+                    height: "100%",
+                    maxHeight: "600px",
+                    width: "100%",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
+                />
+              </Box>
+              <Box padding="0 0 0 10px">
+                <img
+                  src={collageImage1}
+                  alt="Bild på ett handfat"
+                  className="img-fluid"
+                  style={{
+                    height: "100%",
+                    maxHeight: "600px",
+                    width: "100%",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
+                />
+              </Box>
+            </>
+          ) : (
+            <img
+              src={collageImage2}
+              style={{
+                maxHeight: "400px",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+              className="img-fluid"
+              alt="Bild på ett handfat"
+            />
+          )}
         </Box>
       </Box>
     </div>

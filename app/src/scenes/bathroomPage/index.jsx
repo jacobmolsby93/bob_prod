@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 // Components
 import Contact from "../../components/Contact.jsx";
 import Spacer from "../../components/Spacer.jsx";
 import Credits from "../../components/Credits.jsx";
 import ButtonOrange from "../../components/ButtonOrange.jsx";
-
+import Video from "../../components/Video.jsx";
+import InstgramWidget from "../../components/InstagramWidget.jsx";
 // Widgets
 import Intro from "./widgets/Intro.jsx";
 import TipsCarousel from "./widgets/Tips.jsx";
@@ -18,13 +14,12 @@ import Planer from "./widgets/Planer.jsx";
 
 // Animation
 import AnimatedBox from "../../animation/Animated.jsx";
-import landingImage from "../../assets/servicesheroimg.webp";
+import landingImage from "../../assets/contact-background.png";
 // Images
 
 export default function Bathroom() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const titleFontSize = "54px";
   return (
     <div style={{ minHeight: "max-content" }}>
@@ -45,7 +40,7 @@ export default function Bathroom() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            paddingTop: "100px",  
+            paddingTop: "100px",
             justifyContent: "center",
             zIndex: "20",
           }}
@@ -59,7 +54,7 @@ export default function Bathroom() {
                   className="hero_title"
                   fontSize={
                     smallScreen
-                      ? `clamp(32px, 4vw, ${titleFontSize})`
+                      ? `clamp(28px, 4vw, ${titleFontSize})`
                       : titleFontSize
                   }
                   textTransform="uppercase"
@@ -70,7 +65,10 @@ export default function Bathroom() {
                 <Typography
                   variant="body1"
                   className="body-paragraph"
-                  style={{ color: "#fff", marginTop: "2rem"}}
+                  style={{
+                    color: "#fff",
+                    marginTop: smallScreen ? "1rem" : "2rem",
+                  }}
                 >
                   Dags att renovera badrummet? Låt oss vara med och räkna. Vi
                   renoverar ett stort antal badrum och tvättstugor varje år och
@@ -79,12 +77,12 @@ export default function Bathroom() {
                   start till mål. Kontakta BOB för en fri rådgivning av din
                   Badrumsrenovering i Stockholm.
                 </Typography>
-                <Box mt="2rem">
-                <ButtonOrange
-                  aria="Klicka för att komma till kontakta oss sidan"
-                  ariaAtag="Länk till kontakta oss"
-                  buttonText="Kontakta oss"
-                />
+                <Box mt={smallScreen ? "1rem" : "2rem"}>
+                  <ButtonOrange
+                    aria="Klicka för att komma till kontakta oss sidan"
+                    ariaAtag="Länk till kontakta oss"
+                    buttonText="Kontakta oss"
+                  />
                 </Box>
               </Box>
             </Box>
@@ -94,40 +92,37 @@ export default function Bathroom() {
       <Spacer />
 
       <AnimatedBox>
-        <section id="intro">
-          <Box className="container">
-            <Intro />
-          </Box>
+        <section id="credits">
+          <Credits />
         </section>
       </AnimatedBox>
+
+      <Spacer />
+      <AnimatedBox>
+        <section id="intro">
+          <Intro />
+        </section>
+      </AnimatedBox>
+
+      <Spacer />
+
+      <AnimatedBox>
+        <section id="interview">
+          <Video />
+        </section>
+      </AnimatedBox>
+
+      <Spacer />
+
+      <AnimatedBox>
+        <section id="instagram">
+          <InstgramWidget />
+        </section>
+      </AnimatedBox>
+
       <Spacer />
       <AnimatedBox>
         <section id="tips">
-          <Box className="container">
-            <Box className="row">
-              <Box className="flex-centerd-justify" mb="2rem">
-                <Box textAlign="center">
-                  <Typography variant="h2" className="title-font">
-                    10 Tips Inför Din Badrumsrenovering
-                  </Typography>
-                  <Box className="flex-centerd-justify">
-                    <p
-                      className="body-paragraph"
-                      style={{
-                        width: smallScreen || mdScreen ? "100%" : "70%",
-                        textAlign: "center",
-                      }}
-                    >
-                      Den som äger ett hus eller en lägenhet i Stockholm behöver
-                      lägga tid och pengar för att renovera sin bostad. En av de
-                      vanligaste, och roligaste rummen att renovera enligt oss
-                      är såklart badrum!
-                    </p>
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
           <TipsCarousel />
         </section>
       </AnimatedBox>
@@ -146,9 +141,6 @@ export default function Bathroom() {
           <Spacer />
         </section>
       </AnimatedBox>
-      <div className="credits-bg">
-        <Credits dark={true} />
-      </div>
     </div>
   );
 }

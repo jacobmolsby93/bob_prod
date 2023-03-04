@@ -13,7 +13,7 @@ import landingImage from "../../assets/carouselhome2.webp";
 import AnimatedBox from "../../animation/Animated.jsx";
 
 // Images
-import image from "../../assets/contact-image.webp";
+import image from "../../assets/services-collage-2.png";
 import introMobile from "../../assets/intromobilecontact.webp";
 
 export default function ContactPage() {
@@ -86,18 +86,12 @@ export default function ContactPage() {
       <Spacer />
 
       <AnimatedBox>
-        <section
-          id="contact"
-          className="credits-bg"
-          style={{ minHeight: "70vh" }}
-        >
-          <Box className="container">
-            <Box className="row">
-              <Contact />
-            </Box>
-          </Box>
+        <section id="contact">
+          <Contact />
         </section>
       </AnimatedBox>
+
+      <Spacer />
 
       <section className="credits-bg">
         <Credits dark={true} />

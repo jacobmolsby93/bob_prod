@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 // Images
@@ -26,69 +26,72 @@ const facts = [
 ];
 
 export default function Credits(props) {
+  const theme = useTheme();
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const [counterOn, setCounterOn] = useState(false);
 
   return (
     <div className="container text-center">
-      <Box className="row" sx={{ justifyContent: "space-evenly" }}>
-        {facts.map((fact, index) => {
-          return (
-            <Box
-              className="col-3 flex-centerd-justify"
-              key={fact.counter}
-              sx={{
-                boxShadow:
-                  "rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 20px 20px -20px",
-                padding: "3rem 0",
-              }}
-            >
-              <Box className="mt-2 mt-sm-2 mt-none">
-                <ScrollTrigger onEnter={() => setCounterOn(true)}>
-                  <Box>
-                    <img
-                      src={fact.icon}
-                      style={icon}
-                      alt="Icon med nöjda kunder"
-                    />
-                  </Box>
-                  <Box className="counter">
-                    {counterOn && (
-                      <Typography
-                        variant="h3"
-                        fontWeight="bold"
-                        color={props.dark ? "#2d2d2d" : "#e0e0e0"}
-                        sx={{ fontSize: "clamp(16px, 5vw, 32px)" }}
-                      >
-                        <CountUp
-                          start={0}
-                          end={fact.counter}
-                          duration={2}
-                          delay={0}
-                        />
-                        {index === 2 ? "%" : ""}
-                      </Typography>
-                    )}
-                  </Box>
-                </ScrollTrigger>
+      <Box className="row" sx={{ justifyContent: "space-between" }}>
+        {facts.map((fact, index) => (
+          <Box
+            className="col-3 flex-centerd-justify"
+            key={fact.counter}
+            sx={{
+              backgroundColor: "#fff",
+              border: `2px solid rgba(194, 102, 45, 0.2)`,
+              padding: !lgScreen ? "2rem 0" : ".5rem 0rem",
+              width: "30%",
+              borderRadius: "10px",
+            }}
+          >
+            <Box className="mt-2 mt-sm-2 mt-none">
+              <ScrollTrigger onEnter={() => setCounterOn(true)}>
+                <Box mb=".5rem">
+                  <img
+                    src={fact.icon}
+                    style={icon}
+                    alt="Icon med nöjda kunder"
+                  />
+                </Box>
+                <Box className="counter">
+                  {counterOn && (
+                    <Typography
+                      variant="h3"
+                      fontWeight="bold"
+                      color={theme.palette.text.primary}
+                      sx={{ fontSize: "clamp(16px, 5vw, 55px)" }}
+                    >
+                      <CountUp
+                        start={0}
+                        end={fact.counter}
+                        duration={2}
+                        delay={0}
+                      />
+                      {index === 2 ? "%" : ""}
+                    </Typography>
+                  )}
+                </Box>
+              </ScrollTrigger>
 
-                <Typography
-                  variant="body1"
-                  className="text-uppercase body-paragrapy"
-                  color={props.dark ? "#2d2d2d" : "#e0e0e0"}
-                  sx={{ fontSize: "clamp(8px, 2vw, 16px)" }}
-                >
-                  {fact.text}
-                </Typography>
-              </Box>
+              <Typography
+                variant="body1"
+                className="text-uppercase body-paragrapy"
+                color={theme.palette.text.primary}
+                sx={{ fontSize: "clamp(8px, 2vw, 16px)" }}
+              >
+                {fact.text}
+              </Typography>
             </Box>
-          );
-        })}
+          </Box>
+        ))}
       </Box>
     </div>
   );
 }
 
 const icon = {
-  width: "clamp(30px, 5vw, 50px)",
-  height: "clamp(30px, 5vw, 50px)",
+  width: "clamp(50px, 10vw, 100px)",
+  height: "clamp(50px, 10vw, 100px)",
 };

@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography, Button, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MessageForm from "../form/MessageForm.jsx";
-import FacebookIconOrange from "../assets/facebook-orange-icon.png";
 import FacebookIconBlack from "../assets/facebook.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import logoShapeIcon from "../assets/logo-shape-icon.png";
 import logoShapeGrey from "../assets/logo-shape-icon-grey.png";
 import ContactBackground from "../assets/contact-background.png";
 import Spacer from "./Spacer.jsx";
-
+import praktikplats from "../assets/praktikplats.webp";
 const logo =
   "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 const tikTok =
@@ -41,6 +39,47 @@ export default function Contact() {
 
   return (
     <Box>
+      <Box backgroundColor="#fff" position="relative">
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          bottom="0"
+          right="0"
+          zIndex="0"
+        >
+          <Box
+            sx={{
+              backgroundImage: `url(${praktikplats})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              backgroundPosition: "right bottom",
+              height: "100%",
+              width: "auto",
+              opacity: "0.4",
+            }}
+          ></Box>
+        </Box>
+        <Box className="container">
+          <Box className="row">
+            <Box className="col-12 col-lg-6" padding="3rem 0">
+              <Typography variant="h5" className="title-font">
+                Söker du praktikplats?
+              </Typography>
+              <Box mt="1rem">
+                <Typography variant="body1" className="body-paragraph">
+                  Studerar du på universitet eller högskola och är i behov av en
+                  praktikplats på sidan av dina studier alternativt under dina
+                  studier? Vi tillsätter just nu praktikanter och erbjuder
+                  praktikplatser inom flertalet områden, såsom; administration,
+                  ekonomi, hantverk och visuellt skapande. Kontakta oss via
+                  kontaktformuläret så berättar vi mer.
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
       {/* Grey part */}
       <Box backgroundColor="#F9F9F9" width="100%" padding="3rem 0">
         <Box className="container">
