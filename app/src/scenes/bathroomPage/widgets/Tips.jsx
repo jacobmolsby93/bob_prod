@@ -281,10 +281,10 @@ export default function TipsCarousel() {
                   exit={{ opacity: 0, transition: { duration: 0.2 } }}
                 >
                   <motion.div
-                    key={selected}
+                    key={selected.id}
                     drag="x"
                     dragDirectionLock={true}
-                    dragConstraints={{ left: 0, right: 0, y: false }}
+                    dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={handleDragEnd}
                     variants={variants}
                     animate={animation}
