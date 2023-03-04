@@ -1,4 +1,4 @@
-function curry(func) {
+function swiper(func) {
     return (min, max, v) =>
       v !== undefined ? func(min, max, v) : cv => func(min, max, cv);
   }
@@ -8,9 +8,10 @@ function curry(func) {
     return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
   }
   
-  export const wrap = curry(wrapFn);
+  export const wrap = swiper(wrapFn);
   
   export function swipePower(offset, absDistance) {
-    return (offset / absDistance) * 100;
+    const absXDistance = Math.abs(absDistance.x);
+    return (offset.x / absXDistance) * 100;
   }
   

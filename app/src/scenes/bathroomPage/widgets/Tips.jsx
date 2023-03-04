@@ -108,7 +108,7 @@ export default function TipsCarousel() {
       setDirection("next");
     }
   };
-  const animation = useAnimation();
+
   const handlePrev = () => {
     const prevIndex = selected.id - 1;
     if (prevIndex >= 1) {
@@ -119,7 +119,7 @@ export default function TipsCarousel() {
       setDirection("prev");
     }
   };
-
+  const animation = useAnimation();
   const handleDragEnd = async (evt, { offset }) => {
     const power = swipePower(offset.x, rect.width);
     if (power > 60) {
@@ -276,15 +276,15 @@ export default function TipsCarousel() {
                   animate={{
                     opacity: 1,
                     x: "0%",
-                    transition: { duration: 0.5, type: "spring", bounce: 0.25 },
+                    transition: { duration: 0.2, type: "spring", bounce: 0.25 },
                   }}
-                  exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.2 } }}
                 >
                   <motion.div
                     key={selected}
                     drag="x"
-                    dragDirectionLock
-                    dragConstraints={{ left: 0, right: 0 }}
+                    dragDirectionLock={true}
+                    dragConstraints={{ left: 0, right: 0, y: false }}
                     onDragEnd={handleDragEnd}
                     variants={variants}
                     animate={animation}
