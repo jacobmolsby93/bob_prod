@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-
-import logo from "../assets/boblogo.png";
-import Hubert from "../assets/hubert.png";
-import Viktor from "../assets/viktor-profil.png";
-import DefaultGirl from "../assets/default-girl.png";
-import DefaultGuy from "../assets/default-guy.png";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.webp";
+const Hubert =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/hubert.webp";
+const Viktor =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/viktor-profil.webp";
+const DefaultGirl =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/default-girl.png";
+const DefaultGuy =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/default-guy.png";
 
 export default function Team() {
   const theme = useTheme();

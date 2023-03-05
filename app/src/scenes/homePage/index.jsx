@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Button, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Call from "@mui/icons-material/Call";
 // Componenets
@@ -13,15 +13,20 @@ import InstagramWidget from "../../components/InstagramWidget.jsx";
 import Faq from "./widgets/Faq.jsx";
 import IntroSection from "./widgets/IntroSection.jsx";
 import BoxSelector from "./widgets/BoxSelectorHome.jsx";
-//Images
-import landingBackground from "../../assets/landingbackground.webp";
-import landingBackground2 from "../../assets/landingbackground2.webp";
-import landingBackground3 from "../../assets/landingbackground3.webp";
-import landingBackground4 from "../../assets/landingbackground4.webp";
-import backgroundShape from "../../assets/logo-shape.png";
 // Animation
 import { AnimatePresence } from "framer-motion";
 import AnimatedBox from "../../animation/Animated.jsx";
+//Images
+const landingBackground =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground.webp";
+const landingBackground2 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground2.webp";
+const landingBackground3 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground3.webp";
+const landingBackground4 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground4.webp";
+const backgroundShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape.png";
 
 const images = [
   landingBackground,

@@ -8,12 +8,11 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-import collageImage from "../../../assets/landingbackground3.webp";
-
 import AnimatedLazyImage from "../../../components/LazyImage";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+// Images
+const collageImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground3.webp";
 
 export default function Intro() {
   const theme = useTheme();

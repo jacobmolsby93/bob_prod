@@ -3,7 +3,8 @@ import { Box, Button, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 // Images
-import logo from "../assets/boblogo.png";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 
 export default function NotFound() {
   const theme = useTheme();

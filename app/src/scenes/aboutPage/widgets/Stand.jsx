@@ -6,18 +6,20 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import teamwork from "../../../assets/support.png";
-import skills from "../../../assets/skills.png";
-import offer from "../../../assets/offer.png";
-import time from "../../../assets/save-time.png";
-import aboutSecond from "../../../assets/about-second.png";
-
 import ButtonOrange from "../../../components/ButtonOrange";
 import ButtonWhite from "../../../components/ButtonWhite";
 
 // Images
-const aboutImage =
-  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
+const teamwork =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/support.png";
+const skills =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/skills.png";
+const offer =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/offer.png";
+const time =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/save-time.png";
+const aboutSecond =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/about-second.webp";
 
 const Stand = () => {
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));

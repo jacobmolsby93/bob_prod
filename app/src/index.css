@@ -521,3 +521,7 @@ hr {
   background-color: #fff;
 }
 
+#instagram > div.carousel-indicators {
+  margin-bottom: 0 !important;
+  bottom: -20px;
+}

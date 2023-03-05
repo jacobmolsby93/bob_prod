@@ -7,19 +7,15 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
-import AnimatedLazyImage from "../../../components/LazyImage";
-
 // Icons
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LogoShape from "../../../assets/logo-shape-icon.png";
-
 // Images
-// const collageImage =
-//   "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-light.webp";
-
-import collageImage1 from "../../../assets/collage-image-1.png";
-import collageImage2 from "../../../assets/bathroom-planner.webp";
+const collageImage1 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-1.webp";
+const collageImage2 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/bathroom-planner.webp";
+const LogoShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-icon.png";
 
 export default function Planer() {
   const theme = useTheme();

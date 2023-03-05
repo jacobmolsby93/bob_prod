@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography, Button, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MessageForm from "../form/MessageForm.jsx";
-import FacebookIconBlack from "../assets/facebook.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import logoShapeGrey from "../assets/logo-shape-icon-grey.png";
-import ContactBackground from "../assets/contact-background.png";
 import Spacer from "./Spacer.jsx";
-import praktikplats from "../assets/praktikplats.webp";
+
+// Images
+const ContactBackground =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/contact-background.webp";
 const logo =
   "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 const tikTok =
   "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok.png";
+const FacebookIconBlack =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/facebook.png";
+const praktikplats =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/praktikplats.webp";
+const logoShapeGrey =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-icon-grey.png";
 
 export default function Contact({ student }) {
   const theme = useTheme();

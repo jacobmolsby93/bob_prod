@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -19,8 +19,8 @@ import ButtonOrange from "./ButtonOrange";
 import ButtonWhite from "./ButtonWhite";
 
 // Images
-import logo from "../assets/boblogo.png";
-import { useEffect } from "react";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 
 const menuItems = [
   {

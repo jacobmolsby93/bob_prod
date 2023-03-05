@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Button,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   useTheme,
-  List,
-  ListItem,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // JSON data with questions
@@ -23,24 +19,6 @@ export default function Faq(props) {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   // Handle question
   const [questions, setQuestions] = useState(faqData.questions);
-  const [activeQuestion, setActiveQuestion] = useState(0);
-
-  const buttonStyleContained = {
-    marginTop: smallScreen ? "1rem" : "",
-    borderRadius: "0",
-    border: "none",
-    padding: 0,
-    marginRight: "1rem",
-    backgroundColor: theme.palette.primary[500],
-    "&>a": {
-      padding: "6px 16px",
-      textDecoration: "none",
-      color: "#fff",
-    },
-    "&:hover": {
-      backgroundColor: theme.palette.primary[600],
-    },
-  };
 
   const handleToggleAnswer = (id) => {
     // Find the index of the question in the array

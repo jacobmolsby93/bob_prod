@@ -16,24 +16,30 @@ import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../../components/ButtonWhite.jsx";
 import { wrap, swipePower } from "../utils/utils.js";
 import Call from "@mui/icons-material/Call";
-import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 // Images
-import tip1 from "../../../assets/carouselhome1.webp";
-import tip2 from "../../../assets/carouselhome2.webp";
-import tip3 from "../../../assets/carouselhome3.webp";
-import tip4 from "../../../assets/carouselhome4.webp";
-import tip5 from "../../../assets/collage-image-1.png";
-import tip6 from "../../../assets/collage-image-2.png";
-import tip7 from "../../../assets/collage-image-4.png";
-import tip8 from "../../../assets/collage-image-5.png";
-import tip9 from "../../../assets/collage-image-6.png";
-import tip10 from "../../../assets/contact-background.png";
-
-// const tip1 =
-//   "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
+const tip1 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
+const tip2 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome2.webp";
+const tip3 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome3.webp";
+const tip4 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome4.webp";
+const tip5 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-1.webp";
+const tip6 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-2.webp";
+const tip7 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-4.webp";
+const tip8 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-5.webp";
+const tip9 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-6.webp";
+const tip10 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/contact-background.webp";
 
 const variants = {
   toLeft: {
@@ -270,89 +276,96 @@ export default function TipsCarousel() {
               ) : (
                 /* Mobile Carousel */
                 <AnimatePresence mode="wait">
-                <motion.div
-                  className="row"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    x: "0%",
-                    transition: { duration: 0.5, type: "spring", bounce: 0.25 },
-                  }}
-                  exit={{ opacity: 0, transition: { duration: 0.6, type: "easeInOut" } }}
-                >
                   <motion.div
-                    drag="x"
-                    key={selected.id}
-                    dragDirectionLock={true}
-                    dragConstraints={{ left: 0, right: 0 }}
-                    onDragEnd={handleDragEnd}
-                    variants={variants}
-                    animate={animation}
-                    dragMomentum={true}
-                    transition={{
-                      x: {
-                        type: "easeInOut",
+                    className="row"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      x: "0%",
+                      transition: {
+                        duration: 0.5,
+                        type: "spring",
+                        bounce: 0.25,
                       },
                     }}
-                    className="col-12"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      paddingBottom: "2rem",
+                    exit={{
+                      opacity: 0,
+                      transition: { duration: 0.6, type: "easeInOut" },
                     }}
                   >
-                    <Card
-                      sx={{
-                        width: "100%",
-                        boxShadow: "5px 5px 40px rgb(0 0 0 / 30%)",
+                    <motion.div
+                      drag="x"
+                      key={selected.id}
+                      dragDirectionLock={true}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      onDragEnd={handleDragEnd}
+                      variants={variants}
+                      animate={animation}
+                      dragMomentum={true}
+                      transition={{
+                        x: {
+                          type: "easeInOut",
+                        },
                       }}
-                      ref={ref}
+                      className="col-12"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingBottom: "2rem",
+                      }}
                     >
-                      <CardMedia
-                        component="img"
-                        title="swipea för att se fler tips"
-                        alt={selected.title}
-                        height="300"
-                        dragable="false"
-                        image={selected.image}
-                      />
-                      <CardContent>
-                        <Typography
-                          gutterBottom
-                          className="subtitle-font"
-                          variant="h5"
-                        >
-                          {selected.title}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          className="body-paragraph"
-                          color={theme.palette.grey[600]}
-                        >
-                          {selected.paragraph}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <a style={{ textDecoration: "none" }} href="#kontakt">
+                      <Card
+                        sx={{
+                          width: "100%",
+                          boxShadow: "5px 5px 40px rgb(0 0 0 / 30%)",
+                        }}
+                        ref={ref}
+                      >
+                        <CardMedia
+                          component="img"
+                          title="swipea för att se fler tips"
+                          alt={selected.title}
+                          height="300"
+                          dragable="false"
+                          image={selected.image}
+                        />
+                        <CardContent>
+                          <Typography
+                            gutterBottom
+                            className="subtitle-font"
+                            variant="h5"
+                          >
+                            {selected.title}
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            className="body-paragraph"
+                            color={theme.palette.grey[600]}
+                          >
+                            {selected.paragraph}
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <a style={{ textDecoration: "none" }} href="#kontakt">
+                            <Button
+                              size="small"
+                              sx={{ color: theme.palette.primary[500] }}
+                              className="button-text"
+                            >
+                              Tidigare Projekt
+                            </Button>
+                          </a>
                           <Button
                             size="small"
-                            sx={{ color: theme.palette.primary[500] }}
+                            sx={{ color: theme.palette.grey[900] }}
                             className="button-text"
                           >
-                            Tidigare Projekt
+                            Kontakta oss
                           </Button>
-                        </a>
-                        <Button
-                          size="small"
-                          sx={{ color: theme.palette.grey[900] }}
-                          className="button-text"
-                        >
-                          Kontakta oss
-                        </Button>
-                      </CardActions>
-                    </Card>
+                        </CardActions>
+                      </Card>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
                 </AnimatePresence>
               ))}
           </AnimatePresence>

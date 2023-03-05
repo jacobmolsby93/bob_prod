@@ -3,15 +3,13 @@ import {
   Box,
   Typography,
   Button,
-  List,
-  ListItem,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-
 // Images
-import introImage from "../../../assets/landingbackground4.webp";
+const introImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground4.webp";
 
 // Animation
 import AnimatedBox from "../../../animation/Animated";
@@ -20,7 +18,6 @@ import AnimatedLazyImage from "../../../components/LazyImage";
 export default function Total() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
   const buttonStyleContained = {
     marginTop: smallScreen ? "1rem" : "",

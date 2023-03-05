@@ -6,16 +6,14 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-
 import Spacer from "../../components/Spacer.jsx";
-
-// Widgets
-import ServiceBox from "./widgets/ServiceBox.jsx";
-
-// images
-import landingImage from "../../assets/aboutimage1.webp";
 import AnimatedBox from "../../animation/Animated.jsx";
 import Credits from "../../components/Credits.jsx";
+// Widgets
+import ServiceBox from "./widgets/ServiceBox.jsx";
+// images
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
 
 export default function Services() {
   const theme = useTheme();

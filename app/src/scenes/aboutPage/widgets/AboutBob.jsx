@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import AboutIntro from "../../../assets/about-intro-image.png";
+const videoDots =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/video-shape.webp";
 
 const Intro = () => {
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));

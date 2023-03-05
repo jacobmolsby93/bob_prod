@@ -16,9 +16,9 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { onSubmit } from "./onSubmit";
-import axios from "axios";
 import ButtonOrange from "../components/ButtonOrange";
-import footerShape from "../assets/footer-logo-shape.png";
+const footerShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/footer-logo-shape.png";
 
 const validationSchema = Yup.object({
   typ: Yup.string(),
@@ -95,7 +95,7 @@ const MessageFields = () => {
     <>
       <Box className="container">
         <Box className="row" justifyContent="center">
-          <Box className="col-12 col-md-10 col-xl-7">
+          <Box className="col-12 col-md-102 col-xl-7">
             <Grid item>
               <Box
                 sx={{

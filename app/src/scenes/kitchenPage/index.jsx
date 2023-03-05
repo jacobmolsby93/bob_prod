@@ -1,18 +1,15 @@
 import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-
 // Widgets
 import KitchenTips from "./widgets/KitchenTips";
-
 // Components
 import Spacer from "../../components/Spacer";
 import Credits from "../../components/Credits";
-
 //Animation
 import AnimatedBox from "../../animation/Animated";
-
 // Images
-import heroImage from "../../assets/kitchenhero.webp";
+const heroImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/kitchenhero.webp";
 
 export default function Kitchen() {
   const theme = useTheme();

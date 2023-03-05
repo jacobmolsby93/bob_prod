@@ -9,19 +9,21 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
-// icons
-import logoShapeLight from "../assets/logo-shape-icon-light.png";
+// MUI Icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "../assets/facebookwhite.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import CopyrightRoundedIcon from "@mui/icons-material/CopyrightRounded";
-import footerShape from "../assets/footer-logo-shape.png";
 import ButtonOrange from "./ButtonOrange";
-
-// Images (will need to be urls find suitable place to upload them)
+// Images and Icons
+const footerShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/footer-logo-shape.png";
+const logoShapeLight =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-icon-light.png";
+const FacebookIcon =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/facebookwhite.png";
 const logo =
   "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 const TikTok =

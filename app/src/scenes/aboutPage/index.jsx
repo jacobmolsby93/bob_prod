@@ -1,19 +1,17 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-
+import AnimatedBox from "../../animation/Animated.jsx";
 import Spacer from "../../components/Spacer.jsx";
 import Contact from "../../components/Contact.jsx";
 //  Widgets
 import AboutBob from "./widgets/AboutBob.jsx";
 import Stand from "./widgets/Stand.jsx";
 import Clients from "./widgets/Clients.jsx";
-import AboutShape from "../../assets/about-logo-shape.png";
 
 // images
-// const landingImage =
-//   "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
-import landingImage from "../../assets/landing-image-about.png";
-
-import AnimatedBox from "../../animation/Animated.jsx";
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landing-image-about.webp";
+const AboutShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/about-logo-shape.png";
 
 export default function AboutPage() {
   const theme = useTheme();

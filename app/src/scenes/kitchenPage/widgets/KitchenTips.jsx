@@ -11,7 +11,8 @@ import {
 import { Link } from "react-router-dom";
 
 // Images
-import kitchenimage from "../../../assets/kitchentips.webp";
+const kitchenimage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/kitchentips.webp";
 
 // Animation
 import AnimatedBox from "../../../animation/Animated";

@@ -1,26 +1,18 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  useTheme,
-  useMediaQuery,
-  Button,
-} from "@mui/material";
-
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 // Widgets
 import Intro from "./widgets/Intro";
-
+// Animation
+import AnimatedBox from "../../animation/Animated";
+import SectionTwo from "./widgets/SectionTwo";
 // Components
 import Spacer from "../../components/Spacer";
 import Credits from "../../components/Credits";
 import Contact from "../../components/Contact";
 
 // Images
-import heroImage from "../../assets/landingbackground2.webp";
-
-// Animation
-import AnimatedBox from "../../animation/Animated";
-import SectionTwo from "./widgets/SectionTwo";
+const heroImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground2.webp";
 
 export default function Comfort() {
   const theme = useTheme();

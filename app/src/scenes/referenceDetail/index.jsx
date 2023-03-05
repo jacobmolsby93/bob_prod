@@ -1,23 +1,11 @@
-import { useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useParams } from "react-router-dom";
 import galleryData from "../../data/galleryDataBathroom";
 import galleryDataKitchen from "../../data/galleryDataKitchen";
 import Spacer from "../../components/Spacer.jsx";
 import Credits from "../../components/Credits.jsx";
-
 // Widgets
 import Intro from "./widgets/Intro.jsx";
-
-// Images
-import heroImage from "../../assets/landingbackground2.webp";
-
 // Animations
 import AnimatedBox from "../../animation/Animated.jsx";
 import DetailCarousel from "./widgets/DetailCarousel";

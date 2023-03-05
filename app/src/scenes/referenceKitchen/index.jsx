@@ -1,17 +1,15 @@
 import React from "react";
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 // Components
 import Spacer from "../../components/Spacer.jsx";
 import Credits from "../../components/Credits.jsx";
-
 // Widgets
 import Gallery from "./widgets/Gallery.jsx";
-
 // Images
-import landingImage from "../../assets/landingbackground3.webp";
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground3.webp";
 
 export default function KitchenProjects() {
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <div>
       <Box className="landing-box" height="40vh">

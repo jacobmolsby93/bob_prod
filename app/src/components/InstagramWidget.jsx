@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -7,84 +7,148 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-
-import defaultImage from "../assets/about-intro-image.png";
-import InstgramLogo from "../assets/instagram-logo.png";
-import bobLogo from "../assets/boblogo.png";
-import shape from "../assets/logo-shape-instagram.webp";
+import Carousel from "react-bootstrap/Carousel";
+// Images
+const defaultImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/about-intro-image.png";
+const InstgramLogo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/instagram-logo.png";
+const bobLogo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
+const shape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-instagram.webp";
 
 export const InstagramWidget = () => {
   const theme = useTheme();
+  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
   return (
     <Box
       sx={{ backgroundColor: theme.palette.primary[500], padding: "5rem 0" }}
       position="relative"
     >
-      <Box
-        sx={{
-          backgroundImage: `url(${shape})`,
-          backgroundPosition: "bottom left",
-          backgroundRepeat: "no-repeat",
-          width: "50vw",
-          height: "auto",
-          position: "absolute",
-        }}
-      ></Box>
       <Box className="container">
         <Box className="row">
-          {numPosts.map((post) => (
-            <Box
-              className="col-12 col-md-6 col-lg-4 instagram-box"
-              key={post.id}
-              padding=".75rem"
-            >
-              <Card sx={cardStyle}>
-                <Box
-                  className="card-header"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  paddingBottom="1rem"
-                >
-                  <Box display="flex" alignItems="center">
-                    <img
-                      src={bobLogo}
-                      alt="Instagram Logo"
-                      style={{ width: "62px", height: "62px" }}
-                    />
-                    <Box ml=".5rem">
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          fontSize: "1.5rem",
-                          fontWeight: "bold",
-                          marginBottom: "0",
-                        }}
-                      >
-                        Comments: {post.comments}
-                      </Typography>
-                      <Typography variant="body1" sx={{ fontSize: "1rem" }}>
-                        Likes: {post.likes}
-                      </Typography>
+          {!smallScreen ? (
+            numPosts.map((post) => (
+              <Box
+                className="col-12 col-md-6 col-lg-4 instagram-box"
+                key={post.id}
+                padding=".75rem"
+              >
+                <Card sx={cardStyle}>
+                  <Box
+                    className="card-header"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    paddingBottom="1rem"
+                  >
+                    <Box display="flex" alignItems="center">
+                      <img
+                        src={bobLogo}
+                        alt="Instagram Logo"
+                        style={{ width: "62px", height: "62px" }}
+                      />
+                      <Box ml=".5rem">
+                        <Typography
+                          variant="h5"
+                          sx={{
+                            fontSize: "1.5rem",
+                            fontWeight: "bold",
+                            marginBottom: "0",
+                          }}
+                        >
+                          Comments: {post.comments}
+                        </Typography>
+                        <Typography variant="body1" sx={{ fontSize: "1rem" }}>
+                          Likes: {post.likes}
+                        </Typography>
+                      </Box>
                     </Box>
+                    <img
+                      src={InstgramLogo}
+                      alt="Instagram Logo"
+                      style={{ width: "40px", height: "40px" }}
+                    />
                   </Box>
-                  <img
-                    src={InstgramLogo}
-                    alt="Instagram Logo"
-                    style={{ width: "40px", height: "40px" }}
+                  <CardMedia
+                    component="img"
+                    alt="Instagram"
+                    sx={{ borderRadius: "10px" }}
+                    height="100%"
+                    image={post.image}
+                    title="Instagram"
                   />
-                </Box>
-                <CardMedia
-                  component="img"
-                  alt="Instagram"
-                  sx={{ borderRadius: "10px" }}
-                  height="100%"
-                  image={post.image}
-                  title="Instagram"
-                />
-              </Card>
-            </Box>
-          ))}
+                </Card>
+              </Box>
+            ))
+          ) : (
+            <Carousel activeIndex={index} onSelect={handleSelect} id="instagram">
+              {numPosts.map((post, uuid) => (
+                <Carousel.Item key={uuid}>
+                  <Box
+                    className="col-12 col-md-6 col-lg-4 instagram-box"
+                    key={post.id}
+                    padding=".75rem"
+                  >
+                    <Card sx={cardStyle}>
+                      <Box
+                        className="card-header"
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        paddingBottom="1rem"
+                      >
+                        <Box display="flex" alignItems="center">
+                          <img
+                            src={bobLogo}
+                            alt="Instagram Logo"
+                            style={{ width: "62px", height: "62px" }}
+                          />
+                          <Box ml=".5rem">
+                            <Typography
+                              variant="h5"
+                              sx={{
+                                fontSize: "1.5rem",
+                                fontWeight: "bold",
+                                marginBottom: "0",
+                              }}
+                            >
+                              Comments: {post.comments}
+                            </Typography>
+                            <Typography
+                              variant="body1"
+                              sx={{ fontSize: "1rem" }}
+                            >
+                              Likes: {post.likes}
+                            </Typography>
+                          </Box>
+                        </Box>
+                        <img
+                          src={InstgramLogo}
+                          alt="Instagram Logo"
+                          style={{ width: "40px", height: "40px" }}
+                        />
+                      </Box>
+                      <CardMedia
+                        component="img"
+                        alt="Instagram"
+                        sx={{ borderRadius: "10px" }}
+                        height="100%"
+                        image={post.image}
+                        title="Instagram"
+                      />
+                    </Card>
+                  </Box>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          )}
         </Box>
       </Box>
     </Box>

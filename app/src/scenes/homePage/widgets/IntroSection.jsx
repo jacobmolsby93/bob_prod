@@ -1,15 +1,16 @@
 import React from "react";
-import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
-
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 // Components
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../../components/ButtonWhite.jsx";
 import Carousel from "./Carousel.jsx";
-
 // Images
-import collageImage1 from "../../../assets/collage-image-1.png";
-import collageImage2 from "../../../assets/collage-image-2.png";
-import collageImage3 from "../../../assets/collage-image-fullwidth.png";
+const collageImage1 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-1.webp";
+const collageImage2 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-2.webp";
+const collageImage3 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-fullwidth.webp";
 
 export const IntroSection = () => {
   const theme = useTheme();

@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-
-import reco from "../assets/reco.webp";
-import hitta from "../assets/hitta-se.webp";
-import trust from "../assets/trustpilot.webp";
+import { Box, Typography, useTheme } from "@mui/material";
+const reco =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/reco.webp";
+const hitta =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/hitta-se.webp";
+const trust =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/trustpilot.webp";
 
 export const Reco = () => {
   const theme = useTheme();

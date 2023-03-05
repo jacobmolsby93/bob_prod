@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-
-import logo from "../assets/boblogo.png";
+// Images
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 
 export default function LoadingScreen({ isLoading }) {
   if (!isLoading) {

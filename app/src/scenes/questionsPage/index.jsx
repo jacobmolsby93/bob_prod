@@ -1,25 +1,16 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 // Components
 import Spacer from "../../components/Spacer.jsx";
 import Credits from "../../components/Credits.jsx";
 import Contact from "../../components/Contact";
-
-// Widgets
-import Faq from "./widgets/Faq.jsx";
-
-// Images
-import heroImage from "../../assets/landingbackground2.webp";
-
 // Animations
 import AnimatedBox from "../../animation/Animated.jsx";
+// Widgets
+import Faq from "./widgets/Faq.jsx";
+// Images
+const heroImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground2.webp";
 
 export default function Questions() {
   const theme = useTheme();

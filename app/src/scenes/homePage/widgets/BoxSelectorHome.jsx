@@ -1,34 +1,33 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-
+import React from "react";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 // Components
 import Spacer from "../../../components/Spacer";
-
 // Images & Logos
-import teamwork from "../../../assets/support.png";
-import sketch from "../../../assets/sketch.png";
-import quality from "../../../assets/quality.png";
-import podium from "../../../assets/podium.png";
-import best from "../../../assets/best-price.png";
-import offer from "../../../assets/offer.png";
-import book from "../../../assets/open-book.png";
-import document from "../../../assets/contract.png";
-import collageImage4 from "../../../assets/collage-image-4.png";
-import collageImage5 from "../../../assets/collage-image-5.png";
-import collageImage6 from "../../../assets/collage-image-6.png";
+const teamwork =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/support.png";
+const sketch =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/sketch.png";
+const quality =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/quality.png";
+const podium =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/podium.png";
+const best =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/best-price.png";
+const offer =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/offer.png";
+const book =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/open-book.png";
+const document =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/contract.png";
+const collageImage4 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-4.png";
+const collageImage5 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-5.png";
+const collageImage6 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-6.png";
 
 export default function WhyUs() {
-  const theme = useTheme();
-  const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
-  const marginTop = "30px";
 
   return (
     <Box>

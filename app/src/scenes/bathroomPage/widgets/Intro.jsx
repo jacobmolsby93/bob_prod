@@ -6,11 +6,16 @@ import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../../components/ButtonWhite.jsx";
 
 // Images
-import collageImage1 from "../../../assets/services-collage-1.png";
-import collageImage2 from "../../../assets/services-collage-2.png";
-import collageImage3 from "../../../assets/services-collage-3.png";
-import collageImage4 from "../../../assets/services-collage-4.png";
-import completeCollage from "../../../assets/collage-complete.png";
+const collageImage1 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/services-collage-1.webp";
+const collageImage2 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/services-collage-2.webp";
+const collageImage3 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/services-collage-3.webp";
+const collageImage4 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/services-collage-4.webp";
+const completeCollage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/collage-complete.png";
 
 export const Intro = () => {
   const theme = useTheme();

@@ -1,11 +1,10 @@
 import React from "react";
 import { Box, Typography, Button, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-// Framer Motion
-
-// Images
-import image from "../../../assets/carouselhome1.webp";
 import AnimatedLazyImage from "../../../components/LazyImage";
+// Images
+const image =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
 
 export default function Intro() {
   const theme = useTheme();

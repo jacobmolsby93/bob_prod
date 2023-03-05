@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
-// Images
-import costumer from "../assets/costumer.png";
-import medal from "../assets/medal.png";
-import employee from "../assets/employee.png";
+// Icons
+const employee =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/employee.png";
+const medal =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/medal.png";
+const costumer =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/costumer.png";
 
 const facts = [
   {

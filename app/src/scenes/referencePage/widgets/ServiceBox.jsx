@@ -7,15 +7,14 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-
-// Images
-import kitchen from "../../../assets/kitchen.webp";
-import bathroom from "../../../assets/bathroom.webp";
-
-// Spacer
+// Components
 import Spacer from "../../../components/Spacer";
-
 import AnimatedLazyImage from "../../../components/LazyImage";
+// Images
+const kitchen =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/kitchen.webp";
+const bathroom =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/bathroom.webp";
 
 const services = [
   {

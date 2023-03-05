@@ -12,11 +12,11 @@ import Team from "../../components/Team.jsx";
 import Intro from "./widgets/Intro.jsx";
 import TipsCarousel from "./widgets/Tips.jsx";
 import Planer from "./widgets/Planer.jsx";
-
 // Animation
 import AnimatedBox from "../../animation/Animated.jsx";
-import landingImage from "../../assets/contact-background.png";
 // Images
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/contact-background.webp";
 
 export default function Bathroom() {
   const theme = useTheme();
@@ -104,12 +104,12 @@ export default function Bathroom() {
         </section>
       </AnimatedBox>
       <Spacer />
-      <AnimatedBox>
+      {/* <AnimatedBox>
         <section id="interview">
           <Video />
         </section>
       </AnimatedBox>
-      <Spacer />
+      <Spacer /> */}
       <AnimatedBox>
         <section id="instagram">
           <InstgramWidget />

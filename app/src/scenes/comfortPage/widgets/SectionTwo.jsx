@@ -7,10 +7,10 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-
-// Images
-import placeImage from "../../../assets/landingbackground3.webp";
 import AnimatedLazyImage from "../../../components/LazyImage";
+// Images
+const placeImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/landingbackground3.webp";
 
 export default function SectionTwo() {
   const theme = useTheme();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -11,8 +11,10 @@ import {
 import ButtonOrange from "./ButtonOrange";
 import ButtonWhite from "./ButtonWhite";
 import { motion, AnimatePresence } from "framer-motion";
-import videoShape from "../assets/video-shape.webp";
-import videoDots from "../assets/video-dots.webp";
+const videoShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/video-dots.webp";
+const videoDots =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/video-shape.webp";
 
 export default function Video() {
   const theme = useTheme();
