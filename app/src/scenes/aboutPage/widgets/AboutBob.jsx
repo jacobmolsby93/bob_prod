@@ -1,9 +1,6 @@
 import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
-
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
-import AboutIntro from "../../../assets/about-intro-image.png";
-
 const AboutIntro = "https://storage.googleapis.com/bob-prod-images/media/assets/about-intro-image.webp";
 
 const Intro = () => {
