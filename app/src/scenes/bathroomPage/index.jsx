@@ -89,6 +89,7 @@ export default function Bathroom() {
               </Box>
             </Box>
           </AnimatedBox>
+          
         </Box>
       </Box>
       <Spacer />
