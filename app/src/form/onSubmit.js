@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import { v4 as uuidv4 } from 'uuid';
 
 
 export const onSubmit = (values, actions) => {
-  const uniqueId = uuidv4();
+  const uniqueId = 123
   const data = new FormData();
   data.append('type', values.typ);
   data.append('first_name', values.fornamn);
@@ -14,7 +13,7 @@ export const onSubmit = (values, actions) => {
   data.append('county', values.stadsdel_kommun);
   data.append('subject', values.arende);
   data.append('message', values.medelande);
-  data.append('files', values.image, `${uniqueId}-${values.image.name}`);
+  data.append('files', values.image, `${parseInt(uniqueId)}-${values.image.name}`);
   
   alert(`Tack ${values.fornamn}, för medelandet. Vi återkommer såfort vi kan!`)
   actions.resetForm();
