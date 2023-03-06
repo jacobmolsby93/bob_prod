@@ -4,21 +4,19 @@ import {
   Typography,
   Card,
   CardMedia,
-  CardActions,
   CardContent,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Carousel from "react-bootstrap/Carousel";
 import Spacer from "../../../components/Spacer";
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
 import ButtonWhite from "../../../components/ButtonWhite.jsx";
-import { wrap, swipePower } from "../utils/utils.js";
 import Call from "@mui/icons-material/Call";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-
 // Images
 const tip1 =
   "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome1.webp";
@@ -40,39 +38,8 @@ const tip9 =
   "https://storage.googleapis.com/bob-prod-images/media/assets/collage-image-6.webp";
 const tip10 =
   "https://storage.googleapis.com/bob-prod-images/media/assets/contact-background.webp";
-
-const variants = {
-  toLeft: {
-    x: "-100%",
-    opacity: 0,
-    transition: {
-      type: "spring",
-      mass: 0.5,
-      stiffness: 500,
-      damping: 50,
-    },
-  },
-  toRight: {
-    x: "100%",
-    opacity: 0,
-    transition: {
-      type: "spring",
-      mass: 0.5,
-      stiffness: 500,
-      damping: 50,
-    },
-  },
-  center: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      mass: 0.5,
-      stiffness: 500,
-      damping: 50,
-    },
-  },
-};
+const logoShapeGrey =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-icon-grey.png";
 
 export default function TipsCarousel() {
   const theme = useTheme();
@@ -83,19 +50,10 @@ export default function TipsCarousel() {
   const [selected, setSelected] = useState(tipsData[0]);
   const [direction, setDirection] = useState(null);
   const [rect, setRect] = useState();
+  const [index, setIndex] = useState(0);
 
-  const controlButton = {
-    height: "40px",
-    minWidth: "unset",
-    width: "40px",
-    borderRadius: "50%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#fff",
-    backgroundColor: theme.palette.primary[500],
-    border: " 1px solid rgba(29, 29, 27, 0.3)",
-    boxShadow: "0px 10px 40px rgba(193, 102, 45, 0.5)",
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
   };
 
   useEffect(() => {
@@ -125,19 +83,24 @@ export default function TipsCarousel() {
       setDirection("prev");
     }
   };
-  const animation = useAnimation();
-  const handleDragEnd = async (evt, { offset }) => {
-    const power = swipePower(offset, rect.width);
-    if (power > 30) {
-      await animation.start("toRight");
-      handlePrev();
-    } else if (power < -30) {
-      await animation.start("toLeft");
-      handleNext();
-    } else {
-      await animation.start("reset");
+
+  const [maxHeight, setMaxHeight] = useState(0);
+
+  // Ref to the wrapper div
+  const wrapperRef = useRef(null);
+
+  // Calculate the maximum height of the items in the array
+  useEffect(() => {
+    if (smallScreen) {
+      const heights = tipsData.map((post) => {
+        const { height } = wrapperRef.current.querySelector(
+          `div[data-id="${post.id}"]`
+        ).getBoundingClientRect();
+        return height;
+      });
+      setMaxHeight(Math.max(...heights));
     }
-  };
+  }, []);
 
   return (
     <Box>
@@ -171,26 +134,14 @@ export default function TipsCarousel() {
         {!smallScreen && (
           <Box sx={absoluteBox}>
             <Box sx={absolutePrev}>
-              <Button
-                variant="contained"
-                onClick={handlePrev}
-                sx={controlButton}
-              >
-                <span>
-                  <ArrowBackIosNewIcon />
+                <span onClick={handlePrev} style={{ zIndex: 99, cursor: "pointer"}}>
+                  <ArrowBackIosNewIcon sx={{ color: theme.palette.primary[500], fontSize: "2rem"}}/>
                 </span>
-              </Button>
             </Box>
             <Box sx={absoluteNext}>
-              <Button
-                variant="contained"
-                onClick={handleNext}
-                sx={controlButton}
-              >
-                <span>
-                  <ArrowForwardIosIcon />
+              <span onClick={handleNext} style={{ zIndex: 99, cursor: "pointer"}}>
+                  <ArrowForwardIosIcon sx={{ color: theme.palette.primary[500], fontSize: "2rem"}}/>
                 </span>
-              </Button>
             </Box>
           </Box>
         )}
@@ -275,100 +226,89 @@ export default function TipsCarousel() {
                 </motion.div>
               ) : (
                 /* Mobile Carousel */
-                <Carousel activeIndex={index} onSelect={handleSelect} id="planner-carousel">
-                {tipsData.map((post, uuid) => (
-                  <Carousel.Item key={uuid}>
-                    <Box
-                      className="col-12 col-md-6 col-lg-4 instagram-box"
-                      key={post.id}
-                      padding=".75rem"
-                    >
-                      <Card sx={cardStyle}>
-                        <Box
-                          className="card-header"
-                          display="flex"
-                          alignItems="center"
-                          justifyContent="space-between"
-                          paddingBottom="1rem"
-                        >
-                          <Box display="flex" alignItems="center">
-                            <img
-                              src={bobLogo}
-                              alt="Instagram Logo"
-                              style={{ width: "62px", height: "62px" }}
-                            />
-                            <Box ml=".5rem">
-                              <Typography
-                                variant="h5"
-                                sx={{
-                                  fontSize: "1.5rem",
-                                  fontWeight: "bold",
-                                  marginBottom: "0",
-                                }}
-                              >
-                                Comments: {post.comments}
-                              </Typography>
-                              <Typography
-                                variant="body1"
-                                sx={{ fontSize: "1rem" }}
-                              >
-                                Likes: {post.likes}
-                              </Typography>
+                <Box ref={wrapperRef} minHeight={`${maxHeight}px`} sx={{ display: "flex", alignItems: "flex-start"}}>
+                <Carousel id="tip-carousel">
+                  {tipsData.map((post, uuid) => (
+                    <Carousel.Item key={uuid} data-id={post.id}>
+                      <Box className="col-12 col-md-6 col-lg-4" padding=".75rem">
+                        <Card sx={cardStyle}>
+                          <Box
+                            className="card-header"
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="space-between"
+                            paddingBottom="1rem"
+                          >
+                            <Box display="flex" alignItems="center">
+                              <Box position="relative" left="-10px">
+                                <Box
+                                  sx={{
+                                    backgroundColor: "#fff",
+                                    borderRadius: "50%",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    position: "absolute",
+                                    alignItems: "center",
+                                    height: "55px",
+                                    width: "55px",
+                                  }}
+                                >
+                                  <span style={{ color: theme.palette.primary[500], fontSize: "2rem", fontWeight: "bold"}}>
+                                    {post.id}
+                                  </span>
+                                </Box>
+                              </Box>
                             </Box>
                           </Box>
-                          <img
-                            src={InstgramLogo}
-                            alt="Instagram Logo"
-                            style={{ width: "40px", height: "40px" }}
+                          <CardMedia
+                            component="img"
+                            alt="Instagram"
+                            sx={{ height: "250px", objectFit: "cover" }}
+                            height="100%"
+                            image={post.image}
+                            title="Instagram"
                           />
-                        </Box>
-                        <CardMedia
-                          component="img"
-                          alt="Instagram"
-                          sx={{ borderRadius: "10px" }}
-                          height="100%"
-                          image={post.image}
-                          title="Instagram"
-                        />
-                      </Card>
-                    </Box>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
+                          <CardContent>
+                            <Typography variant="h5" className="subtitle-font">
+                              {post.title}
+                            </Typography>
+                            <Typography variant="body1" sx={{ marginTop: "1rem" }}>
+                              {post.paragraph}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Box>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </Box>
               ))}
           </AnimatePresence>
-          <Box
-            className="row"
-            mt="2rem"
-            justifyContent="center"
-            sx={{
-              position: smallScreen ? "absolute" : "relative",
-              top: smallScreen ? "0" : "unset",
-              right: "15px",
-            }}
-          >
-            {tipsData.map((item, index) => (
-              <span
-                key={index}
-                style={{
-                  height: ".2rem",
-                  width:
-                    selected.id === item.id
-                      ? smallScreen
-                        ? "2rem"
-                        : "5rem"
-                      : smallScreen
-                      ? "1rem"
-                      : "2rem",
-                  margin: smallScreen ? ".2rem" : ".4rem",
-                  backgroundColor:
-                    selected.id === item.id
-                      ? theme.palette.primary[500]
-                      : theme.palette.primary[100],
-                }}
-              ></span>
-            ))}
-          </Box>
+          {!smallScreen && (
+            <Box
+              className="row"
+              mt="2rem"
+              justifyContent="center"
+              sx={{
+                right: "15px",
+              }}
+            >
+              {tipsData.map((item, index) => (
+                <span
+                  key={index}
+                  style={{
+                    height: ".2rem",
+                    width: selected.id === item.id ? "5rem" : "2rem",
+                    margin: ".4rem",
+                    backgroundColor:
+                      selected.id === item.id
+                        ? theme.palette.primary[500]
+                        : theme.palette.primary[100],
+                  }}
+                ></span>
+              ))}
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>
@@ -386,6 +326,7 @@ const tipsData = [
       "Det finns oändligt många saker man kan göra när man vill renovera badrum. Men plånboken räcker inte till allt. Det är viktigt att man innan man tar kontakt med en hantverkare bestämmer sig för hur mycket pengar man är beredd att lägga.",
     link: "/kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 2,
@@ -396,6 +337,7 @@ const tipsData = [
       "En vanlig miss när man ska renovera sitt badrum är att man skickar ut en bred offert till en massa hantverkare. Det är inte alltid en bra idé. Av flera skäl. Risken att skicka ut en allt för bred offert är att man får in en massa anbud och så tar man det billigaste. Risken är då att man väljer en hantverkare som inte är särskilt erfaren och som sedan gör ett sämre jobb och använder dåligt material. Gör en ordentlig research och se till att anlita en bra fackman.",
     link: "/kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 3,
@@ -406,6 +348,7 @@ const tipsData = [
       "När du väl har hittat en bra hantverkare i Stockholm för en badrumsrenovering så måste du se till att mäta upp ditt badrum så att hantverkaren har möjlighet att bilda sig en uppfattning av badrummet som han eller hon ska renovera.",
     link: "/kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 4,
@@ -414,6 +357,7 @@ const tipsData = [
     title: "Ta inspiration från andra badrumsrenoveringar.",
     paragraph:
       "Det kan vara svårt att veta exakt hur man vill ha sitt badrum. Det bästa sättet att få inspiration till hur en badrumsrenovering kan göras är att titta på tex. pintrest eller instagram. De finns 1000 olika sätt att renovera badrummet på och det är bara fantasin som sätter stopp för att få just ditt dröm badrum.",
+    ref: React.createRef(),
   },
   {
     id: 5,
@@ -425,6 +369,7 @@ const tipsData = [
       "Det kan vara svårt för en lekman att veta hur man ska renovera ett badrum och veta precis vad som är möjligt när det gäller att renovera badrum. Säkerställ därför med hantverkaren att det är möjligt att renovera badrum på det sätt som du vill.",
     link: "/kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 6,
@@ -435,6 +380,7 @@ const tipsData = [
       "Om du ska kunna göra ROT-avdrag för en badrumsrenovering så behöver hantverkaren ha F-skattsedel.",
     link: "kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 7,
@@ -445,6 +391,7 @@ const tipsData = [
       "Kolla med din förening om badrumsrenoveringen kräver någon form av anmälan eller bygglov. I 9 av 10 fall räcker det endast med ett mejl till ordförande där ni förklarar att ni vill renovera badrummet.",
     link: "kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 8,
@@ -455,6 +402,7 @@ const tipsData = [
       "Informera hantverkaren om vilken inredning du vill ha i badrummet.",
     link: "kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 9,
@@ -465,6 +413,7 @@ const tipsData = [
       "Det är viktigt att du har ett fullgott försäkringsskydd när du ska renovera badrummet. Be alltid hantverkaren att skicka över sitt försäkringsbevis.",
     link: "kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
   {
     id: 10,
@@ -475,6 +424,7 @@ const tipsData = [
       "Det finns oändligt många saker man kan göra när man vill renovera badrum. Men plånboken räcker inte till allt. Det är viktigt att man innan man tar kontakt med en hantverkare bestämmer sig för hur mycket pengar man är beredd att lägga.",
     link: "kontakt",
     linkText: "Kontakt",
+    ref: React.createRef(),
   },
 ];
 
@@ -507,4 +457,9 @@ const absoluteNext = {
   height: "100%",
   display: "flex",
   alignItems: "center",
+};
+
+const cardStyle = {
+  padding: "1rem",
+  boxShadow: "0",
 };

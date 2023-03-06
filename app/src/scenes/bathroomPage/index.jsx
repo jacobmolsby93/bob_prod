@@ -104,7 +104,9 @@ export default function Bathroom() {
         </section>
       </AnimatedBox>
       <Spacer />
-      {/* <AnimatedBox>
+      {/* 
+      Uncomment this when interview and instagram is sorted
+      <AnimatedBox>
         <section id="interview">
           <Video />
         </section>
@@ -139,12 +141,10 @@ export default function Bathroom() {
       <Spacer />
       <AnimatedBox>
         <section id="tjanster-kontakt">
-          <Contact student={true}/>
+          <Contact student={true} />
           <Spacer />
         </section>
       </AnimatedBox>
     </div>
   );
 }
-
-

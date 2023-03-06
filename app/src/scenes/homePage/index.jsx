@@ -316,12 +316,12 @@ export default function HomePage() {
         <Spacer />
       </section>
 
-      {/* Instgram Widget */}
+      {/* Instgram Widget
       <section id="instagram-widget">
         <AnimatedBox>
           <InstagramWidget />
         </AnimatedBox>
-      </section>
+      </section> */}
 
       {/* Contact Form */}
       <section id="kontakt">

@@ -28,12 +28,12 @@ export default function Team() {
     <Box className="container">
       {!smallScreen ? (
         <Typography variant="h6" className="title-font" textAlign="center">
-          Vi på Bob Våtrumsrenovering AB
+          Vi på BOB VÅTRUMSRENOVERING AB
         </Typography>
       ) : (
         <Typography variant="h6" className="title-font" textAlign="center">
           Vi på <br />
-          Bob Våtrumsrenovering AB
+          BOB VÅTRUMSRENOVERING AB
         </Typography>
       )}
       <Box className="row" display="flex" justifyContent="center" mt="3rem">

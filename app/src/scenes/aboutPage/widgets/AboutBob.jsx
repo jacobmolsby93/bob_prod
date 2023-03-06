@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import ButtonOrange from "../../../components/ButtonOrange.jsx";
-const AboutIntro = "https://storage.googleapis.com/bob-prod-images/media/assets/about-intro-image.webp";
+const AboutIntro =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/about-intro-image.webp";
 
 const Intro = () => {
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));

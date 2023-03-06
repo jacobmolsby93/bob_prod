@@ -525,3 +525,17 @@ hr {
   margin-bottom: 0 !important;
   bottom: -20px;
 }
+
+#tip-carousel > div.carousel-indicators {
+  margin-bottom: 0 !important;
+  bottom: -20px;
+}
+
+#tip-carousel > .carousel-indicators [data-bs-target] {
+  background-color: var(--primary-color);
+  opacity: 0.4
+}
+
+#tip-carousel > .carousel-indicators .active {
+  opacity: 1;
+}
