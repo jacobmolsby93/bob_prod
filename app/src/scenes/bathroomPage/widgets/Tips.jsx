@@ -275,98 +275,66 @@ export default function TipsCarousel() {
                 </motion.div>
               ) : (
                 /* Mobile Carousel */
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    className="row"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      x: "0%",
-                      transition: {
-                        duration: 0.5,
-                        type: "spring",
-                        bounce: 0.25,
-                      },
-                    }}
-                    exit={{
-                      opacity: 0,
-                      transition: { duration: 0.6, type: "easeInOut" },
-                    }}
-                  >
-                    <motion.div
-                      drag="x"
-                      key={selected.id}
-                      dragDirectionLock={true}
-                      dragConstraints={{ left: 0, right: 0 }}
-                      onDragEnd={handleDragEnd}
-                      variants={variants}
-                      animate={animation}
-                      dragMomentum={true}
-                      transition={{
-                        x: {
-                          type: "easeInOut",
-                        },
-                      }}
-                      className="col-12"
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        paddingBottom: "2rem",
-                      }}
+                <Carousel activeIndex={index} onSelect={handleSelect} id="planner-carousel">
+                {tipsData.map((post, uuid) => (
+                  <Carousel.Item key={uuid}>
+                    <Box
+                      className="col-12 col-md-6 col-lg-4 instagram-box"
+                      key={post.id}
+                      padding=".75rem"
                     >
-                      <Card
-                        sx={{
-                          width: "100%",
-                          boxShadow: "5px 5px 40px rgb(0 0 0 / 30%)",
-                        }}
-                        ref={ref}
-                      >
+                      <Card sx={cardStyle}>
+                        <Box
+                          className="card-header"
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="space-between"
+                          paddingBottom="1rem"
+                        >
+                          <Box display="flex" alignItems="center">
+                            <img
+                              src={bobLogo}
+                              alt="Instagram Logo"
+                              style={{ width: "62px", height: "62px" }}
+                            />
+                            <Box ml=".5rem">
+                              <Typography
+                                variant="h5"
+                                sx={{
+                                  fontSize: "1.5rem",
+                                  fontWeight: "bold",
+                                  marginBottom: "0",
+                                }}
+                              >
+                                Comments: {post.comments}
+                              </Typography>
+                              <Typography
+                                variant="body1"
+                                sx={{ fontSize: "1rem" }}
+                              >
+                                Likes: {post.likes}
+                              </Typography>
+                            </Box>
+                          </Box>
+                          <img
+                            src={InstgramLogo}
+                            alt="Instagram Logo"
+                            style={{ width: "40px", height: "40px" }}
+                          />
+                        </Box>
                         <CardMedia
                           component="img"
-                          title="swipea för att se fler tips"
-                          alt={selected.title}
-                          height="300"
-                          dragable="false"
-                          image={selected.image}
+                          alt="Instagram"
+                          sx={{ borderRadius: "10px" }}
+                          height="100%"
+                          image={post.image}
+                          title="Instagram"
                         />
-                        <CardContent>
-                          <Typography
-                            gutterBottom
-                            className="subtitle-font"
-                            variant="h5"
-                          >
-                            {selected.title}
-                          </Typography>
-                          <Typography
-                            variant="body1"
-                            className="body-paragraph"
-                            color={theme.palette.grey[600]}
-                          >
-                            {selected.paragraph}
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <a style={{ textDecoration: "none" }} href="#kontakt">
-                            <Button
-                              size="small"
-                              sx={{ color: theme.palette.primary[500] }}
-                              className="button-text"
-                            >
-                              Tidigare Projekt
-                            </Button>
-                          </a>
-                          <Button
-                            size="small"
-                            sx={{ color: theme.palette.grey[900] }}
-                            className="button-text"
-                          >
-                            Kontakta oss
-                          </Button>
-                        </CardActions>
                       </Card>
-                    </motion.div>
-                  </motion.div>
-                </AnimatePresence>
+                    </Box>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
               ))}
           </AnimatePresence>
           <Box

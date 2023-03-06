@@ -88,7 +88,7 @@ export const InstagramWidget = () => {
               </Box>
             ))
           ) : (
-            <Carousel activeIndex={index} onSelect={handleSelect} id="instagram">
+            <Carousel activeIndex={index} onSelect={handleSelect} id="instagram-carousel">
               {numPosts.map((post, uuid) => (
                 <Carousel.Item key={uuid}>
                   <Box
@@ -169,7 +169,7 @@ const numPosts = [
     id: 1,
     likes: 3000,
     comments: 200,
-    image: defaultImage,
+    image: "https://www.instagram.com/reel/CpUP-5HDF2V/?utm_source=ig_embed&amp;utm_campaign=loading",
   },
   {
     id: 2,

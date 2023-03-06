@@ -110,12 +110,12 @@ export default function Bathroom() {
         </section>
       </AnimatedBox>
       <Spacer /> */}
-      <AnimatedBox>
+      {/* <AnimatedBox>
         <section id="instagram">
           <InstgramWidget />
         </section>
       </AnimatedBox>
-      <Spacer />
+      <Spacer /> */}
       <AnimatedBox>
         <section id="tips">
           <TipsCarousel />
@@ -139,10 +139,12 @@ export default function Bathroom() {
       <Spacer />
       <AnimatedBox>
         <section id="tjanster-kontakt">
-          <Contact />
+          <Contact student={true}/>
           <Spacer />
         </section>
       </AnimatedBox>
     </div>
   );
 }
+
+
