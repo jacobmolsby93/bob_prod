@@ -31,7 +31,7 @@ export default function Planer() {
       <Box className="row">
         <Box className="col-12 col-xl-6" sx={{ marginTop: "20px" }}>
           <Typography variant="h2" component="h2" className="title-font">
-            Bra Att Tänka På När Du Planerar Ditt Badrum!
+            Bra att tänka på när du planerar ditt badrum!
           </Typography>
           <Box display="flex" mt="30px">
             <Typography variant="body1" className="body-paragraph">

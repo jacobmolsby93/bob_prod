@@ -322,7 +322,7 @@ const tipsData = [
     title:
       "Bestäm dig för hur mycket pengar du kan avsätta för en badrumsrenovering",
     paragraph:
-      "Det finns oändligt många saker man kan göra när man vill renovera badrum. Men plånboken räcker inte till allt. Det är viktigt att man innan man tar kontakt med en hantverkare bestämmer sig för hur mycket pengar man är beredd att lägga.",
+      "Det finns oändligt många saker man kan göra när man vill renovera badrum. Men plånboken räcker inte till allt. Det är viktigt att man innan man tar kontakt med en hantverkare bestämmer sig för hur mycket pengar man är beredd att lägga samt att du bestämmer dig för hur badrummet ska se ut. Ska du ha golvvärme, spottar, handukstork, vägghäng-wc osv.",
     link: "/kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -331,9 +331,9 @@ const tipsData = [
     id: 2,
     number: "",
     image: tip2,
-    title: "Leta upp en erfaren hantverkare!",
+    title: "Leta upp ett tryggt företag!",
     paragraph:
-      "En vanlig miss när man ska renovera sitt badrum är att man skickar ut en bred offert till en massa hantverkare. Det är inte alltid en bra idé. Av flera skäl. Risken att skicka ut en allt för bred offert är att man får in en massa anbud och så tar man det billigaste. Risken är då att man väljer en hantverkare som inte är särskilt erfaren och som sedan gör ett sämre jobb och använder dåligt material. Gör en ordentlig research och se till att anlita en bra fackman.",
+      "En vanlig miss när man ska renovera sitt badrum är att man skickar ut en bred offert till en massa företag. Det är inte alltid en bra idé. Av flera skäl. Risken att skicka ut en allt för bred offert är att man får in en massa anbud och så blir det svårt att jämföra. Vårt tips är att ni skriver ner vad ni vill få gjort i badrummet och sedan skickar ut en offertförfrågan till de utvalda företagen då blir det mycket enklare att jämföra och ni får förhoppningsvis offerter som är lika varandra när det kommer till innehåll. Gör en ordentlig research och se till att anlita ett tryckt och bra företag!",
     link: "/kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -342,9 +342,9 @@ const tipsData = [
     id: 3,
     number: "",
     image: tip3,
-    title: "Mät upp ditt badrum och gör en ritning.",
+    title: "Förbered dig inför hembesöket.",
     paragraph:
-      "När du väl har hittat en bra hantverkare i Stockholm för en badrumsrenovering så måste du se till att mäta upp ditt badrum så att hantverkaren har möjlighet att bilda sig en uppfattning av badrummet som han eller hon ska renovera.",
+      "När företaget kommer hem till dig för att kolla på badrummet så tar dem vanligtvis mått på badrummet och ställer en rad frågor för att ta reda på hur du vill ha ditt badrum. Se till att skriva ner mycket frågor och försök tänka till hur du skulle vilja ha ditt nya badrum för att enklare kunna ge en bra bild till företaget som kommer ut.",
     link: "/kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -355,7 +355,7 @@ const tipsData = [
     image: tip4,
     title: "Ta inspiration från andra badrumsrenoveringar.",
     paragraph:
-      "Det kan vara svårt att veta exakt hur man vill ha sitt badrum. Det bästa sättet att få inspiration till hur en badrumsrenovering kan göras är att titta på tex. pintrest eller instagram. De finns 1000 olika sätt att renovera badrummet på och det är bara fantasin som sätter stopp för att få just ditt dröm badrum.",
+      "Det kan vara svårt att veta exakt hur man vill ha sitt badrum. Det bästa sättet att få inspiration till hur en badrumsrenovering kan göras är att titta på tex. pintrest eller instagram. De finns 1000 olika sätt att renovera badrummet på och det är bara fantasin som sätter stopp för att få just ditt dröm badrum. Kika gärna in på våran Instagram eller TikTok för att hämta inspiration.",
     ref: React.createRef(),
   },
   {
@@ -363,9 +363,9 @@ const tipsData = [
     number: "",
     image: tip5,
     title:
-      "Rådgör med en hantverkare om vad som är möjligt för just ditt badrum.",
+      "Rådgör med oss om vad som är möjligt för just ditt badrum.",
     paragraph:
-      "Det kan vara svårt för en lekman att veta hur man ska renovera ett badrum och veta precis vad som är möjligt när det gäller att renovera badrum. Säkerställ därför med hantverkaren att det är möjligt att renovera badrum på det sätt som du vill.",
+      "Det kan vara svårt för en lekman att veta hur man ska renovera ett badrum och veta precis vad som är möjligt när det gäller att renovera badrum. Säkerställ därför med oss att det är möjligt att renovera badrum på det sätt som du vill.",
     link: "/kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -385,9 +385,9 @@ const tipsData = [
     id: 7,
     number: "",
     image: tip7,
-    title: "Fundera över vilket material du vill använda.",
+    title: "Kolla vilka du behöver informera om din badrumsrenovering om du bor i lägenhet eller radhus.",
     paragraph:
-      "Kolla med din förening om badrumsrenoveringen kräver någon form av anmälan eller bygglov. I 9 av 10 fall räcker det endast med ett mejl till ordförande där ni förklarar att ni vill renovera badrummet.",
+      "Kolla med din förening om badrumsrenoveringen kräver någon form av anmälan. I 9 av 10 fall räcker det endast med ett mejl till ordförande där ni förklarar att ni vill renovera badrummet.",
     link: "kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -398,7 +398,7 @@ const tipsData = [
     image: tip8,
     title: "Bestäm vilken inredning du vill ha i badrummet.",
     paragraph:
-      "Informera hantverkaren om vilken inredning du vill ha i badrummet.",
+      "Hos oss får du hjälp med att välja inredning, kakel & klinker hos någon av våra samarbetspartners. Fråga din kundansvarige så informerar denna dig!",
     link: "kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -409,7 +409,7 @@ const tipsData = [
     image: tip9,
     title: "Säkerställ att renoveringen är försäkrad.",
     paragraph:
-      "Det är viktigt att du har ett fullgott försäkringsskydd när du ska renovera badrummet. Be alltid hantverkaren att skicka över sitt försäkringsbevis.",
+      "Det är viktigt att du har ett fullgott försäkringsskydd när du ska renovera badrummet. Be alltid företaget att skicka över sitt försäkringsbevis.",
     link: "kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
@@ -418,9 +418,9 @@ const tipsData = [
     id: 10,
     number: "",
     image: tip10,
-    title: "Säkerställ att du inte behöver bygglov.",
+    title: "Ta in en besiktningsman för att säkerhetsställa att renoveringen blir godkänd!",
     paragraph:
-      "Det finns oändligt många saker man kan göra när man vill renovera badrum. Men plånboken räcker inte till allt. Det är viktigt att man innan man tar kontakt med en hantverkare bestämmer sig för hur mycket pengar man är beredd att lägga.",
+      "Det finns många företag på marknaden, vi besiktar alltid våra badrum med vår interna besiktningsman uppdelat i sex besiktningstillfällen. Det är långt ifrån alla företag som gör detta. Ta därför alltid in en besiktningsman som följer renoveringen och ser till att allt blir utfört enligt gällande branschregler. Att ett företag är behörigt betyder inte alltid att dem gör rätt.",
     link: "kontakt",
     linkText: "Kontakt",
     ref: React.createRef(),
