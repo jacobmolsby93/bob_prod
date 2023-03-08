@@ -44,23 +44,27 @@ export default function Bathroom() {
             flexDirection: "column",
             paddingTop: "100px",
             justifyContent: "center",
+            position: "relative",
             zIndex: "20",
           }}
         >
+          <Box sx={{ position: "absolute", top: "0", left: "0", right: "0", bottom:"0", display: "flex", justifyContent:"flex-end", alignItems: "flex-end"}}>
+            <Box heighth="50px" width="300px" backgroundColor="black">
+
+            </Box>
+          </Box>
           <AnimatedBox>
-            <Box className="row" justifyContent="center">
-              <Box textAlign="center" className="col-12 col-md-7">
+            <Box className="row" justifyContent="center" display="flex" textAlign="center">
+              <Box className="col-12" textAlign="center">
                 <Typography
                   variant="h1"
-                  fontWeight="bold"
                   className="hero_title"
                   fontSize={
                     smallScreen
                       ? `clamp(28px, 4vw, ${titleFontSize})`
                       : titleFontSize
                   }
-                  textTransform="uppercase"
-                  color="#fff"
+                  sx={heroTitle}
                 >
                   Badrumsrenovering?
                 </Typography>
@@ -149,3 +153,6 @@ export default function Bathroom() {
     </div>
   );
 }
+
+
+const heroTitle = {fontWeight: "bold", textTransform: "uppercase", color: "#fff", textAlign: "center"};

@@ -122,7 +122,7 @@ const PersonList = [
   {
     id: 3,
     name: "Jacob Molsby",
-    title: "Kund Ansvarig",
+    title: "Kundansvarig",
     image: DefaultGuy,
   },
   {

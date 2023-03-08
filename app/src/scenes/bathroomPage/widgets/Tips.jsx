@@ -166,7 +166,7 @@ export default function TipsCarousel() {
                   <motion.div
                     className="col-12 col-lg-6 order-last order-lg-first"
                     style={{
-                      padding: !lgScreen ? "0 3rem 0 0" : "2rem 2rem 0 0",
+                      padding: !lgScreen ? "0 3rem 0 0" : "0 2rem 0 0",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
@@ -176,7 +176,7 @@ export default function TipsCarousel() {
                       style={{
                         color: theme.palette.primary[500],
                         position: "relative",
-                        left: lgScreen ? "100%" : "0",
+                        left: smallScreen ? "100%" : "0",
                       }}
                       className="title-font"
                     >

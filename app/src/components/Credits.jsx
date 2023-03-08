@@ -62,7 +62,7 @@ export default function Credits(props) {
                       variant="h3"
                       fontWeight="bold"
                       color={theme.palette.text.primary}
-                      sx={{ fontSize: "clamp(16px, 5vw, 55px)" }}
+                      sx={{ fontSize: "clamp(16px, 5vw, 45px)" }}
                     >
                       <CountUp
                         start={0}
@@ -93,6 +93,6 @@ export default function Credits(props) {
 }
 
 const icon = {
-  width: "clamp(50px, 10vw, 100px)",
-  height: "clamp(50px, 10vw, 100px)",
+  width: "clamp(50px, 10vw, 80px)",
+  height: "clamp(50px, 10vw, 80px)",
 };

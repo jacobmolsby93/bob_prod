@@ -22,19 +22,20 @@ export const Intro = () => {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
+  const xlScreen = useMediaQuery((theme) => theme.breakpoints.down("xl"));
   return (
     <Box className="container">
       <Box className="row">
-        <Box className="col-12 col-lg-6 mb-4 mb-lg-0">
+        <Box className="col-12 col-xl-6 mb-4 mb-lg-4">
           <img
-            src={lgScreen ? collageImage2 : completeCollage}
+            src={xlScreen ? collageImage2 : completeCollage}
             width="100%"
-            style={{ borderRadius: "10px" }}
+            style={{ borderRadius: "10px", maxHeight: !xlScreen ? "" : "500px" }}
             alt="Collage på olika badrum"
           />
         </Box>
         <Box
-          className="col-12 col-lg-6"
+          className="col-12 col-xl-6"
           sx={{
             paddingLeft: lgScreen ? "" : "5rem",
             padding: smallScreen ? "2rem 0" : "",
