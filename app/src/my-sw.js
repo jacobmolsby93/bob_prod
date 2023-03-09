@@ -1,3 +1,4 @@
+self.__WB_MANIFEST;
 // Define the cache names
 const staticCacheName = 'static-v1';
 
