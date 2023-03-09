@@ -10,16 +10,16 @@ export default function ControlledCarousel(props) {
 
   const carouselItems = [
     {
-      image: props.image1
+      image: props.image1,
     },
     {
-      image: props.image2
+      image: props.image2,
     },
     {
-      image: props.image3
+      image: props.image3,
     },
     {
-      image: props.image4
+      image: props.image4,
     },
   ];
 
@@ -31,11 +31,12 @@ export default function ControlledCarousel(props) {
             <Box
               style={{
                 width: "100%",
-                height: props.smallScreen ? "400px" : "700px",
+                height: "400px",
                 backgroundImage: `url(${item.image})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundRepeat: "no-repeat"
+                backgroundRepeat: "no-repeat",
+                borderRadius: "10px",
               }}
             ></Box>
           </Carousel.Item>

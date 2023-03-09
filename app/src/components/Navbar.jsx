@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
   Button,
+  List,
+  ListItem,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import CloseIcon from "@mui/icons-material/Close";
-
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Navbar, Offcanvas } from "react-bootstrap";
+import { AnimatePresence, motion } from "framer-motion";
+import ButtonOrange from "./ButtonOrange";
+import ButtonWhite from "./ButtonWhite";
 
 // Images
-import logo from "../assets/boblogo.png";
-import { useEffect } from "react";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 
 const menuItems = [
   {
@@ -25,18 +29,18 @@ const menuItems = [
     id: 1,
   },
   {
-    menuItem: "Badrum",
-    url: "vara-tjanster/badrum",
+    menuItem: "Våra Tjänster",
+    url: "vara-tjanster",
     id: 2,
+  },
+  {
+    menuItem: "Tidigare Projekt",
+    url: "referenser",
+    id: 3,
   },
   {
     menuItem: "Behörigheter",
     url: "behorigheter",
-    id: 3,
-  },
-  {
-    menuItem: "Kontakt",
-    url: "kontakt",
     id: 4,
   },
   {
@@ -44,12 +48,41 @@ const menuItems = [
     url: "omoss",
     id: 5,
   },
+  {
+    menuItem: "Kontakt",
+    url: "kontakt",
+    id: 6,
+  },
+];
+
+const options = [
+  {
+    menuItem: "Badrum",
+    url: "vara-tjanster/badrumsrenovering",
+    id: 1,
+  },
+  {
+    menuItem: "Köksrenovering",
+    url: "vara-tjanster/koksrenovering",
+    id: 2,
+  },
+  {
+    menuItem: "Vanliga Frågor",
+    url: "vanliga-fragor",
+    id: 3,
+  },
+  {
+    menuItem: "Trygg Renovering",
+    url: "trygg-renovering",
+    id: 4,
+  },
 ];
 
 export default function NavbarComp() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const breakpoint = useMediaQuery("(min-width:1200px)");
+  const xlScreen = useMediaQuery("(min-width:1500px)");
   const [scrollTop, setScrollTop] = useState(true);
   const [toggle, setToggle] = useState(false);
   let oldScrollY = 0;
@@ -69,6 +102,7 @@ export default function NavbarComp() {
     window.addEventListener("scroll", function () {
       if (window.scrollY > 0) {
         setScrollTop(false);
+        setShowMenu(false);
       } else if (window.scrollY === 0) {
         setScrollTop(true);
       }
@@ -82,26 +116,48 @@ export default function NavbarComp() {
   const handleClose = () => setToggle(false);
   const handleShow = () => setToggle(true);
 
-  const buttonStyle = {
-    width: "30px",
-    minWidth: "30px",
-    borderRadius: "50%",
+  // Dropdown menu
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  const buttonStyleOrange = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: ".5rem",
+    padding: "0.5rem 1rem",
+    border: "none",
+    marginLeft: "1rem",
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: "1rem",
     backgroundColor: theme.palette.primary[500],
-    marginLeft: toggle ? "0" : "10px",
-    "&>a": {
-      color: theme.palette.background.default,
-      textDecoration: "none",
-    },
     "&:hover": {
       backgroundColor: theme.palette.primary[600],
     },
+  };
+
+  const navLinkStyle = {
+    color: theme.palette.grey[900],
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    "&:hover": {
+      color: `${theme.palette.primary[500]} !important`,
+    },
+  };
+
+  const expandClose = {
+    color: theme.palette.primary[500],
+    fontSize: "2rem",
+  };
+  const expandCloseDesktop = {
+    color: theme.palette.primary[500],
+    fontSize: "1.3rem",
   };
 
   const [activeLink, setActiveLink] = useState("/");
   useEffect(() => {
     // Get the current pathname
     const currentPathname = window.location.pathname;
-
     // Iterate through menuItems and check if the current pathname matches a menu item's url
     const activeItem = menuItems.find(
       (item) => `/${item.url}` === currentPathname
@@ -120,92 +176,167 @@ export default function NavbarComp() {
 
   return (
     <Navbar
-      bg={!scrollTop ? "dark" : "undefined"}
+      bg="white"
       expand="lg"
       fixed="top"
       style={{
+        zIndex: 9999,
         transform:
           !smallScreen &&
           (!scrollTop + 100 && direction === "down"
             ? "translateY(-100%)"
             : "translateY(0)"),
         transition: "500ms",
+        padding: !smallScreen ? "10px 0 10px 0" : "10px",
         boxShadow: !scrollTop ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "",
       }}
     >
       <Box
-        className="container"
+        className={!xlScreen ? "container-fluid" : "container"}
         display="flex"
         alignItems="center"
-        justifyContent="space-between"
+        sx={{ padding: !smallScreen ? ".5rem 0" : "0" }}
       >
         <Box>
-          <Navbar.Brand>
-            <Link to="/">
-              <img
-                src={logo}
-                alt="Company logo"
-                style={{ width: "80px", height: "80px" }}
-              />
+          <nav>
+            <Link to="/" aria-label="Länk till hem" className="unstyled-link">
+              <Box display="flex" alignItems="center">
+                <img
+                  src={logo}
+                  title="BOB Logga"
+                  alt="Company logo"
+                  style={{ width: "60px", height: "60px" }}
+                />
+                <Typography
+                  variant="body1"
+                  className="navbar-logo-font"
+                  sx={{
+                    marginLeft: ".5rem",
+                    marginBottom: "0",
+                    color: theme.palette.grey[900],
+                    lineHeight: "1.7rem",
+                  }}
+                >
+                  BOB <br />
+                  VÅTRUMSRENOVERING
+                </Typography>
+              </Box>
             </Link>
-          </Navbar.Brand>
+          </nav>
         </Box>
         {/* Desktop Nav */}
         {breakpoint ? (
           <Box display="flex">
-            {menuItems.map((item) => (
-              <Link
-                onClick={(event) => handleClick(event)}
-                className={`nav-link-main ${
-                  activeLink === item.menuItem ? "active" : ""
-                }`}
-                aria-label={`Länk till ${item.menuItem}`}
-                key={item.url}
-                to={`/${item.url}`}
-                data-replace={item.menuItem}
-                style={{
-                  fontSize: "16px",
-                  color: toggle ? "#000" : theme.palette.background.default,
-                }}
-              >
-                {item.menuItem}
-              </Link>
-            ))}
-            <Box>
-              <a
-                aria-label="Länk til företagets email"
-                href="mailto:hej@bobbadrum.se"
-                style={{ width: "30px", height: "30px" }}
-              >
-                <Button
-                  aria-label="Email icon"
-                  variant="contained"
-                  sx={buttonStyle}
+            {menuItems.map((item) =>
+              item.url === "vara-tjanster" ? (
+                /* Dropdown menu navbar desktop */
+                <Box
+                  key={`${item.url} + ${item.id}`}
+                  position="relative"
+                  display="flex"
+                  onMouseLeave={() => setShowMenu(false)}
                 >
-                  <MailOutlineIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: theme.palette.background.default,
+                  <Link
+                    onClick={(event) => handleClick(event)}
+                    className="nav-link-main"
+                    aria-label={`Länk till ${item.menuItem}`}
+                    key={item.url}
+                    to={`/${item.url}`}
+                    data-replace={item.menuItem}
+                    style={navLinkStyle}
+                    onMouseOver={() => setShowMenu(true)}
+                  >
+                    {item.menuItem}
+                    <motion.div
+                      style={{ marginLeft: ".5rem" }}
+                      animate={{
+                        rotate: showMenu ? -180 : 0,
+                        transition: {
+                          type: "spring",
+                          bounce: 0.5,
+                          duration: 0.5,
+                        },
+                      }}
+                    >
+                      <ExpandMoreIcon sx={expandCloseDesktop} />
+                    </motion.div>
+                  </Link>
+                  <motion.div
+                    style={{
+                      display: showMenu ? "flex" : "none",
+                      transition: "300ms",
                     }}
-                  />
-                </Button>
-              </a>
-              <a href="tel:08333663" aria-label="Företagets telefon-nummer">
-                <Button
-                  aria-label="Telefon icon"
-                  name="Mail Ikon"
-                  variant="contained"
-                  sx={buttonStyle}
+                    onMouseLeave={() => setShowMenu(false)}
+                  >
+                    <motion.div
+                      style={dropdownBox}
+                      animate={{
+                        opacity: 1,
+                        y: showMenu ? "0" : "50px",
+                        transition: {
+                          type: "spring",
+                          bounce: 0.1,
+                          duration: 0.3,
+                        },
+                      }}
+                    >
+                      <List component="nav" sx={{ padding: "0" }}>
+                        {options.map((listItem) => (
+                          <ListItem
+                            sx={{ padding: "1rem 0.5rem" }}
+                            key={listItem.url}
+                          >
+                            <Link
+                              to={listItem.url}
+                              className={`nav-link-main ${
+                                activeLink === listItem.menuItem ? "active" : ""
+                              }`}
+                              aria-label={`Länk till ${listItem.menuItem}`}
+                              data-replace={listItem.menuItem}
+                              style={{
+                                color: toggle
+                                  ? "#000"
+                                  : theme.palette.background.default,
+                                position: "relative",
+                              }}
+                            >
+                              {listItem.menuItem}
+                            </Link>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </motion.div>
+                  </motion.div>
+                </Box>
+              ) : item.url === "kontakt" ? (
+                <Link
+                  onClick={(event) => handleClick(event)}
+                  aria-label={`Länk till ${item.menuItem}`}
+                  key={item.url}
+                  to={`/${item.url}`}
+                  data-replace={item.menuItem}
+                  style={{
+                    textDecoration: "none",
+                  }}
                 >
-                  <CallIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: theme.palette.background.default,
-                    }}
-                  />
-                </Button>
-              </a>
-            </Box>
+                  <Button variant="contained" sx={buttonStyleOrange}>
+                    {item.menuItem}
+                  </Button>
+                </Link>
+              ) : (
+                <Link
+                  onClick={(event) => handleClick(event)}
+                  className="nav-link-main"
+                  aria-label={`Länk till ${item.menuItem}`}
+                  key={item.url}
+                  to={`/${item.url}`}
+                  data-replace={item.menuItem}
+                  style={navLinkStyle}
+                >
+                  {item.menuItem}
+                </Link>
+              )
+            )}
           </Box>
         ) : (
           /* Movile nav*/
@@ -213,7 +344,7 @@ export default function NavbarComp() {
             <Box>
               <MenuIcon
                 sx={{
-                  color: "#fff",
+                  color: theme.palette.grey[900],
                   fontSize: "2rem",
                   zIndex: "10",
                   cursor: "pointer",
@@ -224,7 +355,12 @@ export default function NavbarComp() {
               />
             </Box>
 
-            <Offcanvas show={toggle} placement="end" onHide={handleClose}>
+            <Offcanvas
+              show={toggle}
+              placement="end"
+              onHide={handleClose}
+              style={{ zIndex: 999999 }}
+            >
               <Box display="flex" justifyContent="flex-end" padding="20px">
                 <Button
                   aria-label="Stäng Meny"
@@ -235,55 +371,184 @@ export default function NavbarComp() {
                 </Button>
               </Box>
               <Box className="offcanvas-content">
-                {menuItems.map((item) => (
-                  <Typography
-                    variant="h1"
-                    className="subtitle-font"
-                    key={item.url}
-                    style={{
-                      color: "#1d1d1d",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    <Link
-                      aria-label={`Länk till ${item.menuItem}`}
-                      onClick={(event) => handleClick(event)}
-                      className={`nav-link-main ${
-                        activeLink === item.menuItem ? "active" : ""
-                      }`}
-                      title="Vad BOB står för"
-                      data-replace={item.menuItem}
-                      to={`/${item.url}`}
-                      style={{
-                        fontSize: "16px",
-                        color: "#1d1d1d",
-                      }}
-                    >
-                      {item.menuItem}
-                    </Link>
-                  </Typography>
-                ))}
+                <AnimatePresence>
+                  {menuItems.map((item) =>
+                    // Dropdown menu offcanvas
+                    item.url === "vara-tjanster" ? (
+                      <Box
+                        position="relative"
+                        display="block"
+                        width="100%"
+                        key={item.id}
+                      >
+                        <motion.div
+                          onClick={() => setShowMenu(!showMenu)}
+                          style={{
+                            position: "absolute",
+                            top: "5px",
+                            right: "0",
+                          }}
+                          animate={{
+                            rotate: showMenu ? -180 : 0,
+                            transition: {
+                              type: "spring",
+                              bounce: 0.5,
+                              duration: 0.5,
+                            },
+                          }}
+                        >
+                          <ExpandMoreIcon style={expandClose} />
+                        </motion.div>
+                        <Typography
+                          variant="h2"
+                          className="subtitle-font"
+                          key={item.url}
+                          style={{
+                            color: "#1d1d1d",
+                            marginBottom: "20px",
+                          }}
+                        >
+                          <Link
+                            aria-label={`Länk till ${item.menuItem}`}
+                            onClick={(event) => handleClick(event)}
+                            className={`nav-link-main ${
+                              activeLink === item.menuItem ? "active" : ""
+                            }`}
+                            title="Vad BOB står för"
+                            data-replace={item.menuItem}
+                            to={`/${item.url}`}
+                            style={{
+                              color: "#1d1d1d",
+                            }}
+                          >
+                            {item.menuItem}
+                          </Link>
+                        </Typography>
+                        {showMenu && (
+                          <motion.div
+                            style={{
+                              padding: "20px",
+                              borderRadius: "4px",
+                            }}
+                            initial={{ y: "-50px", opacity: 0 }}
+                            animate={{
+                              y: 0,
+                              opacity: 1,
+                              transition: { type: "spring", duration: 0.3 },
+                            }}
+                          >
+                            <List component="nav" sx={{ padding: "0" }}>
+                              {options.map((listItem) => (
+                                <ListItem
+                                  sx={{ padding: 0 }}
+                                  key={`${listItem.id} + ${listItem.url}`}
+                                >
+                                  <Typography
+                                    variant="h2"
+                                    className="subtitle-font"
+                                    key={item.url}
+                                    style={{
+                                      color: "#1d1d1d",
+                                      marginBottom: "20px",
+                                    }}
+                                  >
+                                    <Link
+                                      className={`nav-link-main ${
+                                        activeLink === listItem.menuItem
+                                          ? "active"
+                                          : ""
+                                      }`}
+                                      to={listItem.url}
+                                      aria-label={`Länk till ${listItem.menuItem}`}
+                                      data-replace={listItem.menuItem}
+                                      style={{
+                                        color: toggle
+                                          ? "#000"
+                                          : theme.palette.background.default,
+                                        position: "relative",
+                                      }}
+                                    >
+                                      {listItem.menuItem}
+                                    </Link>
+                                  </Typography>
+                                </ListItem>
+                              ))}
+                            </List>
+                          </motion.div>
+                        )}
+                      </Box>
+                    ) : (
+                      <Typography
+                        variant="h2"
+                        className="subtitle-font"
+                        key={item.url}
+                        style={{
+                          color: "#1d1d1d",
+                          marginBottom: "20px",
+                        }}
+                      >
+                        <Link
+                          aria-label={`Länk till ${item.menuItem}`}
+                          onClick={(event) => handleClick(event)}
+                          className={`nav-link-main ${
+                            activeLink === item.menuItem ? "active" : ""
+                          }`}
+                          title="Vad BOB står för"
+                          data-replace={item.menuItem}
+                          to={`/${item.url}`}
+                          style={{
+                            color: "#1d1d1d",
+                          }}
+                        >
+                          {item.menuItem}
+                        </Link>
+                      </Typography>
+                    )
+                  )}
+                </AnimatePresence>
               </Box>
               <Box>
                 {/* Canvas Footer */}
-                <Box sx={{ padding: "15px" }}>
-                  <Button
-                    aria-label="Tidigare objekt"
-                    variant="contained"
-                    sx={{
-                      marginTop: smallScreen ? "10px" : "",
-                      borderRadius: "0",
-                      backgroundColor: theme.palette.primary[500],
-                      marginRight: "10px",
-                      color: theme.palette.background.default,
-                      "&:hover": {
-                        backgroundColor: theme.palette.primary[300],
-                      },
-                    }}
+                <Box sx={{ padding: "1rem" }}>
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
+                    padding="2rem 0"
+                    flexDirection="column"
                   >
-                  </Button>
+                    <Link to="/" aria-label="Länk till hem">
+                      <img
+                        src={logo}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          marginBottom: "1rem",
+                        }}
+                        title="BOB Logga"
+                        alt="BOB VÅTRUMSRENOVERING AB LOGGA"
+                      />
+                    </Link>
+                    <a
+                      style={contactP}
+                      href="https://maps.google.com/?q=59.3293234,18.0685808"
+                      target="_blank"
+                    >
+                      BOB VÅTRUMSRENOVERING AB,
+                      <br />
+                      Org-nummer: 556963-1905
+                      <br />
+                      Ǻsvägen 9, 155 32, Nykvarn
+                    </a>
+                  </Box>
+                  <ButtonOrange
+                    handleClose={handleClose}
+                    href="referenser"
+                    aria="Klicka för att se tidigare projekt"
+                    ariaAtag="Länk till tidigare projekt"
+                    buttonText="Tidigare objekt"
+                  />
                   <Button
-                    aria-label="Företagets Telefon-nummer"
+                    aria-label="Klicka för att ringa bobs Telefon-nummer"
                     sx={{
                       marginTop: smallScreen ? "10px" : "",
                       borderRadius: "0",
@@ -299,7 +564,7 @@ export default function NavbarComp() {
                     name="Telefon Nummer 08-333663"
                     variant="outlined"
                   >
-                    <CallIcon sx={{ marginRight: "5px", color: "#1d1d1d" }} />
+                    <CallIcon sx={{ marginRight: "10px", color: "#1d1d1d" }} />
                     <a
                       aria-label="Telefon nummer 08333663"
                       href="tel:08333663"
@@ -308,6 +573,7 @@ export default function NavbarComp() {
                       08 - 33 36 63
                     </a>
                   </Button>
+                  <ButtonWhite />
                 </Box>
               </Box>
             </Offcanvas>
@@ -317,3 +583,20 @@ export default function NavbarComp() {
     </Navbar>
   );
 }
+
+const dropdownBox = {
+  position: "absolute",
+  top: "100%",
+  left: "0",
+  backgroundColor: "rgba(33, 37, 41)",
+  width: "max-content",
+  padding: "20px 20px",
+  height: "auto",
+  boxShadow: "rgba(17, 17, 26, 0.1) 4px 5px 5px",
+};
+
+const contactP = {
+  margin: "0",
+  color: "#1d1d1d",
+  textDecoration: "none",
+};

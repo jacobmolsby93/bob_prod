@@ -52,20 +52,28 @@ const Testimonials = () => {
           <Typography variant="body1" className="primary">
             Vad folk Säger Om Oss
           </Typography>
-          <Typography variant="h1" className="title-font">
+          <Typography variant="h2" className="title-font">
             Tidigare Betyg
           </Typography>
         </Box>
         <Box className="row">
           <Box className="col-12 col-md-4">
             {testData.entries.map((data) => (
-              <Box onClick={() => setSelectedPerson(data)} className="testimonial-person-wrapper" key={data.key} sx={{ transition: "300ms", "&:hover": {transform: "scale(1.01)", cursor: "pointer"}}}>
+              <Box
+                onClick={() => setSelectedPerson(data)}
+                className="testimonial-person-wrapper"
+                key={data.key}
+                sx={{
+                  transition: "300ms",
+                  "&:hover": { transform: "scale(1.01)", cursor: "pointer" },
+                }}
+              >
                 <Button aria-label="Klicka för att see vad vald person har sagt om företaget">
                   <img
                     src={data.imageURL}
                     className="person-testimonial-image"
                     alt={data.fullName}
-                    style={{ 
+                    style={{
                       width: !smallScreen ? "60px" : "40px",
                       height: !smallScreen ? "60px" : "40px",
                     }}
@@ -89,7 +97,10 @@ const Testimonials = () => {
               alignItems="center"
               height="100%"
             >
-              <Box className="review-wrapper" sx={{margin: smallScreen ? "30px" : "0 0  100px 0"}}>
+              <Box
+                className="review-wrapper"
+                sx={{ margin: smallScreen ? "30px" : "0 0  100px 0" }}
+              >
                 <Box className="rating-wrapper">
                   <Typography variant="h3" fontWeight="bold">
                     {selectedPerson.title}

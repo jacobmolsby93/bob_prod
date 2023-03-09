@@ -1,16 +1,22 @@
-import {
-  Box,
-} from "@mui/material";
+import { Box } from "@mui/material";
 
 // Images
-import beijer from "../../../assets/beijer.webp";
-import bosch from "../../../assets/bosch.webp";
-import bahuahs from "../../../assets/bauhaus.webp";
-import okq8 from "../../../assets/okq8.webp";
-import optimera from "../../../assets/optimera.webp";
-import bostik from "../../../assets/bostik.webp";
-import dahl from "../../../assets/dahl.webp"
-import rexel from "../../../assets/rexel.webp"
+const beijer =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/beijer.webp";
+const bosch =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/bosch.webp";
+const bahuahs =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/bauhaus.webp";
+const okq8 =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/okq8.webp";
+const optimera =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/optimera.webp";
+const bostik =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/bostik.webp";
+const dahl =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/dahl.webp";
+const rexel =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/rexel.webp";
 
 const images = [
   {
@@ -41,7 +47,7 @@ const images = [
     id: 5,
     image: beijer,
     alt: "Beijer Logga",
-    url: "https://www.beijer.se",
+    url: "https://www.beijerbygg.se/foretag",
   },
   {
     id: 6,
@@ -53,18 +59,18 @@ const images = [
     id: 7,
     image: dahl,
     alt: "Logga Dahl",
-    url: "https://www.dahl.se/"
+    url: "https://www.dahl.se/",
   },
   {
     id: 8,
     image: rexel,
     alt: "Logga Rexel",
-    url: "https://www.rexel.se/swe/"
-  }
+    url: "https://www.rexel.se/swe/",
+  },
 ].map((image) => ({
-  id: crypto.randomUUID(),
+  id: image.id,
   image: image.image,
-  url: image.url
+  url: image.url,
 }));
 
 import CardContainer from "./CardContainer.jsx";
@@ -74,7 +80,7 @@ const Clients = () => {
     <div>
       <Box justifyContent="center">
         <Box className="slider-wrap">
-          <CardContainer images={images} speed={80000}/>
+          <CardContainer images={images} speed={80000} />
         </Box>
       </Box>
     </div>

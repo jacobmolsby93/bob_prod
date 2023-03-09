@@ -9,61 +9,65 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
-// icons
-import FacebookIcon from "../assets/facebookwhite.png";
+// MUI Icons
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import CopyrightRoundedIcon from "@mui/icons-material/CopyrightRounded";
-
-// Images (will need to be urls find suitable place to upload them)
-import logo from "../assets/boblogo.png";
+import ButtonOrange from "./ButtonOrange";
+// Images and Icons
+const footerShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/footer-logo-shape.png";
+const logoShapeLight =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/logo-shape-icon-light.png";
+const FacebookIcon =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/facebookwhite.png";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
+const TikTok =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/tik-tok-white.png";
 
 export default function Footer() {
   const theme = useTheme();
+  const smallScreen = useMediaQuery(() => theme.breakpoints.down("sm"));
   const lgScreen = useMediaQuery((theme) => theme.breakpoints.down("lg"));
   const mediumScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   const logoFooter = {
-    width: "90px",
-    height: "90px",
+    width: "70px",
+    height: "70px",
   };
 
   const mediumMargin = {
     margin: mediumScreen ? "1.5rem 0 1.5rem 0" : "0",
     padding: lgScreen ? "1rem" : "0",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: !smallScreen ? "center" : "flex-start",
   };
 
   const styledLinks = {
     padding: "0 0 5px",
-    fontSize: ".8rem",
+    fontSize: "1rem",
     marginTop: ".4rem",
     color: "#000",
     "&>a": {
-      color: "#9d9d9d",
+      color: "#fff",
+      fontWeight: "regular",
       textDecoration: "none",
       transition: "200ms",
       fontSize: "1rem",
     },
     "&:hover": {
       textDecoration: "none",
-      "&>a": { color: theme.palette.primary[800] },
+      "&>a": { color: theme.palette.primary[200] },
     },
   };
 
-  const buttonStyle = {
-    borderRadius: "0",
-    marginTop: ".5rem",
-    fontSize: "1rem",
-    backgroundColor: theme.palette.primary[500],
-    color: "#fff",
-    "&>a": { color: "#fff", textDecoration: "none" },
-    "&:hover": { backgroundColor: theme.palette.primary[600] },
-  };
-
   const footerIcon = {
-    color: theme.palette.primary[500],
+    color: "#fff",
     fontSize: "1.5rem",
     marginRight: ".5rem",
   };
@@ -71,8 +75,21 @@ export default function Footer() {
   return (
     <Box position="relative">
       <Box
+        position="absolute"
+        sx={{
+          backgroundImage: `url(${footerShape})`,
+          backgroundSize: "cover",
+          height: "300px",
+          width: !smallScreen ? "50vw" : "100vw",
+          bottom: "0",
+          right: "0",
+          opacity: "0.1",
+        }}
+      ></Box>
+      <Box
         sx={{
           backgroundColor: "#1a1a1a",
+          padding: !smallScreen ? "6rem 0" : "0",
         }}
       >
         <Box
@@ -83,61 +100,53 @@ export default function Footer() {
           justifyContent="center"
         >
           <Box className="row" padding="2rem 0">
-            <Box className="col-12 col-md-6 col-lg-3" style={mediumMargin}>
+            <Box className="col-12 col-md-6 col-lg-4" style={mediumMargin}>
               {/* Company logo and information */}
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="flex-end"
-                mb="1.5rem"
-              >
+              <Box display="flex" alignItems="flex-start" mb="1.5rem">
                 <Link to="/" aria-label="Länk till hem">
                   <img src={logo} style={logoFooter} alt="Company logo, BOB" />
                 </Link>
-                ;
+                <Typography
+                  variant="body1"
+                  style={{
+                    color: "#fff",
+                    paddingLeft: "1rem",
+                    margin: "0",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Pålitliga hantverkare som hjälper dig att göra verklighet av
+                  badrummet du drömmer om. Högkvalitativt hantverk, trygghet och
+                  tillgänglighet är ledord i vårt företag.
+                </Typography>
               </Box>
-              <p style={{ color: "#fff", margin: "0", fontSize: "1rem" }}>
-                Pålitliga badrumsrenoverare hjälper dig att skapa drömbadrum.
-                Högkvalitativt hantverk, trygghet och tillgänglighet är vår
-                prioritet.
-              </p>
-              <Box dispaly="flex" mt="2rem">
-                <a
-                  href="https://www.instagram.com/bob.badrum/"
-                  target="_blank"
-                  aria-label="Länk till företages Instagram"
-                  className="social-icon"
-                >
-                  <Button
-                    aria-label="Instagram"
-                    variant="outlined"
-                    sx={styledIconOutlined}
-                  >
-                    <InstagramIcon sx={{ width: "20px", height: "20px" }} />
-                  </Button>
-                </a>
-                <a
-                  href="https://www.facebook.com/byggobadrumspartner"
-                  target="_blank"
-                  aria-label="Länk till företages Facebook sida"
-                >
-                  <Button
-                    aria-label="Klicka för att komma till företagets hemsida."
-                    variant="outlined"
-                    sx={styledIconOutlined}
-                  >
-                    <img
-                      src={FacebookIcon}
-                      width="20px"
-                      height="20px"
-                      alt="Facebook ikon"
+              <Box mb={lgScreen ? "0" : "20px"}>
+                <List>
+                  <ListItem sx={styledLinks}>
+                    <Typography
+                      variant="h6"
+                      style={{
+                        color: theme.palette.primary.light,
+                        fontSize: "1.2rem",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Vi Hjälper Dig Komma Igång!
+                    </Typography>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <ButtonOrange
+                      href="kontakt"
+                      ariaAtag="Länk till kontakta oss"
+                      aria="Klicka för att komma till kontakta oss sidan"
+                      buttonText="Offert förfrågan"
                     />
-                  </Button>
-                </a>
+                  </ListItem>
+                </List>
               </Box>
             </Box>
             <Box
-              className="col-12 col-md-6 col-lg-3"
+              className="col-12 col-md-6 col-lg-4"
               display="flex"
               justifyContent={lgScreen ? "flex-start" : "center"}
               style={mediumMargin}
@@ -153,7 +162,10 @@ export default function Footer() {
                 </Typography>
                 <List component="ul">
                   <ListItem sx={styledLinks}>
-                    <Link to="/vara-tjanster/badrum">Badrum</Link>
+                    <Link to="/vara-tjanster">Våra Tjänster</Link>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/referenser">Tidigare Projekt</Link>
                   </ListItem>
                   <ListItem sx={styledLinks}>
                     <Link to="/behorigheter">Behörigheter</Link>
@@ -164,11 +176,17 @@ export default function Footer() {
                   <ListItem sx={styledLinks}>
                     <Link to="/omoss">Om Oss</Link>
                   </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/vanliga-fragor">Vanliga Frågor</Link>
+                  </ListItem>
+                  <ListItem sx={styledLinks}>
+                    <Link to="/trygg-renovering">Trygg Renovering</Link>
+                  </ListItem>
                 </List>
               </Box>
             </Box>
             <Box
-              className="col-12 col-md-6 col-lg-3"
+              className="col-12 col-md-6 col-lg-4"
               display="flex"
               justifyContent="space-between"
               style={mediumMargin}
@@ -192,24 +210,61 @@ export default function Footer() {
                     </p>
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0" }}>
-                    <a href="mailto:hej@bobbadrum.se" style={contactP}>
+                    <a
+                      href="mailto:hej@bobvatrumsrenovering.se"
+                      style={contactP}
+                    >
                       <span>
                         <EmailRoundedIcon sx={footerIcon} />
                       </span>
-                      hej@bobbadrum.se
+                      hej@bobvatrumsrenovering.se
                     </a>
                   </ListItem>
                   <ListItem sx={styledLinks}>
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="flex-start">
                       <FmdGoodRoundedIcon sx={footerIcon} />
                       <a
                         style={contactP}
                         href="https://maps.google.com/?q=59.3293234,18.0685808"
                         target="_blank"
                       >
-                        BOB Badrum Stockholm
+                        BOB VÅTRUMSRENOVERING AB,
+                        <br />
+                        Org-nummer: 556963-1905
+                        <br />
+                        Ǻsvägen 9, 155 32, Nykvarn
                       </a>
                     </Box>
+                    <Box mt="2rem"></Box>
+                  </ListItem>
+                  <ListItem sx={{ marginTop: "2rem" }}>
+                    <nav style={{ display: "flex" }}>
+                      {IconsList.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.link}
+                          alt={`${item.name} Logga`}
+                          aria-label={`Länk till BOBs ${item.name}s sida`}
+                          style={{ marginRight: "1rem" }}
+                        >
+                          <Box
+                            sx={{
+                              backgroundImage: `url(${logoShapeLight})`,
+                              backgroundPostition: "center",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "55px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              height: "55px",
+                              width: "55px",
+                            }}
+                          >
+                            {item.icon}
+                          </Box>
+                        </a>
+                      ))}
+                    </nav>
                   </ListItem>
                 </List>
               </Box>
@@ -220,42 +275,11 @@ export default function Footer() {
               display="flex"
               justifyContent={mediumScreen ? "flex-start" : "center"}
               style={mediumMargin}
-            >
-              {/* CTA */}
-              <Box mb={lgScreen ? "0" : "20px"}>
-                <Typography
-                  variant="h1"
-                  color={theme.palette.primary.light}
-                  sx={{
-                    fontSize: "1.4rem",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Kom Igång
-                </Typography>
-                <List>
-                  <ListItem sx={styledLinks}>
-                    <p style={{ color: theme.palette.primary.light }}>
-                      Vi Hjälper Dig Komma Igång!
-                    </p>
-                  </ListItem>
-                  <ListItem sx={styledLinks}>
-                    <Button
-                      name="offert förfrågan"
-                      variant="contained"
-                      sx={buttonStyle}
-                    >
-                      <Link to="/kontakt" className="button-text">
-                        Få en offert idag
-                      </Link>
-                    </Button>
-                  </ListItem>
-                </List>
-              </Box>
-            </Box>
+            ></Box>
           </Box>
         </Box>
       </Box>
+
       <Box position="absolute" bottom="20px" right="100px">
         <p style={{ color: "#fff", margin: "0", fontSize: ".7rem" }}>
           <span>
@@ -273,8 +297,9 @@ export default function Footer() {
 
 const contactP = {
   margin: "0",
-  color: "#9d9d9d",
+  color: "#fff",
   textDecoration: "none",
+  fontSize: "1rem",
 };
 
 const styledIconOutlined = {
@@ -289,3 +314,33 @@ const styledIconOutlined = {
     backgroundColor: "#000",
   },
 };
+
+const IconsList = [
+  {
+    orange: true,
+    icon: (
+      <img src={FacebookIcon} alt="Facebook ikon" width="auto" height="22px" />
+    ),
+    link: "https://www.facebook.com/bob.vatrumsrenovering/",
+    name: "Facebook",
+  },
+  {
+    icon: (
+      <InstagramIcon sx={{ width: "auto", height: "22px", color: "#fff" }} />
+    ),
+    link: "https://www.instagram.com/bob.vatrumsrenovering/",
+    name: "Instagram",
+  },
+  {
+    icon: <img src={TikTok} alt="Tiktok ikon" width="auto" height="22px" />,
+    link: "https://www.tiktok.com/@bob.vatrumsrenovering",
+    name: "Tiktok",
+  },
+  {
+    icon: (
+      <LinkedInIcon sx={{ width: "auto", height: "22px", color: "#fff" }} />
+    ),
+    link: "https://www.linkedin.com/in/info-bob-v%C3%A5trumsrenovering-ab-0bb772266/",
+    name: "LinkedIn",
+  },
+];

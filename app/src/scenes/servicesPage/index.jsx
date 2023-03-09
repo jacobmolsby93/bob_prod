@@ -1,38 +1,40 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
-  Button,
   Typography,
   useMediaQuery,
+  Button,
   useTheme,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-// Components
-import Contact from "../../components/Contact.jsx";
 import Spacer from "../../components/Spacer.jsx";
-import Credits from "../../components/Credits.jsx";
-
-// Widgets
-import Intro from "./widgets/Intro.jsx";
-import TipsCarousel from "./widgets/Tips.jsx";
-import Planer from "./widgets/Planer.jsx";
-
-// Animation
 import AnimatedBox from "../../animation/Animated.jsx";
-
-// Images
-import landingImage from "../../assets/servicesheroimg.webp";
-
-import { motion } from "framer-motion";
+import Credits from "../../components/Credits.jsx";
+// Widgets
+import ServiceBox from "./widgets/ServiceBox.jsx";
+// images
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/aboutimage1.webp";
 
 export default function Services() {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const mdScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const titleFontSize = "54px";
+  const buttonStyleOutline = {
+    marginTop: smallScreen ? "1rem" : "",
+    borderRadius: "0",
+    border: `.1rem solid ${theme.palette.grey[900]}`,
+    "&>a": {
+      textDecoration: "none",
+      color: theme.palette.grey[900],
+    },
+    "&:hover": {
+      border: `.1rem solid ${theme.palette.grey[500]}`,
+    },
+  };
+
   return (
-    <div style={{ minHeight: "max-content" }}>
-      <Box className="landing-box-home">
+    <Box>
+      <Box className="landing-box">
         <Box className="landing-box-home__overlay" zIndex="10"></Box>
         <Box
           className="landing-box-home__image"
@@ -49,7 +51,7 @@ export default function Services() {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: smallScreen ? "center" : "flex-end",
+            justifyContent: "flex-end",
             paddingBottom: "5%",
             zIndex: "20",
           }}
@@ -67,109 +69,32 @@ export default function Services() {
               textTransform="uppercase"
               color="#E6E6E6"
             >
-              Badrumsrenovering?
+              Våra Tjänster
             </Typography>
-            <Box className="col-12 col-lg-7">
-              <p className="button-text" style={{ color: "#E6E6E6" }}>
-                Dags att renovera badrummet? Låt oss vara med och räkna. Vi
-                renoverar ett stort antal badrum och tvättstugor varje år och
-                hos oss får du ett fast pris, en tydlig och fastställd tidplan
-                och en engagerad projektledare som är med dig hela vägen från
-                start till mål. Kontakta BOB för en fri rådgivning av din
-                Badrumsrenovering i Stockholm.
-              </p>
-            </Box>
-
-            <Button
-              aria-label="Klicka för att komma till kontaka oss sidan"
-              variant="contained"
-              sx={{
-                marginTop: "30px",
-                borderRadius: "0",
-                backgroundColor: theme.palette.primary[500],
-                marginRight: "20px",
-                "&>a": {
-                  color: theme.palette.background.default,
-                  textDecoration: "none",
-                },
-                "&:hover": {
-                  backgroundColor: theme.palette.primary[600],
-                },
-              }}
-            >
-              <Link to="/kontakt" className="button-text" aria-label="Länk till kontakta oss">
-                Kontakta Oss
-              </Link>
-            </Button>
           </AnimatedBox>
         </Box>
       </Box>
+      <ServiceBox />
+
       <Spacer />
 
-      <AnimatedBox>
-        <section id="intro">
-          <Box className="container">
-            <Intro />
-          </Box>
-        </section>
-      </AnimatedBox>
+      <Box display="flex" justifyContent="center">
+        <Button
+          variant="outlined"
+          sx={buttonStyleOutline}
+          aria-label="Klicka för att komma till sidan kontakta oss"
+        >
+          <Link aria-label="Länk till kontakta oss" to="/kontakt">
+            <strong className="body-paragraph">Kontakta Oss För Offert</strong>
+          </Link>
+        </Button>
+      </Box>
+
       <Spacer />
-      <AnimatedBox>
-        <section id="tips">
-          <Box className="container">
-            <Box className="row">
-              <Box className="flex-centerd-justify" mb="2rem">
-                <Box textAlign="center">
-                  <Typography variant="h1" className="title-font">
-                    10 Tips Inför Din Badrumsrenovering
-                  </Typography>
-                  <Box className="flex-centerd-justify">
-                    <p
-                      className="body-paragraph"
-                      style={{
-                        width: smallScreen || mdScreen ? "100%" : "70%",
-                        textAlign: "center",
-                      }}
-                    >
-                      Den som äger ett hus eller en lägenhet i Stockholm behöver
-                      lägga tid och pengar för att renovera sin bostad. En av de
-                      vanligaste, och roligaste rummen att renovera enligt oss är såklart badrum!
-                    </p>
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-          <TipsCarousel />
-        </section>
-      </AnimatedBox>
-      <Spacer />
-      <AnimatedBox>
-        <section id="planering">
-          <Box className="container">
-            <Planer />
-          </Box>
-        </section>
-      </AnimatedBox>
-      <Spacer />
-      <AnimatedBox>
-        <section id="tjanster-kontakt">
-          <Box
-            className="contact-background"
-            minHeight={!smallScreen ? "640px" : undefined}
-          >
-            <Box className="container">
-              <Box className="row">
-                <Contact />
-              </Box>
-            </Box>
-          </Box>
-        </section>
-      </AnimatedBox>
-      <Spacer />
-      <div className="credits-bg">
-        <Credits dark={true}/>
-      </div>
-    </div>
+
+      <section className="credits-bg">
+        <Credits dark={true} />
+      </section>
+    </Box>
   );
 }

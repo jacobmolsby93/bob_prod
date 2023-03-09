@@ -72,7 +72,7 @@ export default function CostCalculator() {
       >
         {!roomType && (
           <Box textAlign="center">
-            <Typography variant="h1" fontWeight="bold">
+            <Typography variant="h2" fontWeight="bold" className="title-font">
               Kostnads Kalkyl
             </Typography>
             <p className="body-paragraph">

@@ -2,39 +2,51 @@
     "questions": [
       {
         "id": 1,
-        "question": "Hur Lång tid tar de att renovera ett badrum?",
-        "answer": "Ett standard badrum tar ca 4 veckor från start till klart, ett standard badrum räknas som 4kvm."
+        "question": "Hur lång tid kommer min renovering att ta?",
+        "answerList": {
+          "title": "Nedan följer olika tidsplaner för dem olika renoveringarna.",
+          "list1": "Badrum 2-6 kvm. 4 veckor.",
+          "list2": "Badrum 7-12 kvm 5-6 veckor.",
+          "list3": "Wc 2-3 veckor.",
+          "list4": "Tvättstuga 3-4 veckor.",
+          "body": "Innan vi startar renoveringen hemma hos dig kommer du få en fast tidsplan för just ditt projekt. I avtalet lägger vi alltid till en vecka ifall någon behöver vara frånvarande från arbetet. Hör av dig till oss för att få veta mer om hur lång tid din renovering tar."
+        },
+        "link": "#kontakt"
       },
       {
         "id": 2,
-        "question": "Kan jag lägga in golvvärme i mitt badrum under renoveringen?",
-        "answer": "Ja, det är möjligt att lägga in golvvärme i ett badrum under renoveringen!"
+        "question": "När jag bokar en renovering med er, kan jag för vänta mig att priset är fast?",
+        "answer": "Ja det kan du göra. Det är viktigt att tänka på att priset är fast enligt offerten du som kund har fått. Står det inte med i offerten ingår det inte i det fasta priset. Läs alltid noga igenom offerten och fråga kundansvarig om du är osäker på om det ingår eller inte."
       },
       {
         "id": 3,
-        "question": "Hjälper ni med att planera badrummet?",
-        "answer": "Vi hjälper till med inrednings planering. Erfarena projekt ledare tar över arbetet vid projektets start!"
+        "question": "Vilka arbetstider arbetar ni? Kan jag förvänta mig att ni är här varje dag?",
+        "answer": "Hantverkarna arbetar vardagar mellan 07–16. Det kan hända att dem arbetar lite extra för att bli klara med dagensmoment. Om vi ska arbeta på helgen kommer vi att fråga dig som kund innan. Vi försöker att vara på plats dagligen, ibland blir det ett glapp mellan olika yrkesgrupper och det medför att det kan stå tomt ibland. Bli inte oroliga! Det är med i tidsplanen från början."
       },
       {
         "id": 4,
-        "question": "Hur vet man när man måste byta golv brunn?",
-        "answer": "Enligt BKR regler, så måste man byta brunn om den inte är bytt efter 1990!",
-        "link": "/kontakt"
+        "question": "Behöver jag förbereda något inför första mötet med er?",
+        "answer": "Det är väldigt bra om du kan skriva ner en önskelista på vad du vill att din renovering ska innefatta. Även om du har några frågor är det bra att skriva ner dem inför mötet."
       },
       {
         "id": 5,
-        "question": "Vad kostar ett badrum att renovera med BOB?",
-        "answer": "Kontakta oss idag för att reda på vad just ditt badrum kan komma och kosta."
+        "question": "Kan jag välja vilket kakel som helst?",
+        "answer": "Det går bra att välja vilken typ av kakel som helst. Det viktiga är att meddela din kundansvarige vilken typ av plattor du tänker ha. Som standard räknar vi på sättning 15x15 – 20x40 på vägg och 10x10 – 20x20 på golvet. Avviker era val från dessa storlekar kan det tillkomma en merkostnad för att sätta just det kaklet som du valt."
       },
       {
         "id": 6,
-        "question": "Varför ska bygg-firmor vara behöriga att renovera badrum?",
-        "answer": "Vi är behöriga för att renovera badrum, vi följer alla regler och lagar för att säkerställa ett godkännt badrum!"
+        "question": "Måste jag välja mindre plattor på golvet?",
+        "answer": "Det går bra att välja större plattor också. Om du väljer att ha en avlångbrunn eller en hörnbrunn kan du gå upp mycket i storlek utan att behöva kapa ner plattorna. Det går även att kuvertskära plattorna på golvet om du väljer att ha en traditionell brunn."
       },
       {
         "id": 7,
-        "question": "Vad behöver jag tänka på inför min badrums renovering?",
-        "answer": "De kan va bra att ha en grundlig överblick hur man vill att badrummet ska se ut, börja titta vilken typ av inredning och kakel som ska införskaffas."
+        "question": "Varför ska jag välja att anlita er för min renovering?",
+        "answer": "Det är en bra fråga. Vi har en lång erfarenhet av våtrumsrenoveringar runt om i Stockholm. Vi har träffat på många olika typer av våtutrymmen. Genom erfarenheten kan vi se vad som är möjligt med just din renovering. Regelverket kan ha ändrats en hel del sedan ditt nuvarande utrymme byggdes. Vi har koll på reglerna! Vår kompetens utmanas hela tiden av marknadens olika besiktningsmän. Kompetensen och erfarenheten är en stor del men inte allt. Mjukavärden som kommunikation, tillgänglighet och hålla vad man lovar är också något som vi tycker är väldigt viktigt. Genom tät kontakt med projektledare och kundansvarig undviker vi dålig kommunikation och missförstånd."
+      },
+      {
+        "id": 8,
+        "question": "Kommer jag få några bevis på att mitt badrum är byggt korrekt?",
+        "answer": "När renoveringen är klart kommer vi att lämna/skicka över nödvändig dokumentation till dig som kund. Den innefattar egenkontroller på dem olika momenten vi genomfört i din renovering."
       }
     ]
   }

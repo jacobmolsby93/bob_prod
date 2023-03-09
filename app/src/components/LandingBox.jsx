@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 
-export default function LandingBox({image, title}) {
+export default function LandingBox({ image, title }) {
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const titleFontSize = "54px";
 

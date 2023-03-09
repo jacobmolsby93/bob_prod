@@ -2,39 +2,23 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Button,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // JSON data with questions
 import faqData from "../../../data/faqData.json";
+import ButtonOrange from "../../../components/ButtonOrange";
 
 export default function Faq(props) {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   // Handle question
   const [questions, setQuestions] = useState(faqData.questions);
-
-  const buttonStyleContained = {
-    marginTop: smallScreen ? "1rem" : "",
-    borderRadius: "0",
-    border: "none",
-    marginRight: "1rem",
-    backgroundColor: theme.palette.primary[500],
-    "&>a": {
-      textDecoration: "none",
-      color: "#fff",
-    },
-    "&:hover": {
-      backgroundColor: theme.palette.primary[600],
-    },
-  };
 
   const handleToggleAnswer = (id) => {
     // Find the index of the question in the array
@@ -53,38 +37,131 @@ export default function Faq(props) {
 
   return (
     <>
-      {questions.map((question) => (
-        <Box key={question.id} sx={{ marginBottom: "10px" }}>
-          <Accordion>
+      {questions.map((question, index) => (
+        <Box key={question.id}>
+          <Accordion
+            sx={{
+              boxShadow: "none",
+              borderTop: "1px solid rgba(0, 0, 0, 0.15)",
+              borderBottom:
+                index === questions.length - 1
+                  ? "1px solid rgba(0, 0, 0, 0.15)"
+                  : "0",
+              borderRadius: "0 !important",
+            }}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls={`question-${question.id}-content`}
               id={`question-${question.id}-header`}
               onClick={() => handleToggleAnswer(question.id)}
+              title="Klicka för att se svar"
             >
               <Typography
                 variant="h5"
                 component="h3"
-                style={{ margin: "0", paddingLeft: "20px", fontWeight: "600" }}
+                style={{
+                  margin: "0",
+                  padding: !smallScreen ? "1rem 1.8rem" : "0.5rem",
+                  fontWeight: "700",
+                  fontSize: !smallScreen ? "1.4rem" : "1.2rem",
+                }}
               >
                 {question.question}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Box className="col-12" paddingLeft="20px">
-                <p className="body-paragraph" style={{ margin: "0" }}>
-                  "{question.answer}"
-                </p>
+              <Box
+                className="col-12"
+                sx={{ paddingLeft: !smallScreen ? "20px" : "0" }}
+              >
+                <Typography
+                  variant="body1"
+                  style={{
+                    margin: "0 1rem",
+                    fontSize: !smallScreen ? "1.2rem" : "1rem",
+                  }}
+                >
+                  {question.answer}
+                </Typography>
+                {question.answerList && (
+                  <>
+                    <Typography
+                      variant="body1"
+                      style={{
+                        margin: "0 1rem 1rem 1rem",
+                        fontSize: !smallScreen ? "1.2rem" : "1rem",
+                      }}
+                    >
+                      {question.answerList.title}
+                    </Typography>
+                    <ul>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
+                        >
+                          {question.answerList.list1}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
+                        >
+                          {question.answerList.list2}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
+                        >
+                          {question.answerList.list3}
+                        </Typography>
+                      </li>
+                      <li>
+                        <Typography
+                          variant="body1"
+                          style={{
+                            margin: "0 1rem",
+                            fontSize: !smallScreen ? "1.2rem" : "1rem",
+                          }}
+                        >
+                          {question.answerList.list4}
+                        </Typography>
+                      </li>
+                    </ul>
+                    <Typography
+                      variant="body1"
+                      style={{
+                        margin: "0 1rem",
+                        fontSize: !smallScreen ? "1.2rem" : "1rem",
+                      }}
+                    >
+                      {question.answerList.body}
+                    </Typography>
+                  </>
+                )}
               </Box>
               {question.link && (
-                <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till kontakta oss">
-                  <Link
-                    to={question.link}
-                    aria-label={`Länk till ${question.link}`}
-                  >
-                    Kontakta Oss
-                  </Link>
-                </Button>
+                <Box padding="1rem">
+                  <ButtonOrange
+                    href={question.link}
+                    aria={`Länk till ${question.link}`}
+                    ariaAtag="Klicka för att komma till kontakta oss"
+                    buttonText="Kontakta Oss"
+                  />
+                </Box>
               )}
             </AccordionDetails>
           </Accordion>

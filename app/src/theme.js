@@ -1,9 +1,10 @@
 // color design tokens export
-export const tokensLight  = {
+export const tokensLight = {
   grey: {
     0: "#FFFAF5", // manually adjusted
     10: "#f6f6f6", // manually adjusted
     20: "#E9E5E1",
+    30: "F9F9F9",
     50: "#f0f0f0", // manually adjusted
     100: "#e0e0e0",
     200: "#c2c2c2",

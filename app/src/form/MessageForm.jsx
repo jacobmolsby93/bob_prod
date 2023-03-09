@@ -1,371 +1,425 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
+import React, { useState, useEffect } from "react";
+import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import {
-  Grid,
   Box,
+  RadioGroup,
   TextField,
+  FormControl,
   FormControlLabel,
-  Checkbox,
-  Modal,
+  FormLabel,
+  Grid,
+  Radio,
   Typography,
-  Button,
+  MenuItem,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
+import { onSubmit } from "./onSubmit";
+import ButtonOrange from "../components/ButtonOrange";
+const footerShape =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/footer-logo-shape.png";
+
+const validationSchema = Yup.object({
+  typ: Yup.string(),
+  fornamn: Yup.string().required("Förnamn är obligatoriskt"),
+  efternamn: Yup.string().required("Efternamn är obligatoriskt"),
+  stadsdel_kommun: Yup.string(),
+  epost: Yup.string()
+    .email("Ogiltig e-postadress")
+    .required("E-post är obligatoriskt"),
+  telefon: Yup.string(),
+  arende: Yup.string(),
+  medelande: Yup.string().required("Medelande är obligatoriskt"),
+  files: Yup.array()
+    .required("Vänligen välj minst en fil")
+    .test("fileFormat", "Endast JPG, PNG eller GIF format stöds", (value) => {
+      if (value && value.length) {
+        for (let i = 0; i < value.length; i++) {
+          const fileType = value[i].type;
+          if (
+            fileType !== "image/jpeg" &&
+            fileType !== "image/png" &&
+            fileType !== "image/gif"
+          ) {
+            return false;
+          }
+        }
+        return true;
+      } else {
+        return true;
+      }
+    })
+    .test("fileSize", "Bilderna får inte vara större än 2MB", (value) => {
+      if (value && value.length) {
+        for (let i = 0; i < value.length; i++) {
+          const fileSize = value[i].size;
+          if (fileSize > 2000000) {
+            return false;
+          }
+        }
+        return true;
+      } else {
+        return true;
+      }
+    }),
+});
 
 const MessageFields = () => {
   const theme = useTheme();
   const smallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const [formStatus, setFormStatus] = useState(null);
-  const [open, setOpen] = useState(false);
-  const [formValues, setFormValues] = useState(null);
-
-  const [openModal, setOpenModal] = useState(false);
-  const [gdprAccepted, setGdprAccepted] = useState(false);
-
-  const handleClose = () => {
-    setOpen(false);
-    setOpenModal(false);
-  };
-
-  const handleAccept = () => {
-    setGdprAccepted(true);
-    setOpenModal(false);
-  };
-
-  let templateId, serviceId, publicKey;
-  templateId = import.meta.env.VITE_TEMPLATE_ID;
-  serviceId = import.meta.env.VITE_SERVICE_ID;
-  publicKey = import.meta.env.VITE_PUBLIC_KEY;
-
-  const styledInput = {
-    marginBottom: "20px",
-    backgroundColor: "#fefaf5",
-    borderRadius: ".3rem",
-    gridColumn: "1fr",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.10)",
-    color: "red",
-    "& label": {
-      color: "#2d2d2d",
-    },
-    "& label.Mui-focused": {
-      color: "#2d2d2d",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: theme.palette.primary[500],
-      },
-      "&:hover fieldset": {
-        border: `2px solid ${theme.palette.primary[500]}`,
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: theme.palette.primary[500],
-      },
-    },
-  };
-
-  const buttonStyle = {
-    borderRadius: "0",
-    backgroundColor: theme.palette.primary[500],
-    "&": {
-      color: theme.palette.background.default,
-      textDecoration: "none",
-    },
-    "&:hover": {
-      backgroundColor: theme.palette.primary[600],
-    },
-  };
-
-  const checkBoxStyle = {
-    paddingLeft: "0",
-    color: theme.palette.primary[500],
-    "&.Mui-checked": {
-      color: theme.palette.primary[600],
-    },
-  };
-
-  const formik = useFormik({
-    initialValues: {
-      namn: "",
-      epost: "",
-      telefon: "",
-      medelande: "",
-      gdpr: false,
-    },
-    validationSchema: Yup.object({
-      namn: Yup.string()
-        .min(2, "Namn måste vara minst 2 bokstäver lånt")
-        .max(100, "Får ej överskrida 100 bokstäver")
-        .required("Namn är obligatoriskt"),
-      epost: Yup.string()
-        .email("Ange en giltig e-post address")
-        .required("Epost är obligatoriskt"),
-      telefon: Yup.string().matches(
-        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im,
-        "Ogiltigt nummer"
-      ),
-      medelande: Yup.string().min(
-        10,
-        "Medelandet måste vara minst 10 bokstäver"
-      ),
-      gdpr: Yup.boolean(),
-    }),
-    onSubmit: (values) => {
-      const { namn, epost, telefon, medelande } = values;
-      setFormValues(values);
-      const valuesWithCustomFields = {
-        ...values,
-        to_name: "Bob Badrum",
-        from_name: namn,
-        message: `${medelande} \n Telefon: ${telefon}`,
-        reply_to: epost,
-      };
-      emailjs
-        .send(serviceId, templateId, valuesWithCustomFields, publicKey)
-        .then(
-          (result) => {
-            setOpen(true);
-            setFormStatus("success");
-            formik.resetForm();
-          },
-          (error) => {
-            setFormStatus("error");
-          }
-        )
-        .finally(() => {
-          formik.setSubmitting(false);
-        });
-    },
-  });
+  const choices = [
+    "Stockholm",
+    "Botkyrka",
+    "Bromma",
+    "Danderyd",
+    "Ekerö",
+    "Enskede",
+    "Haninge",
+    "Huddinge",
+    "Järfälla",
+    "Kungsholmen",
+    "Lidingö",
+    "Märsta",
+    "Nacka",
+    "Norrtälje",
+    "Sollentuna",
+    "Solna",
+    "Södermalm",
+    "Södertälje",
+    "Tyresö",
+    "Täby",
+    "Vallentuna",
+    "Vasastan",
+    "Värmdö",
+    "Åkersberga",
+    "Årsta",
+    "Östermalm",
+  ];
+  const subject = [
+    "Badrumsrenovering",
+    "Wcrenovering",
+    "Tvätt-stugerenovering",
+  ];
 
   return (
-    <Grid item xs={12} md={8} lg={6} className="mt-sm-3 mt-lg-none">
-      {formValues && (
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style} className="col-10 col-md-8 col-lg-5">
-            <Typography
-              id="modal-modal-title"
-              fontWeight="bold"
-              variant="h3"
-              component="h2"
-            >
-              Tack för ditt medelande, {formValues.namn}!
-            </Typography>
-            <Typography
-              id="modal-modal-description"
-              sx={{ mt: 2 }}
-              component="p"
-            >
-              Vi återkommer så fort vi kan. Under tiden så kan du läsa mer om
-              våra
-              <Link to="/vara-tjanster" aria-label="Länk till våra Tjänster" sx={{ marginLeft: ".5rem"}}>
-                tjänster
-              </Link>
-              .
-            </Typography>
-          </Box>
-        </Modal>
-      )}
-      <form
-        onSubmit={formik.handleSubmit}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
-        <TextField
-          className="form-field"
-          name="namn"
-          label="Namn"
-          type={formik.values.namn}
-          value={formik.values.namn}
-          onChange={formik.handleChange}
-          error={formik.touched.namn && Boolean(formik.errors.namn)}
-          helperText={formik.touched.namn && formik.errors.namn}
-          sx={styledInput}
-        />
-        <TextField
-          className="form-field"
-          id="epost"
-          name="epost"
-          label="Epost"
-          value={formik.values.epost}
-          onChange={formik.handleChange}
-          error={formik.touched.epost && Boolean(formik.errors.epost)}
-          helperText={formik.touched.epost && formik.errors.epost}
-          sx={styledInput}
-        />
-        <TextField
-          className="form-field"
-          id="telefon"
-          name="telefon"
-          label="Telefon"
-          value={formik.values.telefon}
-          onChange={formik.handleChange}
-          error={formik.touched.telefon && Boolean(formik.errors.telefon)}
-          helperText={formik.touched.telefon && formik.errors.telefon}
-          sx={styledInput}
-        />
-        <TextField
-          id="medelande"
-          name="medelande"
-          label="Medelande"
-          rows={4}
-          multiline
-          value={formik.values.medelande}
-          onChange={formik.handleChange}
-          error={formik.touched.medelande && Boolean(formik.errors.medelande)}
-          helperText={formik.touched.medelande && formik.errors.medelande}
-          sx={styledInput}
-        />
-        <FormControlLabel
-          name="gdpr"
-          sx={{ marginLeft: "0", position: "relative" }}
-          label={
-            <span>
-              Jag godkänner <Link onClick={() => setOpenModal(true)}>GDPR</Link>
-              -villkoren
-            </span>
-          }
-          control={
-            <Checkbox
-              sx={checkBoxStyle}
-              onChange={formik.handleChange}
-              onClick={() => setGdprAccepted(!gdprAccepted)}
-              checked={gdprAccepted}
-            />
-          }
-        />
-        {formik.touched.gdpr && formik.errors.gdpr && (
-          <span
-            style={{ position: "absolute", bottom: "20px", color: "#c2662d" }}
-          >
-            {formik.errors.gdpr}
-          </span>
-        )}
-
-        {openModal && (
-          <Modal
-            open={openModal}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style} className="col-10 col-md-7 col-lg-5">
-              <Box position="relative">
+    <>
+      <Box className="container">
+        <Box className="row" justifyContent="center">
+          <Box className="col-12 col-md-102 col-xl-7">
+            <Grid item>
+              <Box
+                sx={{
+                  backgroundColor: "#1D1D1B",
+                  borderRadius: "10px",
+                  padding: !smallScreen ? "5rem" : "1rem",
+                  position: "relative",
+                }}
+              >
                 <Box
                   sx={{
-                    position: "aboslute",
-                    width: "100%",
-                    top: "20px",
-                    right: "20px",
-                    display: "flex",
-                    justifyContent: "flex-end",
+                    position: "absolute",
+                    bottom: 0,
+                    right: 0,
+                    backgroundImage: `url(${footerShape})`,
+                    backgroundPosition: "bottom right",
+                    backgroundRepeat: "no-repeat",
+                    width: !smallScreen ? "30vw" : "70vw",
+                    height: !smallScreen ? "20vw" : "40vw",
+                    backgroundSize: "cover",
+                    opacity: "0.1",
                   }}
-                >
-                  <Button
-                    onClick={() => handleClose()}
-                    sx={{
-                      minWidth: "0 !important",
-                      color: "#2d2d2d",
-                      padding: "0 !important",
-                      margin: "0 !important",
-                    }}
-                  >
-                    <CloseIcon />
-                  </Button>
-                </Box>
+                ></Box>
                 <Typography
-                  id="modal-modal-title"
-                  fontWeight="bold"
-                  variant="h2"
-                  component="h2"
-                  sx={{
-                    "@media (max-width: 600px)": {
-                      fontSize: "1.2rem",
-                    },
-                  }}
+                  variant="h5"
+                  className="title-font"
+                  sx={{ color: "#fff" }}
                 >
-                  HANTERING AV PERSONUPPGIFTER (GDPR)
+                  Kontakt formulär
                 </Typography>
-                <Box
-                  sx={
-                    !smallScreen
-                      ? {}
-                      : { maxHeight: "300px", overflowY: "scroll" }
-                  }
+                <Typography
+                  variant="body1"
+                  className="body-paragraph"
+                  sx={{ color: "#fff", padding: "1rem 0" }}
                 >
-                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    <strong>Bob Badrum AB</strong> samlar in och bearbetar dina
-                    personuppgifter för att tillhandahålla produkter och
-                    tjänster åt dig, för att informera dig om nyheter och
-                    uppdateringar av våra produkter och tjänster,
-                    <br />
-                    <br />
-                    för att anpassa din upplevelse av vår webbplats samt för att
-                    förbättra våra produkter och tjänster. När som helst har du
-                    rätt att få tillgång till, korrigera och radera dina
-                    personuppgifter och att invända mot bearbetning av dina
-                    personuppgifter. Du kan utöva dessa rättigheter genom att
-                    skicka ett e-postmeddelande till följande adress{" "}
-                    <Link href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</Link>
-                    .
-                    <br />
-                    <br />
-                    <strong>Bob Badrum AB</strong> förbinder sig att respektera
-                    och skydda dina personuppgifter och din personliga
-                    integritet i enlighet med gällande lagstiftning,
-                    branschregler och andra relevanta normer. Vi lämnar aldrig
-                    ut dina personuppgifter till tredje part utan ditt
-                    godkännande.
-                  </Typography>
-                </Box>
-                <Box mt="10px" className="flex-centerd-justify">
-                  <Button
-                    onClick={() => handleAccept()}
-                    variant="contained"
-                    color="success"
-                  >
-                    Jag Accepterar Vilkoren
-                  </Button>
-                </Box>
+                  Fyll i formuläret nedan så kontaktar vi dig så fort vi kan!
+                </Typography>
+                <Formik
+                  onSubmit={onSubmit}
+                  initialValues={{
+                    typ: "",
+                    fornamn: "",
+                    efternamn: "",
+                    stadsdel_kommun: "",
+                    epost: "",
+                    telefon: "",
+                    arende: "",
+                    medelande: "",
+                  }}
+                  validationSchema={validationSchema}
+                >
+                  {(props) => (
+                    <form onSubmit={props.handleSubmit}>
+                      <Grid item xs={12}>
+                        <Field name="typ">
+                          {({ field }) => (
+                            <FormControl component="fieldset">
+                              <FormLabel component="legend">
+                                Selected Option
+                              </FormLabel>
+                              <RadioGroup
+                                style={{
+                                  display: "inline",
+                                  color: "#fff",
+                                }}
+                                {...field}
+                                value={props.values.typ}
+                                onChange={props.handleChange}
+                              >
+                                <FormControlLabel
+                                  control={<Radio />}
+                                  label="Privat"
+                                  value="privat"
+                                />
+                                <FormControlLabel
+                                  control={<Radio />}
+                                  label="Företag"
+                                  value="foretag"
+                                />
+                              </RadioGroup>
+                            </FormControl>
+                          )}
+                        </Field>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          id="fornamn"
+                          name="fornamn"
+                          label="Förnamn"
+                          value={props.values.fornamn}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.fornamn &&
+                            Boolean(props.errors.fornamn)
+                          }
+                          helperText={
+                            props.touched.fornamn && props.errors.fornamn
+                          }
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          id="efternamn"
+                          name="efternamn"
+                          label="Efternamn"
+                          type="efternamn"
+                          value={props.values.efternamn}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.efternamn &&
+                            Boolean(props.errors.efternamn)
+                          }
+                          helperText={
+                            props.touched.efternamn && props.errors.efternamn
+                          }
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          id="epost"
+                          name="epost"
+                          label="Epost"
+                          type="email"
+                          value={props.values.epost}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.epost && Boolean(props.errors.epost)
+                          }
+                          helperText={props.touched.epost && props.errors.epost}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          id="telefon"
+                          name="telefon"
+                          label="Telefon"
+                          type="telefon"
+                          value={props.values.telefon}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.telefon &&
+                            Boolean(props.errors.telefon)
+                          }
+                          helperText={
+                            props.touched.telefon && props.errors.telefon
+                          }
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          variant="outlined"
+                          name="stadsdel_kommun"
+                          id="stadsdel_kommun"
+                          select
+                          label="Stadsdel / Kommun"
+                          value={props.values.stadsdel_kommun}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.stadsdel_kommun &&
+                            Boolean(props.errors.stadsdel_kommun)
+                          }
+                          helperText={
+                            props.touched.stadsdel_kommun &&
+                            props.errors.stadsdel_kommun
+                          }
+                          SelectProps={{
+                            MenuProps: {
+                              PaperProps: {
+                                style: {
+                                  maxHeight: "300px",
+                                },
+                              },
+                            },
+                          }}
+                        >
+                          {choices.length !== 0 &&
+                            choices.map((option) => (
+                              <MenuItem
+                                key={option}
+                                value={option}
+                                sx={{ "& < parent": { height: "300px" } }}
+                              >
+                                {option}
+                              </MenuItem>
+                            ))}
+                        </TextField>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          variant="outlined"
+                          name="arende"
+                          id="arende"
+                          select
+                          label="Ärende"
+                          value={props.values.arende}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.arende && Boolean(props.errors.arende)
+                          }
+                          helperText={
+                            props.touched.arende && props.errors.arende
+                          }
+                        >
+                          <MenuItem key={""} value={""}></MenuItem>
+                          {subject ? (
+                            subject.map((option) => (
+                              <MenuItem key={option} value={option}>
+                                {option}
+                              </MenuItem>
+                            ))
+                          ) : (
+                            <MenuItem key={""} value={""}></MenuItem>
+                          )}
+                        </TextField>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          sx={TextFieldStyles}
+                          rows={10}
+                          multiline
+                          id="medelande"
+                          name="medelande"
+                          label="Medelande"
+                          type="medelande"
+                          value={props.values.medelande}
+                          onChange={props.handleChange}
+                          error={
+                            props.touched.medelande &&
+                            Boolean(props.errors.medelande)
+                          }
+                          helperText={
+                            props.touched.medelande && props.errors.medelande
+                          }
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <input
+                          id="files"
+                          name="files"
+                          type="file"
+                          multiple
+                          onChange={(event) => {
+                            const files = event.currentTarget.files;
+                            const images = [];
+                            for (let i = 0; i < files.length; i++) {
+                              images.push(files[i]);
+                            }
+                            props.setFieldValue("files", images);
+                          }}
+                        />
+                      </Grid>
+                      <Box
+                        sx={{
+                          padding: "0.5rem 0",
+                          color: "#fff",
+                          width: !smallScreen ? "70%" : "80%",
+                        }}
+                      >
+                        <Typography>
+                          Genom att klicka på skicka medelande så godkänner du
+                          våran policy för gdpr, du kan när som helst skriva
+                          till oss för att ta bort dina uppgifter.
+                        </Typography>
+                      </Box>
+                      <Grid
+                        item
+                        xs={12}
+                        sx={{ display: "flex", justifyContent: "flex-end" }}
+                      >
+                        <ButtonOrange
+                          buttonText="Skicka Medelande"
+                          type="submit"
+                          aria="Klicka för att skicka medelande"
+                        />
+                      </Grid>
+                    </form>
+                  )}
+                </Formik>
               </Box>
-            </Box>
-          </Modal>
-        )}
-        {/* Submit Form */}
-        <Box display="flex" justifyContent="flex-end">
-          <Button
-            name="skicka"
-            type="submit"
-            variant="contained"
-            sx={buttonStyle}
-          >
-            <p className="button-text">Skicka</p>
-          </Button>
+            </Grid>
+          </Box>
         </Box>
-      </form>
-    </Grid>
+      </Box>
+    </>
   );
 };
 
 export default MessageFields;
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "#fffaf5",
-  border: "none",
-  outline: "none",
-  borderRadius: "5px",
-  boxShadow: 24,
-  p: 4,
+const TextFieldStyles = {
+  margin: ".5rem 0",
+  "& .Mui-active": { backgroundColor: "#000" },
+  "& .MuiInputBase-root": { color: "#fff" },
+  "& fieldset": { border: "1px solid rgba(250, 250, 250, 0.5)" },
+  "& textarea": { color: "#fff !important" },
+  "& MuiLabel-root": { color: "#fff" },
+  "& label": {
+    color: "#fff",
+  },
+  "& .MuiSvgIcon-root": {
+    color: "white",
+  },
 };

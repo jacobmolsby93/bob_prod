@@ -1,19 +1,22 @@
+import { Box } from "@mui/material";
+
 // Components
 import Spacer from "../../components/Spacer.jsx";
 import Intro from "../../components/Intro.jsx";
+import Contact from "../../components/Contact.jsx";
 import LandingBox from "../../components/LandingBox.jsx";
-
-import BoxSelector from "./widgets/BoxSelectorCert.jsx";
-// Images
-import landingImage from "../../assets/behorigheterbackground.webp";
-import image from "../../assets/certifications.webp";
-
 // Animation
 import AnimatedBox from "../../animation/Animated.jsx";
+import BoxSelector from "./widgets/BoxSelectorCert.jsx";
+// Images
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/behorigheterbackground.webp";
+const image =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/certifications.webp";
 
 export default function CertPage() {
   return (
-    <div>
+    <Box>
       <LandingBox image={landingImage} title="Behörigheter" />
       <Spacer />
       <AnimatedBox>
@@ -33,17 +36,11 @@ export default function CertPage() {
         <BoxSelector />
       </AnimatedBox>
       <Spacer />
-      <iframe
-        src="https://widget.reco.se/v2/widget/4000545?mode=HORIZONTAL_QUOTE&inverted=false&border=true"
-        height="225"
-        style={{
-          width: "100%",
-          border: "0",
-          display: "block",
-          overflow: "hidden",
-        }}
-        data-reactroot=""
-      ></iframe>
-    </div>
+
+      <AnimatedBox>
+        <Contact />
+        <Spacer />
+      </AnimatedBox>
+    </Box>
   );
 }

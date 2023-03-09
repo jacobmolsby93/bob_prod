@@ -3,7 +3,8 @@ import { Box, Button, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 // Images
-import logo from "../assets/boblogo.png";
+const logo =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/boblogo.png";
 
 export default function NotFound() {
   const theme = useTheme();
@@ -23,7 +24,7 @@ export default function NotFound() {
   };
 
   useEffect(() => {
-    const currentError = window.location.pathname.slice(-3);
+    const currentError = window.location.pathname;
     setErrorCode(currentError);
   }, []);
   return (
@@ -43,12 +44,19 @@ export default function NotFound() {
             <br />
             Klicka gärna på länken nedan för att komma tillbaka till hemsidan!
             <br />
-            Eller kontakta oss på <a href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</a>
+            Eller kontakta oss på{" "}
+            <a href="mailto:hej@bobbadrum.se">hej@bobbadrum.se</a>
           </p>
         </Box>
 
         <Link to="/" className="button-text" aria-label="Länk hem">
-          <Button variant="contained" sx={buttonStyleContained} aria-label="Klicka för att komma till hem"><p className="button-text">Hem</p></Button>
+          <Button
+            variant="contained"
+            sx={buttonStyleContained}
+            aria-label="Klicka för att komma till hem"
+          >
+            <p className="button-text">Hem</p>
+          </Button>
         </Link>
 
         <img
@@ -56,7 +64,7 @@ export default function NotFound() {
           width="50px"
           height="50px"
           src={logo}
-          alt="Logga av företaget, BOB Badrum"
+          alt="Logga av företaget, BOB VÅTRUMSRENOVERING"
         />
       </Box>
     </Box>

@@ -1,20 +1,18 @@
 import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-
 // Components
 import Contact from "../../components/Contact.jsx";
 import Spacer from "../../components/Spacer.jsx";
 import Intro from "../../components/Intro.jsx";
 import Credits from "../../components/Credits.jsx";
-
-// Framer motion
-import { motion } from "framer-motion";
-import landingImage from "../../assets/carouselhome2.webp";
 import AnimatedBox from "../../animation/Animated.jsx";
-
 // Images
-import image from "../../assets/contact-image.webp";
-import introMobile from "../../assets/intromobilecontact.webp";
+const image =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/services-collage-2.webp";
+const introMobile =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/intromobilecontact.webp";
+const landingImage =
+  "https://storage.googleapis.com/bob-prod-images/media/assets/carouselhome2.webp";
 
 export default function ContactPage() {
   const theme = useTheme();
@@ -86,24 +84,16 @@ export default function ContactPage() {
       <Spacer />
 
       <AnimatedBox>
-        <section
-          id="contact"
-          className="credits-bg"
-          style={{ minHeight: "100vh" }}
-        >
-          <Box className="container">
-            <Box className="row">
-              <Contact />
-            </Box>
-          </Box>
+        <section id="contact">
+          <Contact />
         </section>
       </AnimatedBox>
 
       <Spacer />
 
-      <div className="credits-bg">
+      <section className="credits-bg">
         <Credits dark={true} />
-      </div>
+      </section>
     </Box>
   );
 }
