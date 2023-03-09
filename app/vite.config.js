@@ -14,6 +14,9 @@ export default defineConfig({
       filename: 'my-sw.js',
       globDirectory: 'public/',
       workbox: {
+        swSrc: 'src/sw.js',
+        swDest: 'dist/sw.js',
+        globDirectory: 'dist/',
         globPatterns: [
           '**/*.{js,css,html,png,jpg,jpeg,gif,svg}',
         ],
@@ -40,6 +43,15 @@ export default defineConfig({
             },
           },
         ],
+        injectManifest: {
+          swSrc: './src/sw.js',
+          swDest: './dist/sw.js',
+          globDirectory: './dist',
+          globPatterns: ['**/*.{js,css,html,png}'],
+          modifyURLPrefix: {
+            './dist/': '/',
+          },
+        },
       },
     }),
   ],
