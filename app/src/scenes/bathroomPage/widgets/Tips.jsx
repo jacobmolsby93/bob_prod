@@ -92,9 +92,9 @@ export default function TipsCarousel() {
   useEffect(() => {
     if (smallScreen) {
       const heights = tipsData.map((post) => {
-        const { height } = wrapperRef.current.querySelector(
-          `div[data-id="${post.id}"]`
-        ).getBoundingClientRect();
+        const { height } = wrapperRef.current
+          .querySelector(`div[data-id="${post.id}"]`)
+          .getBoundingClientRect();
         return height;
       });
       setMaxHeight(Math.max(...heights));
@@ -133,14 +133,24 @@ export default function TipsCarousel() {
         {!smallScreen && (
           <Box sx={absoluteBox}>
             <Box sx={absolutePrev}>
-                <span onClick={handlePrev} style={{ zIndex: 99, cursor: "pointer"}}>
-                  <ArrowBackIosNewIcon sx={{ color: theme.palette.primary[500], fontSize: "2rem"}}/>
-                </span>
+              <span
+                onClick={handlePrev}
+                style={{ zIndex: 99, cursor: "pointer" }}
+              >
+                <ArrowBackIosNewIcon
+                  sx={{ color: theme.palette.primary[500], fontSize: "2rem" }}
+                />
+              </span>
             </Box>
             <Box sx={absoluteNext}>
-              <span onClick={handleNext} style={{ zIndex: 99, cursor: "pointer"}}>
-                  <ArrowForwardIosIcon sx={{ color: theme.palette.primary[500], fontSize: "2rem"}}/>
-                </span>
+              <span
+                onClick={handleNext}
+                style={{ zIndex: 99, cursor: "pointer" }}
+              >
+                <ArrowForwardIosIcon
+                  sx={{ color: theme.palette.primary[500], fontSize: "2rem" }}
+                />
+              </span>
             </Box>
           </Box>
         )}
@@ -225,62 +235,81 @@ export default function TipsCarousel() {
                 </motion.div>
               ) : (
                 /* Mobile Carousel */
-                <Box ref={wrapperRef} minHeight={`${maxHeight}px`} sx={{ display: "flex", alignItems: "flex-start"}}>
-                <Carousel id="tip-carousel">
-                  {tipsData.map((post, uuid) => (
-                    <Carousel.Item key={uuid} data-id={post.id}>
-                      <Box className="col-12 col-md-6 col-lg-4" padding=".75rem">
-                        <Card sx={cardStyle}>
-                          <Box
-                            className="card-header"
-                            display="flex"
-                            alignItems="center"
-                            justifyContent="space-between"
-                            paddingBottom="1rem"
-                          >
-                            <Box display="flex" alignItems="center">
-                              <Box position="relative" left="-10px">
-                                <Box
-                                  sx={{
-                                    backgroundColor: "#fff",
-                                    borderRadius: "50%",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    position: "absolute",
-                                    alignItems: "center",
-                                    height: "55px",
-                                    width: "55px",
-                                  }}
-                                >
-                                  <span style={{ color: theme.palette.primary[500], fontSize: "2rem", fontWeight: "bold"}}>
-                                    {post.id}
-                                  </span>
+                <Box
+                  ref={wrapperRef}
+                  minHeight={`${maxHeight}px`}
+                  sx={{ display: "flex", alignItems: "flex-start" }}
+                >
+                  <Carousel id="tip-carousel">
+                    {tipsData.map((post, uuid) => (
+                      <Carousel.Item key={uuid} data-id={post.id}>
+                        <Box
+                          className="col-12 col-md-6 col-lg-4"
+                          padding=".75rem"
+                        >
+                          <Card sx={cardStyle}>
+                            <Box
+                              className="card-header"
+                              display="flex"
+                              alignItems="center"
+                              justifyContent="space-between"
+                              paddingBottom="1rem"
+                            >
+                              <Box display="flex" alignItems="center">
+                                <Box position="relative" left="-10px">
+                                  <Box
+                                    sx={{
+                                      backgroundColor: "#fff",
+                                      borderRadius: "50%",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      position: "absolute",
+                                      alignItems: "center",
+                                      height: "55px",
+                                      width: "55px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        color: theme.palette.primary[500],
+                                        fontSize: "2rem",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      {post.id}
+                                    </span>
+                                  </Box>
                                 </Box>
                               </Box>
                             </Box>
-                          </Box>
-                          <CardMedia
-                            component="img"
-                            alt="Instagram"
-                            sx={{ height: "250px", objectFit: "cover" }}
-                            height="100%"
-                            image={post.image}
-                            title="Instagram"
-                          />
-                          <CardContent>
-                            <Typography variant="h5" className="subtitle-font">
-                              {post.title}
-                            </Typography>
-                            <Typography variant="body1" sx={{ marginTop: "1rem" }}>
-                              {post.paragraph}
-                            </Typography>
-                          </CardContent>
-                        </Card>
-                      </Box>
-                    </Carousel.Item>
-                  ))}
-                </Carousel>
-              </Box>
+                            <CardMedia
+                              component="img"
+                              alt="Instagram"
+                              sx={{ height: "250px", objectFit: "cover" }}
+                              height="100%"
+                              image={post.image}
+                              title="Instagram"
+                            />
+                            <CardContent>
+                              <Typography
+                                variant="h5"
+                                className="subtitle-font"
+                              >
+                                {post.title}
+                              </Typography>
+                              <Typography
+                                variant="body1"
+                                sx={{ marginTop: "1rem" }}
+                              >
+                                {post.paragraph}
+                              </Typography>
+                            </CardContent>
+                          </Card>
+                        </Box>
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
+                </Box>
               ))}
           </AnimatePresence>
           {!smallScreen && (
@@ -362,8 +391,7 @@ const tipsData = [
     id: 5,
     number: "",
     image: tip5,
-    title:
-      "Rådgör med oss om vad som är möjligt för just ditt badrum.",
+    title: "Rådgör med oss om vad som är möjligt för just ditt badrum.",
     paragraph:
       "Det kan vara svårt för en lekman att veta hur man ska renovera ett badrum och veta precis vad som är möjligt när det gäller att renovera badrum. Säkerställ därför med oss att det är möjligt att renovera badrum på det sätt som du vill.",
     link: "/kontakt",
@@ -385,7 +413,8 @@ const tipsData = [
     id: 7,
     number: "",
     image: tip7,
-    title: "Kolla vilka du behöver informera om din badrumsrenovering om du bor i lägenhet eller radhus.",
+    title:
+      "Kolla vilka du behöver informera om din badrumsrenovering om du bor i lägenhet eller radhus.",
     paragraph:
       "Kolla med din förening om badrumsrenoveringen kräver någon form av anmälan. I 9 av 10 fall räcker det endast med ett mejl till ordförande där ni förklarar att ni vill renovera badrummet.",
     link: "kontakt",
@@ -418,7 +447,8 @@ const tipsData = [
     id: 10,
     number: "",
     image: tip10,
-    title: "Ta in en besiktningsman för att säkerhetsställa att renoveringen blir godkänd!",
+    title:
+      "Ta in en besiktningsman för att säkerhetsställa att renoveringen blir godkänd!",
     paragraph:
       "Det finns många företag på marknaden, vi besiktar alltid våra badrum med vår interna besiktningsman uppdelat i sex besiktningstillfällen. Det är långt ifrån alla företag som gör detta. Ta därför alltid in en besiktningsman som följer renoveringen och ser till att allt blir utfört enligt gällande branschregler. Att ett företag är behörigt betyder inte alltid att dem gör rätt.",
     link: "kontakt",

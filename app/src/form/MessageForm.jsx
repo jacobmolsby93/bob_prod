@@ -31,23 +31,34 @@ const validationSchema = Yup.object({
   telefon: Yup.string(),
   arende: Yup.string(),
   medelande: Yup.string().required("Medelande är obligatoriskt"),
-  bild: Yup.mixed()
+  files: Yup.array()
+    .required("Vänligen välj minst en fil")
     .test("fileFormat", "Endast JPG, PNG eller GIF format stöds", (value) => {
       if (value && value.length) {
-        const fileType = value[0].type;
-        return (
-          fileType === "image/jpeg" ||
-          fileType === "image/png" ||
-          fileType === "image/gif"
-        );
+        for (let i = 0; i < value.length; i++) {
+          const fileType = value[i].type;
+          if (
+            fileType !== "image/jpeg" &&
+            fileType !== "image/png" &&
+            fileType !== "image/gif"
+          ) {
+            return false;
+          }
+        }
+        return true;
       } else {
         return true;
       }
     })
-    .test("fileSize", "Bilden får inte vara större än 2MB", (value) => {
+    .test("fileSize", "Bilderna får inte vara större än 2MB", (value) => {
       if (value && value.length) {
-        const fileSize = value[0].size;
-        return fileSize <= 2000000;
+        for (let i = 0; i < value.length; i++) {
+          const fileSize = value[i].size;
+          if (fileSize > 2000000) {
+            return false;
+          }
+        }
+        return true;
       } else {
         return true;
       }
@@ -154,7 +165,7 @@ const MessageFields = () => {
                           {({ field }) => (
                             <FormControl component="fieldset">
                               <FormLabel component="legend">
-                                Selected Option
+                                Skriver som:
                               </FormLabel>
                               <RadioGroup
                                 style={{
@@ -346,14 +357,17 @@ const MessageFields = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <input
-                          id="image"
-                          name="image"
+                          id="files"
+                          name="files"
                           type="file"
+                          multiple
                           onChange={(event) => {
-                            props.setFieldValue(
-                              "image",
-                              event.currentTarget.files[0]
-                            );
+                            const files = event.currentTarget.files;
+                            const images = [];
+                            for (let i = 0; i < files.length; i++) {
+                              images.push(files[i]);
+                            }
+                            props.setFieldValue("files", images);
                           }}
                         />
                       </Grid>
