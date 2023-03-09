@@ -165,7 +165,7 @@ const MessageFields = () => {
                           {({ field }) => (
                             <FormControl component="fieldset">
                               <FormLabel component="legend">
-                                Selected Option
+                                Skriver som:
                               </FormLabel>
                               <RadioGroup
                                 style={{
