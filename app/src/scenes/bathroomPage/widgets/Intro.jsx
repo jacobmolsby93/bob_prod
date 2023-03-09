@@ -30,7 +30,10 @@ export const Intro = () => {
           <img
             src={xlScreen ? collageImage2 : completeCollage}
             width="100%"
-            style={{ borderRadius: "10px", maxHeight: !xlScreen ? "" : "500px" }}
+            style={{
+              borderRadius: "10px",
+              maxHeight: !xlScreen ? "" : "500px",
+            }}
             alt="Collage på olika badrum"
           />
         </Box>

@@ -48,13 +48,27 @@ export default function Bathroom() {
             zIndex: "20",
           }}
         >
-          <Box sx={{ position: "absolute", top: "0", left: "0", right: "0", bottom:"0", display: "flex", justifyContent:"flex-end", alignItems: "flex-end"}}>
-            <Box heighth="50px" width="300px" backgroundColor="black">
-
-            </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              bottom: "0",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
+          >
+            <Box heighth="50px" width="300px" backgroundColor="black"></Box>
           </Box>
           <AnimatedBox>
-            <Box className="row" justifyContent="center" display="flex" textAlign="center">
+            <Box
+              className="row"
+              justifyContent="center"
+              display="flex"
+              textAlign="center"
+            >
               <Box className="col-12" textAlign="center">
                 <Typography
                   variant="h1"
@@ -93,7 +107,6 @@ export default function Bathroom() {
               </Box>
             </Box>
           </AnimatedBox>
-          
         </Box>
       </Box>
       <Spacer />
@@ -154,5 +167,9 @@ export default function Bathroom() {
   );
 }
 
-
-const heroTitle = {fontWeight: "bold", textTransform: "uppercase", color: "#fff", textAlign: "center"};
+const heroTitle = {
+  fontWeight: "bold",
+  textTransform: "uppercase",
+  color: "#fff",
+  textAlign: "center",
+};
