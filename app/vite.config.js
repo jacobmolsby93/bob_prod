@@ -11,8 +11,8 @@ export default defineConfig({
     VitePWA({
       strategies: 'injectManifest',
       srcDir: 'src',
-      filename: 'my-sw.js',
-      globDirectory: 'public/',
+      filename: 'sw.js',
+      globDirectory: 'dist/',
       workbox: {
         swSrc: 'src/sw.js',
         swDest: 'dist/sw.js',
