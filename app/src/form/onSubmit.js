@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios"
 
 export const onSubmit = (values, actions) => {
@@ -29,10 +28,12 @@ export const onSubmit = (values, actions) => {
   })
     .then(response => {
       console.log("email sent successfully");
+      console.log(response)
       actions.setSubmitting(false);
     })
     .catch(error => {
       alert("Tyvär gick de inte att skicka ditt mail, var vänlig klicka på mail ikonen.");
+      console.log(error)
       actions.setSubmitting(false);
     });
 };

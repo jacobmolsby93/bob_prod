@@ -364,7 +364,6 @@ const MessageFields = () => {
                           onChange={(event) => {
                             const files = event.currentTarget.files;
                             const images = [];
-                            console.log(images)
                             for (let i = 0; i < files.length; i++) {
                               images.push(files[i]);
                             }
