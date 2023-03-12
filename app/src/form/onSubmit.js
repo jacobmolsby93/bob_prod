@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const onSubmit = (values, actions) => {
   const data = new FormData();
-  data.append('type', values.typ);
+   data.append('type', values.typ);
   data.append('first_name', values.fornamn);
   data.append('last_name', values.efternamn);
   data.append('email', values.epost);
