@@ -32,7 +32,7 @@ export const onSubmit = (values, actions) => {
       actions.setSubmitting(false);
     })
     .catch(error => {
-      alert("Tyvär gick de inte att skicka ditt mail, var vänlig klicka på mail ikonen");
+      alert("Tyvär gick de inte att skicka ditt mail, var vänlig klicka på mail ikonen.");
       actions.setSubmitting(false);
     });
 };
