@@ -215,7 +215,6 @@ const MessageFields = () => {
                           id="efternamn"
                           name="efternamn"
                           label="Efternamn"
-                          type="efternamn"
                           value={props.values.efternamn}
                           onChange={props.handleChange}
                           error={
@@ -250,7 +249,6 @@ const MessageFields = () => {
                           id="telefon"
                           name="telefon"
                           label="Telefon"
-                          type="telefon"
                           value={props.values.telefon}
                           onChange={props.handleChange}
                           error={
@@ -342,7 +340,6 @@ const MessageFields = () => {
                           id="medelande"
                           name="medelande"
                           label="Medelande"
-                          type="medelande"
                           value={props.values.medelande}
                           onChange={props.handleChange}
                           error={
