@@ -12,9 +12,9 @@ export const onSubmit = (values, actions) => {
   data.append('subject', values.arende);
   data.append('message', values.medelande);
   // Adding multiple files to the form.
-  if (values.images && values.images.length > 0) {
-    for (let i = 0; i < values.images.length; i++) {
-      data.append('files', values.images[i], values.images[i].name);
+  if (values.files && values.files.length > 0) {
+    for (let i = 0; i < values.files.length; i++) {
+      data.append('files', values.files[i], values.files[i].name);
     }
   }
   
