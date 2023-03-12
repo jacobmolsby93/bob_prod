@@ -17,14 +17,14 @@ if (values.files && values.files.length > 0) {
     data.append('files', file, file.name, file.type);
   })
 }
+  const parser = values.files && values.files.length > 0 ? 'multipart/form-data' : 'text/html'
 
-
-  alert(`Tack ${values.fornamn}, för medelandet. Vi återkommer såfort vi kan!`);
+  alert(`Tack för medelandet ${values.fornamn}. Vi återkommer såfort vi kan!`);
   actions.resetForm();
 
-  axios.post('https://bob-backend-test-paa5jl3pga-lz.a.run.app/api/email/', data, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
+  axios.post('https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/', data, {
+    headers: {  
+      'Content-Type': parser
     }
   })
     .then(response => {
