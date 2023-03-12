@@ -21,7 +21,7 @@ export const onSubmit = (values, actions) => {
   alert(`Tack ${values.fornamn}, för medelandet. Vi återkommer såfort vi kan!`);
   actions.resetForm();
 
-  axios.post('https://bob-backend-test-paa5jl3pga-lz.a.run.app/api/email/', data)
+  axios.post('https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/', data)
     .then(response => {
       console.log(response);
       actions.setSubmitting(false);
