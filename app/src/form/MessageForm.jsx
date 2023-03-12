@@ -54,7 +54,7 @@ const validationSchema = Yup.object({
       if (value && value.length) {
         for (let i = 0; i < value.length; i++) {
           const fileSize = value[i].size;
-          if (fileSize > 2000000) {
+          if (fileSize > 20000000) {
             return false;
           }
         }
@@ -365,7 +365,7 @@ const MessageFields = () => {
                             const files = event.currentTarget.files;
                             const images = [];
                             for (let i = 0; i < files.length; i++) {
-                              images.push(files[i]);
+                              images.push(files[i], files[i].name);
                             }
                             props.setFieldValue("files", images);
                           }}
