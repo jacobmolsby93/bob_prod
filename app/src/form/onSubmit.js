@@ -10,7 +10,6 @@ export const onSubmit = (values, actions) => {
   data.append('county', values.stadsdel_kommun);
   data.append('subject', values.arende);
   data.append('message', values.medelande);
-  data.append('message', values.medelande);
   // Adding multiple files to the form.
   if (values.files && values.files.length > 0) {
     for (let i = 0; i < values.files.length; i++) {

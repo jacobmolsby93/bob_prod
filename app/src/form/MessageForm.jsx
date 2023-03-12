@@ -32,7 +32,6 @@ const validationSchema = Yup.object({
   arende: Yup.string(),
   medelande: Yup.string().required("Medelande är obligatoriskt"),
   files: Yup.array()
-    .required("Vänligen välj minst en fil")
     .test("fileFormat", "Endast JPG, PNG eller GIF format stöds", (value) => {
       if (value && value.length) {
         for (let i = 0; i < value.length; i++) {
