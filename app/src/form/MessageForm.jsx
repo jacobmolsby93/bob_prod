@@ -97,8 +97,8 @@ const MessageFields = () => {
   ];
   const subject = [
     "Badrumsrenovering",
-    "Wcrenovering",
-    "Tvätt-stugerenovering",
+    "Renovering av wc",
+    "Renovering av tvätt-stuga",
   ];
 
   return (
@@ -351,7 +351,7 @@ const MessageFields = () => {
                           }
                         />
                       </Grid>
-                      {/* <Grid item xs={12}>
+                      <Grid item xs={12}>
                         <input
                           id="files"
                           name="files"
@@ -366,7 +366,7 @@ const MessageFields = () => {
                             props.setFieldValue("files", images);
                           }}
                         />
-                      </Grid> */}
+                      </Grid>
                       <Box
                         sx={{
                           padding: "0.5rem 0",

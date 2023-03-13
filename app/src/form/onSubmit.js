@@ -1,8 +1,9 @@
+import { useState } from "react"
 import axios from "axios"
 
-export const onSubmit = (values, actions) => {
+export const onSubmit = async (values, actions) => {
   const data = new FormData();
-   data.append('type', values.typ ? values.typ : "Ej vald");
+  data.append('type', values.typ ? values.typ : "Ej vald");
   data.append('first_name', values.fornamn);
   data.append('last_name', values.efternamn);
   data.append('email', values.epost);
@@ -14,7 +15,7 @@ export const onSubmit = (values, actions) => {
 if (values.files && values.files.length > 0) {
   const appendFiles = values.files;
   appendFiles.forEach(file => {
-    data.append('files', file, file.name, file.type);
+    data.append('files', file);
   })
 }
   const parser = values.files && values.files.length > 0 ? 'multipart/form-data' : 'text/html'
@@ -22,7 +23,7 @@ if (values.files && values.files.length > 0) {
   alert(`Tack för medelandet ${values.fornamn}. Vi återkommer såfort vi kan!`);
   actions.resetForm();
 
-  axios.post('https://bob-backend-paa5jl3pga-lz.a.run.app/api/email/', data, {
+  axios.post('https://bob-backend-test-paa5jl3pga-lz.a.run.app/api/email/', data, {
     headers: {  
       'Content-Type': parser
     }
